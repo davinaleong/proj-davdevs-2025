@@ -1,9 +1,9 @@
-import SearchInput from "./components/SearchInput";
+import MenuButton from "./components/MenuButton";
 
 export default function Home() {
   return (
-    <div>
-      <SearchInput />
+    <div className="relative">
+      <MenuButton />
     </div>
   );
 }
