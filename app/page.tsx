@@ -1,14 +1,23 @@
+import Image from 'next/image'
+import Placeholder from './assets/images/placeholder.svg'
+
 export default function Home() {
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Dav/Devs</h1>
-      <p className="text-gray-600 dark:text-gray-300">
-        Click the menu button in the header to open the sliding navigation menu.
-      </p>
-      <div className="mt-8 space-y-4">
-        <p>This is the home page content. The header and menu are now part of the layout and will be available on all pages.</p>
-        <p>Navigate to different sections using the menu to see how it persists across pages.</p>
-      </div>
+    <div>
+      <article className="max-w-sm bg-gray-100 dark:bg-slate-900 border border-blue-500 rounded-sm shadow-md overflow-hidden">
+        <div className="text-white bg-blue-500 text-sm">Featured</div>
+        <header className="p-2">
+          <h4 className="text-lg font-bold">Card Title</h4>
+          <p>Card description goes here.</p>
+        </header>
+        <Image src={Placeholder} alt="Placeholder Image" width={600} height={400} className="w-full object-cover aspect-video" />
+        <div className="p-2 flow">
+          <p>Simple, smart tools for everyday tasks and creative projects.</p>
+        </div>
+        <footer className="p-2">
+          <span className="text-sm text-gray-600">Footer Information</span>
+        </footer>
+      </article>
     </div>
   );
 }
