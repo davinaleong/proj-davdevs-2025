@@ -1,0 +1,82 @@
+{
+  "brand": {
+    "href": "/",
+    "external": false
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/",
+      "external": false
+    },
+    {
+      "label": "Portfolio",
+      "href": "/portfolio",
+      "external": false
+    },
+    {
+      "label": "Articles", 
+      "href": "/articles",
+      "external": false
+    },
+    {
+      "label": "Tools",
+      "href": "/tools", 
+      "external": false
+    },
+    {
+      "label": "Python",
+      "href": "/notebooks",
+      "external": false
+    },
+    {
+      "label": "Faith",
+      "href": "/sermons",
+      "external": false
+    },
+    {
+      "label": "Laugh",
+      "href": "/funny",
+      "external": false
+    }
+  ],
+  "socialLinks": [
+    {
+      "label": "hello@davdevs.me",
+      "href": "mailto:hello@davdevs.me",
+      "external": false
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/davinaleong",
+      "external": true
+    },
+    {
+      "label": "LinkedIn", 
+      "href": "https://linkedin.com/in/davina-leong",
+      "external": true
+    },
+    {
+      "label": "Twitter",
+      "href": "https://twitter.com/davdevs",
+      "external": true
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Terms",
+      "href": "/terms",
+      "external": false
+    },
+    {
+      "label": "Privacy",
+      "href": "/privacy", 
+      "external": false
+    },
+    {
+      "label": "Sitemap",
+      "href": "/sitemap",
+      "external": false
+    }
+  ]
+}

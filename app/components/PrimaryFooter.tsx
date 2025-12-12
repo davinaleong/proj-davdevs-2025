@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getFooterNavigationLinks, getSocialLinks, getLegalLinks, getLinkProps, type LinkItem } from "../utils/links";
 
 interface PrimaryFooterProps {
     className?: string;
@@ -10,6 +11,39 @@ export default function PrimaryFooter({
     showSocialLinks = true 
 }: PrimaryFooterProps) {
     const currentYear = new Date().getFullYear();
+    const footerNavigationLinks = getFooterNavigationLinks();
+    const socialLinks = getSocialLinks();
+    const legalLinks = getLegalLinks();
+
+    const renderLink = (link: LinkItem) => {
+        const linkProps = getLinkProps(link);
+        
+        return (
+            <Link 
+                key={link.href}
+                href={link.href}
+                className="block text-blue-100 hover:text-white transition-colors text-sm"
+                {...linkProps}
+            >
+                {link.label}
+            </Link>
+        );
+    };
+
+    const renderLegalLink = (link: LinkItem) => {
+        const linkProps = getLinkProps(link);
+        
+        return (
+            <Link 
+                key={link.href}
+                href={link.href}
+                className="text-blue-100 hover:text-white underline transition-colors"
+                {...linkProps}
+            >
+                {link.label}
+            </Link>
+        );
+    };
     
     return (
         <footer className={`bg-blue-700 text-white p-4 ${className}`}>
@@ -26,24 +60,7 @@ export default function PrimaryFooter({
                 <div className="text-center">
                     <h4 className="font-semibold mb-3">Quick Links</h4>
                     <nav className="space-y-2">
-                        <Link 
-                            href="/portfolio" 
-                            className="block text-blue-100 hover:text-white transition-colors text-sm"
-                        >
-                            Portfolio
-                        </Link>
-                        <Link 
-                            href="/articles" 
-                            className="block text-blue-100 hover:text-white transition-colors text-sm"
-                        >
-                            Articles
-                        </Link>
-                        <Link 
-                            href="/tools" 
-                            className="block text-blue-100 hover:text-white transition-colors text-sm"
-                        >
-                            Tools
-                        </Link>
+                        {footerNavigationLinks.map(renderLink)}
                     </nav>
                 </div>
 
@@ -52,28 +69,7 @@ export default function PrimaryFooter({
                     <h4 className="font-semibold mb-3">Connect</h4>
                     {showSocialLinks && (
                         <div className="space-y-2 mb-4">
-                            <Link 
-                                href="mailto:hello@davdevs.me" 
-                                className="block text-blue-100 hover:text-white transition-colors text-sm"
-                            >
-                                hello@davdevs.me
-                            </Link>
-                            <Link 
-                                href="https://github.com/davinaleong" 
-                                className="block text-blue-100 hover:text-white transition-colors text-sm"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                GitHub
-                            </Link>
-                            <Link 
-                                href="https://linkedin.com/in/davina-leong" 
-                                className="block text-blue-100 hover:text-white transition-colors text-sm"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                LinkedIn
-                            </Link>
+                            {socialLinks.map(renderLink)}
                         </div>
                     )}
                 </div>
@@ -89,24 +85,7 @@ export default function PrimaryFooter({
                 </p>
                 
                 <div className="flex items-center gap-4">
-                    <Link 
-                        href="/terms" 
-                        className="text-blue-100 hover:text-white underline transition-colors"
-                    >
-                        Terms
-                    </Link>
-                    <Link 
-                        href="/privacy" 
-                        className="text-blue-100 hover:text-white underline transition-colors"
-                    >
-                        Privacy
-                    </Link>
-                    <Link 
-                        href="/sitemap" 
-                        className="text-blue-100 hover:text-white underline transition-colors"
-                    >
-                        Sitemap
-                    </Link>
+                    {legalLinks.map(renderLegalLink)}
                 </div>
             </div>
         </footer>

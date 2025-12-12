@@ -1,5 +1,6 @@
 import Link from "next/link"
 import CloseButton from "./CloseButton"
+import { getNavigationLinks, getLinkProps, type LinkItem } from "../utils/links"
 
 interface MenuProps {
     isOpen: boolean;
@@ -7,6 +8,24 @@ interface MenuProps {
 }
 
 export default function Menu({ isOpen, onClose }: MenuProps) {
+    const navigationLinks = getNavigationLinks();
+
+    const renderNavigationLink = (link: LinkItem) => {
+        const linkProps = getLinkProps(link);
+        
+        return (
+            <li key={link.href}>
+                <Link 
+                    href={link.href}
+                    className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
+                    onClick={onClose}
+                    {...linkProps}
+                >
+                    {link.label}
+                </Link>
+            </li>
+        );
+    };
     return (
         <>
             {/* Overlay */}
@@ -31,69 +50,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
 
                 <nav>
                     <ul className="space-y-2">
-                        <li>
-                            <Link 
-                                href="/" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href="/portfolio" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Portfolio
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href="/articles" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Articles
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href="/tools" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Tools
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href="/notebooks" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Python
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href="/sermons" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Faith
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href="/funny" 
-                                className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-                                onClick={onClose}
-                            >
-                                Laugh
-                            </Link>
-                        </li>
+                        {navigationLinks.map(renderNavigationLink)}
                     </ul>
                 </nav>
             </aside>
