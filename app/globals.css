@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+button {
+  cursor: pointer;
+}
+
 @layer utilities {
   .flow > * + * {
     margin-block-start: theme("spacing.4");
