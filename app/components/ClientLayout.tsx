@@ -2,6 +2,7 @@
 
 import { useState, ReactNode } from "react"
 import PrimaryHeader from "./PrimaryHeader"
+import PrimaryFooter from "./PrimaryFooter"
 import Menu from "./Menu"
 
 interface ClientLayoutProps {
@@ -21,6 +22,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
                 {children}
             </main>
             <Menu isOpen={isMenuOpen} onClose={closeMenu} />
+            <PrimaryFooter />
         </>
     )
 }
