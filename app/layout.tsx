@@ -3,8 +3,10 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
-  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -81,7 +83,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
-        className={`${montserrat.variable} antialiased min-h-screen bg-slate-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
+        className={`${montserrat.className} antialiased min-h-screen bg-slate-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
       >
         {children}
       </body>

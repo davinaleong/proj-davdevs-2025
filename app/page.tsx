@@ -1,7 +1,9 @@
+import Brand from "./components/Brand";
+
 export default function Home() {
   return (
     <div>
-      <h1>Welcome to Dav/Devs</h1>
+      <Brand />
     </div>
   );
 }
