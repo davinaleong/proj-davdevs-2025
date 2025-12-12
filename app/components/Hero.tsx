@@ -27,7 +27,7 @@ export default function Hero({
     }
 
     return (
-      <div className={`min-h-screen grid place-items-center p-4 ${className}`}>
+      <section className={`min-h-screen grid place-items-center p-4 ${className}`}>
         <div className="max-w-[60ch] mx-auto text-center flow">
           {children ? children : (
             <>
@@ -45,6 +45,6 @@ export default function Hero({
             </div>
           )}
         </div>
-      </div>
+      </section>
     )
 }
