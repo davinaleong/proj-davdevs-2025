@@ -1,8 +1,18 @@
 {
-  "sortOptions": [
-    { "label": "A-Z", "value": "asc" },
-    { "label": "Z-A", "value": "desc" },
-    { "label": "Newest", "value": "newest" },
-    { "label": "Oldest", "value": "oldest" }
+  "groups": [
+    {
+      "label": "Alphabetical",
+      "options": [
+        { "label": "A-Z", "value": "asc" },
+        { "label": "Z-A", "value": "desc" }
+      ]
+    },
+    {
+      "label": "Date",
+      "options": [
+        { "label": "Newest", "value": "newest" },
+        { "label": "Oldest", "value": "oldest" }
+      ]
+    }
   ]
 }
