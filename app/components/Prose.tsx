@@ -226,6 +226,58 @@ export default function Prose({ children, className = "" }: ProseProps) {
           margin-top: 1.6em;
           margin-bottom: 1.6em;
           padding-left: 1em;
+          padding-right: 1em;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+          background-color: #f9fafb;
+          border-radius: 0.375rem;
+          position: relative;
+        }
+        
+        .dark .prose blockquote {
+          background-color: #1f2937;
+        }
+        
+        .prose blockquote p {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+        }
+        
+        .prose blockquote p:first-child {
+          margin-top: 0;
+        }
+        
+        .prose blockquote p:last-child {
+          margin-bottom: 0;
+        }
+        
+        .prose blockquote cite {
+          color: var(--prose-captions);
+          font-style: normal;
+          font-weight: 400;
+          font-size: 0.875em;
+          margin-top: 0.75em;
+          display: block;
+        }
+        
+        .prose blockquote cite::before {
+          content: "— ";
+        }
+        
+        /* Nested blockquotes */
+        .prose blockquote blockquote {
+          border-left-color: var(--prose-bullets);
+          margin-top: 1em;
+          margin-bottom: 1em;
+          background-color: transparent;
+        }
+        
+        .prose blockquote > :first-child {
+          margin-top: 0;
+        }
+        
+        .prose blockquote > :last-child {
+          margin-bottom: 0;
         }
         
         /* Code blocks */
