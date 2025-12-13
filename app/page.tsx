@@ -1,4 +1,4 @@
-import JokeHomeSection from './sections/JokeHomeSection'
+import JokeHomeSection from './components/sections/home/JokeHomeSection'
 
 export default function Home() {
   return (

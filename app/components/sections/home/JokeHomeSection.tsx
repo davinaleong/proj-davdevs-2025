@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import HomeSection from '../components/HomeSection'
-import Button from '../components/Button'
-import { type Joke, getRandomJoke } from '../utils/jokes'
+import HomeSection from '../../HomeSection'
+import Button from '../../Button'
+import { type Joke, getRandomJoke } from '../../../utils/jokes'
 
 export default function JokeHomeSection() {
   const [joke] = useState<Joke>(() => getRandomJoke());
