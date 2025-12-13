@@ -8,6 +8,7 @@ interface HeroProps {
     showArrow?: boolean;
     arrowHref?: string;
     variant?: "gradient" | "responsive";
+    id?: string;
 }
 
 export default function HeroSection({ 
@@ -15,7 +16,8 @@ export default function HeroSection({
     className = "", 
     showArrow = true,
     arrowHref = "#",
-    variant = "gradient"
+    variant = "gradient",
+    id
 }: HeroProps) {
     
     const getVariantClasses = () => {
@@ -30,7 +32,7 @@ export default function HeroSection({
     };
 
     return (
-      <section className={`min-h-screen grid place-items-center p-4 ${getVariantClasses()} ${className}`}>
+      <section id={id} className={`min-h-screen grid place-items-center p-4 ${getVariantClasses()} ${className}`}>
         <div className="container mx-auto text-center flow">
           {children}
           {showArrow && (

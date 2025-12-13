@@ -9,6 +9,7 @@ interface HomeSectionProps {
   anchorProps?: AnchorProps;
   variant?: 'default' | 'neutral' | 'primary' | 'primary-dark' | 'primary-light';
   className?: string;
+  id?: string;
 }
 
 export default function HomeSection({ 
@@ -16,7 +17,8 @@ export default function HomeSection({
   title, 
   anchorProps,
   variant = 'default',
-  className = ""
+  className = "",
+  id
 }: HomeSectionProps) {
     const variantClasses = {
         default: '',
@@ -27,7 +29,7 @@ export default function HomeSection({
     };
 
     return (
-        <section className={`flow ${variantClasses[variant]} ${className}`}>
+        <section id={id} className={`flow ${variantClasses[variant]} ${className}`}>
             <h2 className="font-medium text-center text-2xl lg:text-4xl p-4">{title}</h2>
 
             <>{children}</>
