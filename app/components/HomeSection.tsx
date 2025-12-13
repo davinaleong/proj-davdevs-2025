@@ -34,7 +34,7 @@ export default function HomeSection({
 
             {linkHref && (
                 <p className="text-center p-4">
-                    <Link href={linkHref} className="text-blue-500 hover:opacity-80 dark:text-blue-300">
+                    <Link href={linkHref} className="underline text-blue-500 hover:opacity-80 dark:text-blue-300">
                         {linkText}
                     </Link>
                 </p>
