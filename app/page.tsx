@@ -1,9 +1,19 @@
-import Anchor from './components/Anchor'
+'use client'
+
+import Pagination from "./components/Pagination"
 
 export default function Home() {
+  const handlePageChange = (page: number) => {
+    console.log(`Navigate to page ${page}`);
+  };
+
   return (
     <div>
-      <Anchor href="#">Click Me</Anchor>
+      <Pagination 
+        currentPage={3}
+        totalPages={10}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }
