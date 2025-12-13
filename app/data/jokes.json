@@ -1,0 +1,415 @@
+{
+  "jokes": [
+    {
+      "type": "single",
+      "text": "When you're on a keyto diet you gotta lockdown your intake"
+    },
+    {
+      "type": "qa",
+      "question": "What does Santa like to have for breakfast?",
+      "answer": "Oh, oh, oats."
+    },
+    {
+      "type": "qa",
+      "question": "What do you call a car that's about to be scrapped?",
+      "answer": "Re-tire-d."
+    },
+    {
+      "type": "qa",
+      "question": "What continent is made of twine?",
+      "answer": "Europe"
+    },
+    {
+      "type": "single",
+      "text": "At the checkpoint we held a port which we passed to the person in the port for them to check our passed passport and now it's passed and in the past."
+    },
+    {
+      "type": "qa",
+      "question": "What hawker dish would you consume for youthfulness?",
+      "answer": "Young tau foo."
+    },
+    {
+      "type": "qa",
+      "question": "What hawker dish will make you foolish when consumed?",
+      "answer": "Yong tau fool."
+    },
+    {
+      "type": "qa",
+      "question": "What vehicle carries business?",
+      "answer": "A bus"
+    },
+    {
+      "type": "qa",
+      "question": "What do you call a pig doing karate?",
+      "answer": "Pork chop."
+    },
+    {
+      "type": "single",
+      "text": "The case on finding a new case for my phone in case it drops was closed in Nov 2022."
+    },
+    {
+      "type": "qa",
+      "question": "What did the bread say to the compass when it was traveling?",
+      "answer": "I'm heading yeast."
+    },
+    {
+      "type": "qa",
+      "question": "What did the eagle say after a hard workout?",
+      "answer": "I'm so soar."
+    },
+    {
+      "type": "qa",
+      "question": "What type of tea can be found in a mine?",
+      "answer": "Jas-mine tea."
+    },
+    {
+      "type": "qa",
+      "question": "What type of tea is used to measure distance?",
+      "answer": "Chamo-mile tea."
+    },
+    {
+      "type": "qa",
+      "question": "Which Singaporean supermarket chain is before \"D\"?",
+      "answer": "Cold Storage"
+    },
+    {
+      "type": "qa",
+      "question": "Which Singaporean supermarket chain can be found in the ocean?",
+      "answer": "NTUC (NTU-Sea)"
+    },
+    {
+      "type": "qa",
+      "question": "Which Singaporean supermarket chain can be found in a fridge?",
+      "answer": "Cold Storage"
+    },
+    {
+      "type": "qa",
+      "question": "Which supermarket chain in Singapore is very \"siong\"?",
+      "answer": "Sheen Siong."
+    },
+    {
+      "type": "qa",
+      "question": "Which supermarket chain in Singapore is the opposite of hot?",
+      "answer": "Cold Storage."
+    },
+    {
+      "type": "qa",
+      "question": "Which Singaporean supermarket chain is part of a carnival?",
+      "answer": "NTUC (Fair Price)."
+    },
+    {
+      "type": "qa",
+      "question": "Which Singaporean supermarket chain has a local university in it?",
+      "answer": "NTUC (NTU-c)."
+    },
+    {
+      "type": "qa",
+      "question": "Which Singaporean supermarket chain doesn't like you to look at its products?",
+      "answer": "NTUC (Anti-u-see)."
+    },
+    {
+      "type": "qa",
+      "question": "Which supermarket chain in Singapore is the largest?",
+      "answer": "Giant."
+    },
+    {
+      "type": "qa",
+      "question": "Where do drunk crows like to gather?",
+      "answer": "At a crow-bar."
+    },
+    {
+      "type": "single",
+      "text": "When you boil ice, water and water vapour, they become a steam team."
+    },
+    {
+      "type": "qa",
+      "question": "What processed meat item can be found in a toolbox?",
+      "answer": "A ham-mer."
+    },
+    {
+      "type": "qa",
+      "question": "What is a veggie comedian called?",
+      "answer": "A corn-median."
+    },
+    {
+      "type": "qa",
+      "question": "What musical instrument will put you in prison?",
+      "answer": "Cell-o."
+    },
+    {
+      "type": "single",
+      "text": "I just sant-a message to my friend."
+    },
+    {
+      "type": "qa",
+      "question": "What 2 animal(s) can unlock any lock?",
+      "answer": "A monkey or a donkey."
+    },
+    {
+      "type": "qa",
+      "question": "What animal(s) can unlock any lock?",
+      "answer": "A monkey or a donkey."
+    },
+    {
+      "type": "single",
+      "text": "I was having corn when I cornsidered the corn I ate a delicious, sweet pearl corn."
+    },
+    {
+      "type": "single",
+      "text": "A friend texted me that she attended her friend's wedding.\nBut it happened on a Sat, so was it a Wed-ding or a Sat-ding?\n\nIf she's not seated at the moment, then she should sit-ding while waiting for the couple to arrive.\n\nLater, that evening she had to stand to give her to-be married friend a stand-ding ovation."
+    },
+    {
+      "type": "qa",
+      "question": "What is a scaly ceramic?",
+      "answer": "A re-ptile"
+    },
+    {
+      "type": "qa",
+      "question": "What's the king of the tissues?",
+      "answer": "A napking."
+    },
+    {
+      "type": "qa",
+      "question": "What candy/dessert is never on time?",
+      "answer": "Choco-late."
+    },
+    {
+      "type": "qa",
+      "question": "What type of wards would everyone want to be warded in?",
+      "answer": "Reward & award."
+    },
+    {
+      "type": "qa",
+      "question": "Why was the yak paddling across the water?",
+      "answer": "Because it was ka-yak-ing."
+    },
+    {
+      "type": "qa",
+      "question": "What kind of a vegetable can be found in peak?",
+      "answer": "Pea."
+    },
+    {
+      "type": "qa",
+      "question": "What do you call a reptilian AI?",
+      "answer": "An algogator"
+    },
+    {
+      "type": "qa",
+      "question": "What type of rest will make you restless?",
+      "answer": "An ar-rest."
+    },
+    {
+      "type": "single",
+      "text": "I mangwent to eat the mangoes and they became mangnos."
+    },
+    {
+      "type": "qa",
+      "question": "What drink energizes you and costs a ton, but makes you sick?",
+      "answer": "Coughfee"
+    },
+    {
+      "type": "qa",
+      "question": "Take a piece of string and tie it around a soda can. What do you get?",
+      "answer": "A can-knot."
+    },
+    {
+      "type": "single",
+      "text": "Colleague: I'm running a lil late for standup. Can wait for me?\nMe: Sure, don't need to sprint."
+    },
+    {
+      "type": "single",
+      "text": "I'm sure you'd like to miss a mistake, but would you miss a good steak?"
+    },
+    {
+      "type": "qa",
+      "question": "What do trees and work have in common?",
+      "answer": "They both have leaves"
+    },
+    {
+      "type": "single",
+      "text": "A group of people gathered around the table for dinner.\n\nThe spread consisted of fried chicken wings, roast duck legs, pork loins, lamb racks, beef steaks and fish skewers.\n\nYou could say that they had a meeting of meat-things."
+    },
+    {
+      "type": "qa",
+      "question": "How to make yourself knew a piece of info that was new to you?",
+      "answer": "Put a 'k' in front of it and now you'll know, and later on knew what was initially new to you."
+    },
+    {
+      "type": "single",
+      "text": "We watched a moveie yesterday.\nWhen it ended, it became a stoppie."
+    },
+    {
+      "type": "single",
+      "text": "I was on my way to church when my friend texted in the group chat the seat numbers, \"CUXX-CUYY\".\n\nThen another friend texted, \" C u!\"\n\nSo I replied, \"We are cued to c u at CU row.\""
+    },
+    {
+      "type": "qa",
+      "question": "Which fast food chain is owned by a royalty?",
+      "answer": "Burger King."
+    },
+    {
+      "type": "qa",
+      "question": "What fruit is used to make soap?",
+      "answer": "Soursoap (soursop)."
+    },
+    {
+      "type": "single",
+      "text": "Before 31st Oct it was Halloween. After 31st Oct, it was Byeween."
+    },
+    {
+      "type": "qa",
+      "question": "What type of fruit causes painful rain?",
+      "answer": "A du-rain (durian)."
+    },
+    {
+      "type": "qa",
+      "question": "What fruit comes in twos?",
+      "answer": "Pears (pairs)."
+    },
+    {
+      "type": "qa",
+      "question": "What type of fruit owns a tech company?",
+      "answer": "Apple."
+    },
+    {
+      "type": "qa",
+      "question": "What type of board game do drillers like to play?",
+      "answer": "A boring game."
+    },
+    {
+      "type": "single",
+      "text": "Hosted a gathering at my place one day.\n\nOne of the ladies who was attached arrived early. I asked her where her boyfriend was.\nShe replied, \"Coming soon\".\nI responded, \"Is that some movie you want to watch?\"\n\nLater that day, we played a mobile game called Psyched.\nTwo people tied and I said, \"You forgot your three-piece suit.\""
+    },
+    {
+      "type": "single",
+      "text": "Earl gray: plain tea\n\nEarl white: plain tea with milk\n\nEarl black: gao (strong) plain tea"
+    },
+    {
+      "type": "qa",
+      "question": "What berry is always up to date with the latest news?",
+      "answer": "Blackcurrant (black-current)."
+    },
+    {
+      "type": "qa",
+      "question": "What type of hotel room is full of candy?",
+      "answer": "Suites."
+    },
+    {
+      "type": "qa",
+      "question": "Take a dagger and stab a clock. What do you get?",
+      "answer": "Kill time."
+    },
+    {
+      "type": "single",
+      "text": "I met up for a meal with my best friend, and we were going to see each other again the next day for another function.\n\nShe said to me, \"See you tomorrow.\"\n\nI replied, \"See you tomorrow, row, row your boat gently down the stream.\""
+    },
+    {
+      "type": "qa",
+      "question": "What is the winning plant?",
+      "answer": "A vic-tree."
+    },
+    {
+      "type": "qa",
+      "question": "What is a 'pot' vegetable?",
+      "answer": "Potato."
+    },
+    {
+      "type": "qa",
+      "question": "What is a free coffee called?",
+      "answer": "Cof-free."
+    },
+    {
+      "type": "single",
+      "text": "To have a balanced diet, eat while walking on a balance beam.\n\nTo watch your diet, just stare at your plate of food.\n\nTo control your diet, point a remote control at it."
+    },
+    {
+      "type": "qa",
+      "question": "What kind of seed can open doors magically?",
+      "answer": "A sesame seed."
+    },
+    {
+      "type": "single",
+      "text": "There were a few interns working at my company. When they left, they become outerns."
+    },
+    {
+      "type": "single",
+      "text": "When a high-tea ends, it becomes bye tea."
+    },
+    {
+      "type": "qa",
+      "question": "What kind of processed-meat item barks?",
+      "answer": "A hot-dog."
+    },
+    {
+      "type": "qa",
+      "question": "What type of pastry are artists?",
+      "answer": "T-arts."
+    },
+    {
+      "type": "qa",
+      "question": "What fruit makes a range?",
+      "answer": "An o-range."
+    },
+    {
+      "type": "qa",
+      "question": "Why do bodybuilders need to eat a lot of shellfish?",
+      "answer": "To build mussels."
+    },
+    {
+      "type": "qa",
+      "question": "What is the ugliest pasta dish?",
+      "answer": "Ugly olio."
+    },
+    {
+      "type": "qa",
+      "question": "Why does the number nine avoid the beach?",
+      "answer": "Because it doesn't want to ten."
+    },
+    {
+      "type": "qa",
+      "question": "What do trees and dogs have in common?",
+      "answer": "They both have bark."
+    },
+    {
+      "type": "qa",
+      "question": "What do you call a mushy room?",
+      "answer": "Mushroom"
+    },
+    {
+      "type": "single",
+      "text": "It's amazing how fireproof public transport is with so many people alighting from it."
+    },
+    {
+      "type": "qa",
+      "question": "What exercise involves cards?",
+      "answer": "Card-io."
+    },
+    {
+      "type": "qa",
+      "question": "Which country is very oily?",
+      "answer": "Greece (grease)"
+    },
+    {
+      "type": "qa",
+      "question": "Can you guess what Disney song inspired these verses?\n\nUnder the 🌳 ,\nUnder the 🌳 ,\nWhere Isaac was hit by an 🍎,\nAnd he discovered gravity.\n\nUnder the 🌳,\nUnder the 🌳,\nWe are searching,\nHoping to find free durians.",
+      "answer": "Under the sea from the Little Mermaid."
+    },
+    {
+      "type": "single",
+      "text": "The shrew shoos shoes."
+    },
+    {
+      "type": "qa",
+      "question": "What kind of air can you walk on and is good for exercise?",
+      "answer": "Stairs"
+    },
+    {
+      "type": "single",
+      "text": "A black duck is simply a dark duck"
+    },
+    {
+      "type": "single",
+      "text": "The Avocado Clan has avoca-dos and avoca-don'ts in its law."
+    }
+  ]
+}
