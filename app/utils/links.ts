@@ -31,7 +31,7 @@ export const getMainNavigationLinks = () =>
 
 export const getFooterNavigationLinks = () => 
     siteLinksData.navigation.filter(link => 
-        ["Portfolio", "Articles", "Tools", "Python", "Faith"].includes(link.label)
+        ["Portfolio", "Articles", "Tools", "Python", "FEM", "Faith"].includes(link.label)
     );
 
 // Helper function to get link props for external links

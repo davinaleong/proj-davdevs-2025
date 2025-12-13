@@ -26,12 +26,17 @@
     },
     {
       "label": "Python",
-      "href": "/notebooks",
+      "href": "/python",
+      "external": false
+    },
+    {
+      "label": "FEM",
+      "href": "/fem",
       "external": false
     },
     {
       "label": "Faith",
-      "href": "/sermons",
+      "href": "/faith",
       "external": false
     },
     {
