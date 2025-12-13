@@ -5,7 +5,7 @@ import ClientLayout from "./components/ClientLayout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -84,7 +84,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
-        className={`${montserrat.className} antialiased min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-100`}
+        className={`${montserrat.className} antialiased min-h-screen font-medium text-gray-900 bg-white dark:bg-black dark:text-gray-100`}
       >
         <ClientLayout>
           {children}
