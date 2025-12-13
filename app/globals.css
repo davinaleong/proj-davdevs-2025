@@ -4,6 +4,11 @@ button {
   cursor: pointer;
 }
 
+code, 
+pre {
+  font-family: var(--font-mono), 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
 @layer utilities {
   .flow > * + * {
     margin-block-start: theme("spacing.4");
