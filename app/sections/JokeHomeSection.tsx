@@ -3,21 +3,10 @@
 import { useState } from 'react'
 import HomeSection from '../components/HomeSection'
 import Button from '../components/Button'
-import jokesData from '../data/jokes.json'
-
-interface Joke {
-  type: 'single' | 'qa';
-  text?: string;
-  question?: string;
-  answer?: string;
-}
+import { type Joke, getRandomJoke } from '../utils/jokes'
 
 export default function JokeHomeSection() {
-  const [joke] = useState<Joke>(() => {
-    // Select a random joke on component initialization
-    const randomIndex = Math.floor(Math.random() * jokesData.jokes.length);
-    return jokesData.jokes[randomIndex] as Joke;
-  });
+  const [joke] = useState<Joke>(() => getRandomJoke());
   const [showAnswer, setShowAnswer] = useState(false);
 
   const handleShowAnswer = () => {
