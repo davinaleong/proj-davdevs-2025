@@ -5,7 +5,7 @@ import HomeSection from '../../HomeSection'
 import Button from '../../Button'
 import { type Joke, getRandomJoke } from '../../../utils/jokes'
 
-export default function JokeHomeSection() {
+export default function HomeJokeSection() {
   const [joke] = useState<Joke>(() => getRandomJoke());
   const [showAnswer, setShowAnswer] = useState(false);
 
