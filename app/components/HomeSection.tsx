@@ -21,9 +21,9 @@ export default function HomeSection({
     const variantClasses = {
         default: '',
         neutral: 'bg-slate-100 dark:bg-slate-900',
-        primary: 'bg-blue-500',
-        'primary-dark': 'bg-blue-700',
-        'primary-light': 'bg-blue-300 dark:bg-blue-700'
+        primary: 'text-white bg-blue-500',
+        'primary-dark': 'text-white bg-blue-700',
+        'primary-light': 'text-black bg-blue-300 dark:text-white dark:bg-blue-700'
     };
 
     return (
