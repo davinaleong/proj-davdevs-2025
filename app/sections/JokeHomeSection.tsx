@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import HomeSection from './HomeSection'
-import Button from './Button'
-import jokesData from './../data/jokes.json'
+import HomeSection from '../components/HomeSection'
+import Button from '../components/Button'
+import jokesData from '../data/jokes.json'
 
 interface Joke {
   type: 'single' | 'qa';
