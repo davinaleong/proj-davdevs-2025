@@ -1,45 +1,29 @@
 import { ComponentProps } from 'react'
 import Card from './Card'
 
-type CardData = Omit<ComponentProps<typeof Card>, 'className' | 'size'>;
+type CardData = Omit<ComponentProps<typeof Card>, 'className'>;
 
 interface CardCarouselProps {
   title?: string;
   cards: CardData[];
-  desktopColumns?: 2 | 3 | 4;
-  mobileCardWidth?: string;
   showViewAllLink?: boolean;
   viewAllHref?: string;
   viewAllText?: string;
   className?: string;
-  gap?: 'sm' | 'md' | 'lg';
 }
 
-const GRID_COLUMNS = {
-  2: "md:grid-cols-2",
-  3: "md:grid-cols-3", 
-  4: "md:grid-cols-4"
-} as const;
 
-const GAP_SIZES = {
-  sm: "gap-3 md:gap-4",
-  md: "gap-4 md:gap-6", 
-  lg: "gap-6 md:gap-8"
-} as const;
 
 export default function CardCarousel({
   title,
   cards,
-  desktopColumns = 3,
-  mobileCardWidth = "w-72",
   showViewAllLink = false,
   viewAllHref = "#",
   viewAllText = "View All",
-  className = "",
-  gap = "md"
+  className = ""
 }: CardCarouselProps) {
 
-  const gridClasses = `flex md:grid ${GRID_COLUMNS[desktopColumns]} ${GAP_SIZES[gap]} min-w-max md:min-w-0 items-stretch`;
+  const gridClasses = "flex md:grid md:grid-cols-3 gap-4 md:gap-6 min-w-max md:min-w-0 items-stretch";
 
   return (
     <section className={`mb-8 ${className}`}>
@@ -52,10 +36,9 @@ export default function CardCarousel({
       <div className="overflow-x-auto md:overflow-hidden pb-2">
         <div className={gridClasses}>
           {cards.map((cardData, index) => (
-            <div key={cardData.title || index} className={`shrink-0 ${mobileCardWidth} md:w-auto`}>
+            <div key={cardData.title || index} className="shrink-0 w-72 md:w-auto">
               <Card 
                 {...cardData}
-                size="lg"
                 className="h-full w-full max-w-none"
               />
             </div>
