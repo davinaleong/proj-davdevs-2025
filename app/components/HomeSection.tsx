@@ -34,7 +34,10 @@ export default function HomeSection({
 
             {anchorProps && (
                 <p className="text-center p-4">
-                    <Anchor {...anchorProps} />
+                    <Anchor 
+                        {...anchorProps} 
+                        variant={variant === 'default' ? 'primary' : 'default'} 
+                    />
                 </p>
             )}
         </section>
