@@ -1,11 +1,12 @@
-import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, ComponentProps } from 'react'
+import Anchor from './Anchor'
+
+type AnchorProps = ComponentProps<typeof Anchor>;
 
 interface HomeSectionProps {
   children: ReactNode;
   title: string;
-  linkHref?: string;
-  linkText?: string;
+  anchorProps?: AnchorProps;
   variant?: 'default' | 'neutral' | 'primary' | 'primary-dark' | 'primary-light';
   className?: string;
 }
@@ -13,8 +14,7 @@ interface HomeSectionProps {
 export default function HomeSection({ 
   children, 
   title, 
-  linkHref, 
-  linkText = "View all",
+  anchorProps,
   variant = 'default',
   className = ""
 }: HomeSectionProps) {
@@ -32,11 +32,9 @@ export default function HomeSection({
 
             <>{children}</>
 
-            {linkHref && (
+            {anchorProps && (
                 <p className="text-center p-4">
-                    <Link href={linkHref} className="underline text-blue-500 hover:opacity-80 dark:text-blue-300">
-                        {linkText}
-                    </Link>
+                    <Anchor {...anchorProps} />
                 </p>
             )}
         </section>
