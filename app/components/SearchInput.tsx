@@ -30,7 +30,7 @@ export default function SearchInput({
 
     return (
         <form 
-            className={`flex items-center gap-2 bg-white dark:bg-blue-100 rounded-sm overflow-hidden ${className}`}
+            className={`flex items-center gap-2 bg-white dark:bg-blue-300 rounded-sm overflow-hidden ${className}`}
             onSubmit={handleSubmit}
         >
             <label 
