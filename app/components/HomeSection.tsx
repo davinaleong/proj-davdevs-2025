@@ -6,7 +6,7 @@ interface HomeSectionProps {
   title: string;
   linkHref?: string;
   linkText?: string;
-  variant?: 'default' | 'alt' | 'highlighted';
+  variant?: 'default' | 'neutral' | 'primary' | 'primary-dark' | 'primary-light';
   className?: string;
 }
 
@@ -20,8 +20,10 @@ export default function HomeSection({
 }: HomeSectionProps) {
     const variantClasses = {
         default: '',
-        alt: 'bg-slate-100 dark:bg-slate-900',
-        highlighted: 'bg-blue-500 dark:bg-blue-300'
+        neutral: 'bg-slate-100 dark:bg-slate-900',
+        primary: 'bg-blue-500',
+        'primary-dark': 'bg-blue-700',
+        'primary-light': 'bg-blue-300 dark:bg-blue-700'
     };
 
     return (
