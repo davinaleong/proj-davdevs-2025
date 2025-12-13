@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DavDevs 2025 Portfolio
 
-## Getting Started
+A modern portfolio website built with Next.js, featuring interactive components, original humor, and a comprehensive design system.
 
-First, run the development server:
+## ✨ Features
+
+- **🎭 Interactive Joke Section** - Original jokes with Q&A gameplay, timer, and smart answer checking
+- **🎨 Component Library** - Reusable UI components with variant systems and theming
+- **🌙 Dark Mode Support** - Seamless light/dark theme switching
+- **📱 Responsive Design** - Mobile-first approach with Tailwind CSS
+- **🔍 SEO Optimized** - Dynamic sitemap generation and meta optimization
+- **⚡ Performance** - Next.js 15+ with React 19 and optimized loading
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd proj-davdevs-2025
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── components/          # Reusable UI components
+│   ├── sections/       # Page section components
+│   │   ├── home/      # Home page sections
+│   │   └── jokes/     # Joke-related components
+│   ├── Button.tsx     # Button component with variants
+│   ├── Section.tsx    # Layout section component
+│   └── ...
+├── data/              # Static data files
+│   └── jokes.json     # Original joke content
+├── utils/             # Utility functions
+│   ├── jokes.ts       # Joke management utilities
+│   └── sitemap.ts     # SEO sitemap generation
+└── pages/
+    ├── funny/         # Interactive jokes page
+    └── sitemap.xml/   # Dynamic sitemap route
+```
 
-## Learn More
+## 🎮 Key Features
 
-To learn more about Next.js, take a look at the following resources:
+### Interactive Joke System
+- **Smart Answer Checking** - Fuzzy matching with similarity scoring
+- **Visual Feedback** - Color-coded responses based on accuracy
+- **Timer Challenge** - 30-second countdown with progress visualization
+- **Explanation Support** - Additional context for wordplay jokes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Component Library
+- **Variant Systems** - Consistent theming across components
+- **TypeScript Support** - Full type safety and IntelliSense
+- **Responsive Design** - Mobile-first responsive components
+- **Accessibility** - WCAG compliant interactive elements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### SEO & Performance
+- **Dynamic Sitemap** - Auto-generated XML sitemap at `/sitemap.xml`
+- **Meta Optimization** - Structured metadata for search engines
+- **Performance** - Optimized images, fonts, and lazy loading
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Framework**: Next.js 15+ (App Router)
+- **UI**: React 19, TypeScript, Tailwind CSS
+- **Icons**: Lucide React
+- **Styling**: Tailwind CSS v4 with dark mode
+- **Deployment**: Vercel-ready
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Content
+
+All jokes and humorous content are original creations. See disclaimer in the joke section for intellectual property information.
+
+## 🔧 Development
+
+```bash
+# Development
+npm run dev
+
+# Type checking
+npm run type-check
+
+# Build for production
+npm run build
+
+# Generate sitemap
+npm run generate-sitemap
+```
+
+## 🚀 Deployment
+
+This project is optimized for deployment on Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=<repository-url>)
+
+### Environment Variables
+
+Create `.env.local`:
+
+```env
+NEXT_PUBLIC_BASE_URL=https://yourdomain.com
+```
+
+## 📄 License
+
+This project is open source. Original joke content is proprietary.
+
+---
+
+Built with ❤️ using Next.js and modern web technologies.
