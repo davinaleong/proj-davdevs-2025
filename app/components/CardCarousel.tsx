@@ -6,9 +6,6 @@ type CardData = Omit<ComponentProps<typeof Card>, 'className'>;
 interface CardCarouselProps {
   title?: string;
   cards: CardData[];
-  showViewAllLink?: boolean;
-  viewAllHref?: string;
-  viewAllText?: string;
   className?: string;
 }
 
@@ -17,9 +14,6 @@ interface CardCarouselProps {
 export default function CardCarousel({
   title,
   cards,
-  showViewAllLink = false,
-  viewAllHref = "#",
-  viewAllText = "View All",
   className = ""
 }: CardCarouselProps) {
 
@@ -36,26 +30,15 @@ export default function CardCarousel({
       <div className="overflow-x-auto md:overflow-hidden pb-2">
         <div className={gridClasses}>
           {cards.map((cardData, index) => (
-            <div key={cardData.title || index} className="shrink-0 w-72 md:w-auto">
+            <div key={cardData.title || index} className="shrink-0 w-72 md:w-auto flex">
               <Card 
                 {...cardData}
-                className="h-full w-full max-w-none"
+                className="h-full w-full max-w-none flex-1"
               />
             </div>
           ))}
         </div>
       </div>
-      
-      {showViewAllLink && (
-        <div className="text-center mt-6">
-          <a 
-            href={viewAllHref} 
-            className="inline-block text-blue-500 hover:text-blue-600 font-medium underline transition-colors"
-          >
-            {viewAllText}
-          </a>
-        </div>
-      )}
     </section>
   )
 }

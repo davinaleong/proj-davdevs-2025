@@ -6,7 +6,7 @@ interface AnchorProps {
   href: string;
   external?: boolean;
   className?: string;
-  variant?: 'default' | 'primary';
+  variant?: 'white' | 'black' | 'blue-500' | 'blue-300';
 }
 
 export default function Anchor({ 
@@ -14,15 +14,20 @@ export default function Anchor({
   href, 
   external = false,
   className = "",
-  variant = 'default'
+  variant = 'blue-500'
 }: AnchorProps) {
   const getVariantClasses = () => {
     switch (variant) {
-      case 'default':
-        return "underline text-white dark:text-black hover:opacity-80 transition-opacity";
-      case 'primary':
+      case 'white':
+        return "underline text-white hover:opacity-80";
+      case 'black':
+        return "underline text-black hover:opacity-80";
+      case 'blue-500':
+        return "underline text-blue-500 hover:opacity-80";
+      case 'blue-300':
+        return "underline text-blue-300 hover:opacity-80";
       default:
-        return "underline text-blue-500 hover:opacity-80 dark:text-blue-300 transition-opacity";
+        return "underline text-blue-500 hover:opacity-80";
     }
   };
   
@@ -31,6 +36,8 @@ export default function Anchor({
   const linkProps = external 
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
+
+  console.log(getVariantClasses());
 
   return (
     <Link href={href} {...linkProps} className={anchorClasses}>
