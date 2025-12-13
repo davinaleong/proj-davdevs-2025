@@ -75,6 +75,7 @@ export default function Prose({ children, className = "" }: ProseProps) {
           border-radius: 0.25rem;
           font-size: 0.875em;
           font-weight: 600;
+          font-family: var(--font-mono), 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
         }
         
         .dark .prose code {
@@ -295,7 +296,7 @@ export default function Prose({ children, className = "" }: ProseProps) {
           padding: 1rem 1.25rem;
           border: 1px solid #374151;
           position: relative;
-          font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+          font-family: var(--font-mono), 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
           tab-size: 2;
           word-wrap: break-word;
           white-space: pre-wrap;
