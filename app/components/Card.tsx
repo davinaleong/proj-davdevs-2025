@@ -70,11 +70,13 @@ export default function Card({
   const renderImage = () => {
     if (!showImage || !imageProps) return null;
     
+    const { alt, aspectRatio = "landscape", ...restImageProps } = imageProps;
+    
     return (
       <ImageDisplay 
-        alt={title}
-        aspectRatio="landscape"
-        {...imageProps}
+        alt={alt || title}
+        aspectRatio={aspectRatio}
+        {...restImageProps}
       />
     );
   };

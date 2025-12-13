@@ -31,8 +31,8 @@ export default function Pagination({
         onClick={() => handlePageClick(page)}
         disabled={isCurrentPage}
         className={isCurrentPage 
-          ? "!bg-gray-300 !text-gray-600 !cursor-not-allowed dark:!bg-gray-600 dark:!text-gray-400 !shadow-none !px-3 !py-2"
-          : "!bg-transparent !text-blue-500 hover:!bg-blue-50 dark:hover:!bg-blue-950 !shadow-none !px-3 !py-2"
+          ? "bg-gray-300 text-gray-600 cursor-not-allowed dark:bg-gray-600 dark:text-gray-400 shadow-none px-3 py-2 hover:bg-gray-300 hover:text-gray-600"
+          : "bg-transparent text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950 shadow-none px-3 py-2 hover:opacity-100"
         }
         aria-label={isCurrentPage ? undefined : `Go to page ${page}`}
         {...(isCurrentPage ? { 'aria-current': 'page' } : {})}
