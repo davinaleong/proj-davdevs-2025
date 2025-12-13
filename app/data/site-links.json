@@ -47,9 +47,14 @@
   ],
   "socialLinks": [
     {
-      "label": "hello@davdevs.me",
-      "href": "mailto:hello@davdevs.me",
+      "label": "leong.shi.yun@gmail.com",
+      "href": "mailto:leong.shi.yun@gmail.com",
       "external": false
+    },
+    {
+      "label": "LinkedIn", 
+      "href": "https://www.linkedin.com/in/davina-leong/",
+      "external": true
     },
     {
       "label": "GitHub",
@@ -57,13 +62,23 @@
       "external": true
     },
     {
-      "label": "LinkedIn", 
-      "href": "https://linkedin.com/in/davina-leong",
+      "label": "Facebook",
+      "href": "https://www.facebook.com/DavinaLSY",
       "external": true
     },
     {
-      "label": "Twitter",
-      "href": "https://twitter.com/davdevs",
+      "label": "YouTube",
+      "href": "https://www.youtube.com/@DavDevsMedia",
+      "external": true
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/davinaleong/",
+      "external": true
+    },
+    {
+      "label": "Threads",
+      "href": "https://www.threads.com/@davinaleong?hl=en",
       "external": true
     }
   ],
