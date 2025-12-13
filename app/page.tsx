@@ -1,9 +1,13 @@
-import Link from 'next/link'
+import Card from './components/Card'
 
 export default function Home() {
   return (
     <div>
-      Hello
+      <Card 
+        title="Sample Card"
+        description="This is a sample card description."
+      featured={true}
+      />
     </div>
   );
 }

@@ -28,11 +28,6 @@ interface CardProps {
   
   // Styling
   className?: string;
-  variant?: 'default' | 'minimal' | 'elevated';
-  size?: 'sm' | 'md' | 'lg';
-  
-  // Layout
-  imagePosition?: 'top' | 'left' | 'right';
   showImage?: boolean;
   showFooter?: boolean;
 }
@@ -52,38 +47,21 @@ export default function Card({
   external = false,
   clickable = false,
   className = "",
-  variant = 'default',
-  size = 'md',
-  imagePosition = 'top',
   showImage = true,
   showFooter = true
 }: CardProps) {
   
   const getFeaturedBadgeStyles = () => {
-    return "text-white bg-blue-500 text-sm px-3 py-1";
+    return "text-white bg-orange-500 text-sm px-3 py-1";
   };
 
   const getCardStyles = () => {
-    const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden";
-    const variants = {
-      default: "border-blue-500 shadow-md",
-      minimal: "border-gray-200 dark:border-gray-700",
-      elevated: "border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow"
-    };
-    const sizes = {
-      sm: "max-w-xs",
-      md: "max-w-sm", 
-      lg: "max-w-md"
-    };
-    return `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+    const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden max-w-sm shadow-md";
+    const borderStyle = featured ? "border-orange-500" : "border-gray-200 dark:border-gray-700";
+    return `${baseStyles} ${borderStyle} ${className}`;
   };
 
-  const getLayoutStyles = () => {
-    if (imagePosition === 'left' || imagePosition === 'right') {
-      return imagePosition === 'left' ? "flex flex-row" : "flex flex-row-reverse";
-    }
-    return "";
-  };
+
 
   const renderImage = () => {
     if (!showImage) return null;
@@ -91,10 +69,9 @@ export default function Card({
     const defaultPlaceholder = imageAspectRatio === 'landscape' ? PlaceholderLandscape : PlaceholderSquare;
     const imgSrc = imageSrc || defaultPlaceholder;
     const aspectClass = imageAspectRatio === 'landscape' ? 'aspect-video' : 'aspect-square';
-    const widthClass = imagePosition !== 'top' ? 'w-32 flex-shrink-0' : 'w-full';
     
     return (
-      <div className={`${widthClass} ${imagePosition !== 'top' ? 'h-32' : ''}`}>
+      <div className="w-full">
         <Image 
           src={imgSrc} 
           alt={imageAlt} 
@@ -107,7 +84,7 @@ export default function Card({
   };
 
   const renderContent = () => (
-    <div className={`flex-1 ${imagePosition !== 'top' ? 'flex flex-col' : ''}`}>
+    <div className="flex-1">
       {featured && (
         <div className={getFeaturedBadgeStyles()}>Featured</div>
       )}
@@ -146,15 +123,9 @@ export default function Card({
   );
 
   const cardContent = (
-    <article className={`${getCardStyles()} ${getLayoutStyles()} ${clickable || href ? ' min-w-[300px] cursor-pointer hover:opacity-80 transition-shadow' : ''}`}>
-      {imagePosition === 'top' && renderImage()}
-      {imagePosition !== 'top' && (
-        <>
-          {renderImage()}
-          {renderContent()}
-        </>
-      )}
-      {imagePosition === 'top' && renderContent()}
+    <article className={`${getCardStyles()} ${clickable || href ? ' cursor-pointer hover:opacity-80 transition-shadow' : ''}`}>
+      {renderImage()}
+      {renderContent()}
     </article>
   );
 
