@@ -285,16 +285,49 @@ export default function Prose({ children, className = "" }: ProseProps) {
           color: var(--prose-pre-code);
           background-color: var(--prose-pre-bg);
           overflow-x: auto;
+          overflow-y: hidden;
           font-weight: 400;
           font-size: 0.875em;
           line-height: 1.714;
           margin-top: 1.714em;
           margin-bottom: 1.714em;
-          border-radius: 0.375rem;
-          padding-top: 0.857em;
-          padding-right: 1.143em;
-          padding-bottom: 0.857em;
-          padding-left: 1.143em;
+          border-radius: 0.5rem;
+          padding: 1rem 1.25rem;
+          border: 1px solid #374151;
+          position: relative;
+          font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+          tab-size: 2;
+          word-wrap: break-word;
+          white-space: pre-wrap;
+        }
+        
+        .dark .prose pre {
+          border-color: #4b5563;
+        }
+        
+        .prose pre::-webkit-scrollbar {
+          height: 8px;
+        }
+        
+        .prose pre::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        
+        .prose pre::-webkit-scrollbar-thumb {
+          background-color: #6b7280;
+          border-radius: 4px;
+        }
+        
+        .dark .prose pre::-webkit-scrollbar-thumb {
+          background-color: #9ca3af;
+        }
+        
+        .prose pre::-webkit-scrollbar-thumb:hover {
+          background-color: #4b5563;
+        }
+        
+        .dark .prose pre::-webkit-scrollbar-thumb:hover {
+          background-color: #d1d5db;
         }
         
         .prose pre code {
@@ -307,6 +340,86 @@ export default function Prose({ children, className = "" }: ProseProps) {
           font-size: inherit;
           font-family: inherit;
           line-height: inherit;
+          white-space: inherit;
+          word-wrap: inherit;
+        }
+        
+        /* Language label for code blocks */
+        .prose pre[data-language]::before {
+          content: attr(data-language);
+          position: absolute;
+          top: 0.5rem;
+          right: 0.75rem;
+          font-size: 0.75rem;
+          color: var(--prose-captions);
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 0.05em;
+        }
+        
+        /* Copy button area (if needed later) */
+        .prose pre:hover::after {
+          opacity: 1;
+        }
+        
+        /* Syntax highlighting improvements */
+        .prose pre .token.comment {
+          color: #6b7280;
+          font-style: italic;
+        }
+        
+        .prose pre .token.keyword {
+          color: #8b5cf6;
+          font-weight: 500;
+        }
+        
+        .prose pre .token.string {
+          color: #10b981;
+        }
+        
+        .prose pre .token.number {
+          color: #f59e0b;
+        }
+        
+        .prose pre .token.function {
+          color: #3b82f6;
+        }
+        
+        .prose pre .token.operator {
+          color: #ef4444;
+        }
+        
+        .prose pre .token.punctuation {
+          color: #6b7280;
+        }
+        
+        /* Dark mode syntax highlighting */
+        .dark .prose pre .token.comment {
+          color: #9ca3af;
+        }
+        
+        .dark .prose pre .token.keyword {
+          color: #a78bfa;
+        }
+        
+        .dark .prose pre .token.string {
+          color: #34d399;
+        }
+        
+        .dark .prose pre .token.number {
+          color: #fbbf24;
+        }
+        
+        .dark .prose pre .token.function {
+          color: #60a5fa;
+        }
+        
+        .dark .prose pre .token.operator {
+          color: #f87171;
+        }
+        
+        .dark .prose pre .token.punctuation {
+          color: #9ca3af;
         }
         
         /* Images */
