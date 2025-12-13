@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from "lucide-react"
+import sortConfig from '../config/sort-options.json'
 
 interface SortOption {
   label: string;
@@ -15,12 +16,7 @@ interface SortInputProps {
   className?: string;
 }
 
-const DEFAULT_OPTIONS: SortOption[] = [
-  { label: 'A-Z', value: 'asc' },
-  { label: 'Z-A', value: 'desc' },
-  { label: 'Newest', value: 'newest' },
-  { label: 'Oldest', value: 'oldest' }
-];
+const DEFAULT_OPTIONS: SortOption[] = sortConfig.sortOptions;
 
 export default function SortInput({ 
   options = DEFAULT_OPTIONS,
