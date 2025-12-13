@@ -146,7 +146,7 @@ export default function Card({
   );
 
   const cardContent = (
-    <article className={`${getCardStyles()} ${getLayoutStyles()} ${clickable || href ? 'cursor-pointer hover:shadow-lg transition-shadow' : ''}`}>
+    <article className={`${getCardStyles()} ${getLayoutStyles()} ${clickable || href ? ' min-w-[300px] cursor-pointer hover:opacity-80 transition-shadow' : ''}`}>
       {imagePosition === 'top' && renderImage()}
       {imagePosition !== 'top' && (
         <>
