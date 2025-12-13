@@ -51,7 +51,7 @@ export default function PrimaryFooter({
                 {/* Brand Section */}
                 <div className="text-center md:text-left">
                     <h3 className="text-lg font-bold mb-2">Dav/Devs</h3>
-                    <p className="text-blue-100 text-sm max-w-[30ch]">
+                    <p className="text-blue-100 text-sm">
                         Designing with purpose. Building with code. Living by faith.
                     </p>
                 </div>
