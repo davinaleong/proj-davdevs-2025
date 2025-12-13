@@ -1,12 +1,9 @@
-import TagFlex from "./components/TagFlex"
-import Tag from "./components/Tag"
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <div>
-      <TagFlex>
-        <Tag>JavaScript</Tag>
-      </TagFlex>
+      Hello
     </div>
   );
 }
