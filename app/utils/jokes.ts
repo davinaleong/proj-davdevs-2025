@@ -5,6 +5,7 @@ export interface Joke {
   text?: string;
   question?: string;
   answer?: string;
+  explanation?: string;
 }
 
 /**

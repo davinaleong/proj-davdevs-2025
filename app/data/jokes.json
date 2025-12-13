@@ -75,7 +75,8 @@
     {
       "type": "qa",
       "question": "Which Singaporean supermarket chain can be found in the ocean?",
-      "answer": "NTUC (NTU-Sea)"
+      "answer": "NTUC",
+      "explanation": "NTU-Sea"
     },
     {
       "type": "qa",
@@ -95,17 +96,20 @@
     {
       "type": "qa",
       "question": "Which Singaporean supermarket chain is part of a carnival?",
-      "answer": "NTUC (Fair Price)."
+      "answer": "NTUC",
+      "explanation": "Fair Price"
     },
     {
       "type": "qa",
       "question": "Which Singaporean supermarket chain has a local university in it?",
-      "answer": "NTUC (NTU-c)."
+      "answer": "NTUC",
+      "explanation": "NTU-c"
     },
     {
       "type": "qa",
       "question": "Which Singaporean supermarket chain doesn't like you to look at its products?",
-      "answer": "NTUC (Anti-u-see)."
+      "answer": "NTUC",
+      "explanation": "Anti-u-see"
     },
     {
       "type": "qa",
@@ -250,7 +254,8 @@
     {
       "type": "qa",
       "question": "What fruit is used to make soap?",
-      "answer": "Soursoap (soursop)."
+      "answer": "Soursoap",
+      "explanation": "soursop"
     },
     {
       "type": "single",
@@ -259,12 +264,14 @@
     {
       "type": "qa",
       "question": "What type of fruit causes painful rain?",
-      "answer": "A du-rain (durian)."
+      "answer": "A du-rain",
+      "explanation": "durian"
     },
     {
       "type": "qa",
       "question": "What fruit comes in twos?",
-      "answer": "Pears (pairs)."
+      "answer": "Pears",
+      "explanation": "pairs"
     },
     {
       "type": "qa",
@@ -287,7 +294,8 @@
     {
       "type": "qa",
       "question": "What berry is always up to date with the latest news?",
-      "answer": "Blackcurrant (black-current)."
+      "answer": "Blackcurrant",
+      "explanation": "black-current"
     },
     {
       "type": "qa",
@@ -387,7 +395,8 @@
     {
       "type": "qa",
       "question": "Which country is very oily?",
-      "answer": "Greece (grease)"
+      "answer": "Greece",
+      "explanation": "grease"
     },
     {
       "type": "qa",

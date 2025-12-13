@@ -195,9 +195,17 @@ export default function JokeSection() {
 
                         {/* Show Answer when revealed */}
                         {showAnswer && (
-                            <p className="whitespace-pre-line rounded-sm text-2xl lg:text-4xl font-bold text-black bg-white p-6">
-                                {joke.answer}
-                            </p>
+                            <div className="space-y-3">
+                                <p className="whitespace-pre-line rounded-sm text-2xl lg:text-4xl font-semibold text-black bg-white p-6">
+                                    {joke.answer}
+                                </p>
+                                {joke.explanation && (
+                                    <p className="flex gap-2 text-sm italic">
+                                        <span>Explanation:</span>
+                                        <span>{joke.explanation}</span>
+                                    </p>
+                                )}
+                            </div>
                         )}
                     </div>
                 </div>
