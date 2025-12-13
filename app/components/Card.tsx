@@ -1,8 +1,10 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { ReactNode } from 'react'
-import PlaceholderLandscape from './../assets/images/placeholder-landscape.svg'
-import PlaceholderSquare from './../assets/images/placeholder-square.svg'
+import { ReactNode, ComponentProps } from 'react'
+import ImageDisplay from './ImageDisplay'
+
+type ImageProps = Omit<ComponentProps<typeof ImageDisplay>, 'alt'> & {
+  alt?: string;
+};
 
 interface CardProps {
   // Content
@@ -12,11 +14,7 @@ interface CardProps {
   footerText?: string;
   
   // Image
-  imageSrc?: string;
-  imageAlt?: string;
-  imageWidth?: number;
-  imageHeight?: number;
-  imageAspectRatio?: 'landscape' | 'square';
+  imageProps?: ImageProps;
   
   // Featured flag
   featured?: boolean;
@@ -40,11 +38,7 @@ export default function Card({
   description,
   content,
   footerText,
-  imageSrc,
-  imageAlt = title,
-  imageWidth = 600,
-  imageHeight = 400,
-  imageAspectRatio = 'landscape',
+  imageProps,
   featured = false,
   highlighted = false,
   href,
@@ -74,22 +68,14 @@ export default function Card({
 
 
   const renderImage = () => {
-    if (!showImage) return null;
-    
-    const defaultPlaceholder = imageAspectRatio === 'landscape' ? PlaceholderLandscape : PlaceholderSquare;
-    const imgSrc = imageSrc || defaultPlaceholder;
-    const aspectClass = imageAspectRatio === 'landscape' ? 'aspect-video' : 'aspect-square';
+    if (!showImage || !imageProps) return null;
     
     return (
-      <div className="w-full">
-        <Image 
-          src={imgSrc} 
-          alt={imageAlt} 
-          width={imageWidth} 
-          height={imageHeight} 
-          className={`w-full h-full object-cover ${aspectClass}`} 
-        />
-      </div>
+      <ImageDisplay 
+        alt={title}
+        aspectRatio="landscape"
+        {...imageProps}
+      />
     );
   };
 
