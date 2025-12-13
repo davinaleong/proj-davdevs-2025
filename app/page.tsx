@@ -1,11 +1,12 @@
-import Tag from './components/Tag'
+import TagFlex from "./components/TagFlex"
+import Tag from "./components/Tag"
 
 export default function Home() {
   return (
     <div>
-      <div className="flex flex-wrap gap-2">
+      <TagFlex>
         <Tag>JavaScript</Tag>
-      </div>
+      </TagFlex>
     </div>
   );
 }
