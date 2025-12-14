@@ -6,6 +6,7 @@ import ListHeader from "./ListHeader"
 import ListFooter from "./ListFooter"
 import CardGrid from "./CardGrid"
 import Card from "./Card"
+import sortOptions from '../config/sort-options.json'
 
 interface PostsListProps {
     posts: PostSummary[]
@@ -20,8 +21,13 @@ export default function PostsList({
     searchPlaceholder,
     baseHref 
 }: PostsListProps) {
+    // Get default sort value from config
+    const defaultSortValue = sortOptions.groups
+        .flatMap(group => group.options)
+        .find(option => option.value === 'newest')?.value || 'newest'
+        
     const [searchTerm, setSearchTerm] = useState("")
-    const [sortValue, setSortValue] = useState("newest")
+    const [sortValue, setSortValue] = useState(defaultSortValue)
     const [currentPage, setCurrentPage] = useState(1)
     
     const ITEMS_PER_PAGE = 24
@@ -44,23 +50,20 @@ export default function PostsList({
             )
         }
 
+        // Sort function mapping
+        const sortFunctions: Record<string, (a: PostSummary, b: PostSummary) => number> = {
+            'asc': (a, b) => a.title.localeCompare(b.title),
+            'desc': (a, b) => b.title.localeCompare(a.title),
+            'oldest': (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+            'newest': (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        }
+
         // Apply sorting
-        const sorted = [...filtered].sort((a, b) => {
-            switch (sortValue) {
-                case 'asc':
-                    return a.title.localeCompare(b.title)
-                case 'desc':
-                    return b.title.localeCompare(a.title)
-                case 'oldest':
-                    return new Date(a.date).getTime() - new Date(b.date).getTime()
-                case 'newest':
-                default:
-                    return new Date(b.date).getTime() - new Date(a.date).getTime()
-            }
-        })
+        const sortFunction = sortFunctions[sortValue] || sortFunctions[defaultSortValue]
+        const sorted = [...filtered].sort(sortFunction)
 
         return sorted
-    }, [posts, searchTerm, sortValue])
+    }, [posts, searchTerm, sortValue, defaultSortValue])
 
     // Calculate pagination
     const totalItems = filteredAndSortedPosts.length
