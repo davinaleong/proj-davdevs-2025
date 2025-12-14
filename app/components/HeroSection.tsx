@@ -8,6 +8,7 @@ interface HeroProps {
     showArrow?: boolean;
     arrowHref?: string;
     variant?: "gradient" | "responsive";
+    height?: "full" | "half";
     id?: string;
 }
 
@@ -17,6 +18,7 @@ export default function HeroSection({
     showArrow = true,
     arrowHref = "#",
     variant = "gradient",
+    height = "full",
     id
 }: HeroProps) {
     
@@ -31,8 +33,18 @@ export default function HeroSection({
         }
     };
 
+    const getHeightClasses = () => {
+        switch (height) {
+            case "half":
+                return "min-h-[50vh]";
+            case "full":
+            default:
+                return "min-h-screen";
+        }
+    };
+
     return (
-      <section id={id} className={`min-h-screen grid place-items-center p-4 ${getVariantClasses()} ${className}`}>
+      <section id={id} className={`${getHeightClasses()} grid place-items-center p-4 ${getVariantClasses()} ${className}`}>
         <div className="container mx-auto text-center flow">
           {children}
           {showArrow && (
