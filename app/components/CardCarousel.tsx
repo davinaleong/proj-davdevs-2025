@@ -9,8 +9,6 @@ interface CardCarouselProps {
   className?: string;
 }
 
-
-
 export default function CardCarousel({
   title,
   cards,

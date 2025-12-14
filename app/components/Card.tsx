@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ReactNode, ComponentProps } from 'react'
+import { ComponentProps } from 'react'
 import ImageDisplay from './ImageDisplay'
 
 type ImageProps = Omit<ComponentProps<typeof ImageDisplay>, 'alt'> & {
@@ -10,7 +10,6 @@ interface CardProps {
   // Content
   title: string;
   description?: string;
-  content?: string | ReactNode;
   footerText?: string;
   
   // Image
@@ -36,7 +35,6 @@ interface CardProps {
 export default function Card({ 
   title,
   description,
-  content,
   footerText,
   imageProps,
   featured = false,
@@ -87,34 +85,23 @@ export default function Card({
         <div className={getFeaturedBadgeStyles()}>Featured</div>
       )}
       
-      <header className="p-2">
-        <h4 className={`text-lg font-bold ${highlighted ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
+      <header className="flow p-2">
+        <h4 className={`text-lg line-clamp-1 font-bold ${highlighted ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
           {title}
         </h4>
-        {description && (
-          <p className={`text-sm ${highlighted ? 'text-white/90' : 'text-gray-600 dark:text-gray-300'}`}>
-            {description}
-          </p>
-        )}
       </header>
-      
-      {content && (
-        <div className="p-2">
-          {typeof content === 'string' ? (
-            <p className={`${highlighted ? 'text-white/90' : 'text-gray-700 dark:text-gray-200'}`}>
-              {content}
-            </p>
-          ) : (
-            content
-          )}
-        </div>
+
+      {description && (
+        <p className={`text-sm p-2 ${highlighted ? 'text-white/90' : 'text-gray-600 dark:text-gray-300'}`}>
+          {description}
+        </p>
       )}
       
       {showFooter && footerText && (
         <footer className="p-2">
-          <span className={`text-xs ${highlighted ? 'text-white/75' : 'text-gray-500 dark:text-gray-400'}`}>
+          <p className={`text-xs ${highlighted ? 'text-white/75' : 'text-gray-500 dark:text-gray-400'}`}>
             {footerText}
-          </span>
+          </p>
         </footer>
       )}
     </div>
