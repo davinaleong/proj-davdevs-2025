@@ -17,7 +17,7 @@ export default function ListFooter({
     className = ""
 }: ListFooterProps) {
     return (
-        <footer className={className}>
+        <footer className={`p-2 ${className}`}>
             <Pagination 
                 currentPage={currentPage}
                 totalPages={totalPages}

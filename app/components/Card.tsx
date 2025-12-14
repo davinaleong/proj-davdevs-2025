@@ -54,11 +54,11 @@ export default function Card({
   const getCardStyles = () => {
     if (highlighted) {
       const borderStyle = featured ? "border-orange-500" : "border-white";
-      const highlightedStyles = `text-white bg-blue-500 border ${borderStyle} rounded-sm overflow-hidden max-w-sm shadow-lg`;
+      const highlightedStyles = `text-white bg-blue-500 border ${borderStyle} rounded-sm overflow-hidden shadow-lg flex flex-col h-full`;
       return `${highlightedStyles} ${className}`;
     }
     
-    const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden max-w-sm shadow-lg";
+    const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden shadow-lg flex flex-col h-full";
     const borderStyle = featured ? "border-orange-500" : "border-blue-500";
     return `${baseStyles} ${borderStyle} ${className}`;
   };
