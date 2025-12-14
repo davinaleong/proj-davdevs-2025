@@ -50,18 +50,18 @@ export default function Card({
 }: CardProps) {
   
   const getFeaturedBadgeStyles = () => {
-    return "text-white bg-orange-500 text-sm px-3 py-1";
+    return "upper text-sm text-white bg-orange-500";
   };
 
   const getCardStyles = () => {
     if (highlighted) {
       const borderStyle = featured ? "border-orange-500" : "border-white";
-      const highlightedStyles = `bg-blue-500 border ${borderStyle} rounded-sm overflow-hidden max-w-sm shadow-md`;
+      const highlightedStyles = `text-white bg-blue-500 border ${borderStyle} rounded-sm overflow-hidden max-w-sm shadow-lg`;
       return `${highlightedStyles} ${className}`;
     }
     
-    const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden max-w-sm shadow-md";
-    const borderStyle = featured ? "border-orange-500" : "border-gray-200 dark:border-gray-700";
+    const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden max-w-sm shadow-lg";
+    const borderStyle = featured ? "border-orange-500" : "border-blue-500";
     return `${baseStyles} ${borderStyle} ${className}`;
   };
 
@@ -87,8 +87,8 @@ export default function Card({
         <div className={getFeaturedBadgeStyles()}>Featured</div>
       )}
       
-      <header className="p-3">
-        <h4 className={`text-lg font-bold mb-2 ${highlighted ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
+      <header className="p-2">
+        <h4 className={`text-lg font-bold ${highlighted ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
           {title}
         </h4>
         {description && (
@@ -99,9 +99,9 @@ export default function Card({
       </header>
       
       {content && (
-        <div className="px-3 pb-3">
+        <div className="p-2">
           {typeof content === 'string' ? (
-            <p className={`text-sm leading-relaxed ${highlighted ? 'text-white/90' : 'text-gray-700 dark:text-gray-200'}`}>
+            <p className={`${highlighted ? 'text-white/90' : 'text-gray-700 dark:text-gray-200'}`}>
               {content}
             </p>
           ) : (
@@ -111,7 +111,7 @@ export default function Card({
       )}
       
       {showFooter && footerText && (
-        <footer className="px-3 pb-3 mt-auto">
+        <footer className="p-2">
           <span className={`text-xs ${highlighted ? 'text-white/75' : 'text-gray-500 dark:text-gray-400'}`}>
             {footerText}
           </span>
