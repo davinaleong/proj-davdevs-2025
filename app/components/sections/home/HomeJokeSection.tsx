@@ -48,7 +48,7 @@ export default function HomeJokeSection() {
 
   return (
     <HomeSection
-      title="Something Original and Funny"
+      title="Something Original and Funny... 😄"
       variant="primary"
       anchorProps={{
         href: "/funny",

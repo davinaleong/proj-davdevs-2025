@@ -4,7 +4,7 @@ import siteLinks from '../../../data/site-links.json'
 
 export default function HomeSocialSection() {
     return (
-      <HomeSection title="Social Media" variant="primary-light">
+      <HomeSection title="Let's Connect!📱" variant="primary-light">
         <div className="container mx-auto p-6">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 place-items-center max-w-4xl mx-auto">
             {siteLinks.socialLinks
