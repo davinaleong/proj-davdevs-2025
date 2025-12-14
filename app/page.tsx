@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <HomeHeroSection />
-      <HomePostSection title="Latest Sermons" postType="sermons" variant="primary" viewAllHref="/sermons" viewAllText="View All Sermons" />
+      <HomePostSection title="Messages of Faith 🙏✨" postType="sermons" variant="primary" viewAllHref="/sermons" viewAllText="View All Sermons" />
       <HomeSocialSection />
       <HomeJokeSection />
     </div>
