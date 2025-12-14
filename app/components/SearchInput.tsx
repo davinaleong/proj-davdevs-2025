@@ -5,12 +5,14 @@ import { useState, useRef, FormEvent } from "react"
 
 interface SearchInputProps {
     onSearch?: (searchTerm: string) => void;
+    onSearchChange?: (searchTerm: string) => void;
     placeholder?: string;
     className?: string;
 }
 
 export default function SearchInput({ 
     onSearch, 
+    onSearchChange,
     placeholder = "", 
     className = "" 
 }: SearchInputProps) {
@@ -19,8 +21,15 @@ export default function SearchInput({
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
-        if (onSearch && searchTerm.trim()) {
+        if (onSearch) {
             onSearch(searchTerm.trim())
+        }
+    }
+
+    const handleInputChange = (value: string) => {
+        setSearchTerm(value)
+        if (onSearchChange) {
+            onSearchChange(value)
         }
     }
 
@@ -47,7 +56,7 @@ export default function SearchInput({
                 className="flex-1 px-2 py-2 bg-transparent border-none outline-none"
                 placeholder={placeholder}
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => handleInputChange(e.target.value)}
             />
             <button
                 type="submit"

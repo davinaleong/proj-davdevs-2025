@@ -65,15 +65,30 @@ export default function PostsList({
         return sorted
     }, [posts, searchTerm, sortValue, defaultSortValue])
 
-    // Calculate pagination
+    // Calculate pagination - show all results when searching, paginated when not
+    const isSearching = searchTerm.trim().length > 0
     const totalItems = filteredAndSortedPosts.length
-    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE)
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-    const endIndex = startIndex + ITEMS_PER_PAGE
-    const currentPosts = filteredAndSortedPosts.slice(startIndex, endIndex)
+    const totalPages = isSearching ? 1 : Math.ceil(totalItems / ITEMS_PER_PAGE)
+    
+    let currentPosts: PostSummary[]
+    if (isSearching) {
+        // Show all filtered results when searching
+        currentPosts = filteredAndSortedPosts
+    } else {
+        // Show paginated results when not searching
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+        const endIndex = startIndex + ITEMS_PER_PAGE
+        currentPosts = filteredAndSortedPosts.slice(startIndex, endIndex)
+    }
 
-    // Handle search
+    // Handle search - live search as user types
     const handleSearch = (term: string) => {
+        setSearchTerm(term)
+        setCurrentPage(1) // Reset to first page when searching
+    }
+
+    // Handle live search input changes
+    const handleSearchChange = (term: string) => {
         setSearchTerm(term)
         setCurrentPage(1) // Reset to first page when searching
     }
@@ -93,6 +108,7 @@ export default function PostsList({
         <>
             <ListHeader 
                 onSearch={handleSearch}
+                onSearchChange={handleSearchChange}
                 searchPlaceholder={defaultSearchPlaceholder}
                 sortValue={sortValue}
                 onSortChange={handleSortChange}
@@ -113,12 +129,14 @@ export default function PostsList({
                     />
                 ))}
             </CardGrid>
-            <ListFooter 
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-                className="mt-4"
-            />
+            {!isSearching && totalPages > 1 && (
+                <ListFooter 
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                    className="mt-4"
+                />
+            )}
         </>
     )
 }
