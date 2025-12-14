@@ -1,7 +1,11 @@
 import FaithHeroSection from "../components/sections/faith/FaithHeroSection"
+import ListHeader from "../components/ListHeader"
 
 export default function Faith() {
     return (
-        <FaithHeroSection />
+        <div>
+            <FaithHeroSection />
+            <ListHeader />
+        </div>
     )
 }
