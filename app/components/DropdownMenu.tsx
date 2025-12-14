@@ -77,7 +77,7 @@ export default function DropdownMenu({
   return (
     <div className={`relative ${className}`}>
       <div className="flex items-center text-black bg-white dark:bg-blue-300 rounded-sm overflow-hidden">
-        <span className="px-3 py-2">{displayLabel}</span>
+        <span className="block flex-1 px-3 py-2">{displayLabel}</span>
         <button
           type="button"
           onClick={handleToggle}
