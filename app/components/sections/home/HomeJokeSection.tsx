@@ -35,7 +35,7 @@ export default function HomeJokeSection() {
               Show Answer
             </Button>
           ) : (
-            <p className="whitespace-pre-line leading-relaxed font-medium">
+            <p className="text-black bg-white rounded-sm shadow-lg p-2 whitespace-pre-line leading-relaxed font-semibold">
               {joke.answer}
             </p>
           )}
