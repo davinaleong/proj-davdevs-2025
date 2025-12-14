@@ -7,7 +7,7 @@ interface HomeSectionProps {
   children: ReactNode;
   title: string;
   anchorProps?: AnchorProps;
-  variant?: 'default' | 'neutral' | 'primary' | 'primary-dark';
+  variant?: 'default' | 'neutral' | 'primary' | 'primary-dark' | 'primary-light';
   className?: string;
   id?: string;
 }
@@ -24,13 +24,15 @@ export default function HomeSection({
         default: '',
         neutral: 'bg-slate-100 dark:bg-slate-900',
         primary: 'text-white bg-blue-500',
-        'primary-dark': 'text-white bg-blue-700'
+        'primary-dark': 'text-white bg-blue-700',
+        'primary-light': 'text-black bg-blue-300 dark:text-white dark:bg-blue-700'
     };
 
     const getAnchorVariant = (): 'white' | 'black' | 'blue-500' | 'blue-300' => {
         switch (variant) {
             case 'default':
             case 'neutral':
+            case 'primary-light':
                 return 'black';
             case 'primary':
             case 'primary-dark':
@@ -45,6 +47,8 @@ export default function HomeSection({
             case 'default':
             case 'neutral':
                 return 'dark:!text-blue-300';
+            case 'primary-light':
+                return 'dark:!text-white';
             case 'primary':
             case 'primary-dark':
                 return '';
