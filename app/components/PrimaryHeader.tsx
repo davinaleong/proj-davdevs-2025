@@ -13,7 +13,11 @@ export default function PrimaryHeader({ onMenuOpen }: PrimaryHeaderProps) {
     return (
         <header className="sticky top-0 flex items-center justify-between gap-2 p-2 bg-slate-100 dark:bg-gray-900 z-30">
             <Brand/>
-            <SearchInput className="flex-1"/>
+            <SearchInput 
+                className="flex-1" 
+                showAutocomplete={true}
+                placeholder="Search sermons, pages, navigation..."
+            />
             <Link 
                 href="/funny" 
                 className="hover:opacity-80"
