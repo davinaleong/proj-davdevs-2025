@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
-import HeroSection from ".//../components/HeroSection"
-import Prose from "./../components/Prose"
-import TagFlex from "../components/TagFlex"
-import Tag from "./../components/Tag"
+import HeroSection from "./HeroSection"
+import Prose from "./Prose"
+import TagFlex from "./TagFlex"
+import Tag from "./Tag"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
