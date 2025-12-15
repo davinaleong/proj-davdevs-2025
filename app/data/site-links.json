@@ -85,17 +85,17 @@
   "legalLinks": [
     {
       "label": "Terms",
-      "href": "/terms",
+      "href": "/pages/tnc",
       "external": false
     },
     {
       "label": "Privacy",
-      "href": "/privacy", 
+      "href": "/pages/privacy", 
       "external": false
     },
     {
       "label": "Sitemap",
-      "href": "/sitemap",
+      "href": "/pages/sitemap",
       "external": false
     }
   ]
