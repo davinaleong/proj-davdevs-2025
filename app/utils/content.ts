@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export type PostType = 'projects' | 'articles' | 'fem-solutions' | 'notebooks' | 'tools' | 'sermons';
+export type PostType = 'projects' | 'articles' | 'fem-solutions' | 'notebooks' | 'tools' | 'sermons' | 'static';
 
 export interface PostMetadata {
   title: string;
@@ -134,7 +134,7 @@ export function getLatestPostsByType(type: PostType, count: number = 3): PostSum
  * Get latest posts from all types
  */
 export function getLatestPostsAllTypes(countPerType: number = 3): Record<PostType, PostSummary[]> {
-  const types: PostType[] = ['projects', 'articles', 'fem-solutions', 'notebooks', 'tools', 'sermons'];
+  const types: PostType[] = ['projects', 'articles', 'fem-solutions', 'notebooks', 'tools', 'sermons', 'static'];
   const result: Record<PostType, PostSummary[]> = {} as Record<PostType, PostSummary[]>;
 
   for (const type of types) {
@@ -156,7 +156,7 @@ export function getPostBySlug(type: PostType, slug: string): Post | null {
  * Get all posts across all types, sorted by date
  */
 export function getAllPostsSorted(limit?: number): PostSummary[] {
-  const types: PostType[] = ['projects', 'articles', 'fem-solutions', 'notebooks', 'tools', 'sermons'];
+  const types: PostType[] = ['projects', 'articles', 'fem-solutions', 'notebooks', 'tools', 'sermons', 'static'];
   const allPosts: PostSummary[] = [];
 
   for (const type of types) {
