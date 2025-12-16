@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation'
+import { ArrowLeft } from 'lucide-react'
 import HeroSection from "./HeroSection"
 import Prose from "./Prose"
 import TagFlex from "./TagFlex"
 import Tag from "./Tag"
+import Anchor from "./Anchor"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import dateFormatConfig from '../config/date-format.json'
@@ -97,6 +99,16 @@ export default function PostPage({ params, postType }: PostPageProps) {
                         ))}
                     </TagFlex>
                 )}
+
+                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <Anchor
+                        href={`/${postType}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium"
+                    >
+                        <ArrowLeft size={16} />
+                        Back to {postType.charAt(0).toUpperCase() + postType.slice(1)}
+                    </Anchor>
+                </div>
             </section>
         </div>
     )
