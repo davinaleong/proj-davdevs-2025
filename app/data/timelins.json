@@ -1,0 +1,193 @@
+{
+  "timeline": [
+    {
+      "type": "experience",
+      "title": "AI Engineer",
+      "organization": "STARLIMS",
+      "location": "Singapore (Remote)",
+      "startDate": "2025-07",
+      "endDate": "2025-09",
+      "summary": "Contributed to the PUB STARLIMS project, integrating AI and full-stack solutions into laboratory workflows.",
+      "highlights": [
+        "Built GPT-based chatbots and RAG pipelines",
+        "Optimised results entry, validation, approval, and test plan modules",
+        "Supported sprint planning and stakeholder collaboration"
+      ],
+      "tags": ["AI", "Gen AI", "Machine Learning", "Python", "STARLIMS"]
+    },
+    {
+      "type": "certification",
+      "title": "BCG RISE Machine Learning Expert",
+      "organization": "Boston Consulting Group (BCG)",
+      "date": "2025-09",
+      "tags": ["Machine Learning", "Python", "BCG"]
+    },
+    {
+      "type": "certification",
+      "title": "BCG RISE Python Expert",
+      "organization": "Boston Consulting Group (BCG)",
+      "date": "2025-09",
+      "tags": ["Python", "Data Analytics", "BCG"]
+    },
+    {
+      "type": "certification",
+      "title": "BCG RISE SQL Expert",
+      "organization": "Boston Consulting Group (BCG)",
+      "date": "2025-09",
+      "tags": ["SQL", "Structured Thinking", "BCG"]
+    },
+    {
+      "type": "experience",
+      "title": "Business Data Analyst (In Progress)",
+      "organization": "Boston Consulting Group (BCG) – RISE 2.0",
+      "location": "Singapore (Remote)",
+      "startDate": "2025-02",
+      "endDate": "2025-09",
+      "summary": "Completed the BCG Rise 2.0 program with Distinction, focusing on SQL, Python, and analytics.",
+      "highlights": [
+        "Designed Power BI dashboards",
+        "Built SQL scripts for data transformation",
+        "Mentored peers and shared work on GitHub and YouTube"
+      ],
+      "tags": ["Data Analytics", "SQL", "Python", "Power BI"]
+    },
+    {
+      "type": "experience",
+      "title": "Applied AI for Developers Workshop",
+      "organization": "Independent",
+      "startDate": "2024-07",
+      "endDate": "2024-07",
+      "summary": "Used Gen AI tools to accelerate development workflows.",
+      "highlights": [
+        "Fixed 15+ bugs using AI assistance",
+        "Generated reusable components",
+        "Improved AI-generated code accuracy by 40%"
+      ],
+      "tags": ["Gen AI", "Prompt Engineering", "JavaScript", "Laravel"]
+    },
+    {
+      "type": "experience",
+      "title": "Cybersecurity Capstone Project",
+      "organization": "Vertical Institute",
+      "startDate": "2024-08",
+      "endDate": "2024-09",
+      "summary": "Assessed a simulated digital bank and improved security resilience.",
+      "highlights": [
+        "Identified six high-risk vulnerabilities",
+        "Implemented HTTPS and AES-based remediation",
+        "Improved brute-force resistance by up to 60%"
+      ],
+      "tags": ["Cybersecurity", "Risk Management", "Data Privacy"]
+    },
+    {
+      "type": "certification",
+      "title": "Cybersecurity Bootcamp",
+      "organization": "Vertical Institute",
+      "date": "2024-09",
+      "tags": ["Cybersecurity"]
+    },
+    {
+      "type": "experience",
+      "title": "UX Design Capstone Project",
+      "organization": "Vertical Institute",
+      "startDate": "2024-05",
+      "endDate": "2024-06",
+      "summary": "Led UX design for a FinTech application.",
+      "highlights": [
+        "Conducted interviews and usability testing",
+        "Improved task success rate by 25%",
+        "Achieved 90% user satisfaction"
+      ],
+      "tags": ["UX Design", "UI Design", "Figma"]
+    },
+    {
+      "type": "experience",
+      "title": "Associate Systems Engineer",
+      "organization": "GIC",
+      "location": "Singapore (Hybrid)",
+      "startDate": "2023-05",
+      "endDate": "2023-12",
+      "summary": "Worked with stakeholders and vendors to support systems and operations.",
+      "tags": ["Stakeholder Management", "Project Coordination"]
+    },
+    {
+      "type": "volunteering",
+      "title": "Operations & Security – Children's Ministry",
+      "organization": "New Creation Church",
+      "startDate": "2022-06",
+      "endDate": "2024-07",
+      "summary": "Ensured safe check-in/check-out processes and managed operational flow.",
+      "tags": ["Operations", "Security", "Child Safety"]
+    },
+    {
+      "type": "experience",
+      "title": "Web Developer",
+      "organization": "EPOS Pte Ltd",
+      "startDate": "2022-07",
+      "endDate": "2023-01",
+      "summary": "Built SOPs and WordPress-based websites.",
+      "tags": ["PHP", "WordPress", "JavaScript"]
+    },
+    {
+      "type": "experience",
+      "title": "Web Developer",
+      "organization": "FirstCom Solutions",
+      "startDate": "2021-06",
+      "endDate": "2022-07",
+      "summary": "Developed and launched 22+ e-commerce websites.",
+      "tags": ["Laravel", "WordPress", "E-commerce"]
+    },
+    {
+      "type": "experience",
+      "title": "Software Engineer",
+      "organization": "Lively",
+      "startDate": "2020-03",
+      "endDate": "2021-05",
+      "summary": "Built Laravel APIs and analytics dashboards.",
+      "tags": ["Laravel", "MySQL", "AWS"]
+    },
+    {
+      "type": "experience",
+      "title": "Developer / Junior Web Developer",
+      "organization": "The Shipyard Private Limited",
+      "startDate": "2015-11",
+      "endDate": "2018-05",
+      "summary": "Developed web and mobile applications using PHP and JavaScript.",
+      "tags": ["PHP", "CodeIgniter", "Angular", "Bootstrap"]
+    },
+    {
+      "type": "volunteering",
+      "title": "Care Group Host",
+      "organization": "New Creation Church",
+      "startDate": "2014-10",
+      "endDate": "Present",
+      "summary": "Hosted a youth care group every 2nd and 4th Friday of the month.",
+      "tags": ["Leadership", "Community Building"]
+    },
+    {
+      "type": "certification",
+      "title": "Cybersecurity Awareness Programme",
+      "organization": "NTUC LearningHub",
+      "date": "2023-02",
+      "tags": ["Cybersecurity Awareness"]
+    },
+    {
+      "type": "education",
+      "title": "Diploma in Information Technology (Game Development)",
+      "organization": "Singapore Polytechnic",
+      "startDate": "2008",
+      "endDate": "2011",
+      "summary": "Foundation in software development and object-oriented programming.",
+      "tags": ["OOP", "Software Development"]
+    },
+    {
+      "type": "experience",
+      "title": "Game Developer (Internship)",
+      "organization": "InnoVillage, Singapore Polytechnic",
+      "startDate": "2010-10",
+      "endDate": "2011-05",
+      "summary": "Developed mobile games using Unity3D and Objective-C.",
+      "tags": ["Game Development", "Unity", "Objective-C"]
+    }
+  ]
+}
