@@ -48,7 +48,7 @@ export default function HeroSection({
         <div className="container mx-auto text-center flow">
           {children}
           {showArrow && (
-            <div className="mt-12 animate-bounce">
+            <div className="text-center animate-bounce">
               <Link href={arrowHref} scroll={true} className="block">
                 <ChevronDown 
                   size={32} 

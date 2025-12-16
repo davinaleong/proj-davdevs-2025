@@ -30,7 +30,7 @@ export default function PostPage({ params, postType }: PostPageProps) {
 
     return (
         <div>
-            <HeroSection className="flow" variant="responsive" height="half">
+            <HeroSection variant="responsive" height="half">
                 <h1 className="text-4xl lg:text-6xl font-bold">{post.title}</h1>
                 <p className="max-w-[60ch] mx-auto lg:text-lg">{post.description}</p>
                 <p className="flex justify-center gap-1 text-sm">
