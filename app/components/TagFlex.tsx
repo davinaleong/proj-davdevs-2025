@@ -25,7 +25,7 @@ export default function TagFlex({
   className = "",
   onTagClick
 }: TagFlexProps) {
-  const containerClasses = `flex flex-wrap gap-2 ${className}`;
+  const containerClasses = `flex flex-wrap gap-2 ${className} print:hidden`;
 
   // If children are provided, use them directly
   if (children) {

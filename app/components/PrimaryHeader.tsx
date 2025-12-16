@@ -11,7 +11,7 @@ interface PrimaryHeaderProps {
 
 export default function PrimaryHeader({ onMenuOpen }: PrimaryHeaderProps) {
     return (
-        <header className="sticky top-0 flex items-center justify-between gap-2 p-2 bg-slate-100 dark:bg-gray-900 z-30">
+        <header className="sticky top-0 flex items-center justify-between gap-2 p-2 bg-slate-100 dark:bg-gray-900 z-30 print:hidden">
             <Brand/>
             <SearchInput 
                 className="flex-1" 

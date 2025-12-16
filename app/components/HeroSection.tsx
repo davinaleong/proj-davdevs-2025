@@ -52,7 +52,7 @@ export default function HeroSection({
               <Link href={arrowHref} scroll={true} className="block">
                 <ChevronDown 
                   size={32} 
-                  className="mx-auto cursor-pointer transition-colors hover:opacity-80"
+                  className="mx-auto cursor-pointer transition-colors hover:opacity-80 print:hidden"
                 />
               </Link>
             </div>

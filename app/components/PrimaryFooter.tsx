@@ -46,7 +46,7 @@ export default function PrimaryFooter({
     };
     
     return (
-        <footer className={`bg-blue-700 text-white p-4 ${className}`}>
+        <footer className={`bg-blue-700 text-white p-4 ${className} print:hidden`}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
                 {/* Brand Section */}
                 <div className="text-center md:text-left">

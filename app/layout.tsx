@@ -92,7 +92,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
-        className={`${montserrat.className} ${sourceCodePro.variable} antialiased min-h-screen font-medium text-gray-900 bg-white dark:bg-black dark:text-gray-100`}
+        className={`${montserrat.className} ${sourceCodePro.variable} antialiased min-h-screen font-medium text-black bg-white dark:bg-black dark:text-white print:text-black print:bg-white`}
       >
         <ClientLayout>
           {children}
