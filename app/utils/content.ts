@@ -13,6 +13,7 @@ export interface PostMetadata {
   tags: string[];
   featured: boolean;
   readingTime: number;
+  published: boolean;
 }
 
 export interface Post extends PostMetadata {
@@ -44,7 +45,7 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
     
     // Validate required fields
     const requiredFields: (keyof PostMetadata)[] = [
-      'title', 'slug', 'description', 'date', 'author', 'tags', 'featured', 'readingTime'
+      'title', 'slug', 'description', 'date', 'author', 'tags', 'featured', 'readingTime', 'published'
     ];
     
     for (const field of requiredFields) {
@@ -63,6 +64,7 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
       tags: Array.isArray(data.tags) ? data.tags : [],
       featured: Boolean(data.featured),
       readingTime: Number(data.readingTime) || 0,
+      published: Boolean(data.published),
       content,
       type,
       filePath
@@ -98,7 +100,8 @@ export function getPostsByType(type: PostType): Post[] {
       const filePath = path.join(contentDir, file);
       const post = parsePostFile(filePath, type);
       
-      if (post) {
+      // Only include published posts
+      if (post && post.published) {
         posts.push(post);
       }
     }
@@ -125,6 +128,7 @@ export function getLatestPostsByType(type: PostType, count: number = 3): PostSum
     tags: post.tags,
     featured: post.featured,
     readingTime: post.readingTime,
+    published: post.published,
     type: post.type,
     filePath: post.filePath
   }));
@@ -161,6 +165,7 @@ export function getAllPostsSorted(limit?: number): PostSummary[] {
 
   for (const type of types) {
     const posts = getPostsByType(type);
+    // getPostsByType now already filters for published posts
     allPosts.push(...posts.map(post => ({
       title: post.title,
       slug: post.slug,
@@ -170,6 +175,7 @@ export function getAllPostsSorted(limit?: number): PostSummary[] {
       tags: post.tags,
       featured: post.featured,
       readingTime: post.readingTime,
+      published: post.published,
       type: post.type,
       filePath: post.filePath
     })));
