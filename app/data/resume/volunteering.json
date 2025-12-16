@@ -1,0 +1,45 @@
+{
+  "volunteering": [
+    {
+      "role": "Care Group Host",
+      "organization": "New Creation Church",
+      "startDate": "2014-10",
+      "endDate": "Present",
+      "duration": "11 years 3 months",
+      "summary": "Host a youth care group at my home every 2nd and 4th Friday of the month.",
+      "responsibilities": [
+        "Facilitate regular youth care group gatherings",
+        "Provide a safe and welcoming environment for participants",
+        "Support relational and spiritual growth within the group"
+      ],
+      "skills": [
+        "Community Building",
+        "Leadership",
+        "Hosting",
+        "Communication"
+      ]
+    },
+    {
+      "role": "Operations & Security in the Children's Ministry",
+      "organization": "New Creation Church",
+      "startDate": "2022-06",
+      "endDate": "2024-07",
+      "duration": "2 years 2 months",
+      "focusGroup": "Children",
+      "summary": "Supported operational and security processes for children's ministry services.",
+      "responsibilities": [
+        "Ensured children were properly checked in before class and checked out after class",
+        "Safeguarded children during services",
+        "Managed parents and children during peak periods",
+        "Troubleshot technical issues with registration devices"
+      ],
+      "skills": [
+        "Operations Management",
+        "Security Awareness",
+        "Child Safety",
+        "Stakeholder Communication",
+        "Technical Troubleshooting"
+      ]
+    }
+  ]
+}

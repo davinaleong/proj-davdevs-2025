@@ -1,0 +1,79 @@
+{
+  "certifications": [
+    {
+      "title": "BCG RISE Machine Learning Expert",
+      "issuer": "Boston Consulting Group (BCG)",
+      "issueDate": "2025-09",
+      "credentialId": "d35187e1-e235-4fb7-bd69-b8bc7bb4629e",
+      "skills": [
+        "Machine Learning",
+        "Python"
+      ]
+    },
+    {
+      "title": "BCG RISE Python Expert",
+      "issuer": "Boston Consulting Group (BCG)",
+      "issueDate": "2025-09",
+      "credentialId": "01ccf6cc-170a-4d21-9752-56ec70e739b8",
+      "skills": [
+        "Data Visualization",
+        "Data Analysis with Pandas",
+        "Data Preparation",
+        "Python"
+      ]
+    },
+    {
+      "title": "BCG RISE SQL Expert",
+      "issuer": "Boston Consulting Group (BCG)",
+      "issueDate": "2025-09",
+      "credentialId": "4f80f7ea-a9c2-4564-8205-037c10816fea",
+      "skills": [
+        "SQL",
+        "SCQ Query",
+        "Structured Thinking"
+      ]
+    },
+    {
+      "title": "Cybersecurity Bootcamp",
+      "issuer": "Vertical Institute",
+      "issueDate": "2024-09",
+      "credentialId": "4Gg60pKP24",
+      "skills": [
+        "Cybersecurity"
+      ]
+    },
+    {
+      "title": "UX Design",
+      "issuer": "Vertical Institute",
+      "issueDate": "2024-06",
+      "credentialId": "8Pa9c5cA29",
+      "skills": [
+        "UX Design",
+        "User Research",
+        "Competitive Analysis",
+        "Figma"
+      ]
+    },
+    {
+      "title": "Cybersecurity Awareness Programme – Certificate of Completion",
+      "issuer": "NTUC LearningHub",
+      "issueDate": "2023-02"
+    },
+    {
+      "title": "Membership Certification",
+      "issuer": "IxDF – Interaction Design Foundation",
+      "issueDate": "2017-10",
+      "credentialId": "25642"
+    },
+    {
+      "title": "The Sequel to SQL",
+      "issuer": "Code School",
+      "issueDate": "2015-11"
+    },
+    {
+      "title": "Try SQL",
+      "issuer": "Code School",
+      "issueDate": "2015-11"
+    }
+  ]
+}

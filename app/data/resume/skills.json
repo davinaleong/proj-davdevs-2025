@@ -1,0 +1,87 @@
+{
+  "skills": {
+    "dataAnalytics": [
+      "SQL",
+      "SQL Query",
+      "Structured Thinking",
+      "Data Visualization",
+      "Data Analysis with Pandas",
+      "Data Preparation",
+      "Power BI",
+      "Microsoft Power BI",
+      "Microsoft SQL Server",
+      "Microsoft Excel"
+    ],
+    "programmingLanguages": [
+      "Python",
+      "PHP",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "frontend": [
+      "HTML",
+      "CSS",
+      "React",
+      "Next.js"
+    ],
+    "backend": [
+      "Laravel"
+    ],
+    "aiAndMachineLearning": [
+      "Machine Learning",
+      "Generative AI",
+      "Jupyter"
+    ],
+    "cybersecurity": [
+      "Risk Management",
+      "Password Management",
+      "Incident Reporting",
+      "Data Privacy"
+    ],
+    "design": [
+      "User Interface Design",
+      "UI Design"
+    ],
+    "toolsAndSoftware": [
+      "Adobe Premiere Pro"
+    ],
+    "endorsedByExperience": [
+      {
+        "skill": "PHP",
+        "context": "Full-stack web development across multiple companies"
+      },
+      {
+        "skill": "Laravel",
+        "context": "Web Developer / Software Engineer roles"
+      },
+      {
+        "skill": "JavaScript",
+        "context": "Frontend and backend development"
+      },
+      {
+        "skill": "TypeScript",
+        "context": "React and modern frontend projects"
+      },
+      {
+        "skill": "React",
+        "context": "Frontend development and UI-focused projects"
+      },
+      {
+        "skill": "Next.js",
+        "context": "Production-grade web applications"
+      },
+      {
+        "skill": "Python",
+        "context": "AI Engineer at STARLIMS"
+      },
+      {
+        "skill": "Machine Learning",
+        "context": "BCG RISE Machine Learning Expert"
+      },
+      {
+        "skill": "SQL",
+        "context": "BCG RISE SQL Expert"
+      }
+    ]
+  }
+}

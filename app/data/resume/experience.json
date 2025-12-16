@@ -1,0 +1,277 @@
+{
+  "experience": [
+    {
+      "role": "AI Engineer",
+      "company": "STARLIMS",
+      "employmentType": "Full-time",
+      "location": "Singapore (Remote)",
+      "startDate": "2025-07",
+      "endDate": "2025-09",
+      "duration": "3 months",
+      "summary": "Contributed to the PUB STARLIMS project, driving AI and full-stack solutions for laboratory workflows.",
+      "responsibilities": [
+        "Integrated AI and full-stack solutions into laboratory information systems",
+        "Developed GPT-based chatbots and retrieval-augmented generation pipelines",
+        "Optimised modules including results entry, validation, approval, and test plan management",
+        "Ensured regulatory alignment through rigorous test documentation",
+        "Collaborated with stakeholders to deliver UI/UX prototypes",
+        "Supported sprint planning and backlog grooming"
+      ],
+      "skills": [
+        "Python",
+        "Jupyter",
+        "Machine Learning",
+        "Power BI",
+        "Microsoft SQL Server"
+      ]
+    },
+    {
+      "role": "Business Data Analyst (In Progress)",
+      "company": "Boston Consulting Group (BCG) – Rise 2.0",
+      "employmentType": "Program",
+      "location": "Singapore (Remote)",
+      "startDate": "2025-02",
+      "endDate": "2025-09",
+      "duration": "8 months",
+      "summary": "Graduated with Distinction from the BCG Rise 2.0 Business Data Analyst program.",
+      "responsibilities": [
+        "Applied SCQ and Pyramid frameworks to business case problem solving",
+        "Designed Power BI dashboards",
+        "Created three SQL scripts for data transformation and visualisation",
+        "Shared analytics work via GitHub and YouTube",
+        "Led tutoring sessions and mentored peers"
+      ],
+      "skills": [
+        "SQL",
+        "Python",
+        "Power BI",
+        "Microsoft Excel",
+        "MySQL"
+      ]
+    },
+    {
+      "role": "Cybersecurity Capstone Project",
+      "company": "Vertical Institute",
+      "employmentType": "Project",
+      "location": "Singapore (Remote)",
+      "startDate": "2024-08",
+      "endDate": "2024-09",
+      "duration": "2 months",
+      "summary": "Assessed a simulated digital bank and improved its security posture.",
+      "responsibilities": [
+        "Identified six high-risk vulnerabilities",
+        "Proposed three remediation strategies including HTTPS and AES encryption",
+        "Designed a strong password creation method using mnemonic models",
+        "Improved resistance to brute-force attacks by up to 60%",
+        "Outlined incident response plans and forensic triage processes"
+      ],
+      "skills": [
+        "Cybersecurity",
+        "Risk Management",
+        "Password Management",
+        "Incident Reporting",
+        "PDPA",
+        "GDPR"
+      ]
+    },
+    {
+      "role": "Applied AI for Developers Workshop",
+      "company": "Independent",
+      "employmentType": "Workshop",
+      "location": "Remote",
+      "startDate": "2024-07",
+      "endDate": "2024-07",
+      "duration": "1 month",
+      "summary": "Applied AI tools to accelerate development workflows.",
+      "responsibilities": [
+        "Used ChatGPT to fix over 15 bugs",
+        "Generated more than 10 reusable components",
+        "Accelerated JavaScript, PHP, and Laravel development by ~30%",
+        "Authored three articles on AI-assisted development with 500+ views",
+        "Improved AI-generated code accuracy by 40%"
+      ],
+      "skills": [
+        "AI-assisted Development",
+        "JavaScript",
+        "PHP",
+        "Laravel",
+        "Prompt Engineering"
+      ]
+    },
+    {
+      "role": "UX Design Capstone Project",
+      "company": "Vertical Institute",
+      "employmentType": "Project",
+      "location": "Remote",
+      "startDate": "2024-05",
+      "endDate": "2024-06",
+      "duration": "2 months",
+      "summary": "Led UX design for a FinTech application.",
+      "responsibilities": [
+        "Conducted user interviews and usability testing",
+        "Identified three key friction points in the miles redemption flow",
+        "Designed and tested high-fidelity prototypes",
+        "Improved task success rate by 25%",
+        "Achieved a 90% user satisfaction score"
+      ],
+      "skills": [
+        "UX Design",
+        "UI Design",
+        "Figma",
+        "User Research"
+      ]
+    },
+    {
+      "role": "Associate Systems Engineer",
+      "company": "GIC",
+      "employmentType": "Contract",
+      "location": "Singapore (Hybrid)",
+      "startDate": "2023-05",
+      "endDate": "2023-12",
+      "duration": "8 months",
+      "summary": "Worked closely with stakeholders and vendors to support systems and operations.",
+      "responsibilities": [
+        "Liaised with stakeholders to understand requirements",
+        "Coordinated with vendors for system enhancements",
+        "Streamlined workflows and improved collaboration"
+      ],
+      "skills": [
+        "Project Management",
+        "Stakeholder Management"
+      ]
+    },
+    {
+      "role": "Web Developer",
+      "company": "EPOS Pte Ltd",
+      "employmentType": "Full-time",
+      "location": "Singapore",
+      "startDate": "2022-07",
+      "endDate": "2023-01",
+      "duration": "7 months",
+      "summary": "Developed SOPs and WordPress-based websites.",
+      "responsibilities": [
+        "Built internal SOPs for website development",
+        "Developed websites using WordPress, Elementor, and MetForm",
+        "Implemented custom CSS and JavaScript features"
+      ],
+      "skills": [
+        "PHP",
+        "WordPress",
+        "JavaScript",
+        "CSS",
+        "Elementor"
+      ]
+    },
+    {
+      "role": "Web Developer",
+      "company": "FirstCom Solutions",
+      "employmentType": "Full-time",
+      "location": "Singapore",
+      "startDate": "2021-06",
+      "endDate": "2022-07",
+      "duration": "1 year 2 months",
+      "summary": "Developed and launched large-scale e-commerce websites.",
+      "responsibilities": [
+        "Developed over 22 e-commerce websites",
+        "Implemented responsive web designs",
+        "Integrated PayPal and custom WeChat Pay checkouts",
+        "Managed cron jobs and databases"
+      ],
+      "skills": [
+        "Laravel",
+        "WordPress",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SASS",
+        "Git"
+      ]
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Lively",
+      "employmentType": "Full-time",
+      "location": "Singapore",
+      "startDate": "2020-03",
+      "endDate": "2021-05",
+      "duration": "1 year 3 months",
+      "summary": "Built Laravel-based applications and analytics dashboards.",
+      "responsibilities": [
+        "Developed REST APIs using Laravel",
+        "Built dashboards with MySQL and Elasticsearch",
+        "Enabled event tracking and revenue analytics"
+      ],
+      "skills": [
+        "Laravel",
+        "MySQL",
+        "Elasticsearch",
+        "AWS",
+        "JavaScript"
+      ]
+    },
+    {
+      "role": "Developer",
+      "company": "The Shipyard Private Limited",
+      "employmentType": "Full-time",
+      "location": "Singapore",
+      "startDate": "2017-07",
+      "endDate": "2018-05",
+      "duration": "11 months",
+      "summary": "Developed web and mobile applications.",
+      "responsibilities": [
+        "Built web apps using PHP and CodeIgniter",
+        "Worked on hybrid mobile apps using Ionic 2",
+        "Assisted in training new employees"
+      ],
+      "skills": [
+        "PHP",
+        "CodeIgniter",
+        "Angular",
+        "Bootstrap",
+        "Git"
+      ]
+    },
+    {
+      "role": "Junior Web Developer",
+      "company": "The Shipyard Private Limited",
+      "employmentType": "Full-time",
+      "location": "Singapore",
+      "startDate": "2015-11",
+      "endDate": "2017-07",
+      "duration": "1 year 9 months",
+      "summary": "Supported enterprise web systems and testing.",
+      "responsibilities": [
+        "Maintained multi-module web systems",
+        "Developed using PHP, MySQL, jQuery, and React",
+        "Performed unit and integration testing"
+      ],
+      "skills": [
+        "PHP",
+        "MySQL",
+        "jQuery",
+        "React",
+        "Unit Testing"
+      ]
+    },
+    {
+      "role": "Game Developer (Internship)",
+      "company": "InnoVillage, Singapore Polytechnic",
+      "employmentType": "Internship",
+      "location": "Singapore",
+      "startDate": "2010-10",
+      "endDate": "2011-05",
+      "duration": "8 months",
+      "summary": "Developed mobile games during internship.",
+      "responsibilities": [
+        "Developed iPhone applications",
+        "Built games using Unity3D",
+        "Learned Objective-C and Unity workflows"
+      ],
+      "skills": [
+        "Unity3D",
+        "Objective-C",
+        "Game Development"
+      ]
+    }
+  ]
+}

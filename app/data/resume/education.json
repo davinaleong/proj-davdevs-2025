@@ -1,0 +1,45 @@
+{
+  "education": [
+    {
+      "institution": "Singapore Polytechnic",
+      "location": "Singapore",
+      "qualification": "Diploma",
+      "fieldOfStudy": "Information Technology (Game Development)",
+      "startYear": 2008,
+      "endYear": 2011,
+      "summary": "Built a strong foundation in object-oriented programming and database fundamentals with a focus on game development.",
+      "highlights": [
+        "Learned general object-oriented programming principles",
+        "Developed simple database management solutions",
+        "Gained exposure to game development workflows"
+      ],
+      "skills": [
+        "C++",
+        "C#",
+        "ActionScript",
+        "Java",
+        "Visual Basic",
+        "Python (basic)",
+        "MS SQL",
+        "Object-Oriented Programming (OOP)",
+        "Software Development",
+        "Presentations",
+        "Houdini"
+      ]
+    },
+    {
+      "institution": "West Spring Secondary School",
+      "location": "Singapore",
+      "qualification": "GCE O-Levels",
+      "startYear": 2004,
+      "endYear": 2007
+    },
+    {
+      "institution": "St. Anthony’s Primary School",
+      "location": "Singapore",
+      "qualification": "PSLE",
+      "startYear": 1998,
+      "endYear": 2003
+    }
+  ]
+}

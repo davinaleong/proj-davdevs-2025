@@ -1,0 +1,80 @@
+{
+  "executiveSummary": {
+    "headline": "Versatile Software Engineer & Full-Stack Web Developer",
+    "summary": "I’m a versatile software engineer and full-stack web developer with a strong foundation in data analytics, UX, and cybersecurity. I specialize in crafting intuitive, scalable digital solutions that bridge user experience with business intelligence.",
+    "experience": {
+      "years": 8,
+      "domains": [
+        "Frontend Development",
+        "Backend Development",
+        "Data Analytics",
+        "UX Design",
+        "Cybersecurity"
+      ]
+    },
+    "technicalSkills": {
+      "frontend": [
+        "React",
+        "Next.js",
+        "Astro",
+        "Tailwind CSS",
+        "SASS"
+      ],
+      "backend": [
+        "Laravel",
+        "PHP"
+      ],
+      "data": [
+        "SQL",
+        "Python",
+        "Power BI"
+      ]
+    },
+    "keyAchievements": [
+      {
+        "category": "Data Analytics",
+        "details": [
+          "Designed 2 Power BI dashboards",
+          "Wrote 3 SQL scripts during the BCG Rise data analytics program",
+          "Shared insights via GitHub and YouTube"
+        ]
+      },
+      {
+        "category": "Cybersecurity",
+        "details": [
+          "Identified 6 vulnerabilities in a simulated banking system",
+          "Proposed 3 fixes",
+          "Improved security resilience by up to 60%"
+        ]
+      },
+      {
+        "category": "Product & Education",
+        "details": [
+          "Built 'Script Trivia', a React + TypeScript quiz app for non-technical users",
+          "Built 'TimeNinja', a Laravel-based countdown timer tool"
+        ]
+      },
+      {
+        "category": "Leadership & Impact",
+        "details": [
+          "Shipped over 22 e-commerce websites",
+          "Mentored 6 developers",
+          "Led 2 agile sprints",
+          "Published 3 articles on AI-aided coding with 500+ views"
+        ]
+      }
+    ],
+    "portfolio": {
+      "website": "https://davinaleong.com",
+      "description": "Projects, code snippets, and reflections from my tech journey"
+    },
+    "availability": {
+      "openTo": [
+        "Software Development",
+        "Data Analytics",
+        "Digital Innovation"
+      ],
+      "networking": true
+    }
+  }
+}
