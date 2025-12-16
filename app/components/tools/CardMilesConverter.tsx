@@ -66,6 +66,10 @@ interface ExchangeRates {
   [key: string]: number // rates to USD
 }
 
+/* TODO:
+ * Use the Dropdown component for the select elements
+ * Use the Button component for the button elements
+ */
 export default function CardMilesConverter() {
   const [sourceAmount, setSourceAmount] = useState<string>("")
   const [sourceProgramId, setSourceProgramId] = useState<string>("dbs-points")
@@ -711,7 +715,7 @@ export default function CardMilesConverter() {
             value={sourceAmount}
             onChange={(e) => setSourceAmount(e.target.value)}
             placeholder="Enter points/miles amount"
-            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2"
           />
         </div>
 
@@ -723,7 +727,7 @@ export default function CardMilesConverter() {
           <select
             value={sourceProgramId}
             onChange={(e) => setSourceProgramId(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2"
           >
             <optgroup label="ASEAN Credit Cards">
               {loyaltyPrograms
@@ -826,7 +830,7 @@ export default function CardMilesConverter() {
           <select
             value={selectedCurrency}
             onChange={(e) => setSelectedCurrency(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2"
           >
             {currencies.map((currency) => (
               <option key={currency.code} value={currency.code}>
@@ -858,7 +862,7 @@ export default function CardMilesConverter() {
               placeholder="Quick search programs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2"
             />
             {searchTerm && (
               <button
@@ -989,7 +993,7 @@ export default function CardMilesConverter() {
                 placeholder="Search programs by name, type, or region..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2"
               />
               {searchTerm && (
                 <button
@@ -1079,14 +1083,14 @@ export default function CardMilesConverter() {
                     placeholder="Min value"
                     value={minValue}
                     onChange={(e) => setMinValue(e.target.value)}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2"
                   />
                   <input
                     type="number"
                     placeholder="Max value"
                     value={maxValue}
                     onChange={(e) => setMaxValue(e.target.value)}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2"
                   />
                 </div>
               </div>
@@ -1101,7 +1105,7 @@ export default function CardMilesConverter() {
                   onChange={(e) =>
                     setSortBy(e.target.value as "value" | "name" | "type")
                   }
-                  className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2"
                 >
                   <option value="value">Cash Value (High to Low)</option>
                   <option value="name">Program Name (A-Z)</option>
