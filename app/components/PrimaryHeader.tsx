@@ -4,6 +4,7 @@ import { Smile } from 'lucide-react'
 import Brand from "./Brand"
 import SearchInput from "./SearchInput"
 import MenuButton from "./MenuButton"
+import ThemeSwitcherButton from "./ThemeSwitcherButton"
 
 interface PrimaryHeaderProps {
     onMenuOpen?: () => void;
@@ -18,12 +19,13 @@ export default function PrimaryHeader({ onMenuOpen }: PrimaryHeaderProps) {
                 showAutocomplete={true}
                 placeholder="Search sermons, pages, navigation..."
             />
+            <ThemeSwitcherButton />
             <Link 
                 href="/funny" 
                 className="hover:opacity-80"
                 title="Go to jokes page"
             >
-                <Smile className="w-5 h-5" />
+                <Smile size={16} />
             </Link>
             <MenuButton onClick={onMenuOpen} />
         </header>
