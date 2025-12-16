@@ -681,17 +681,17 @@ export default function CardMilesConverter() {
   const bestValue = conversionResults[0]
 
   return (
-    <div className="p-6 max-w-7xl mx-auto bg-white rounded-sm shadow-lg">
+    <div className="p-6 max-w-7xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
-        <div className="p-2 bg-blue-100 rounded-lg">
+        <div className="p-2 bg-blue-100 rounded-sm">
           <CreditCard className="w-6 h-6 text-blue-600" />
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">
+          <h2 className="text-2xl font-semibold">
             Asia Pacific Card Miles Converter
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm opacity-75">
             Convert points and miles between loyalty programs across Asia
             Pacific with multi-currency support
           </p>
@@ -702,7 +702,7 @@ export default function CardMilesConverter() {
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-8">
         {/* Amount Input */}
         <div className="lg:col-span-2">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium opacity-75 mb-2">
             <Calculator className="w-4 h-4 inline mr-1" />
             Amount to Convert
           </label>
@@ -711,19 +711,19 @@ export default function CardMilesConverter() {
             value={sourceAmount}
             onChange={(e) => setSourceAmount(e.target.value)}
             placeholder="Enter points/miles amount"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
         {/* Source Program */}
         <div className="lg:col-span-2">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium opacity-75 mb-2">
             From Program
           </label>
           <select
             value={sourceProgramId}
             onChange={(e) => setSourceProgramId(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <optgroup label="ASEAN Credit Cards">
               {loyaltyPrograms
@@ -819,14 +819,14 @@ export default function CardMilesConverter() {
 
         {/* Currency Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium opacity-75 mb-2">
             <Globe className="w-4 h-4 inline mr-1" />
             Display Currency
           </label>
           <select
             value={selectedCurrency}
             onChange={(e) => setSelectedCurrency(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             {currencies.map((currency) => (
               <option key={currency.code} value={currency.code}>
@@ -840,7 +840,7 @@ export default function CardMilesConverter() {
         <div className="flex items-end">
           <button
             onClick={swapPrograms}
-            className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors flex items-center justify-center gap-2"
+            className="w-full px-4 py-2 bg-white dark:bg-black dark:border rounded-sm flex items-center justify-center gap-2"
           >
             <ArrowRightLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Swap</span>
@@ -858,7 +858,7 @@ export default function CardMilesConverter() {
               placeholder="Quick search programs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             {searchTerm && (
               <button
@@ -874,7 +874,7 @@ export default function CardMilesConverter() {
 
       {/* Exchange Rate Info */}
       {selectedCurrency !== "USD" && (
-        <div className="mb-6 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+        <div className="mb-6 p-3 bg-yellow-50 border border-yellow-200 rounded-sm">
           <div className="flex items-center gap-2 text-sm text-yellow-800">
             <Globe className="w-4 h-4" />
             <span>
@@ -888,7 +888,7 @@ export default function CardMilesConverter() {
       {/* Quick Stats */}
       {sourceProgram && sourceAmount && parseFloat(sourceAmount) > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-blue-50 p-4 rounded-lg">
+          <div className="bg-blue-50 p-4 rounded-sm">
             <div className="flex items-center gap-2 mb-2">
               <DollarSign className="w-4 h-4 text-blue-600" />
               <span className="text-sm font-medium text-blue-900">
@@ -914,7 +914,7 @@ export default function CardMilesConverter() {
           </div>
 
           {bestValue && (
-            <div className="bg-green-50 p-4 rounded-lg">
+            <div className="bg-green-50 p-4 rounded-sm">
               <div className="flex items-center gap-2 mb-2">
                 <TrendingUp className="w-4 h-4 text-green-600" />
                 <span className="text-sm font-medium text-green-900">
@@ -931,7 +931,7 @@ export default function CardMilesConverter() {
             </div>
           )}
 
-          <div className="bg-purple-50 p-4 rounded-lg">
+          <div className="bg-purple-50 p-4 rounded-sm">
             <div className="flex items-center gap-2 mb-2">
               <Star className="w-4 h-4 text-purple-600" />
               <span className="text-sm font-medium text-purple-900">
@@ -958,7 +958,7 @@ export default function CardMilesConverter() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-sm text-sm transition-colors ${
                   showFilters ||
                   selectedTypes.length < 3 ||
                   selectedRegions.length > 0 ||
@@ -989,7 +989,7 @@ export default function CardMilesConverter() {
                 placeholder="Search programs by name, type, or region..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               {searchTerm && (
                 <button
@@ -1002,10 +1002,10 @@ export default function CardMilesConverter() {
             </div>
 
             {/* Filter Controls */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-sm">
               {/* Program Types */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium opacity-75 mb-2">
                   Program Types
                 </label>
                 <div className="space-y-2">
@@ -1021,7 +1021,7 @@ export default function CardMilesConverter() {
                         onChange={() => toggleType(type.value)}
                         className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">
+                      <span className="ml-2 text-sm opacity-75">
                         {type.icon} {type.label}
                       </span>
                     </label>
@@ -1031,7 +1031,7 @@ export default function CardMilesConverter() {
 
               {/* Regions */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium opacity-75 mb-2">
                   Regions
                 </label>
                 <div className="space-y-2 max-h-32 overflow-y-auto">
@@ -1060,7 +1060,7 @@ export default function CardMilesConverter() {
                         onChange={() => toggleRegion(region.value)}
                         className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">
+                      <span className="ml-2 text-sm opacity-75">
                         {region.flag} {region.label}
                       </span>
                     </label>
@@ -1070,7 +1070,7 @@ export default function CardMilesConverter() {
 
               {/* Value Range */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium opacity-75 mb-2">
                   Value Range ({selectedCurrency})
                 </label>
                 <div className="space-y-2">
@@ -1093,7 +1093,7 @@ export default function CardMilesConverter() {
 
               {/* Sort Options */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium opacity-75 mb-2">
                   Sort By
                 </label>
                 <select
@@ -1109,7 +1109,7 @@ export default function CardMilesConverter() {
                 </select>
                 <button
                   onClick={clearFilters}
-                  className="mt-2 w-full px-3 py-1.5 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+                  className="mt-2 w-full px-3 py-1.5 text-sm bg-gray-200 opacity-75 rounded hover:bg-gray-300 transition-colors"
                 >
                   Clear All Filters
                 </button>
@@ -1125,7 +1125,7 @@ export default function CardMilesConverter() {
               return (
                 <div
                   key={result.program.id}
-                  className={`border rounded-lg p-4 hover:shadow-md transition-shadow ${
+                  className={`border rounded-sm p-4 hover:shadow-md transition-shadow ${
                     originalIndex === 0
                       ? "border-green-500 bg-green-50"
                       : "border-gray-200 bg-white"
@@ -1244,7 +1244,7 @@ export default function CardMilesConverter() {
             </div>
             <button
               onClick={clearFilters}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 bg-blue-600 text-white rounded-sm hover:bg-blue-700 transition-colors"
             >
               Clear All Filters
             </button>
@@ -1252,7 +1252,7 @@ export default function CardMilesConverter() {
         )}
 
       {/* Help Text */}
-      <div className="mt-8 p-4 bg-blue-50 rounded-lg">
+      <div className="mt-8 p-4 bg-blue-50 rounded-sm">
         <div className="flex items-start gap-2">
           <Info className="w-4 h-4 text-blue-600 mt-0.5" />
           <div className="text-sm text-blue-800">
