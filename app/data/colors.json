@@ -1,0 +1,152 @@
+{
+  "colorGroups": [
+    {
+      "groupTitle": "Brand Colors",
+      "colors": [
+        { "title": "Blue", "value": "#2B7FFF", "textColor": "#ffffff", "bgColor": "#2B7FFF" },
+        { "title": "Dark Blue", "value": "#1447E6", "textColor": "#ffffff", "bgColor": "#1447E6" },
+        { "title": "Sky Blue", "value": "#00A6F4", "textColor": "#ffffff", "bgColor": "#00A6F4" },
+        { "title": "Orange", "value": "#FF6900", "textColor": "#ffffff", "bgColor": "#FF6900" },
+        { "title": "Light Slate", "value": "#F1F5F9", "textColor": "#000000", "bgColor": "#F1F5F9" }
+      ]
+    },
+    {
+      "groupTitle": "Basic Colors",
+      "colors": [
+        { "title": "White", "value": "#ffffff", "textColor": "#000000", "bgColor": "#ffffff" },
+        { "title": "Black", "value": "#000000", "textColor": "#ffffff", "bgColor": "#000000" },
+        { "title": "Gray", "value": "#888888", "textColor": "#000000", "bgColor": "#888888" },
+        { "title": "Red", "value": "#ff0000", "textColor": "#ffffff", "bgColor": "#ff0000" },
+        { "title": "Yellow", "value": "#ffff00", "textColor": "#000000", "bgColor": "#ffff00" },
+        { "title": "Green", "value": "#00ff00", "textColor": "#000000", "bgColor": "#00ff00" },
+        { "title": "Cyan", "value": "#00ffff", "textColor": "#000000", "bgColor": "#00ffff" },
+        { "title": "Blue", "value": "#0000ff", "textColor": "#ffffff", "bgColor": "#0000ff" },
+        { "title": "Magenta", "value": "#ff00ff", "textColor": "#ffffff", "bgColor": "#ff00ff" }
+      ]
+    },
+
+    {
+      "groupTitle": "Bootstrap Colors",
+      "colors": [
+        { "title": "Blue (Primary)", "value": "#007bff", "textColor": "#ffffff", "bgColor": "#007bff" },
+        { "title": "Indigo", "value": "#6610f2", "textColor": "#ffffff", "bgColor": "#6610f2" },
+        { "title": "Purple", "value": "#6f42c1", "textColor": "#ffffff", "bgColor": "#6f42c1" },
+        { "title": "Pink", "value": "#e83e8c", "textColor": "#ffffff", "bgColor": "#e83e8c" },
+        { "title": "Red (Danger)", "value": "#dc3545", "textColor": "#ffffff", "bgColor": "#dc3545" },
+        { "title": "Orange", "value": "#fd7e14", "textColor": "#000000", "bgColor": "#fd7e14" },
+        { "title": "Yellow (Warning)", "value": "#ffc107", "textColor": "#000000", "bgColor": "#ffc107" },
+        { "title": "Green (Success)", "value": "#28a745", "textColor": "#000000", "bgColor": "#28a745" },
+        { "title": "Teal", "value": "#20c997", "textColor": "#000000", "bgColor": "#20c997" },
+        { "title": "Cyan (Info)", "value": "#17a2b8", "textColor": "#ffffff", "bgColor": "#17a2b8" }
+      ]
+    },
+
+    {
+      "groupTitle": "Pokémon Colors",
+      "colors": [
+        { "title": "Bug", "value": "#a8b821", "textColor": "#000000", "bgColor": "#a8b821" },
+        { "title": "Dark", "value": "#6f5848", "textColor": "#ffffff", "bgColor": "#6f5848" },
+        { "title": "Dragon", "value": "#7038f9", "textColor": "#ffffff", "bgColor": "#7038f9" },
+        { "title": "Electric", "value": "#f8d030", "textColor": "#000000", "bgColor": "#f8d030" },
+        { "title": "Fairy", "value": "#ffaec9", "textColor": "#000000", "bgColor": "#ffaec9" },
+        { "title": "Fighting", "value": "#c03028", "textColor": "#ffffff", "bgColor": "#c03028" },
+        { "title": "Fire", "value": "#f07f2f", "textColor": "#000000", "bgColor": "#f07f2f" },
+        { "title": "Flying", "value": "#a890f0", "textColor": "#000000", "bgColor": "#a890f0" },
+        { "title": "Ghost", "value": "#715899", "textColor": "#ffffff", "bgColor": "#715899" },
+        { "title": "Grass", "value": "#78c750", "textColor": "#000000", "bgColor": "#78c750" },
+        { "title": "Ground", "value": "#debf67", "textColor": "#000000", "bgColor": "#debf67" },
+        { "title": "Ice", "value": "#98d8d8", "textColor": "#000000", "bgColor": "#98d8d8" },
+        { "title": "Normal", "value": "#a9a878", "textColor": "#000000", "bgColor": "#a9a878" },
+        { "title": "Poison", "value": "#a040a1", "textColor": "#ffffff", "bgColor": "#a040a1" },
+        { "title": "Psychic", "value": "#f85788", "textColor": "#ffffff", "bgColor": "#f85788" },
+        { "title": "Rock", "value": "#b89f38", "textColor": "#ffffff", "bgColor": "#b89f38" },
+        { "title": "Steel", "value": "#b8b8d0", "textColor": "#000000", "bgColor": "#b8b8d0" },
+        { "title": "Water", "value": "#6890f0", "textColor": "#000000", "bgColor": "#6890f0" }
+      ]
+    },
+
+    {
+      "groupTitle": "Tailwind Grays",
+      "colors": [
+        { "title": "Slate 300", "value": "#cbd5e1", "textColor": "#000000", "bgColor": "#cbd5e1" },
+        { "title": "Slate 500", "value": "#64748b", "textColor": "#ffffff", "bgColor": "#64748b" },
+        { "title": "Slate 700", "value": "#334155", "textColor": "#ffffff", "bgColor": "#334155" },
+        { "title": "Gray 300", "value": "#d1d5db", "textColor": "#000000", "bgColor": "#d1d5db" },
+        { "title": "Gray 500", "value": "#6b7280", "textColor": "#ffffff", "bgColor": "#6b7280" },
+        { "title": "Gray 700", "value": "#374151", "textColor": "#ffffff", "bgColor": "#374151" },
+        { "title": "Zinc 300", "value": "#d4d4d8", "textColor": "#000000", "bgColor": "#d4d4d8" },
+        { "title": "Zinc 500", "value": "#71717a", "textColor": "#ffffff", "bgColor": "#71717a" },
+        { "title": "Zinc 700", "value": "#3f3f46", "textColor": "#ffffff", "bgColor": "#3f3f46" }
+      ]
+    },
+
+    {
+      "groupTitle": "Tailwind Colors",
+      "colors": [
+        { "title": "Red 500", "value": "#ef4444", "textColor": "#ffffff", "bgColor": "#ef4444" },
+        { "title": "Orange 500", "value": "#f97316", "textColor": "#ffffff", "bgColor": "#f97316" },
+        { "title": "Amber 500", "value": "#f59e0b", "textColor": "#000000", "bgColor": "#f59e0b" },
+        { "title": "Yellow 500", "value": "#eab308", "textColor": "#000000", "bgColor": "#eab308" },
+        { "title": "Lime 500", "value": "#84cc16", "textColor": "#000000", "bgColor": "#84cc16" },
+        { "title": "Green 500", "value": "#22c55e", "textColor": "#000000", "bgColor": "#22c55e" },
+        { "title": "Emerald 500", "value": "#10b981", "textColor": "#ffffff", "bgColor": "#10b981" },
+        { "title": "Teal 500", "value": "#14b8a6", "textColor": "#ffffff", "bgColor": "#14b8a6" },
+        { "title": "Cyan 500", "value": "#06b6d4", "textColor": "#ffffff", "bgColor": "#06b6d4" },
+        { "title": "Sky 500", "value": "#0ea5e9", "textColor": "#ffffff", "bgColor": "#0ea5e9" },
+        { "title": "Blue 500", "value": "#3b82f6", "textColor": "#ffffff", "bgColor": "#3b82f6" },
+        { "title": "Indigo 500", "value": "#6366f1", "textColor": "#ffffff", "bgColor": "#6366f1" },
+        { "title": "Violet 500", "value": "#8b5cf6", "textColor": "#ffffff", "bgColor": "#8b5cf6" },
+        { "title": "Purple 500", "value": "#a855f7", "textColor": "#ffffff", "bgColor": "#a855f7" },
+        { "title": "Fuchsia 500", "value": "#d946ef", "textColor": "#ffffff", "bgColor": "#d946ef" },
+        { "title": "Pink 500", "value": "#ec4899", "textColor": "#ffffff", "bgColor": "#ec4899" },
+        { "title": "Rose 500", "value": "#f43f5e", "textColor": "#ffffff", "bgColor": "#f43f5e" }
+      ]
+    },
+
+    {
+      "groupTitle": "Tailwind Light Shades",
+      "colors": [
+        { "title": "Red 300", "value": "#fca5a5", "textColor": "#000000", "bgColor": "#fca5a5" },
+        { "title": "Orange 300", "value": "#fdba74", "textColor": "#000000", "bgColor": "#fdba74" },
+        { "title": "Amber 300", "value": "#fcd34d", "textColor": "#000000", "bgColor": "#fcd34d" },
+        { "title": "Yellow 300", "value": "#fde047", "textColor": "#000000", "bgColor": "#fde047" },
+        { "title": "Lime 300", "value": "#bef264", "textColor": "#000000", "bgColor": "#bef264" },
+        { "title": "Green 300", "value": "#86efac", "textColor": "#000000", "bgColor": "#86efac" },
+        { "title": "Emerald 300", "value": "#6ee7b7", "textColor": "#000000", "bgColor": "#6ee7b7" },
+        { "title": "Teal 300", "value": "#5eead4", "textColor": "#000000", "bgColor": "#5eead4" },
+        { "title": "Cyan 300", "value": "#67e8f9", "textColor": "#000000", "bgColor": "#67e8f9" },
+        { "title": "Sky 300", "value": "#7dd3fc", "textColor": "#000000", "bgColor": "#7dd3fc" },
+        { "title": "Blue 300", "value": "#93c5fd", "textColor": "#000000", "bgColor": "#93c5fd" },
+        { "title": "Indigo 300", "value": "#a5b4fc", "textColor": "#000000", "bgColor": "#a5b4fc" },
+        { "title": "Violet 300", "value": "#c4b5fd", "textColor": "#000000", "bgColor": "#c4b5fd" },
+        { "title": "Purple 300", "value": "#d8b4fe", "textColor": "#000000", "bgColor": "#d8b4fe" },
+        { "title": "Fuchsia 300", "value": "#f0abfc", "textColor": "#000000", "bgColor": "#f0abfc" },
+        { "title": "Pink 300", "value": "#f9a8d4", "textColor": "#000000", "bgColor": "#f9a8d4" },
+        { "title": "Rose 300", "value": "#fda4af", "textColor": "#000000", "bgColor": "#fda4af" }
+      ]
+    },
+
+    {
+      "groupTitle": "Tailwind Dark Shades", 
+      "colors": [
+        { "title": "Red 700", "value": "#b91c1c", "textColor": "#ffffff", "bgColor": "#b91c1c" },
+        { "title": "Orange 700", "value": "#c2410c", "textColor": "#ffffff", "bgColor": "#c2410c" },
+        { "title": "Amber 700", "value": "#b45309", "textColor": "#ffffff", "bgColor": "#b45309" },
+        { "title": "Yellow 700", "value": "#a16207", "textColor": "#ffffff", "bgColor": "#a16207" },
+        { "title": "Lime 700", "value": "#4d7c0f", "textColor": "#ffffff", "bgColor": "#4d7c0f" },
+        { "title": "Green 700", "value": "#15803d", "textColor": "#ffffff", "bgColor": "#15803d" },
+        { "title": "Emerald 700", "value": "#047857", "textColor": "#ffffff", "bgColor": "#047857" },
+        { "title": "Teal 700", "value": "#0f766e", "textColor": "#ffffff", "bgColor": "#0f766e" },
+        { "title": "Cyan 700", "value": "#0e7490", "textColor": "#ffffff", "bgColor": "#0e7490" },
+        { "title": "Sky 700", "value": "#0369a1", "textColor": "#ffffff", "bgColor": "#0369a1" },
+        { "title": "Blue 700", "value": "#1d4ed8", "textColor": "#ffffff", "bgColor": "#1d4ed8" },
+        { "title": "Indigo 700", "value": "#4338ca", "textColor": "#ffffff", "bgColor": "#4338ca" },
+        { "title": "Violet 700", "value": "#6d28d9", "textColor": "#ffffff", "bgColor": "#6d28d9" },
+        { "title": "Purple 700", "value": "#7c3aed", "textColor": "#ffffff", "bgColor": "#7c3aed" },
+        { "title": "Fuchsia 700", "value": "#a21caf", "textColor": "#ffffff", "bgColor": "#a21caf" },
+        { "title": "Pink 700", "value": "#be185d", "textColor": "#ffffff", "bgColor": "#be185d" },
+        { "title": "Rose 700", "value": "#be123c", "textColor": "#ffffff", "bgColor": "#be123c" }
+      ]
+    }
+  ]
+}
