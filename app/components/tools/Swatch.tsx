@@ -1,3 +1,5 @@
+'use client'
+
 // src/components/Swatch.tsx
 import React from "react"
 

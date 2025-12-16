@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from "react"
 import { colord } from "colord"
 import { Palette, Copy, Check, AlertCircle, Droplets } from "lucide-react"

@@ -7,6 +7,32 @@ import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import dateFormatConfig from '../config/date-format.json'
 
+// Tool Components
+import Calculator from './tools/Calculator'
+import CardMilesConverter from './tools/CardMilesConverter'
+import ColorPalettes from './tools/ColorPalettes'
+import ColorValueConverter from './tools/ColorValueConverter'
+import DuplicatedParagraphScanner from './tools/DuplicatedParagraphScanner'
+import MemoryCards from './tools/MemoryCards'
+import PasswordCreator from './tools/PasswordCreator'
+import PasswordStrengthMeter from './tools/PasswordStrengthMeter'
+import QrCodeGenerator from './tools/QrCodeGenerator'
+import Translator from './tools/Translator'
+
+// Tool component mapping
+const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {
+    '20251010-calculator': () => <Calculator />,
+    '20251010-card-miles-converter': () => <CardMilesConverter />,
+    '20250511-color-palettes': () => <ColorPalettes groups={[]} />,
+    '20251010-color-value-converter': () => <ColorValueConverter />,
+    '20250529-duplicated-paragraph-scanner': () => <DuplicatedParagraphScanner />,
+    '20251116-memory-cards': () => <MemoryCards />,
+    '20250528-easy-password-generator': () => <PasswordCreator />,
+    '20250511-password-strength-meter': () => <PasswordStrengthMeter />,
+    '20250511-qr-code-generator': () => <QrCodeGenerator />,
+    '20251010-translator': () => <Translator />,
+}
+
 interface PostPageParams {
     slug: string
 }
@@ -44,9 +70,20 @@ export default function PostPage({ params, postType }: PostPageProps) {
             </HeroSection>
             
             <section className="container mx-auto p-4 flow max-w-4xl">
-                <Prose>
-                    <MDXRemote source={post.content} />
-                </Prose>
+                {postType === 'tools' && TOOL_COMPONENTS[post.slug] ? (
+                    // Render tool component directly
+                    <div className="mb-8">
+                        {(() => {
+                            const ToolComponent = TOOL_COMPONENTS[post.slug]
+                            return <ToolComponent />
+                        })()}
+                    </div>
+                ) : (
+                    // Render MDX content for other post types
+                    <Prose>
+                        <MDXRemote source={post.content} />
+                    </Prose>
+                )}
 
                 {post.tags.length > 0 && (
                     <TagFlex>
