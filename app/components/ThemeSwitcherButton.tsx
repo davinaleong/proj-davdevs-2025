@@ -23,12 +23,15 @@ export default function ThemeSwitcherButton() {
         
         if (themeMode === 'system') {
             // Remove explicit class, let system preference take over
-            root.classList.remove('light', 'dark')
+            root.classList.remove('dark')
             localStorage.removeItem('theme')
+        } else if (themeMode === 'dark') {
+            // Apply dark theme
+            root.classList.add('dark')
+            localStorage.setItem('theme', themeMode)
         } else {
-            // Apply explicit theme
-            root.classList.remove('light', 'dark')
-            root.classList.add(themeMode)
+            // Apply light theme (remove dark class)
+            root.classList.remove('dark')
             localStorage.setItem('theme', themeMode)
         }
     }, [themeMode])

@@ -24,7 +24,7 @@ export default function ListHeader({
     className = ""
 }: ListHeaderProps) {
     return (
-        <header className={`flex gap-2 bg-slate-100 bg:bg-gray-900 p-2 ${className}`}>
+        <header className={`flex gap-2 bg-slate-100 dark:bg-gray-900 p-2 ${className}`}>
             <SearchInput 
                 onSearch={onSearch}
                 onSearchChange={onSearchChange}
