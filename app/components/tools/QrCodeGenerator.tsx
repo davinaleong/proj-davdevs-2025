@@ -10,7 +10,7 @@ export default function QrCodeGenerator() {
   const [bgColor, setBgColor] = useState("#ffffff")
 
   return (
-    <div className="flex flex-col items-center gap-6 p-6 max-w-lg mx-auto">
+    <div className="flex flex-col items-center gap-6 p-6 max-w-lg mx-auto bg-white rounded-sm shadow-lg">
       <h1 className="text-2xl font-bold">QR Code Generator</h1>
 
       <div className="w-full flex flex-col gap-4">

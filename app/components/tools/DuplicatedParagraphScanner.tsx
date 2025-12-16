@@ -42,7 +42,7 @@ export default function DuplicateParagraphScanner() {
   }
 
   return (
-    <section className="space-y-6">
+    <section className="p-6 bg-white rounded-sm shadow-lg">
       <p>Enter a website URL to scan for duplicate paragraphs:</p>
 
       <div className="flex gap-2">

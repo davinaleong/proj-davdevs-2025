@@ -89,41 +89,34 @@ export default function MemoryCards() {
   const [moves, setMoves] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
   const [score, setScore] = useState(0)
-  const [lastLevel, setLastLevel] = useState(0)
-  const [bestScore, setBestScore] = useState(0)
+  const [lastLevel, setLastLevel] = useState(() => {
+    try {
+      const savedLevel = localStorage.getItem('memoryCards_lastLevel')
+      return savedLevel ? parseInt(savedLevel, 10) || 0 : 0
+    } catch {
+      return 0
+    }
+  })
+  
+  const [bestScore, setBestScore] = useState(() => {
+    try {
+      const savedScore = localStorage.getItem('memoryCards_bestScore')
+      return savedScore ? parseInt(savedScore, 10) || 0 : 0
+    } catch {
+      return 0
+    }
+  })
 
   // Local storage functions
   const saveProgress = (currentLevel: number, currentScore: number) => {
     try {
       localStorage.setItem('memoryCards_lastLevel', currentLevel.toString())
       localStorage.setItem('memoryCards_bestScore', Math.max(currentScore, bestScore).toString())
-    } catch (error) {
+    } catch {
       // Handle localStorage errors silently
       console.log('Could not save progress to localStorage')
     }
   }
-
-  const loadProgress = () => {
-    try {
-      const savedLevel = localStorage.getItem('memoryCards_lastLevel')
-      const savedScore = localStorage.getItem('memoryCards_bestScore')
-      
-      if (savedLevel) {
-        setLastLevel(parseInt(savedLevel, 10) || 0)
-      }
-      if (savedScore) {
-        setBestScore(parseInt(savedScore, 10) || 0)
-      }
-    } catch (error) {
-      // Handle localStorage errors silently
-      console.log('Could not load progress from localStorage')
-    }
-  }
-
-  // Load progress on component mount
-  useEffect(() => {
-    loadProgress()
-  }, [])
 
   // Calculate game parameters based on level
   const getGameParams = useCallback((currentLevel: number) => {
@@ -243,14 +236,14 @@ export default function MemoryCards() {
       }, 1000)
       return () => clearTimeout(timer)
     } else if (timeLeft === 0 && gameState === 'playing') {
-      setGameState('lost')
+      setTimeout(() => setGameState('lost'), 0)
     }
   }, [gameState, timeLeft])
 
   // Check win condition
   useEffect(() => {
     if (gameState === 'playing' && matchedPairs > 0 && matchedPairs === cards.length / 2) {
-      setGameState('won')
+      setTimeout(() => setGameState('won'), 0)
     }
   }, [matchedPairs, cards.length, gameState])
 
@@ -371,9 +364,9 @@ export default function MemoryCards() {
 
       {gameState === 'lost' && (
         <div className="text-center mb-6 p-4 bg-red-100 rounded-sm">
-          <h3 className="text-2xl font-bold text-red-800 mb-2">Time's Up! ⏰</h3>
+          <h3 className="text-2xl font-bold text-red-800 mb-2">Time&apos;s Up! ⏰</h3>
           <p className="text-red-700 mb-4">
-            Don't give up! Try level {level} again or restart from the beginning.
+            Don&apos;t give up! Try level {level} again or restart from the beginning.
           </p>
           <div className="flex gap-3 justify-center">
             <button

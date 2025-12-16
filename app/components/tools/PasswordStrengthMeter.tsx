@@ -42,7 +42,7 @@ function PasswordStrengthMeter() {
   }
 
   return (
-    <form action="" method="post" className="bg-slate-50 shadow-md rounded p-4">
+    <form action="" method="post" className="p-6 bg-white rounded-sm shadow-lg">
       <div className="grid gap-2">
         <label htmlFor="input-password" className="text-lg">
           Please enter your password:

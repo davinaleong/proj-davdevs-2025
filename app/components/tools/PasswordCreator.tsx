@@ -107,7 +107,7 @@ export default function PasswordCreator() {
   }
 
   return (
-    <section className="space-y-4 p-4 border rounded bg-gray-50 dark:bg-gray-900 dark:text-white">
+    <section className="flow p-6 bg-white rounded-sm shadow-lg">
       <h3 className="text-2xl font-semibold">
         🔑 Generate a Secure, Memorable Password
       </h3>
