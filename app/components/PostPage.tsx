@@ -71,13 +71,18 @@ export default function PostPage({ params, postType }: PostPageProps) {
             
             <section className="container mx-auto p-4 flow max-w-4xl">
                 {postType === 'tools' && TOOL_COMPONENTS[post.slug] ? (
-                    // Render tool component directly
-                    <div className="mb-8">
-                        {(() => {
-                            const ToolComponent = TOOL_COMPONENTS[post.slug]
-                            return <ToolComponent />
-                        })()}
-                    </div>
+                    // Render tool component and MDX content for tools
+                    <>
+                        <div className="mb-8">
+                            {(() => {
+                                const ToolComponent = TOOL_COMPONENTS[post.slug]
+                                return <ToolComponent />
+                            })()}
+                        </div>
+                        <Prose>
+                            <MDXRemote source={post.content} />
+                        </Prose>
+                    </>
                 ) : (
                     // Render MDX content for other post types
                     <Prose>
