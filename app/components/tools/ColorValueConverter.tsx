@@ -10,6 +10,9 @@ interface ColorFormat {
   format: string
 }
 
+/* TODO:
+ * Use the Button component for the copy buttons
+ */
 export default function ColorValueConverter() {
   const [inputValue, setInputValue] = useState("#3b82f6")
   const [colorFormats, setColorFormats] = useState<ColorFormat[]>([])
@@ -213,9 +216,9 @@ export default function ColorValueConverter() {
   const detectedFormat = detectColorFormat(inputValue)
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white rounded-sm shadow-lg">
+    <div className="p-6 max-w-4xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
       <div className="flex items-center gap-2 mb-6">
-        <Palette className="w-6 h-6 text-purple-600" />
+        <Palette className="w-6 h-6 text-blue-600" />
         <h2 className="text-2xl font-semibold">Color Value Converter</h2>
       </div>
 
@@ -223,7 +226,7 @@ export default function ColorValueConverter() {
       <div className="mb-6">
         <label
           htmlFor="colorInput"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="block text-sm font-medium opacity-75"
         >
           Enter Color Value
         </label>
@@ -235,12 +238,12 @@ export default function ColorValueConverter() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="e.g., #3b82f6, rgb(59, 130, 246), oklch(70.7% 0.165 254.624), blue"
-              className={`w-full px-3 py-2 border rounded-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
+              className={`w-full px-3 py-2 border rounded-sm ${
                 !isValidColor ? "border-red-500" : "border-gray-300"
               }`}
             />
             {detectedFormat !== "unknown" && isValidColor && (
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs opacity-75">
                 Detected format: {detectedFormat.toUpperCase()}
               </p>
             )}
@@ -270,14 +273,14 @@ export default function ColorValueConverter() {
       {/* Color Formats Grid */}
       {isValidColor && colorFormats.length > 0 && (
         <div>
-          <h3 className="text-lg font-medium text-gray-900 mb-4">
+          <h3 className="text-lg font-medium mb-4">
             Converted Values
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {colorFormats.map((format) => (
               <div
                 key={format.format}
-                className="bg-gray-50 rounded-sm border border-gray-200 p-4 hover:bg-gray-100 transition-colors"
+                className="bg-gray-50 rounded-sm border border-gray-200 p-4 hover:bg-gray-100"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-medium text-gray-700">
