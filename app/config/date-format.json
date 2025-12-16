@@ -1,0 +1,10 @@
+{
+  "dateFormat": {
+    "locale": "en-SG",
+    "options": {
+      "year": "numeric",
+      "month": "short", 
+      "day": "numeric"
+    }
+  }
+}

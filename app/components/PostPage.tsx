@@ -5,6 +5,7 @@ import TagFlex from "./TagFlex"
 import Tag from "./Tag"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import dateFormatConfig from '../config/date-format.json'
 
 interface PostPageParams {
     slug: string
@@ -22,11 +23,10 @@ export default function PostPage({ params, postType }: PostPageProps) {
         notFound()
     }
 
-    const formattedDate = new Date(post.date).toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    })
+    const formattedDate = new Date(post.date).toLocaleDateString(
+        dateFormatConfig.dateFormat.locale, 
+        dateFormatConfig.dateFormat.options as Intl.DateTimeFormatOptions
+    )
 
     return (
         <div>

@@ -7,6 +7,7 @@ import ListFooter from "./ListFooter"
 import CardGrid from "./CardGrid"
 import Card from "./Card"
 import sortOptions from '../config/sort-options.json'
+import dateFormatConfig from '../config/date-format.json'
 
 interface PostsListProps {
     posts: PostSummary[]
@@ -121,11 +122,10 @@ export default function PostsList({
                         description={post.description}
                         href={`${defaultBaseHref}/${post.slug}`}
                         featured={post.featured}
-                        footerText={new Date(post.date).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        })}
+                        footerText={new Date(post.date).toLocaleDateString(
+                            dateFormatConfig.dateFormat.locale, 
+                            dateFormatConfig.dateFormat.options as Intl.DateTimeFormatOptions
+                        )}
                     />
                 ))}
             </CardGrid>
