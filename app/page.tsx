@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <div>
       <HomeHeroSection />
+      <HomePostSection title="Tools & Utilities 🛠️" postType="tools" variant="neutral" viewAllHref={faithLink?.href || "/tools"} viewAllText="View All Tools" />
       <HomePostSection title="Messages of Faith 🙏✨" postType="sermons" variant="primary" viewAllHref={faithLink?.href || "/faith"} viewAllText="View All Sermons" />
       <HomeSocialSection />
       <HomeJokeSection />
