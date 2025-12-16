@@ -10,6 +10,16 @@
       "external": false
     },
     {
+      "label": "Resume",
+      "href": "/pages/resume",
+      "external": false
+    },
+    {
+      "label": "Timeline",
+      "href": "/pages/timeline",
+      "external": false
+    },
+    {
       "label": "Portfolio",
       "href": "/portfolio",
       "external": false
