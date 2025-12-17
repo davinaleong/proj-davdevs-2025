@@ -11,11 +11,10 @@ import {
   Equal,
   SquareChevronLeft,
   Diff,
+  Copy,
 } from "lucide-react"
+import Button from "../Button"
 
-/* TODO
- * Reuse Button component for calculator buttons.
- */
 export default function Calculator() {
   const [display, setDisplay] = useState("0")
   const [previousValue, setPreviousValue] = useState<number | null>(null)
@@ -110,138 +109,187 @@ export default function Calculator() {
       setDisplay(display.charAt(0) === "-" ? display.slice(1) : "-" + display)
     }
   }
-  return (
-    <div className="p-6 max-w-md mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
-      <div className="flex items-center gap-2 mb-4">
-        <CalculatorIcon className="w-6 h-6 text-blue-600" />
-        <h2 className="text-xl font-semibold">Calculator</h2>
-      </div>
 
-      <div className="grid grid-cols-4 grid-rows-7 gap-2">
-        <div className="col-span-4 row-span-2 font-semibold text-2xl text-right grid place-items-end p-2 bg-gray-100 dark:bg-gray-900 rounded-sm overflow-hidden">
-          {display}
+  const copyResult = async () => {
+    try {
+      await navigator.clipboard.writeText(display)
+    } catch (err) {
+      console.error('Failed to copy result:', err)
+    }
+  }
+
+  return (
+    <section className="p-6 max-w-md mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm" aria-labelledby="calculator-title">
+      <header className="flex items-center gap-2 mb-4">
+        <CalculatorIcon className="w-6 h-6 text-blue-600" />
+        <h2 id="calculator-title" className="text-xl font-semibold">Calculator</h2>
+      </header>
+
+      <section className="grid grid-cols-4 grid-rows-7 gap-2" role="application" aria-label="Calculator interface">
+        <div className="col-span-4 row-span-2 relative">
+          <div className="font-semibold text-2xl text-right grid place-items-end p-2 bg-gray-100 dark:bg-gray-900 rounded-sm overflow-hidden h-full" role="textbox" aria-label="Calculator display" aria-live="polite">
+            {display}
+          </div>
+          <Button
+            onClick={copyResult}
+            variant="secondary"
+            className="absolute top-2 left-2 p-1 text-xs"
+            aria-label="Copy result to clipboard"
+          >
+            <Copy className="w-3 h-3" />
+          </Button>
         </div>
-        <button
+        <Button
           onClick={backspace}
-          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-function"
+          className="p-3 justify-center"
+          aria-label="Backspace"
         >
           <SquareChevronLeft className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={clear}
-          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-function"
+          className="p-3 justify-center"
+          aria-label="All Clear"
         >
           <span className="font-semibold">AC</span>
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => inputOperator("%")}
-          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-function"
+          className="p-3 justify-center"
+          aria-label="Percent"
         >
           <Percent className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => inputOperator("÷")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-operation"
+          className="p-3 justify-center"
+          aria-label="Divide"
         >
           <Divide className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => inputNumber("7")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">7</span>
-        </button>
-        <button
+          <span>7</span>
+        </Button>
+        <Button
           onClick={() => inputNumber("8")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">8</span>
-        </button>
-        <button
+          <span>8</span>
+        </Button>
+        <Button
           onClick={() => inputNumber("9")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">9</span>
-        </button>
-        <button
+          <span>9</span>
+        </Button>
+        <Button
           onClick={() => inputOperator("×")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-operation"
+          className="p-3 justify-center"
+          aria-label="Multiply"
         >
           <X className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => inputNumber("4")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">4</span>
-        </button>
-        <button
+          <span>4</span>
+        </Button>
+        <Button
           onClick={() => inputNumber("5")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">5</span>
-        </button>
-        <button
+          <span>5</span>
+        </Button>
+        <Button
           onClick={() => inputNumber("6")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">6</span>
-        </button>
-        <button
+          <span>6</span>
+        </Button>
+        <Button
           onClick={() => inputOperator("-")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-operation"
+          className="p-3 justify-center"
+          aria-label="Subtract"
         >
           <Minus className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => inputNumber("1")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">1</span>
-        </button>
-        <button
+          <span>1</span>
+        </Button>
+        <Button
           onClick={() => inputNumber("2")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">2</span>
-        </button>
-        <button
+          <span>2</span>
+        </Button>
+        <Button
           onClick={() => inputNumber("3")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">3</span>
-        </button>
-        <button
+          <span>3</span>
+        </Button>
+        <Button
           onClick={() => inputOperator("+")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-operation"
+          className="p-3 justify-center"
+          aria-label="Add"
         >
           <Plus className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={toggleSign}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
+          aria-label="Toggle sign"
         >
           <Diff className="w-5 h-5" />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => inputNumber("0")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
         >
-          <span className="font-semibold">0</span>
-        </button>
-        <button
+          <span>0</span>
+        </Button>
+        <Button
           onClick={inputDecimal}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
+          variant="calc-number"
+          className="p-3 justify-center"
+          aria-label="Decimal point"
         >
-          <span className="font-semibold">.</span>
-        </button>
-        <button
+          <span>.</span>
+        </Button>
+        <Button
           onClick={performCalculation}
-          className="cursor-pointer p-3 bg-blue-500 hover:bg-blue-600 text-white rounded flex items-center justify-center gap-2"
+          variant="primary"
+          className="p-3 justify-center gap-2 rounded"
+          aria-label="Equals"
         >
           <Equal className="w-5 h-5" />
-        </button>
-      </div>
-    </div>
+        </Button>
+      </section>
+    </section>
   )
 }

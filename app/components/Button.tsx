@@ -5,7 +5,7 @@ import { ReactNode, ButtonHTMLAttributes } from 'react'
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   children: ReactNode;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'gray';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'gray' | 'calc-number' | 'calc-function' | 'calc-operation';
   disabled?: boolean;
   className?: string;
 }
@@ -24,8 +24,11 @@ export default function Button({
     primary: "text-white bg-blue-500",
     secondary: "text-blue-500 bg-white border border-blue-500",
     success: "text-white bg-green-500",
-  danger: "text-white bg-red-500",
-    gray: "text-white bg-gray-500"
+    danger: "text-white bg-red-500",
+    gray: "text-white bg-gray-500",
+    'calc-number': "font-semibold bg-gray-100 dark:bg-gray-900 text-black dark:text-white",
+    'calc-function': "font-semibold bg-gray-200 dark:bg-gray-800 text-black dark:text-white",
+    'calc-operation': "bg-blue-300 dark:bg-blue-700 text-black dark:text-white"
   };
   
   const disabledClasses = disabled 
