@@ -327,7 +327,7 @@ export default function MemoryCards() {
       {gameState === 'idle' && (
         <div className="text-center mb-6">
           <h3 className="text-2xl font-bold mb-4">Memory Cards Game</h3>
-          <p className="text-gray-600 mb-4">
+          <p className="opacity-80 mb-4">
             Match pairs of cards to advance through endless levels. Each level gets progressively harder!
           </p>
           <button
@@ -432,11 +432,11 @@ export default function MemoryCards() {
       {/* Progress Indicator */}
       {gameState === 'playing' && (
         <div className="mt-6">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>Progress</span>
-            <span>{matchedPairs}/{cards.length / 2} pairs</span>
+          <div className="flex justify-between text-sm mb-2">
+            <span className="opacity-80">Progress</span>
+            <span className="opacity-80">{matchedPairs}/{cards.length / 2} pairs</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
             <div 
               className="bg-blue-500 h-2 rounded-full transition-all duration-300"
               style={{ width: `${(matchedPairs / (cards.length / 2)) * 100}%` }}
