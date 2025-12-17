@@ -108,15 +108,19 @@ export default function MemoryCards() {
   })
 
   // Local storage functions
-  const saveProgress = (currentLevel: number, currentScore: number) => {
+  const saveProgress = useCallback((currentLevel: number, currentScore: number) => {
     try {
+      const newBestScore = Math.max(currentScore, bestScore)
       localStorage.setItem('memoryCards_lastLevel', currentLevel.toString())
-      localStorage.setItem('memoryCards_bestScore', Math.max(currentScore, bestScore).toString())
+      localStorage.setItem('memoryCards_bestScore', newBestScore.toString())
+      if (newBestScore > bestScore) {
+        setBestScore(newBestScore)
+      }
     } catch {
       // Handle localStorage errors silently
       console.error('Could not save progress to localStorage')
     }
-  }
+  }, [bestScore, setBestScore])
 
   // Calculate game parameters based on level
   const getGameParams = useCallback((currentLevel: number) => {
@@ -243,14 +247,18 @@ export default function MemoryCards() {
   // Check win condition
   useEffect(() => {
     if (gameState === 'playing' && matchedPairs > 0 && matchedPairs === cards.length / 2) {
-      setTimeout(() => setGameState('won'), 0)
+      setTimeout(() => {
+        setGameState('won')
+        saveProgress(level, score)
+      }, 0)
     }
-  }, [matchedPairs, cards.length, gameState])
+  }, [matchedPairs, cards.length, gameState, level, score, saveProgress])
 
   // Start next level
   const nextLevel = () => {
     const newLevel = level + 1
     setLevel(newLevel)
+    setLastLevel(newLevel)
     saveProgress(newLevel, score)
     initializeGame()
   }
