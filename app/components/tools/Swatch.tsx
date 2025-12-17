@@ -1,93 +1,93 @@
 'use client'
 
-// src/components/Swatch.tsx
-import React from "react"
+import React, { useState } from "react"
+import { Copy, Check } from "lucide-react"
+
+type ColorFormat = 'hex' | 'rgb' | 'hsl' | 'oklch' | 'lab' | 'lch'
 
 interface SwatchProps {
   title: string
-  value: string
+  hex: string
+  rgb: string
+  hsl: string
+  oklch: string
+  lab: string
+  lch: string
   textColor: string
-  bgColor: string
+  selectedFormat: ColorFormat
 }
 
-function hexToRgb(hex: string): string {
-  const value = hex.replace("#", "")
-  const bigint = parseInt(value, 16)
-  const r = (bigint >> 16) & 255
-  const g = (bigint >> 8) & 255
-  const b = bigint & 255
-  return `rgb(${r}, ${g}, ${b})`
-}
-
-function hexToHsl(hex: string): string {
-  const value = hex.replace("#", "")
-  let r = parseInt(value.substring(0, 2), 16) / 255
-  let g = parseInt(value.substring(2, 4), 16) / 255
-  let b = parseInt(value.substring(4, 6), 16) / 255
-
-  const max = Math.max(r, g, b),
-    min = Math.min(r, g, b)
-  let h = 0,
-    s,
-    l = (max + min) / 2
-
-  if (max === min) {
-    h = s = 0 // achromatic
-  } else {
-    const d = max - min
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
-    switch (max) {
-      case r:
-        h = (g - b) / d + (g < b ? 6 : 0)
-        break
-      case g:
-        h = (b - r) / d + 2
-        break
-      case b:
-        h = (r - g) / d + 4
-        break
-    }
-    h /= 6
-  }
-
-  return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(
-    l * 100
-  )}%)`
+const colorFormatLabels: Record<ColorFormat, string> = {
+  hex: 'HEX',
+  rgb: 'RGB', 
+  hsl: 'HSL',
+  oklch: 'OKLCH',
+  lab: 'LAB',
+  lch: 'LCH'
 }
 
 export default function Swatch({
   title,
-  value,
+  hex,
+  rgb,
+  hsl,
+  oklch,
+  lab,
+  lch,
   textColor,
-  bgColor,
+  selectedFormat,
 }: SwatchProps) {
-  const rgb = hexToRgb(value)
-  const hsl = hexToHsl(value)
+  const [copied, setCopied] = useState(false)
+
+  const colorValues = {
+    hex,
+    rgb,
+    hsl,
+    oklch,
+    lab,
+    lch
+  }
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
-      alert(`Copied ${text} to clipboard`)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
     })
   }
 
+  const primaryColorValue = colorValues[selectedFormat]
+
   return (
     <div
-      className="p-4 rounded shadow text-center cursor-pointer transition hover:scale-105"
-      style={{ color: textColor, backgroundColor: bgColor }}
+      className="p-4 rounded-sm shadow text-center cursor-pointer hover:opacity-60"
+      style={{ color: textColor, backgroundColor: hex }}
+      onClick={() => handleCopy(primaryColorValue)}
     >
-      <div className="font-semibold">{title}</div>
-
-      <div
-        className="text-sm mt-1 hover:underline"
-        onClick={() => handleCopy(value)}
-      >
-        HEX: {value}
+      <div className="font-semibold mb-2">{title}</div>
+      
+      <div className="flex items-center justify-center gap-1 text-sm font-mono">
+        {copied ? (
+          <>
+            <Check className="w-4 h-4" />
+            <span>Copied!</span>
+          </>
+        ) : (
+          <>
+            <Copy className="w-4 h-4" />
+            <span className="break-all">{colorFormatLabels[selectedFormat]}: {primaryColorValue}</span>
+          </>
+        )}
       </div>
-      <div className="text-sm hover:underline" onClick={() => handleCopy(rgb)}>
-        RGB: {rgb}
-      </div>
-      <div className="text-sm hover:underline" onClick={() => handleCopy(hsl)}>
-        HSL: {hsl}
+      
+      <div className="mt-2 space-y-1 text-xs opacity-75">
+        {Object.entries(colorValues)
+          .filter(([format]) => format !== selectedFormat)
+          .slice(0, 2)
+          .map(([format, value]) => (
+            <div key={format} className="font-mono">
+              {colorFormatLabels[format as ColorFormat]}: {value}
+            </div>
+          ))}
       </div>
     </div>
   )

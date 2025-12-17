@@ -1,0 +1,12 @@
+COLORS
+
+Black
+White
+Tailwind Blue 500
+Tailwind Blue 300
+Tailwind Blue 700
+Tailwind Slate 100
+Tailwind Slate 900
+Tailwind Gray 100
+Tailwind Gray 900
+Tailwind Orange 500

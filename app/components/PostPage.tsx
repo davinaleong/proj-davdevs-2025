@@ -8,6 +8,7 @@ import Anchor from "./Anchor"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import dateFormatConfig from '../config/date-format.json'
+import colorsData from '../data/colors.json'
 
 // Tool Components
 import Calculator from './tools/Calculator'
@@ -25,7 +26,7 @@ import Translator from './tools/Translator'
 const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {
     '20251010-calculator': () => <Calculator />,
     '20251010-card-miles-converter': () => <CardMilesConverter />,
-    '20250511-color-palettes': () => <ColorPalettes groups={[]} />,
+    '20250511-color-palettes': () => <ColorPalettes groups={colorsData.colorGroups} />,
     '20251010-color-value-converter': () => <ColorValueConverter />,
     '20250529-duplicated-paragraph-scanner': () => <DuplicatedParagraphScanner />,
     '20251116-memory-cards': () => <MemoryCards />,
