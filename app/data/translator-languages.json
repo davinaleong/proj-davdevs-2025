@@ -1,0 +1,30 @@
+{
+  "languages": [
+    { "code": "en", "name": "English", "flag": "🇺🇸" },
+    { "code": "es", "name": "Spanish", "flag": "🇪🇸" },
+    { "code": "fr", "name": "French", "flag": "🇫🇷" },
+    { "code": "de", "name": "German", "flag": "🇩🇪" },
+    { "code": "it", "name": "Italian", "flag": "🇮🇹" },
+    { "code": "pt", "name": "Portuguese", "flag": "🇵🇹" },
+    { "code": "ru", "name": "Russian", "flag": "🇷🇺" },
+    { "code": "ja", "name": "Japanese", "flag": "🇯🇵" },
+    { "code": "ko", "name": "Korean", "flag": "🇰🇷" },
+    { "code": "zh", "name": "Chinese", "flag": "🇨🇳" },
+    { "code": "id", "name": "Indonesian", "flag": "🇮🇩" },
+    { "code": "ms", "name": "Malay", "flag": "🇲🇾" },
+    { "code": "th", "name": "Thai", "flag": "🇹🇭" },
+    { "code": "vi", "name": "Vietnamese", "flag": "🇻🇳" },
+    { "code": "tl", "name": "Filipino (Tagalog)", "flag": "🇵🇭" },
+    { "code": "my", "name": "Burmese (Myanmar)", "flag": "🇲🇲" },
+    { "code": "km", "name": "Khmer (Cambodian)", "flag": "🇰🇭" },
+    { "code": "lo", "name": "Lao", "flag": "🇱🇦" },
+    { "code": "si", "name": "Sinhala", "flag": "🇱🇰" },
+    { "code": "bn", "name": "Bengali", "flag": "🇧🇩" },
+    { "code": "ne", "name": "Nepali", "flag": "🇳🇵" },
+    { "code": "dz", "name": "Dzongkha", "flag": "🇧🇹" },
+    { "code": "hil", "name": "Hiligaynon", "flag": "🇵🇭" },
+    { "code": "ceb", "name": "Cebuano", "flag": "🇵🇭" },
+    { "code": "jv", "name": "Javanese", "flag": "🇮🇩" },
+    { "code": "su", "name": "Sundanese", "flag": "🇮🇩" }
+  ]
+}

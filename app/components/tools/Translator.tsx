@@ -15,6 +15,8 @@ import Button from "../Button"
 import Textarea from "../Textarea"
 import Group from "../Group"
 import DropdownMenu from "../DropdownMenu"
+import languagesData from "../../data/translator-languages.json"
+import stylesData from "../../data/translator-styles.json"
 
 /* TODO:
  * Reuse the DropdownMenu component
@@ -31,64 +33,8 @@ export default function Translator() {
   const [copied, setCopied] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const languages = [
-    // Major World Languages
-    { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "es", name: "Spanish", flag: "🇪🇸" },
-    { code: "fr", name: "French", flag: "🇫🇷" },
-    { code: "de", name: "German", flag: "🇩🇪" },
-    { code: "it", name: "Italian", flag: "🇮🇹" },
-    { code: "pt", name: "Portuguese", flag: "🇵🇹" },
-    { code: "ru", name: "Russian", flag: "🇷🇺" },
-    { code: "ja", name: "Japanese", flag: "🇯🇵" },
-    { code: "ko", name: "Korean", flag: "🇰🇷" },
-    { code: "zh", name: "Chinese", flag: "🇨🇳" },
-
-    // ASEAN Languages
-    { code: "id", name: "Indonesian", flag: "🇮🇩" },
-    { code: "ms", name: "Malay", flag: "🇲🇾" },
-    { code: "th", name: "Thai", flag: "🇹🇭" },
-    { code: "vi", name: "Vietnamese", flag: "🇻🇳" },
-    { code: "tl", name: "Filipino (Tagalog)", flag: "🇵🇭" },
-    { code: "my", name: "Burmese (Myanmar)", flag: "🇲🇲" },
-    { code: "km", name: "Khmer (Cambodian)", flag: "🇰🇭" },
-    { code: "lo", name: "Lao", flag: "🇱🇦" },
-    { code: "si", name: "Sinhala", flag: "🇱🇰" },
-    { code: "bn", name: "Bengali", flag: "🇧🇩" },
-    { code: "ne", name: "Nepali", flag: "🇳🇵" },
-    { code: "dz", name: "Dzongkha", flag: "🇧🇹" },
-    { code: "hil", name: "Hiligaynon", flag: "🇵🇭" },
-    { code: "ceb", name: "Cebuano", flag: "🇵🇭" },
-    { code: "jv", name: "Javanese", flag: "🇮🇩" },
-    { code: "su", name: "Sundanese", flag: "🇮🇩" },
-  ]
-
-  const styles = [
-    {
-      value: "formal",
-      label: "Formal",
-      icon: "👔",
-      description: "Professional and respectful",
-    },
-    {
-      value: "informal",
-      label: "Informal",
-      icon: "😊",
-      description: "Casual and relaxed",
-    },
-    {
-      value: "friendly",
-      label: "Friendly",
-      icon: "🤝",
-      description: "Warm and approachable",
-    },
-    {
-      value: "academic",
-      label: "Academic",
-      icon: "🎓",
-      description: "Scholarly and precise",
-    },
-  ]
+  const languages = languagesData.languages
+  const styles = stylesData.styles
 
   const parseApiError = (error: any) => {
     // Handle quota exceeded errors

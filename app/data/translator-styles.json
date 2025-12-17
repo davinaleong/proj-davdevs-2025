@@ -1,0 +1,28 @@
+{
+  "styles": [
+    {
+      "value": "formal",
+      "label": "Formal",
+      "icon": "👔",
+      "description": "Professional and respectful"
+    },
+    {
+      "value": "informal",
+      "label": "Informal",
+      "icon": "😊",
+      "description": "Casual and relaxed"
+    },
+    {
+      "value": "friendly",
+      "label": "Friendly",
+      "icon": "🤝",
+      "description": "Warm and approachable"
+    },
+    {
+      "value": "academic",
+      "label": "Academic",
+      "icon": "🎓",
+      "description": "Scholarly and precise"
+    }
+  ]
+}
