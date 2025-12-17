@@ -22,6 +22,7 @@ import Input from "../Input"
 import Label from "../Label"
 import Group from "../Group"
 import DropdownMenu from "../DropdownMenu"
+import ToolPanel from "./ToolPanel"
 
 interface LoyaltyProgram {
   id: string
@@ -320,27 +321,16 @@ export default function CardMilesConverter() {
   const bestValue = conversionResults[0]
 
   return (
-    <div className="p-6 max-w-7xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-sm">
-          <CreditCard className="w-6 h-6 text-blue-500" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-semibold">
-            Asia Pacific Card Miles Converter
-          </h2>
-          <p className="text-sm opacity-75">
-            Convert points and miles between loyalty programs across Asia
-            Pacific with multi-currency support
-          </p>
-        </div>
-      </div>
-
+    <ToolPanel 
+      title="Asia Pacific Card Miles Converter"
+      description="Convert points and miles between loyalty programs across Asia Pacific with multi-currency support"
+      icon={CreditCard}
+      maxWidth="max-w-7xl"
+    >
       {/* Input Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-8">
+      <div className="flex flex-col lg:flex-row gap-4 mb-8 lg:items-end">
         {/* Amount Input */}
-        <div className="lg:col-span-2">
+        <div className="flex-1 lg:flex-[1]">
           <Group variant="vertical">
             <Label>Amount to Convert</Label>
             <Input
@@ -354,7 +344,7 @@ export default function CardMilesConverter() {
         </div>
 
         {/* Source Program */}
-        <div className="lg:col-span-2">
+        <div className="flex-1 lg:flex-[2]">
           <Group variant="vertical">
             <Label>From Program</Label>
             <DropdownMenu
@@ -457,10 +447,9 @@ export default function CardMilesConverter() {
         </div>
 
         {/* Currency Selection */}
-        <div>
+        <div className="flex-1">
           <Group variant="vertical">
             <Label>
-              <Globe size={16} />
               Display Currency
             </Label>
             <DropdownMenu
@@ -476,11 +465,11 @@ export default function CardMilesConverter() {
         </div>
 
         {/* Swap Button */}
-        <div className="flex items-end">
+        <div className="flex-shrink-0">
           <Button
             onClick={swapPrograms}
             variant="secondary"
-            className="w-full px-4 py-2 justify-center"
+            className="w-full px-3 py-2 justify-center"
           >
             <ArrowRightLeft size={16} />
             <span className="hidden sm:inline">Swap</span>
@@ -929,6 +918,6 @@ export default function CardMilesConverter() {
           </div>
         </div>
       </div>
-    </div>
+    </ToolPanel>
   )
 }

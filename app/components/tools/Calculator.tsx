@@ -14,6 +14,7 @@ import {
   Copy,
 } from "lucide-react"
 import Button from "../Button"
+import ToolPanel from "./ToolPanel"
 
 export default function Calculator() {
   const [display, setDisplay] = useState("0")
@@ -119,12 +120,7 @@ export default function Calculator() {
   }
 
   return (
-    <section className="p-6 max-w-md mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm" aria-labelledby="calculator-title">
-      <header className="flex items-center gap-2 mb-4">
-        <CalculatorIcon className="w-6 h-6 text-blue-600" />
-        <h2 id="calculator-title" className="text-xl font-semibold">Calculator</h2>
-      </header>
-
+    <ToolPanel title="Calculator" description="Perform basic calculations" icon={CalculatorIcon} className="max-w-md mx-auto">
       <section className="grid grid-cols-4 grid-rows-7 gap-2" role="application" aria-label="Calculator interface">
         <div className="col-span-4 row-span-2 relative">
           <div className="font-semibold text-2xl text-right grid place-items-end p-2 bg-gray-100 dark:bg-gray-900 rounded-sm overflow-hidden h-full" role="textbox" aria-label="Calculator display" aria-live="polite">
@@ -290,6 +286,6 @@ export default function Calculator() {
           <Equal className="w-5 h-5" />
         </Button>
       </section>
-    </section>
+    </ToolPanel>
   )
 }

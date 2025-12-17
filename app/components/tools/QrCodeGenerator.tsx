@@ -1,11 +1,13 @@
 'use client'
 
 import { useState } from "react"
+import { QrCode } from "lucide-react"
 import { QRCode } from "react-qrcode-logo"
+import ToolPanel from "./ToolPanel"
+import Input from "../Input"
+import Group from "../Group"
+import Label from "../Label"
 
-/* TODO
- * Reuse the Input component here.
- */
 export default function QrCodeGenerator() {
   const [text, setText] = useState("https://example.com")
   const [size, setSize] = useState(200)
@@ -13,54 +15,49 @@ export default function QrCodeGenerator() {
   const [bgColor, setBgColor] = useState("#ffffff")
 
   return (
-    <div className="flex flex-col items-center gap-6 p-6 max-w-lg mx-auto border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
-      <h1 className="text-2xl font-bold">QR Code Generator</h1>
-
-      <div className="w-full flex flex-col gap-4">
-        <label className="flex flex-col">
-          <span className="font-medium">Text / URL:</span>
-          <input
+    <ToolPanel title="QR Code Generator" description="Create custom QR codes for URLs or text" icon={QrCode} className="max-w-lg mx-auto">
+      <Group variant="vertical" className="gap-4">
+        <Group variant="vertical">
+          <Label>Text / URL:</Label>
+          <Input
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="border p-2 rounded"
+            placeholder="Enter text or URL to encode"
           />
-        </label>
+        </Group>
 
-        <label className="flex flex-col">
-          <span className="font-medium">Size (px):</span>
-          <input
+        <Group variant="vertical">
+          <Label>Size (px):</Label>
+          <Input
             type="number"
-            min="50"
-            max="1000"
+            min={50}
+            max={1000}
             value={size}
             onChange={(e) => setSize(Number(e.target.value))}
-            className="border p-2 rounded"
           />
-        </label>
+        </Group>
 
-        <label className="flex flex-col">
-          <span className="font-medium">Foreground Color:</span>
-          <input
+        <Group variant="vertical">
+          <Label>Foreground Color:</Label>
+          <Input
             type="color"
             value={fgColor}
             onChange={(e) => setFgColor(e.target.value)}
-            className="p-1"
           />
-        </label>
+        </Group>
 
-        <label className="flex flex-col">
-          <span className="font-medium">Background Color:</span>
-          <input
+        <Group variant="vertical">
+          <Label>Background Color:</Label>
+          <Input
             type="color"
             value={bgColor}
             onChange={(e) => setBgColor(e.target.value)}
-            className="p-1"
           />
-        </label>
-      </div>
+        </Group>
+      </Group>
 
-      <div className="p-4 border rounded-sm bg-gray-50 border-gray-300 dark:bg-gray-950 dark:border dark:border-gray-700">
+      <div className="flex justify-center p-4 rounded-sm bg-gray-50 dark:bg-gray-950 ">
         <QRCode
           value={text}
           size={size}
@@ -69,6 +66,6 @@ export default function QrCodeGenerator() {
           quietZone={10}
         />
       </div>
-    </div>
+    </ToolPanel>
   )
 }

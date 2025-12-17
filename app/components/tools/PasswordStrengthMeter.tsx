@@ -1,15 +1,13 @@
 'use client'
 
 import { useState } from "react"
+import { Key } from "lucide-react"
+import ToolPanel from "./ToolPanel"
 
 const TYPE_PASSWORD = "password"
 const TYPE_TEXT = "text"
 const TOTAL_SCORE = 8
 
-/* TODO:
- * Reuse the Input component here.
- * Reuse the Button component here.
- */
 function PasswordStrengthMeter() {
   const [passwordFieldType, setPasswordFieldType] = useState(TYPE_PASSWORD)
   const [meterLength, setMeterLength] = useState(0)
@@ -46,42 +44,44 @@ function PasswordStrengthMeter() {
   }
 
   return (
-    <form action="" method="post" className="p-6 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
-      <div className="grid gap-2">
-        <label htmlFor="input-password" className="text-lg">
-          Please enter your password:
-        </label>
-        <input
-          type={passwordFieldType}
-          name="password"
-          id="input-password"
-          value={password}
-          onChange={handlePasswordChange}
-          className="text-lg p-2 border rounded"
-        />
-        <div className="h-2 w-full bg-gray-300 dark:bg-gray-700 rounded overflow-hidden mt-2">
-          <div
-            className={`h-full ${meterColour} transition-all duration-300`}
-            style={{ width: `${meterLength}%` }}
-          ></div>
-        </div>
-      </div>
-
-      <div className="mt-4">
-        <label
-          htmlFor="input-toggle_password"
-          className="flex gap-2 items-center cursor-pointer"
-        >
+    <ToolPanel title="Password Strength Meter" description="Check the strength of your password" icon={Key}>
+      <form action="" method="post" >
+        <div className="grid gap-2">
+          <label htmlFor="input-password" className="text-lg">
+            Please enter your password:
+          </label>
           <input
-            type="checkbox"
-            name="toggle_password"
-            id="input-toggle_password"
-            onChange={togglePasswordHandler}
+            type={passwordFieldType}
+            name="password"
+            id="input-password"
+            value={password}
+            onChange={handlePasswordChange}
+            className="text-lg p-2 border rounded"
           />
-          Toggle Password
-        </label>
-      </div>
-    </form>
+          <div className="h-2 w-full bg-gray-300 dark:bg-gray-700 rounded overflow-hidden mt-2">
+            <div
+              className={`h-full ${meterColour} transition-all duration-300`}
+              style={{ width: `${meterLength}%` }}
+            ></div>
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <label
+            htmlFor="input-toggle_password"
+            className="flex gap-2 items-center cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="toggle_password"
+              id="input-toggle_password"
+              onChange={togglePasswordHandler}
+            />
+            Toggle Password
+          </label>
+        </div>
+      </form>
+    </ToolPanel>
   )
 }
 

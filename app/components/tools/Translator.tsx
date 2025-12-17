@@ -17,12 +17,8 @@ import Group from "../Group"
 import DropdownMenu from "../DropdownMenu"
 import languagesData from "../../data/translator-languages.json"
 import stylesData from "../../data/translator-styles.json"
+import ToolPanel from "./ToolPanel"
 
-/* TODO:
- * Reuse the DropdownMenu component
- * Reuse the Button component
- * Reuse the Group and Textarea components
- */
 export default function Translator() {
   const [sourceText, setSourceText] = useState("")
   const [translatedText, setTranslatedText] = useState("")
@@ -288,22 +284,7 @@ Please respond in the following JSON format:
   }
 
   return (
-    <article className="p-6 max-w-6xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
-      {/* Header */}
-      <header className="flex items-center gap-3 mb-8">
-        <div className="p-2 bg-blue-100 rounded-sm">
-          <Languages className="w-6 h-6 text-blue-500" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-semibold opacity-75">
-            Language Translator
-          </h2>
-          <p className="text-sm opacity-75">
-            Translate text between languages with different tones
-          </p>
-        </div>
-      </header>
-
+    <ToolPanel title="Language Translator" description="Translate text between languages with different tones" icon={Languages}>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -523,7 +504,7 @@ Please respond in the following JSON format:
           </div>
         </footer>
       </form>
-    </article>
+    </ToolPanel>
   )
 }
 

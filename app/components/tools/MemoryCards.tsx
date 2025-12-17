@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Button from '@/app/components/Button'
 import MemoryCard from './MemoryCard'
+import ToolPanel from './ToolPanel'
 import {
   Brain,
   Heart,
@@ -293,12 +294,7 @@ export default function MemoryCards() {
   }
 
   return (
-    <article className="p-6 max-w-4xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
-      <header className="flex items-center gap-2 mb-6">
-        <Brain className="w-6 h-6 text-purple-600" />
-        <h2 className="text-xl font-semibold">Memory Cards</h2>
-      </header>
-
+    <ToolPanel title="Memory Cards" description="Match pairs of cards to advance through endless levels. Each level gets progressively harder!" icon={Brain}>
       {/* Game Stats */}
       <aside className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" aria-label="Game Statistics">
         <div className="bg-blue-100 p-3 rounded-sm text-center">
@@ -433,6 +429,6 @@ export default function MemoryCards() {
         </div>
         </section>
       )}
-    </article>
+    </ToolPanel>
   )
 }

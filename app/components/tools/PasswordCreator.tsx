@@ -1,7 +1,9 @@
 'use client'
 
 import React, { useState } from "react"
+import { Key } from "lucide-react"
 import zxcvbn from "zxcvbn"
+import ToolPanel from "./ToolPanel"
 
 const symbols = [
   "!",
@@ -28,9 +30,6 @@ const symbols = [
   "?",
 ]
 
-/* TODO:
- * Reuse the Button component here.
- */
 function spellOut(word: string): string {
   return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents
 }
@@ -102,10 +101,7 @@ export default function PasswordCreator() {
   }
 
   return (
-    <section className="flow p-6 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
-      <h3 className="text-2xl font-semibold">
-        🔑 Generate a Secure, Memorable Password
-      </h3>
+    <ToolPanel title="Password Creator" description="Generate a secure, memorable password" icon={Key}>
       <p>
         This tool builds a strong password based on an expressive phrase with
         creative modifications.
@@ -126,6 +122,6 @@ export default function PasswordCreator() {
           </p>
         </div>
       )}
-    </section>
+    </ToolPanel>
   )
 }

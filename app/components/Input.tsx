@@ -104,7 +104,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     if (checked !== undefined) typeSpecificProps.checked = checked
   }
 
-  const baseClassName = "min-h-[1em] w-full block flex-1 px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
+  const baseClassName = "min-h-[2.5em] w-full block flex-1 px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
   const finalClassName = `${baseClassName} ${className}`.trim()
 
   // Get variant-specific styling for checkbox/radio

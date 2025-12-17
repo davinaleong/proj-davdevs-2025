@@ -5,6 +5,7 @@ import { Search, Copy, Download } from "lucide-react"
 import Button from "../Button"
 import Input from "../Input"
 import Table from "../Table"
+import ToolPanel from "./ToolPanel"
 
 interface DuplicateData {
   text: string
@@ -201,22 +202,7 @@ export default function DuplicateParagraphScanner() {
   }
 
   return (
-    <article className="p-6 max-w-6xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
-      {/* Header */}
-      <header className="flex items-center gap-3 mb-8">
-        <div className="p-2 bg-blue-100 rounded-sm">
-          <Search size={24} className="text-blue-500" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-semibold opacity-75">
-            Duplicate Paragraph Scanner
-          </h2>
-          <p className="text-sm opacity-75">
-            Enter a website URL to scan for duplicate paragraphs
-          </p>
-        </div>
-      </header>
-
+    <ToolPanel title="Duplicate Paragraph Scanner" description="Scan a website for duplicate paragraphs" icon={Search}>
       <form onSubmit={(e) => { e.preventDefault(); handleScan(); }} className="space-y-6">
         <section>
           <div className="flex gap-2">
@@ -337,6 +323,6 @@ export default function DuplicateParagraphScanner() {
           </p>
         </section>
       )}
-    </article>
+    </ToolPanel>
   )
 }

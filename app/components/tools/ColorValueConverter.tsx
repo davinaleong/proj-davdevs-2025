@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import { colord } from "colord"
-import { Palette, Copy, Check, AlertCircle, Droplets } from "lucide-react"
+import { Palette, Copy, Check, AlertCircle } from "lucide-react"
 import colorExamples from "../../data/color-converter-examples.json"
 import Button from "../Button"
 import Input from "../Input"
+import ToolPanel from "./ToolPanel"
 
 interface ColorFormat {
   name: string
@@ -13,17 +14,12 @@ interface ColorFormat {
   format: string
 }
 
-/* TODO:
- * Reuse the Button component in place of any <button> elements
- * Reuse the Input component in place of any <input> elements
- */
 export default function ColorValueConverter() {
   const [inputValue, setInputValue] = useState("#3b82f6")
   const [colorFormats, setColorFormats] = useState<ColorFormat[]>(() => {
     // Initialize with default blue color (#3b82f6)
     const color = colord("#3b82f6")
     const rgb = color.toRgb()
-    const hsl = color.toHsl()
     const hsv = color.toHsv()
     
     const r = rgb.r / 255
@@ -248,12 +244,7 @@ export default function ColorValueConverter() {
   const detectedFormat = detectColorFormat(inputValue)
 
   return (
-    <article className="p-6 max-w-4xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
-      <header className="flex items-center gap-2 mb-6">
-        <Palette className="w-6 h-6 text-blue-600" />
-        <h2 className="text-2xl font-semibold">Color Value Converter</h2>
-      </header>
-
+    <ToolPanel title="Color Value Converter" description="Convert color values between different formats such as HEX, RGB, HSL, OKLCH, and more." icon={Palette} className="max-w-4xl mx-auto">
       {/* Input Section */}
       <form className="mb-6" onSubmit={(e) => e.preventDefault()}>
         <label
@@ -262,40 +253,33 @@ export default function ColorValueConverter() {
         >
           Enter Color Value
         </label>
-        <div className="flex gap-3">
-          <div className="flex-1">
-            <Input
-              type="text"
-              value={inputValue}
-              onChange={(e) => {
-                const newValue = e.target.value
-                setInputValue(newValue)
-                convertColor(newValue)
-              }}
-              placeholder="e.g., #3b82f6, rgb(59, 130, 246), oklch(70.7% 0.165 254.624), blue"
-              className={`w-full px-3 py-2 border rounded-sm ${
-                !isValidColor ? "border-red-500" : "border-gray-200 dark:border-gray-800"
-              }`}
-            />
-            {detectedFormat !== "unknown" && isValidColor && (
-              <p className="text-xs opacity-75">
-                Detected format: {detectedFormat.toUpperCase()}
-              </p>
-            )}
-          </div>
-
-          {/* Color Swatch */}
+        <div className="flex gap-2">
+          <Input
+            type="text"
+            value={inputValue}
+            onChange={(e) => {
+              const newValue = e.target.value
+              setInputValue(newValue)
+              convertColor(newValue)
+            }}
+            placeholder="e.g., #3b82f6, rgb(59, 130, 246), oklch(70.7% 0.165 254.624), blue"
+            className={`${!isValidColor ? "border-red-500" : "border-gray-200 dark:border-gray-800"
+            }`}
+          />
           {isValidColor && colorFormats.length > 0 && (
-            <div className="flex items-center gap-2">
-              <div
-                className="w-12 h-12 rounded-sm border-2 border-gray-200 dark:border-gray-800 shadow-sm"
-                style={{ backgroundColor: inputValue }}
-                title="Color preview"
-              />
-              <Droplets className="w-5 h-5 text-gray-400" />
-            </div>
+            <div
+              className="w-12 h-12 rounded-sm border-2 border-gray-200 dark:border-gray-800 shadow-sm shrink-0"
+              style={{ backgroundColor: inputValue }}
+              title="Color preview"
+            />
           )}
         </div>
+
+        {detectedFormat !== "unknown" && isValidColor && (
+          <p className="text-xs opacity-75 mt-1">
+            Detected format: {detectedFormat.toUpperCase()}
+          </p>
+        )}
 
         {!isValidColor && (
           <div className="flex items-center gap-2 mt-2 text-red-600">
@@ -369,6 +353,6 @@ export default function ColorValueConverter() {
           ))}
         </div>
       </section>
-    </article>
+    </ToolPanel>
   )
 }
