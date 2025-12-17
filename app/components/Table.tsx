@@ -12,7 +12,7 @@ interface SortConfig {
 }
 
 interface TableData {
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface TableProps {
@@ -30,7 +30,7 @@ interface TableProps {
     label: string
     mobileLabel?: string
     sortable?: boolean
-    render?: (value: any, row: TableData) => React.ReactNode
+    render?: (value: unknown, row: TableData) => React.ReactNode
   }>
 }
 
@@ -214,7 +214,7 @@ function Table({
                     responsive={responsive}
                     mobileLabel={column.mobileLabel || column.label}
                   >
-                    {column.render ? column.render(row[column.key], row) : row[column.key]}
+                    {column.render ? column.render(row[column.key], row) : (row[column.key] as React.ReactNode)}
                   </TableCell>
                 ))}
               </TableRow>
@@ -222,8 +222,8 @@ function Table({
           </TableBody>
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child) && child.type === TableFoot) {
-              return React.cloneElement(child, {
-                ...child.props,
+              return React.cloneElement(child as React.ReactElement<ExtendedTableSectionProps>, {
+                ...(child.props || {}),
                 tableStyles: styles,
                 responsive
               })

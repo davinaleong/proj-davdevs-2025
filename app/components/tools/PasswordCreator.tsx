@@ -28,14 +28,6 @@ const symbols = [
   "?",
 ]
 
-const foreignWords: Record<string, string> = {
-  journey: "voyage", // French
-  light: "lumière", // French (we'll convert it to alphabetic)
-  dream: "sueño", // Spanish
-  world: "mundo", // Spanish
-  peace: "salem", // Hebrew
-}
-
 /* TODO:
  * Reuse the Button component here.
  */
@@ -56,7 +48,7 @@ export default function PasswordCreator() {
       "follow the rhythm of your heart and let passion guide your path",
       "every challenge is a step closer to strength and wisdom",
     ]
-    let phrase = phrases[Math.floor(Math.random() * phrases.length)]
+    const phrase = phrases[Math.floor(Math.random() * phrases.length)]
 
     // Step 2: Randomly capitalize 2–4 words
     const words = phrase.split(" ")
@@ -106,7 +98,7 @@ export default function PasswordCreator() {
 
     // Step 6: Crack time estimate
     const result = zxcvbn(finalPassword)
-    setCrackTime(result.crack_times_display.offline_slow_hashing_1e4_per_second)
+    setCrackTime(String(result.crack_times_display.offline_slow_hashing_1e4_per_second))
   }
 
   return (
@@ -126,7 +118,7 @@ export default function PasswordCreator() {
       </button>
       {password && (
         <div className="mt-4">
-          <p className="text-lg font-mono break-words">
+          <p className="text-lg font-mono break-all">
             <strong>🔐 Your Password:</strong> {password}
           </p>
           <p className="mt-2">

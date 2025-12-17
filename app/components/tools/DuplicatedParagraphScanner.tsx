@@ -10,6 +10,7 @@ interface DuplicateData {
   text: string
   count: number
   pageTitle: string
+  [key: string]: unknown
 }
 
 export default function DuplicateParagraphScanner() {
@@ -258,43 +259,55 @@ export default function DuplicateParagraphScanner() {
                 {
                   key: 'text',
                   label: 'Paragraph',
-                  render: (value: string) => (
-                    <div className="max-w-md truncate" title={value}>
-                      {value}
-                    </div>
-                  )
+                  render: (value: unknown) => {
+                    const stringValue = String(value)
+                    return (
+                      <div className="max-w-md truncate" title={stringValue}>
+                        {stringValue}
+                      </div>
+                    )
+                  }
                 },
                 {
                   key: 'pageTitle',
                   label: 'Page Title',
-                  render: (value: string) => (
-                    <div className="max-w-xs truncate font-medium" title={value}>
-                      {value}
-                    </div>
-                  )
+                  render: (value: unknown) => {
+                    const stringValue = String(value)
+                    return (
+                      <div className="max-w-xs truncate font-medium" title={stringValue}>
+                        {stringValue}
+                      </div>
+                    )
+                  }
                 },
                 {
                   key: 'count',
                   label: 'Count',
-                  render: (value: number) => (
-                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getCountHeatmap(value, maxCount)}`}>
-                      {value}
-                    </span>
-                  )
+                  render: (value: unknown) => {
+                    const numberValue = Number(value)
+                    return (
+                      <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getCountHeatmap(numberValue, maxCount)}`}>
+                        {numberValue}
+                      </span>
+                    )
+                  }
                 },
                 {
                   key: 'actions',
                   label: 'Actions',
                   sortable: false,
-                  render: (_, row: DuplicateData) => (
-                    <Button
-                      variant="icon"
-                      onClick={() => navigator.clipboard.writeText(`${row.text} | ${row.pageTitle} | ${row.count}`)}
-                      title="Copy this row"
-                    >
-                      <Copy size={14} />
-                    </Button>
-                  )
+                  render: (_: unknown, row: { [key: string]: unknown }) => {
+                    const duplicate = row as unknown as DuplicateData
+                    return (
+                      <Button
+                        variant="icon"
+                        onClick={() => navigator.clipboard.writeText(`${duplicate.text} | ${duplicate.pageTitle} | ${duplicate.count}`)}
+                        title="Copy this row"
+                      >
+                        <Copy size={14} />
+                      </Button>
+                    )
+                  }
                 }
               ]}
             >

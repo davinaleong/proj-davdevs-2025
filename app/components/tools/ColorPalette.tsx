@@ -3,11 +3,18 @@
 import React from "react"
 import Swatch from "./Swatch"
 
+type ColorFormat = 'hex' | 'rgb' | 'hsl' | 'oklch' | 'lab' | 'lch'
+
 export interface ColorItem {
   title: string
-  value: string
+  hex: string
+  rgb: string
+  hsl: string
+  oklch: string
+  lab: string
+  lch: string
   textColor: string
-  bgColor: string
+  selectedFormat: ColorFormat
 }
 
 interface ColorPaletteProps {
