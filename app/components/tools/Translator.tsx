@@ -36,9 +36,13 @@ export default function Translator() {
   const languages = languagesData.languages
   const styles = stylesData.styles
 
-  const parseApiError = (error: any) => {
+  const parseApiError = (error: { message?: string; details?: string } | Error | unknown) => {
+    const errorObj = error as { message?: string; details?: string }
+    const errorMessage = errorObj?.message || (error instanceof Error ? error.message : '')
+    const errorDetails = errorObj?.details || ''
+    
     // Handle quota exceeded errors
-    if (error?.details?.includes('exhausted') || error?.details?.includes('quota')) {
+    if (errorDetails?.includes('exhausted') || errorDetails?.includes('quota')) {
       return {
         title: 'API Quota Exceeded',
         message: 'The translation service has reached its usage limit. Please try again later or contact support.',
@@ -47,7 +51,7 @@ export default function Translator() {
     }
     
     // Handle forbidden errors
-    if (error?.details?.includes('403') || error?.details?.includes('Forbidden')) {
+    if (errorDetails?.includes('403') || errorDetails?.includes('Forbidden')) {
       return {
         title: 'Service Access Restricted',
         message: 'The translation service is currently unavailable. Please try again later.',
@@ -56,7 +60,7 @@ export default function Translator() {
     }
     
     // Handle network errors
-    if (error?.message?.includes('fetch') || error?.message?.includes('network')) {
+    if (errorMessage?.includes('fetch') || errorMessage?.includes('network')) {
       return {
         title: 'Connection Error',
         message: 'Unable to connect to the translation service. Please check your internet connection.',
@@ -67,7 +71,7 @@ export default function Translator() {
     // Default error
     return {
       title: 'Translation Error',
-      message: error?.message || 'An unexpected error occurred. Please try again.',
+      message: errorMessage || 'An unexpected error occurred. Please try again.',
       type: 'unknown'
     }
   }
