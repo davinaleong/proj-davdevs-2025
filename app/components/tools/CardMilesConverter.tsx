@@ -685,11 +685,11 @@ export default function CardMilesConverter() {
   const bestValue = conversionResults[0]
 
   return (
-    <div className="p-6 max-w-7xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
+    <div className="p-6 max-w-7xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700  rounded-sm shadow-lg">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
-        <div className="p-2 bg-blue-100 rounded-sm">
-          <CreditCard className="w-6 h-6 text-blue-600" />
+        <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-sm">
+          <CreditCard className="w-6 h-6 text-blue-500" />
         </div>
         <div>
           <h2 className="text-2xl font-semibold">
@@ -715,7 +715,7 @@ export default function CardMilesConverter() {
             value={sourceAmount}
             onChange={(e) => setSourceAmount(e.target.value)}
             placeholder="Enter points/miles amount"
-            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2"
+            className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
           />
         </div>
 
@@ -727,7 +727,7 @@ export default function CardMilesConverter() {
           <select
             value={sourceProgramId}
             onChange={(e) => setSourceProgramId(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2"
+            className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
           >
             <optgroup label="ASEAN Credit Cards">
               {loyaltyPrograms
@@ -830,7 +830,7 @@ export default function CardMilesConverter() {
           <select
             value={selectedCurrency}
             onChange={(e) => setSelectedCurrency(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:ring-2"
+            className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
           >
             {currencies.map((currency) => (
               <option key={currency.code} value={currency.code}>
@@ -844,7 +844,7 @@ export default function CardMilesConverter() {
         <div className="flex items-end">
           <button
             onClick={swapPrograms}
-            className="w-full px-4 py-2 bg-white dark:bg-black dark:border rounded-sm flex items-center justify-center gap-2"
+            className="w-full px-4 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm flex items-center justify-center gap-2 hover:opacity-60"
           >
             <ArrowRightLeft className="w-4 h-4" />
             <span className="hidden sm:inline">Swap</span>
@@ -856,18 +856,18 @@ export default function CardMilesConverter() {
       {conversionResults.length > 0 && (
         <div className="mb-6">
           <div className="relative max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
             <input
               type="text"
               placeholder="Quick search programs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2"
+              className="w-full pl-10 pr-4 py-2 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm focus:ring-2"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-600"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -878,8 +878,8 @@ export default function CardMilesConverter() {
 
       {/* Exchange Rate Info */}
       {selectedCurrency !== "USD" && (
-        <div className="mb-6 p-3 bg-yellow-50 border border-yellow-200 rounded-sm">
-          <div className="flex items-center gap-2 text-sm text-yellow-800">
+        <div className="mb-6 p-3 bg-yellow-50 border border-yellow-200 dark:bg-yellow-950 dark:border-yellow-800 rounded-sm">
+          <div className="flex items-center gap-2 text-sm text-yellow-800 dark:text-yellow-200">
             <Globe className="w-4 h-4" />
             <span>
               Exchange Rate: 1 {selectedCurrency} ={" "}
@@ -892,14 +892,14 @@ export default function CardMilesConverter() {
       {/* Quick Stats */}
       {sourceProgram && sourceAmount && parseFloat(sourceAmount) > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-blue-50 p-4 rounded-sm">
+          <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-sm">
             <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-900">
+              <DollarSign className="w-4 h-4 text-blue-500" />
+              <span className="text-sm font-medium text-blue-900 dark:text-blue-100">
                 Current Value
               </span>
             </div>
-            <div className="text-2xl font-bold text-blue-600">
+            <div className="text-2xl font-bold text-blue-500">
               {formatCurrency(
                 convertFromUSD(
                   ((parseFloat(sourceAmount) * sourceProgram.cashValue) / 100) *
@@ -911,41 +911,41 @@ export default function CardMilesConverter() {
                 selectedCurrency
               )}
             </div>
-            <div className="text-xs text-blue-700 flex items-center gap-1">
+            <div className="text-xs text-blue-700 dark:text-blue-300 flex items-center gap-1">
               {getRegionFlag(sourceProgram.region)} {sourceProgram.cashValue}¢
               per {sourceProgram.currency.slice(0, -1)}
             </div>
           </div>
 
           {bestValue && (
-            <div className="bg-green-50 p-4 rounded-sm">
+            <div className="bg-green-50 dark:bg-green-900 p-4 rounded-sm">
               <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-medium text-green-900">
+                <TrendingUp className="w-4 h-4 text-green-500" />
+                <span className="text-sm font-medium text-green-900 dark:text-green-100">
                   Best Value
                 </span>
               </div>
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-green-500">
                 {formatCurrency(bestValue.cashValueLocal, selectedCurrency)}
               </div>
-              <div className="text-xs text-green-700 flex items-center gap-1">
+              <div className="text-xs text-green-700 dark:text-green-300 flex items-center gap-1">
                 {getRegionFlag(bestValue.program.region)}{" "}
                 {bestValue.program.name}
               </div>
             </div>
           )}
 
-          <div className="bg-purple-50 p-4 rounded-sm">
+          <div className="bg-purple-50 dark:bg-purple-900 p-4 rounded-sm">
             <div className="flex items-center gap-2 mb-2">
-              <Star className="w-4 h-4 text-purple-600" />
-              <span className="text-sm font-medium text-purple-900">
+              <Star className="w-4 h-4 text-purple-500" />
+              <span className="text-sm font-medium text-purple-900 dark:text-purple-100">
                 Programs
               </span>
             </div>
-            <div className="text-2xl font-bold text-purple-600">
+            <div className="text-2xl font-bold text-purple-500">
               {loyaltyPrograms.length}
             </div>
-            <div className="text-xs text-purple-700">
+            <div className="text-xs text-purple-700 dark:text-purple-300">
               Asia Pacific + Global programs
             </div>
           </div>
@@ -956,7 +956,7 @@ export default function CardMilesConverter() {
       {conversionResults.length > 0 && (
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-medium text-gray-900">
+            <h3 className="text-lg font-medium opacity-90">
               Conversion Results
             </h3>
             <div className="flex items-center gap-2">
@@ -969,8 +969,8 @@ export default function CardMilesConverter() {
                   searchTerm ||
                   minValue ||
                   maxValue
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    ? "bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300"
+                    : "bg-gray-100 dark:bg-gray-900 text-gray-500 hover:opacity-60"
                 }`}
               >
                 <SlidersHorizontal className="w-4 h-4" />
@@ -987,18 +987,18 @@ export default function CardMilesConverter() {
           <div className={`mb-4 space-y-4 ${showFilters ? "block" : "hidden"}`}>
             {/* Search Bar */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input
                 type="text"
                 placeholder="Search programs by name, type, or region..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:ring-2"
+                className="w-full pl-10 pr-4 py-2 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm focus:ring-2"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm("")}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-600"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -1006,7 +1006,7 @@ export default function CardMilesConverter() {
             </div>
 
             {/* Filter Controls */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 border bg-gray-50 border-gray-300 dark:bg-gray-950 dark:border dark:border-gray-700 rounded-sm">
               {/* Program Types */}
               <div>
                 <label className="block text-sm font-medium opacity-75 mb-2">
@@ -1023,7 +1023,7 @@ export default function CardMilesConverter() {
                         type="checkbox"
                         checked={selectedTypes.includes(type.value)}
                         onChange={() => toggleType(type.value)}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="border border-gray-300 dark:border-gray-700 rounded-sm-sm dark:border-gray-700 text-blue-500 focus:ring-blue-500"
                       />
                       <span className="ml-2 text-sm opacity-75">
                         {type.icon} {type.label}
@@ -1062,7 +1062,7 @@ export default function CardMilesConverter() {
                         type="checkbox"
                         checked={selectedRegions.includes(region.value)}
                         onChange={() => toggleRegion(region.value)}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-gray-300 text-blue-500 focus:ring-blue-500"
                       />
                       <span className="ml-2 text-sm opacity-75">
                         {region.flag} {region.label}
@@ -1083,14 +1083,14 @@ export default function CardMilesConverter() {
                     placeholder="Min value"
                     value={minValue}
                     onChange={(e) => setMinValue(e.target.value)}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2"
+                    className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
                   />
                   <input
                     type="number"
                     placeholder="Max value"
                     value={maxValue}
                     onChange={(e) => setMaxValue(e.target.value)}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2"
+                    className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
                   />
                 </div>
               </div>
@@ -1105,7 +1105,7 @@ export default function CardMilesConverter() {
                   onChange={(e) =>
                     setSortBy(e.target.value as "value" | "name" | "type")
                   }
-                  className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded focus:ring-2"
+                  className="w-full px-3 py-1.5 text-sm border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
                 >
                   <option value="value">Cash Value (High to Low)</option>
                   <option value="name">Program Name (A-Z)</option>
@@ -1113,7 +1113,7 @@ export default function CardMilesConverter() {
                 </select>
                 <button
                   onClick={clearFilters}
-                  className="mt-2 w-full px-3 py-1.5 text-sm bg-gray-200 opacity-75 rounded hover:bg-gray-300 transition-colors"
+                  className="mt-2 w-full px-3 py-1.5 text-sm bg-gray-200 dark:bg-gray-800 rounded-sm hover:opacity-60"
                 >
                   Clear All Filters
                 </button>
@@ -1131,18 +1131,18 @@ export default function CardMilesConverter() {
                   key={result.program.id}
                   className={`border rounded-sm p-4 hover:shadow-md transition-shadow ${
                     originalIndex === 0
-                      ? "border-green-500 bg-green-50"
-                      : "border-gray-200 bg-white"
+                      ? "border-green-500 bg-green-50 dark:bg-green-950"
+                      : "border-gray-200 dark:border-gray-800 bg-white dark:bg-black"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">{result.program.icon}</span>
-                      <div>
-                        <div className="font-medium text-gray-900 text-sm">
+                      <div className="flow">
+                        <div className="font-medium opacity-90 text-sm">
                           {result.program.name}
                         </div>
-                        <div className="text-xs text-gray-500 flex items-center gap-1">
+                        <div className="text-xs flex items-center gap-1 opacity-50">
                           {getProgramTypeIcon(result.program.type)}
                           <span className="capitalize">
                             {result.program.type.replace("_", " ")}
@@ -1153,7 +1153,7 @@ export default function CardMilesConverter() {
                     </div>
                     {originalIndex === 0 && (
                       <Star
-                        className="w-4 h-4 text-green-600"
+                        className="w-4 h-4 text-green-500"
                         fill="currentColor"
                       />
                     )}
@@ -1161,8 +1161,8 @@ export default function CardMilesConverter() {
 
                   <div className="space-y-2">
                     <div>
-                      <div className="text-xs text-gray-500">Amount</div>
-                      <div className="font-semibold text-gray-900">
+                      <div className="text-xs opacity-50">Amount</div>
+                      <div className="font-semibold opacity-90">
                         {formatPoints(
                           Math.round(result.amount),
                           result.program.currency
@@ -1171,24 +1171,24 @@ export default function CardMilesConverter() {
                     </div>
 
                     <div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs opacity-50">
                         Cash Value ({selectedCurrency})
                       </div>
-                      <div className="font-bold text-lg text-green-600">
+                      <div className="font-bold text-lg text-green-500">
                         {formatCurrency(
                           result.cashValueLocal,
                           selectedCurrency
                         )}
                       </div>
                       {selectedCurrency !== "USD" && (
-                        <div className="text-xs text-gray-400">
+                        <div className="text-xs opacity-50">
                           {formatCurrency(result.cashValueUSD, "USD")}
                         </div>
                       )}
                     </div>
 
                     <div className="flex items-center justify-between pt-2">
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs opacity-50">
                         {result.program.cashValue}¢ per{" "}
                         {result.program.currency.slice(0, -1)}
                       </div>
@@ -1205,11 +1205,11 @@ export default function CardMilesConverter() {
                             result.program.id
                           )
                         }
-                        className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                        className="p-1 opacity-50 hover:opacity-80 transition-opacity"
                         title="Copy conversion"
                       >
                         {copied === result.program.id ? (
-                          <Check className="w-4 h-4 text-green-600" />
+                          <Check className="w-4 h-4 text-green-500" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
@@ -1218,8 +1218,8 @@ export default function CardMilesConverter() {
 
                     {result.transferValue &&
                       result.transferValue !== result.amount && (
-                        <div className="pt-2 border-t border-gray-100">
-                          <div className="text-xs text-blue-600">
+                        <div className="pt-2 border-t border-gray-100 dark:border-gray-900">
+                          <div className="text-xs text-blue-500">
                             Transfer: {Math.round(result.transferValue)}{" "}
                             {result.program.currency}
                           </div>
@@ -1237,8 +1237,8 @@ export default function CardMilesConverter() {
       {conversionResults.length > 0 &&
         getFilteredAndSortedResults().length === 0 && (
           <div className="text-center py-8">
-            <div className="text-gray-500 mb-4">
-              <Search className="w-12 h-12 mx-auto mb-2 text-gray-300" />
+            <div className="opacity-50 mb-4">
+              <Search className="w-12 h-12 mx-auto mb-2 opacity-30" />
               <p className="text-lg font-medium">
                 No programs match your filters
               </p>
@@ -1256,10 +1256,10 @@ export default function CardMilesConverter() {
         )}
 
       {/* Help Text */}
-      <div className="mt-8 p-4 bg-blue-50 rounded-sm">
+      <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-950 rounded-sm">
         <div className="flex items-start gap-2">
-          <Info className="w-4 h-4 text-blue-600 mt-0.5" />
-          <div className="text-sm text-blue-800">
+          <Info className="w-4 h-4 text-blue-500 mt-0.5" />
+          <div className="text-sm text-blue-800 dark:text-blue-200">
             <p className="font-medium mb-1">
               Asia Pacific Card Miles Converter:
             </p>
