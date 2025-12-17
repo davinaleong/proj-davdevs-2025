@@ -13,7 +13,7 @@ export default function Group({
   variant = 'vertical', 
   className = "" 
 }: GroupProps) {
-  const baseClasses = variant === 'horizontal' ? "flex gap-2" : "flow"
+  const baseClasses = variant === 'horizontal' ? "flex items-center gap-2" : "flow"
   const finalClassName = `${baseClasses} ${className}`.trim()
 
   return (
