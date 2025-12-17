@@ -107,7 +107,7 @@ export default function PostPage({ params, postType }: PostPageProps) {
                         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium"
                     >
                         <ArrowLeft size={16} />
-                        Back to {postType.charAt(0).toUpperCase() + postType.slice(1)}
+                        Back to {postType.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                     </Anchor>
                 </div>
             </section>
