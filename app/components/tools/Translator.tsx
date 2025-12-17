@@ -12,6 +12,10 @@ import {
   Sparkles,
 } from "lucide-react"
 
+/* TODO:
+ * Reuse the Input component
+ * Reuse the Button component
+ */
 export default function Translator() {
   const [sourceText, setSourceText] = useState("")
   const [translatedText, setTranslatedText] = useState("")
@@ -327,17 +331,18 @@ Please respond in the following JSON format:
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto bg-white rounded-sm shadow-lg">
+    <div className="p-6 max-w-6xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg
+">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
         <div className="p-2 bg-blue-100 rounded-lg">
           <Languages className="w-6 h-6 text-blue-600" />
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">
+          <h2 className="text-2xl font-semibold opacity-75">
             Language Translator
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm opacity-75">
             Translate text between languages with different tones
           </p>
         </div>
@@ -354,7 +359,7 @@ Please respond in the following JSON format:
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
           {/* Source Language */}
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium opacity-75 mb-2">
               <Globe className="w-4 h-4 inline mr-1" />
               From
             </label>
@@ -376,7 +381,7 @@ Please respond in the following JSON format:
             <button
               type="button"
               onClick={swapLanguages}
-              className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              className="p-2 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               title="Swap languages"
             >
               <ArrowRightLeft className="w-5 h-5" />
@@ -385,7 +390,7 @@ Please respond in the following JSON format:
 
           {/* Target Language */}
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium opacity-75 mb-2">
               <Globe className="w-4 h-4 inline mr-1" />
               To
             </label>
@@ -405,7 +410,7 @@ Please respond in the following JSON format:
 
         {/* Tone Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
+          <label className="block text-sm font-medium opacity-75 mb-3">
             <MessageCircle className="w-4 h-4 inline mr-1" />
             Translation Style
           </label>
@@ -430,10 +435,10 @@ Please respond in the following JSON format:
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">{styleOption.icon}</span>
                   <div>
-                    <div className="text-sm font-medium text-gray-900">
+                    <div className="text-sm font-medium opacity-75">
                       {styleOption.label}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs opacity-75">
                       {styleOption.description}
                     </div>
                   </div>
@@ -447,7 +452,7 @@ Please respond in the following JSON format:
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Source Text */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium opacity-75">
               <span className="flex items-center gap-1">
                 <Sparkles className="w-4 h-4" />
                 Text to translate
@@ -469,7 +474,7 @@ Please respond in the following JSON format:
 
           {/* Translated Text */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium opacity-75">
               <span className="flex items-center gap-1">
                 <Languages className="w-4 h-4" />
                 Translation
@@ -506,7 +511,7 @@ Please respond in the following JSON format:
                     </div>
                   </div>
                 ) : translatedText ? (
-                  <div className="text-gray-900">{translatedText}</div>
+                  <div className="opacity-75">{translatedText}</div>
                 ) : (
                   <div className="text-gray-400 italic">
                     Translation will appear here...
@@ -518,7 +523,7 @@ Please respond in the following JSON format:
                   <button
                     type="button"
                     onClick={copyToClipboard}
-                    className="p-1.5 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                    className="p-1.5 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
                     title="Copy translation"
                   >
                     {copied ? (
@@ -529,7 +534,7 @@ Please respond in the following JSON format:
                   </button>
                   <button
                     type="button"
-                    className="p-1.5 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                    className="p-1.5 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
                     title="Listen to translation"
                   >
                     <Volume2 className="w-4 h-4" />
