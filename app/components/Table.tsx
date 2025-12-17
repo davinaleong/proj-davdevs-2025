@@ -220,6 +220,16 @@ function Table({
               </TableRow>
             ))}
           </TableBody>
+          {React.Children.map(children, (child) => {
+            if (React.isValidElement(child) && child.type === TableFoot) {
+              return React.cloneElement(child, {
+                ...child.props,
+                tableStyles: styles,
+                responsive
+              })
+            }
+            return null
+          })}
         </table>
       </div>
     )

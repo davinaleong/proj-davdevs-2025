@@ -1,14 +1,56 @@
 'use client'
 
 import React, { useState } from "react"
-import { Search, Copy } from "lucide-react"
+import { Search, Copy, Download } from "lucide-react"
 import Button from "../Button"
 import Input from "../Input"
+import Table from "../Table"
+
+interface DuplicateData {
+  text: string
+  count: number
+  pageTitle: string
+}
 
 export default function DuplicateParagraphScanner() {
   const [url, setUrl] = useState("")
-  const [duplicates, setDuplicates] = useState<{text: string, count: number}[]>([])
+  const [duplicates, setDuplicates] = useState<DuplicateData[]>([])
   const [error, setError] = useState("")
+  
+  // Heatmap function for count visualization
+  const getCountHeatmap = (count: number, maxCount: number) => {
+    const ratio = count / maxCount
+    if (ratio <= 0.33) {
+      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+    } else if (ratio <= 0.66) {
+      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+    } else {
+      return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+    }
+  }
+  
+  // CSV Export function
+  const exportToCSV = () => {
+    const headers = ['Paragraph', 'Page Title', 'Count']
+    const csvContent = [
+      headers.join(','),
+      ...duplicates.map(dup => [
+        `"${(dup.text || '').replace(/"/g, '""')}"`,
+        `"${(dup.pageTitle || '').replace(/"/g, '""')}"`,
+        dup.count
+      ].join(','))
+    ].join('\n')
+    
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', `duplicate-paragraphs-${new Date().toISOString().split('T')[0]}.csv`)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   async function handleScan() {
     setError("")
@@ -95,6 +137,22 @@ export default function DuplicateParagraphScanner() {
       }
 
       const doc = new DOMParser().parseFromString(html, "text/html")
+      
+      // Extract page title from title tag, fallback to first h1 in header or body
+      let pageTitle = doc.querySelector('title')?.textContent?.trim()
+      
+      if (!pageTitle || pageTitle === '') {
+        // Try to get title from h1 in header first
+        const headerH1 = doc.querySelector('header h1')?.textContent?.trim()
+        if (headerH1) {
+          pageTitle = headerH1
+        } else {
+          // Fallback to any h1 tag
+          const anyH1 = doc.querySelector('h1')?.textContent?.trim()
+          pageTitle = anyH1 || 'Untitled Page'
+        }
+      }
+      
       const paras = Array.from(doc.querySelectorAll("p")).map(
         (p) => p.textContent?.trim() || ""
       ).filter(p => p.length > 0) // Filter out empty paragraphs
@@ -104,7 +162,7 @@ export default function DuplicateParagraphScanner() {
       }
 
       // Count occurrences of each paragraph
-      const paragraphCounts = new Map<string, {text: string, count: number}>()
+      const paragraphCounts = new Map<string, {text: string, count: number, pageTitle: string}>()
 
       paras.forEach((p) => {
         const key = p.toLowerCase().trim()
@@ -113,7 +171,7 @@ export default function DuplicateParagraphScanner() {
             const existing = paragraphCounts.get(key)!
             existing.count++
           } else {
-            paragraphCounts.set(key, { text: p, count: 1 })
+            paragraphCounts.set(key, { text: p, count: 1, pageTitle })
           }
         }
       })
@@ -187,44 +245,77 @@ export default function DuplicateParagraphScanner() {
         </section>
       )}
 
-      {duplicates.length > 0 && (
-        <section className="mt-6 p-4 border border-yellow-200 bg-yellow-50 rounded-sm dark:bg-yellow-950 dark:border-yellow-800">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-semibold text-yellow-800 dark:text-yellow-200">
-              🔁 Duplicated Paragraphs Found ({duplicates.length})
-            </h3>
-            <Button
-              variant="secondary"
-              onClick={() => navigator.clipboard.writeText(duplicates.map(d => `${d.text} | ${d.count}`).join('\n\n'))}
-              title="Copy all duplicates with counts"
-            >
-              <Copy size={16} />
-              Copy All
-            </Button>
-          </div>
-          <ul className="space-y-3">
-            {duplicates.map((dup, i) => (
-              <li key={i} className="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-sm border border-yellow-200 dark:border-yellow-700">
-                <div className="flex items-start justify-between gap-2">
-                  <span className="flex-1">{dup.text}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded-sm">
-                      {dup.count}
+      {duplicates.length > 0 && (() => {
+        const maxCount = Math.max(...duplicates.map(d => d.count))
+        
+        return (
+          <section className="mt-6">
+            <Table 
+              styles={['striped', 'bordered']}
+              caption={`🔁 Duplicated Paragraphs Found (${duplicates.length})`}
+              data={duplicates}
+              columns={[
+                {
+                  key: 'text',
+                  label: 'Paragraph',
+                  render: (value: string) => (
+                    <div className="max-w-md truncate" title={value}>
+                      {value}
+                    </div>
+                  )
+                },
+                {
+                  key: 'pageTitle',
+                  label: 'Page Title',
+                  render: (value: string) => (
+                    <div className="max-w-xs truncate font-medium" title={value}>
+                      {value}
+                    </div>
+                  )
+                },
+                {
+                  key: 'count',
+                  label: 'Count',
+                  render: (value: number) => (
+                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getCountHeatmap(value, maxCount)}`}>
+                      {value}
                     </span>
+                  )
+                },
+                {
+                  key: 'actions',
+                  label: 'Actions',
+                  sortable: false,
+                  render: (_, row: DuplicateData) => (
                     <Button
                       variant="icon"
-                      onClick={() => navigator.clipboard.writeText(`${dup.text} | ${dup.count}`)}
-                      title="Copy this paragraph with count"
+                      onClick={() => navigator.clipboard.writeText(`${row.text} | ${row.pageTitle} | ${row.count}`)}
+                      title="Copy this row"
                     >
                       <Copy size={14} />
                     </Button>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+                  )
+                }
+              ]}
+            >
+              <Table.Foot>
+                <Table.Row>
+                  <Table.Cell colSpan={4} className="text-center">
+                    <Button
+                        variant="secondary"
+                        onClick={exportToCSV}
+                        title="Export results to CSV file"
+                      >
+                        <Download size={16} />
+                        Export to CSV
+                      </Button>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Foot>
+            </Table>
+          </section>
+        )
+      })()}
 
       {duplicates.length === 0 && url && !error && (
         <section className="mt-6 p-4 border border-green-200 bg-green-50 rounded-sm dark:bg-green-950 dark:border-green-800">
