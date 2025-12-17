@@ -454,7 +454,7 @@ Please respond in the following JSON format:
           <div className="space-y-2">
             <label className="block text-sm font-medium opacity-75">
               <span className="flex items-center gap-1">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles size={16} />
                 Text to translate
               </span>
             </label>
@@ -476,7 +476,7 @@ Please respond in the following JSON format:
           <div className="space-y-2">
             <label className="block text-sm font-medium opacity-75">
               <span className="flex items-center gap-1">
-                <Languages className="w-4 h-4" />
+                <Languages size={16} />
                 Translation
               </span>
             </label>
@@ -529,7 +529,7 @@ Please respond in the following JSON format:
                     {copied ? (
                       <Check className="w-4 h-4 text-green-600" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Copy size={16} />
                     )}
                   </button>
                   <button
@@ -537,7 +537,7 @@ Please respond in the following JSON format:
                     className="p-1.5 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
                     title="Listen to translation"
                   >
-                    <Volume2 className="w-4 h-4" />
+                    <Volume2 size={16} />
                   </button>
                 </div>
               )}
@@ -567,7 +567,7 @@ Please respond in the following JSON format:
                 </>
               ) : (
                 <>
-                  <Languages className="w-4 h-4" />
+                  <Languages size={16} />
                   Translate
                 </>
               )}

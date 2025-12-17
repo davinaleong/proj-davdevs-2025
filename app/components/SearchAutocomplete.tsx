@@ -22,15 +22,15 @@ export default function SearchAutocomplete({
   const getTypeIcon = (type: SearchResult['type']) => {
     switch (type) {
       case 'sermon':
-        return <MessageSquare className="w-4 h-4" />
+        return <MessageSquare size={16} />
       case 'static':
-        return <FileText className="w-4 h-4" />
+        return <FileText size={16} />
       case 'navigation':
-        return <Globe className="w-4 h-4" />
+        return <Globe size={16} />
       case 'social':
-        return <Users className="w-4 h-4" />
+        return <Users size={16} />
       default:
-        return <FileText className="w-4 h-4" />
+        return <FileText size={16} />
     }
   }
 

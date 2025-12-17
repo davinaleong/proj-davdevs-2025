@@ -5,7 +5,6 @@ import loyaltyData from "@/app/data/loyalty-programs.json"
 import {
   CreditCard,
   Plane,
-  Calculator,
   TrendingUp,
   ArrowRightLeft,
   Copy,
@@ -18,6 +17,11 @@ import {
   X,
   SlidersHorizontal,
 } from "lucide-react"
+import Button from "../Button"
+import Input from "../Input"
+import Label from "../Label"
+import Group from "../Group"
+import DropdownMenu from "../DropdownMenu"
 
 interface LoyaltyProgram {
   id: string
@@ -66,10 +70,7 @@ interface ExchangeRates {
   [key: string]: number // rates to USD
 }
 
-/* TODO:
- * Use the Dropdown component for the select elements
- * Use the Button component for the button elements
- */
+
 export default function CardMilesConverter() {
   const [sourceAmount, setSourceAmount] = useState<string>("")
   const [sourceProgramId, setSourceProgramId] = useState<string>("dbs-points")
@@ -97,7 +98,7 @@ export default function CardMilesConverter() {
 
   const currencies = loyaltyData.currencies
 
-  const loyaltyPrograms: LoyaltyProgram[] = useMemo(() => loyaltyData.loyaltyPrograms, [])
+  const loyaltyPrograms: LoyaltyProgram[] = useMemo(() => loyaltyData.loyaltyPrograms as LoyaltyProgram[], [])
 
   const getProgram = useCallback((id: string) => loyaltyPrograms.find((p) => p.id === id), [loyaltyPrograms])
 
@@ -274,13 +275,13 @@ export default function CardMilesConverter() {
   const getProgramTypeIcon = (type: string) => {
     switch (type) {
       case "airline":
-        return <Plane className="w-4 h-4" />
+        return <Plane size={16} />
       case "hotel":
-        return <Star className="w-4 h-4" />
+        return <Star size={16} />
       case "credit_card":
-        return <CreditCard className="w-4 h-4" />
+        return <CreditCard size={16} />
       default:
-        return <Star className="w-4 h-4" />
+        return <Star size={16} />
     }
   }
 
@@ -319,7 +320,7 @@ export default function CardMilesConverter() {
   const bestValue = conversionResults[0]
 
   return (
-    <div className="p-6 max-w-7xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700  rounded-sm shadow-lg">
+    <div className="p-6 max-w-7xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
         <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-sm">
@@ -340,149 +341,150 @@ export default function CardMilesConverter() {
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-8">
         {/* Amount Input */}
         <div className="lg:col-span-2">
-          <label className="block text-sm font-medium opacity-75 mb-2">
-            <Calculator className="w-4 h-4 inline mr-1" />
-            Amount to Convert
-          </label>
-          <input
-            type="number"
-            value={sourceAmount}
-            onChange={(e) => setSourceAmount(e.target.value)}
-            placeholder="Enter points/miles amount"
-            className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
-          />
+          <Group variant="vertical">
+            <Label>Amount to Convert</Label>
+            <Input
+              type="number"
+              value={sourceAmount}
+              onChange={(e) => setSourceAmount(e.target.value)}
+              placeholder="Enter points/miles amount"
+              className="px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
+            />
+          </Group>
         </div>
 
         {/* Source Program */}
         <div className="lg:col-span-2">
-          <label className="block text-sm font-medium opacity-75 mb-2">
-            From Program
-          </label>
-          <select
+          <Group variant="vertical">
+            <Label>From Program</Label>
+            <DropdownMenu
             value={sourceProgramId}
-            onChange={(e) => setSourceProgramId(e.target.value)}
-            className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
-          >
-            <optgroup label="ASEAN Credit Cards">
-              {loyaltyPrograms
-                .filter(
-                  (p) =>
-                    p.type === "credit_card" &&
-                    (p.region === "singapore" ||
-                      p.region === "malaysia" ||
-                      p.region === "indonesia")
-                )
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="Global Credit Cards">
-              {loyaltyPrograms
-                .filter(
-                  (p) => p.type === "credit_card" && p.region === "global"
-                )
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="ASEAN Airlines">
-              {loyaltyPrograms
-                .filter(
-                  (p) =>
-                    p.type === "airline" &&
-                    (p.region === "asean" ||
-                      p.region === "singapore" ||
-                      p.region === "malaysia" ||
-                      p.region === "thailand" ||
-                      p.region === "indonesia" ||
-                      p.region === "philippines")
-                )
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="Asia Pacific Airlines">
-              {loyaltyPrograms
-                .filter(
-                  (p) =>
-                    p.type === "airline" &&
-                    (p.region === "asia_pacific" ||
-                      p.region === "australia" ||
-                      p.region === "hong_kong" ||
-                      p.region === "taiwan")
-                )
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="Middle East Airlines">
-              {loyaltyPrograms
-                .filter(
-                  (p) => p.type === "airline" && p.region === "middle_east"
-                )
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="Global Airlines">
-              {loyaltyPrograms
-                .filter((p) => p.type === "airline" && p.region === "global")
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="Hotels">
-              {loyaltyPrograms
-                .filter((p) => p.type === "hotel")
-                .map((program) => (
-                  <option key={program.id} value={program.id}>
-                    {program.icon} {program.name}
-                  </option>
-                ))}
-            </optgroup>
-          </select>
+            onChange={setSourceProgramId}
+            groups={[
+              {
+                label: "ASEAN Credit Cards",
+                options: loyaltyPrograms
+                  .filter(
+                    (p) =>
+                      p.type === "credit_card" &&
+                      (p.region === "singapore" ||
+                        p.region === "malaysia" ||
+                        p.region === "indonesia")
+                  )
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              },
+              {
+                label: "Global Credit Cards",
+                options: loyaltyPrograms
+                  .filter(
+                    (p) => p.type === "credit_card" && p.region === "global"
+                  )
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              },
+              {
+                label: "ASEAN Airlines",
+                options: loyaltyPrograms
+                  .filter(
+                    (p) =>
+                      p.type === "airline" &&
+                      (p.region === "asean" ||
+                        p.region === "singapore" ||
+                        p.region === "malaysia" ||
+                        p.region === "thailand" ||
+                        p.region === "indonesia" ||
+                        p.region === "philippines")
+                  )
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              },
+              {
+                label: "Asia Pacific Airlines",
+                options: loyaltyPrograms
+                  .filter(
+                    (p) =>
+                      p.type === "airline" &&
+                      (p.region === "asia_pacific" ||
+                        p.region === "australia" ||
+                        p.region === "hong_kong" ||
+                        p.region === "taiwan")
+                  )
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              },
+              {
+                label: "Middle East Airlines",
+                options: loyaltyPrograms
+                  .filter(
+                    (p) => p.type === "airline" && p.region === "middle_east"
+                  )
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              },
+              {
+                label: "Global Airlines",
+                options: loyaltyPrograms
+                  .filter((p) => p.type === "airline" && p.region === "global")
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              },
+              {
+                label: "Hotels",
+                options: loyaltyPrograms
+                  .filter((p) => p.type === "hotel")
+                  .map((program) => ({
+                    label: `${program.icon} ${program.name}`,
+                    value: program.id,
+                  }))
+              }
+            ]}
+            className="w-full"
+          />
+          </Group>
         </div>
 
         {/* Currency Selection */}
         <div>
-          <label className="block text-sm font-medium opacity-75 mb-2">
-            <Globe className="w-4 h-4 inline mr-1" />
-            Display Currency
-          </label>
-          <select
-            value={selectedCurrency}
-            onChange={(e) => setSelectedCurrency(e.target.value)}
-            className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
-          >
-            {currencies.map((currency) => (
-              <option key={currency.code} value={currency.code}>
-                {currency.flag} {currency.code}
-              </option>
-            ))}
-          </select>
+          <Group variant="vertical">
+            <Label>
+              <Globe className="w-4 h-4 inline mr-1" />
+              Display Currency
+            </Label>
+            <DropdownMenu
+              value={selectedCurrency}
+              onChange={setSelectedCurrency}
+              options={currencies.map((currency) => ({
+                label: `${currency.flag} ${currency.code}`,
+                value: currency.code,
+              }))}
+              className="w-full"
+            />
+          </Group>
         </div>
 
         {/* Swap Button */}
         <div className="flex items-end">
-          <button
+          <Button
             onClick={swapPrograms}
-            className="w-full px-4 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm flex items-center justify-center gap-2 hover:opacity-60"
+            variant="secondary"
+            className="w-full px-4 py-2 justify-center"
           >
-            <ArrowRightLeft className="w-4 h-4" />
+            <ArrowRightLeft size={16} />
             <span className="hidden sm:inline">Swap</span>
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -490,21 +492,22 @@ export default function CardMilesConverter() {
       {conversionResults.length > 0 && (
         <div className="mb-6">
           <div className="relative max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
-            <input
-              type="text"
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 z-10" />
+            <Input
+              type="search"
               placeholder="Quick search programs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm focus:ring-2"
+              className="pl-10 pr-10 py-2 border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
             />
             {searchTerm && (
-              <button
+              <Button
                 onClick={() => setSearchTerm("")}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-600"
+                variant="secondary"
+                className="absolute right-1 top-1/2 transform -translate-y-1/2 p-1 border-0 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800"
               >
-                <X className="w-4 h-4" />
-              </button>
+                <X size={16} />
+              </Button>
             )}
           </div>
         </div>
@@ -514,7 +517,7 @@ export default function CardMilesConverter() {
       {selectedCurrency !== "USD" && (
         <div className="mb-6 p-3 bg-yellow-50 border border-yellow-200 dark:bg-yellow-950 dark:border-yellow-800 rounded-sm">
           <div className="flex items-center gap-2 text-sm text-yellow-800 dark:text-yellow-200">
-            <Globe className="w-4 h-4" />
+            <Globe size={16} />
             <span>
               Exchange Rate: 1 {selectedCurrency} ={" "}
               {exchangeRates[selectedCurrency].toFixed(4)} USD
@@ -594,22 +597,19 @@ export default function CardMilesConverter() {
               Conversion Results
             </h3>
             <div className="flex items-center gap-2">
-              <button
+              <Button
                 onClick={() => setShowFilters(!showFilters)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-sm text-sm transition-colors ${
-                  showFilters ||
+                variant={showFilters ||
                   selectedTypes.length < 3 ||
                   selectedRegions.length > 0 ||
                   searchTerm ||
                   minValue ||
-                  maxValue
-                    ? "bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300"
-                    : "bg-gray-100 dark:bg-gray-900 text-gray-500 hover:opacity-60"
-                }`}
+                  maxValue ? "primary" : "gray"}
+                className="px-3 py-1.5 text-sm"
               >
-                <SlidersHorizontal className="w-4 h-4" />
+                <SlidersHorizontal size={16} />
                 Filters
-              </button>
+              </Button>
               <div className="text-sm text-gray-500">
                 {getFilteredAndSortedResults().length} of{" "}
                 {conversionResults.length} programs
@@ -621,21 +621,22 @@ export default function CardMilesConverter() {
           <div className={`mb-4 space-y-4 ${showFilters ? "block" : "hidden"}`}>
             {/* Search Bar */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
-              <input
-                type="text"
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 z-10" />
+              <Input
+                type="search"
                 placeholder="Search programs by name, type, or region..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm focus:ring-2"
+                className="pl-10 pr-10 py-2 border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
               />
               {searchTerm && (
-                <button
+                <Button
                   onClick={() => setSearchTerm("")}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-600"
+                  variant="secondary"
+                  className="absolute right-1 top-1/2 transform -translate-y-1/2 p-1 border-0 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <X className="w-4 h-4" />
-                </button>
+                  <X size={16} />
+                </Button>
               )}
             </div>
 
@@ -708,49 +709,49 @@ export default function CardMilesConverter() {
 
               {/* Value Range */}
               <div>
-                <label className="block text-sm font-medium opacity-75 mb-2">
-                  Value Range ({selectedCurrency})
-                </label>
-                <div className="space-y-2">
-                  <input
-                    type="number"
-                    placeholder="Min value"
-                    value={minValue}
-                    onChange={(e) => setMinValue(e.target.value)}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
-                  />
-                  <input
-                    type="number"
-                    placeholder="Max value"
-                    value={maxValue}
-                    onChange={(e) => setMaxValue(e.target.value)}
-                    className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
-                  />
-                </div>
+                <Group variant="vertical">
+                  <Label>Value Range ({selectedCurrency})</Label>
+                  <div className="space-y-2">
+                    <Input
+                      type="number"
+                      placeholder="Min value"
+                      value={minValue}
+                      onChange={(e) => setMinValue(e.target.value)}
+                      className="px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
+                    />
+                    <Input
+                      type="number"
+                      placeholder="Max value"
+                      value={maxValue}
+                      onChange={(e) => setMaxValue(e.target.value)}
+                      className="px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 rounded-sm focus:ring-2"
+                    />
+                  </div>
+                </Group>
               </div>
 
               {/* Sort Options */}
               <div>
-                <label className="block text-sm font-medium opacity-75 mb-2">
-                  Sort By
-                </label>
-                <select
-                  value={sortBy}
-                  onChange={(e) =>
-                    setSortBy(e.target.value as "value" | "name" | "type")
-                  }
-                  className="w-full px-3 py-1.5 text-sm border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm focus:ring-2"
-                >
-                  <option value="value">Cash Value (High to Low)</option>
-                  <option value="name">Program Name (A-Z)</option>
-                  <option value="type">Program Type</option>
-                </select>
-                <button
-                  onClick={clearFilters}
-                  className="mt-2 w-full px-3 py-1.5 text-sm bg-gray-200 dark:bg-gray-800 rounded-sm hover:opacity-60"
-                >
-                  Clear All Filters
-                </button>
+                <Group variant="vertical">
+                  <Label>Sort By</Label>
+                  <DropdownMenu
+                    value={sortBy}
+                    onChange={(value) => setSortBy(value as "value" | "name" | "type")}
+                    options={[
+                      { label: "Cash Value (High to Low)", value: "value" },
+                      { label: "Program Name (A-Z)", value: "name" },
+                      { label: "Program Type", value: "type" }
+                    ]}
+                    className="w-full text-sm"
+                  />
+                  <Button
+                    onClick={clearFilters}
+                    variant="gray"
+                    className="mt-2 w-full px-3 py-1.5 text-sm"
+                  >
+                    Clear All Filters
+                  </Button>
+                </Group>
               </div>
             </div>
           </div>
@@ -826,7 +827,7 @@ export default function CardMilesConverter() {
                         {result.program.cashValue}¢ per{" "}
                         {result.program.currency.slice(0, -1)}
                       </div>
-                      <button
+                      <Button
                         onClick={() =>
                           copyToClipboard(
                             `${formatPoints(
@@ -839,15 +840,16 @@ export default function CardMilesConverter() {
                             result.program.id
                           )
                         }
-                        className="p-1 opacity-50 hover:opacity-80 transition-opacity"
+                        variant="secondary"
+                        className="p-1 opacity-50 hover:opacity-80 transition-opacity border-0 bg-transparent"
                         title="Copy conversion"
                       >
                         {copied === result.program.id ? (
                           <Check className="w-4 h-4 text-green-500" />
                         ) : (
-                          <Copy className="w-4 h-4" />
+                          <Copy size={16} />
                         )}
-                      </button>
+                      </Button>
                     </div>
 
                     {result.transferValue &&
@@ -880,12 +882,13 @@ export default function CardMilesConverter() {
                 Try adjusting your search or filter criteria
               </p>
             </div>
-            <button
+            <Button
               onClick={clearFilters}
-              className="px-4 py-2 bg-blue-600 text-white rounded-sm hover:bg-blue-700 transition-colors"
+              variant="primary"
+              className="px-4 py-2"
             >
               Clear All Filters
-            </button>
+            </Button>
           </div>
         )}
 

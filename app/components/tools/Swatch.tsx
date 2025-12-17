@@ -68,12 +68,12 @@ export default function Swatch({
       <div className="flex items-center justify-center gap-1 text-sm font-mono">
         {copied ? (
           <>
-            <Check className="w-4 h-4" />
+            <Check size={16} />
             <span>Copied!</span>
           </>
         ) : (
           <>
-            <Copy className="w-4 h-4" />
+            <Copy size={16} />
             <span className="break-all">{colorFormatLabels[selectedFormat]}: {primaryColorValue}</span>
           </>
         )}

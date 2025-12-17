@@ -78,7 +78,7 @@ export default function ColorPalettes({ groups }: ColorPalettesProps) {
             className="flex items-center gap-2 px-3 py-1 border bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 rounded-md text-sm font-medium hover:opacity-60"
           >
             Format: {colorFormatLabels[selectedFormat]}
-            <ChevronDown className="w-4 h-4" />
+            <ChevronDown size={16} />
           </button>
           
           {isFormatDropdownOpen && (

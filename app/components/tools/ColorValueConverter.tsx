@@ -264,7 +264,7 @@ export default function ColorValueConverter() {
 
         {!isValidColor && (
           <div className="flex items-center gap-2 mt-2 text-red-600">
-            <AlertCircle className="w-4 h-4" />
+            <AlertCircle size={16} />
             <span className="text-sm">Invalid color value</span>
           </div>
         )}
@@ -295,7 +295,7 @@ export default function ColorValueConverter() {
                     {copiedFormat === format.format ? (
                       <Check className="w-4 h-4 text-green-600" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Copy size={16} />
                     )}
                   </button>
                 </div>
