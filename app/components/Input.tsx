@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, forwardRef } from 'react'
+import { useState, forwardRef, useId } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 
 type InputType = 
@@ -46,6 +46,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
 }, ref) => {
   const [showPassword, setShowPassword] = useState(false)
   const [inputType, setInputType] = useState(type)
+  const uniqueId = useId()
 
   // Generate smart defaults based on input type
   const getSmartLabel = (inputType: InputType): string => {
@@ -96,10 +97,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     return placeholders[inputType] || ''
   }
 
-  // Generate ID from name or type
+  // Generate unique ID using React's useId hook with optional name/type prefix
   const generateId = (): string => {
-    if (name) return `input-${name}`
-    return `input-${type}`
+    const prefix = name || type
+    return `input-${prefix}-${uniqueId}`
   }
 
   const finalLabel = label || getSmartLabel(type)
