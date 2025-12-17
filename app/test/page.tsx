@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 
+import Input from '../components/Input'
+
 export default function Test() {
     // Prevent access in production
     if (process.env.NODE_ENV === 'production') {
@@ -12,8 +14,9 @@ export default function Test() {
             <p>This page is for testing components during development.</p>
             
             {/* Add your test components here */}
-            <div className="border border-gray-200 dark:border-gray-800 p-4 rounded-sm">
+            <div className="flow border border-gray-200 dark:border-gray-800 p-4 rounded-sm">
                 <p>Test components go here...</p>
+                <Input />
             </div>
         </div>
     )
