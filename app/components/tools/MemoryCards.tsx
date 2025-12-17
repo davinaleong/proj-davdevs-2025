@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Button from '@/app/components/Button'
+import MemoryCard from './MemoryCard'
 import {
   Brain,
   Heart,
@@ -291,14 +293,14 @@ export default function MemoryCards() {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
-      <div className="flex items-center gap-2 mb-6">
+    <article className="p-6 max-w-4xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
+      <header className="flex items-center gap-2 mb-6">
         <Brain className="w-6 h-6 text-purple-600" />
         <h2 className="text-xl font-semibold">Memory Cards</h2>
-      </div>
+      </header>
 
       {/* Game Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <aside className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" aria-label="Game Statistics">
         <div className="bg-blue-100 p-3 rounded-sm text-center">
           <div className="text-sm text-blue-600 font-medium">Level</div>
           <div className="text-xl font-bold text-blue-800">{level}</div>
@@ -315,11 +317,11 @@ export default function MemoryCards() {
           <div className="text-sm text-red-600 font-medium">Time</div>
           <div className="text-xl font-bold text-red-800">{formatTime(timeLeft)}</div>
         </div>
-      </div>
+      </aside>
 
       {/* Previous Records */}
       {(lastLevel > 0 || bestScore > 0) && (
-        <div className="grid grid-cols-2 gap-4 mb-6">
+        <aside className="grid grid-cols-2 gap-4 mb-6" aria-label="Previous Records">
           <div className="bg-purple-100 p-3 rounded-sm text-center">
             <div className="text-sm text-purple-600 font-medium">Last Level Reached</div>
             <div className="text-xl font-bold text-purple-800">{lastLevel}</div>
@@ -328,130 +330,109 @@ export default function MemoryCards() {
             <div className="text-sm text-yellow-600 font-medium">Best Score</div>
             <div className="text-xl font-bold text-yellow-800">{bestScore.toLocaleString()}</div>
           </div>
-        </div>
+        </aside>
       )}
 
       {/* Game State Messages */}
       {gameState === 'idle' && (
-        <div className="text-center mb-6">
+        <section className="text-center mb-6" aria-label="Game Introduction">
           <h3 className="text-2xl font-bold mb-4">Memory Cards Game</h3>
           <p className="opacity-80 mb-4">
             Match pairs of cards to advance through endless levels. Each level gets progressively harder!
           </p>
-          <button
+          <Button
             onClick={initializeGame}
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-sm hover:bg-blue-600 transition-colors"
+            variant="primary"
+            className="px-6 py-3 font-semibold"
           >
             Start Game
-          </button>
-        </div>
+          </Button>
+        </section>
       )}
 
       {gameState === 'won' && (
-        <div className="text-center mb-6 p-4 bg-green-100 rounded-sm">
+        <section className="text-center mb-6 p-4 bg-green-100 rounded-sm" aria-label="Level Complete">
           <h3 className="text-2xl font-bold text-green-800 mb-2">Level Complete! 🎉</h3>
           <p className="text-green-700 mb-4">
             Great job! You completed level {level} in {moves} moves.
           </p>
-          <div className="flex gap-3 justify-center">
-            <button
+          <nav className="flex gap-3 justify-center" aria-label="Game Actions">
+            <Button
               onClick={nextLevel}
-              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-sm hover:bg-green-600 transition-colors"
+              variant="success"
+              className="px-6 py-3 font-semibold"
             >
               Next Level
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={resetGame}
-              className="px-6 py-3 bg-gray-500 text-white font-semibold rounded-sm hover:bg-gray-600 transition-colors"
+              variant="gray"
+              className="px-6 py-3 font-semibold"
             >
               Restart Game
-            </button>
-          </div>
-        </div>
+            </Button>
+          </nav>
+        </section>
       )}
 
       {gameState === 'lost' && (
-        <div className="text-center mb-6 p-4 bg-red-100 rounded-sm">
+        <section className="text-center mb-6 p-4 bg-red-100 rounded-sm" aria-label="Game Over">
           <h3 className="text-2xl font-bold text-red-800 mb-2">Time&apos;s Up! ⏰</h3>
           <p className="text-red-700 mb-4">
             Don&apos;t give up! Try level {level} again or restart from the beginning.
           </p>
-          <div className="flex gap-3 justify-center">
-            <button
+          <nav className="flex gap-3 justify-center" aria-label="Game Actions">
+            <Button
               onClick={restartLevel}
-              className="px-6 py-3 bg-red-500 text-white font-semibold rounded-sm hover:bg-red-600 transition-colors"
+              variant="danger"
+              className="px-6 py-3 font-semibold"
             >
               Try Again
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={resetGame}
-              className="px-6 py-3 bg-gray-500 text-white font-semibold rounded-sm hover:bg-gray-600 transition-colors"
+              variant="gray"
+              className="px-6 py-3 font-semibold"
             >
               Restart Game
-            </button>
-          </div>
-        </div>
+            </Button>
+          </nav>
+        </section>
       )}
 
       {/* Game Board */}
       {gameState === 'playing' && (
-        <div className={`grid ${getGridCols()} gap-3 justify-items-center`}>
-          {cards.map((card) => {
-            const IconComponent = card.icon
-            const isVisible = card.isFlipped || card.isMatched
-            
-            return (
-              <button
-                key={card.id}
-                onClick={() => handleCardClick(card.id)}
-                className={`
-                  w-16 h-16 md:w-20 md:h-20 rounded-lg border-2 transition-all duration-300 
-                  flex items-center justify-center relative overflow-hidden shadow-md
-                  ${card.isMatched 
-                    ? 'bg-linear-to-br from-emerald-200 to-green-300 border-emerald-400 cursor-default shadow-green-200' 
-                    : isVisible
-                      ? 'bg-linear-to-br from-blue-200 to-indigo-300 border-blue-400 cursor-default shadow-blue-200'
-                      : 'bg-linear-to-br from-purple-200 to-pink-300 border-purple-400 hover:from-purple-300 hover:to-pink-400 cursor-pointer shadow-purple-200'
-                  }
-                  ${flippedCards.includes(card.id) ? 'animate-pulse' : ''}
-                `}
-                disabled={card.isMatched || flippedCards.length >= 2}
-              >
-                <div className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                  <IconComponent 
-                    className={`w-8 h-8 md:w-10 md:h-10 ${
-                      card.isMatched ? 'text-emerald-700' : 'text-indigo-700'
-                    }`} 
-                  />
-                </div>
-                {!isVisible && (
-                  <div className="absolute inset-0 bg-linear-to-br from-purple-300 to-pink-400 flex items-center justify-center">
-                    <div className="w-8 h-8 bg-white rounded-full opacity-40 flex items-center justify-center">
-                      <div className="w-4 h-4 bg-purple-500 rounded-full opacity-60"></div>
-                    </div>
-                  </div>
-                )}
-              </button>
-            )
-          })}
+        <section aria-label="Game Board">
+          <div className={`grid ${getGridCols()} gap-3 justify-items-center`}>
+          {cards.map((card) => (
+            <MemoryCard
+              key={card.id}
+              id={card.id}
+              icon={card.icon}
+              isFlipped={card.isFlipped}
+              isMatched={card.isMatched}
+              isAnimating={flippedCards.includes(card.id)}
+              onClick={handleCardClick}
+              disabled={card.isMatched || flippedCards.length >= 2}
+            />
+          ))}
         </div>
-      )}
 
-      {/* Progress Indicator */}
-      {gameState === 'playing' && (
-        <div className="mt-6">
+        {/* Progress Indicator */}
+        <div className="mt-6" role="region" aria-label="Game Progress">
           <div className="flex justify-between text-sm mb-2">
             <span className="opacity-80">Progress</span>
             <span className="opacity-80">{matchedPairs}/{cards.length / 2} pairs</span>
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2">
+          <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2" role="progressbar" aria-valuenow={matchedPairs} aria-valuemax={cards.length / 2} aria-valuemin={0}>
             <div 
               className="bg-blue-500 h-2 rounded-full transition-all duration-300"
               style={{ width: `${(matchedPairs / (cards.length / 2)) * 100}%` }}
             ></div>
           </div>
         </div>
+        </section>
       )}
-    </div>
+    </article>
   )
 }
