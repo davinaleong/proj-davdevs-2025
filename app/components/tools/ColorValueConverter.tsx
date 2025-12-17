@@ -1,8 +1,11 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { colord } from "colord"
 import { Palette, Copy, Check, AlertCircle, Droplets } from "lucide-react"
+import colorExamples from "../../data/color-converter-examples.json"
+import Button from "../Button"
+import Input from "../Input"
 
 interface ColorFormat {
   name: string
@@ -11,11 +14,42 @@ interface ColorFormat {
 }
 
 /* TODO:
- * Use the Button component for the copy buttons
+ * Reuse the Button component in place of any <button> elements
+ * Reuse the Input component in place of any <input> elements
  */
 export default function ColorValueConverter() {
   const [inputValue, setInputValue] = useState("#3b82f6")
-  const [colorFormats, setColorFormats] = useState<ColorFormat[]>([])
+  const [colorFormats, setColorFormats] = useState<ColorFormat[]>(() => {
+    // Initialize with default blue color (#3b82f6)
+    const color = colord("#3b82f6")
+    const rgb = color.toRgb()
+    const hsl = color.toHsl()
+    const hsv = color.toHsv()
+    
+    const r = rgb.r / 255
+    const g = rgb.g / 255
+    const b = rgb.b / 255
+    const k = 1 - Math.max(r, g, b)
+    const c = k === 1 ? 0 : (1 - r - k) / (1 - k)
+    const m = k === 1 ? 0 : (1 - g - k) / (1 - k)
+    const y = k === 1 ? 0 : (1 - b - k) / (1 - k)
+    
+    const oklL = (0.2126 * r + 0.7152 * g + 0.0722 * b) * 100
+    const oklC = Math.sqrt((r - 0.5) ** 2 + (g - 0.5) ** 2 + (b - 0.5) ** 2) * 0.4
+    const oklH = ((Math.atan2(g - 0.5, r - 0.5) * 180) / Math.PI + 360) % 360
+    
+    return [
+      { name: "HEX", value: color.toHex(), format: "hex" },
+      { name: "HEX (with alpha)", value: color.toHslString(), format: "hex8" },
+      { name: "RGB", value: color.toRgbString(), format: "rgb" },
+      { name: "HSL", value: color.toHslString(), format: "hsl" },
+      { name: "HSV/HSB", value: `hsv(${Math.round(hsv.h)}, ${Math.round(hsv.s)}%, ${Math.round(hsv.v)}%)`, format: "hsv" },
+      { name: "CMYK", value: `cmyk(${Math.round(c * 100)}%, ${Math.round(m * 100)}%, ${Math.round(y * 100)}%, ${Math.round(k * 100)}%)`, format: "cmyk" },
+      { name: "RGB (0-1)", value: `rgb(${(rgb.r / 255).toFixed(3)}, ${(rgb.g / 255).toFixed(3)}, ${(rgb.b / 255).toFixed(3)})`, format: "rgb-decimal" },
+      { name: "OKLCH", value: `oklch(${oklL.toFixed(1)}% ${oklC.toFixed(3)} ${oklH.toFixed(3)})`, format: "oklch" },
+      { name: "CSS Name", value: "N/A", format: "name" }
+    ]
+  })
   const [isValidColor, setIsValidColor] = useState(true)
   const [copiedFormat, setCopiedFormat] = useState<string | null>(null)
 
@@ -117,7 +151,6 @@ export default function ColorValueConverter() {
       setIsValidColor(true)
 
       const rgb = color.toRgb()
-      const hsl = color.toHsl()
       const hsv = color.toHsv()
 
       // Manual CMYK calculation
@@ -196,6 +229,7 @@ export default function ColorValueConverter() {
     } catch (error) {
       setIsValidColor(false)
       setColorFormats([])
+      console.error(error)
     }
   }
 
@@ -209,21 +243,19 @@ export default function ColorValueConverter() {
     }
   }
 
-  useEffect(() => {
-    convertColor(inputValue)
-  }, [inputValue])
+
 
   const detectedFormat = detectColorFormat(inputValue)
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
-      <div className="flex items-center gap-2 mb-6">
+    <article className="p-6 max-w-4xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
+      <header className="flex items-center gap-2 mb-6">
         <Palette className="w-6 h-6 text-blue-600" />
         <h2 className="text-2xl font-semibold">Color Value Converter</h2>
-      </div>
+      </header>
 
       {/* Input Section */}
-      <div className="mb-6">
+      <form className="mb-6" onSubmit={(e) => e.preventDefault()}>
         <label
           htmlFor="colorInput"
           className="block text-sm font-medium opacity-75"
@@ -232,11 +264,14 @@ export default function ColorValueConverter() {
         </label>
         <div className="flex gap-3">
           <div className="flex-1">
-            <input
-              id="colorInput"
+            <Input
               type="text"
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={(e) => {
+                const newValue = e.target.value
+                setInputValue(newValue)
+                convertColor(newValue)
+              }}
               placeholder="e.g., #3b82f6, rgb(59, 130, 246), oklch(70.7% 0.165 254.624), blue"
               className={`w-full px-3 py-2 border rounded-sm ${
                 !isValidColor ? "border-red-500" : "border-gray-200 dark:border-gray-800"
@@ -268,11 +303,11 @@ export default function ColorValueConverter() {
             <span className="text-sm">Invalid color value</span>
           </div>
         )}
-      </div>
+      </form>
 
       {/* Color Formats Grid */}
       {isValidColor && colorFormats.length > 0 && (
-        <div>
+        <section>
           <h3 className="text-lg font-medium mb-4">
             Converted Values
           </h3>
@@ -286,8 +321,9 @@ export default function ColorValueConverter() {
                   <span className="font-medium opacity-75">
                     {format.name}
                   </span>
-                  <button
+                  <Button
                     onClick={() => copyToClipboard(format.value, format.format)}
+                    variant="icon"
                     className="p-1 bg-gray-300 dark:bg-gray-700 hover:opacity-60 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Copy to clipboard"
                     disabled={format.value === "N/A"}
@@ -297,10 +333,10 @@ export default function ColorValueConverter() {
                     ) : (
                       <Copy size={16} />
                     )}
-                  </button>
+                  </Button>
                 </div>
                 <code
-                  className={`text-sm bg-white dark:bg-black px-2 py-1 rounded-sm border-gray-200 dark:border-gray-800 block ${
+                  className={`text-sm border bg-white dark:bg-black px-2 py-1 rounded-sm border-gray-200 dark:border-gray-800 block ${
                     format.value === "N/A" ? "text-gray-400 dark:text-gray-600" : "text-gray-800 dark:text-gray-200"
                   }`}
                 >
@@ -309,39 +345,30 @@ export default function ColorValueConverter() {
               </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
       {/* Example Colors */}
-      <div className="mt-8">
+      <section className="mt-8">
         <h3 className="text-lg font-medium opacity-75 mb-4">
           Example Colors
         </h3>
         <div className="flex flex-wrap gap-2">
-          {[
-            "#3b82f6",
-            "#ef4444",
-            "#10b981",
-            "#f59e0b",
-            "#8b5cf6",
-            "#ec4899",
-            "rgb(59, 130, 246)",
-            "hsl(220, 91%, 60%)",
-            "oklch(70.7% 0.165 254.624)",
-            "blue",
-            "red",
-            "green",
-          ].map((example) => (
-            <button
+          {colorExamples.examples.map((example) => (
+            <Button
               key={example}
-              onClick={() => setInputValue(example)}
+              onClick={() => {
+                setInputValue(example)
+                convertColor(example)
+              }}
+              variant="secondary"
               className="px-3 py-1 text-sm border border-gray-200 dark:border-gray-800 rounded-sm"
             >
               {example}
-            </button>
+            </Button>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   )
 }
