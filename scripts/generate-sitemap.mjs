@@ -7,7 +7,7 @@ import { generateSitemap, getDefaultSitemapConfig } from '../utils/sitemap.js'
  * Generate static sitemap.xml file
  */
 function generateStaticSitemap() {
-  console.log('🗺️  Generating sitemap...')
+  console.info('🗺️  Generating sitemap...')
   
   try {
     // Configure your base URL
@@ -30,8 +30,8 @@ function generateStaticSitemap() {
     // Write to public directory
     writeFileSync('./public/sitemap.xml', sitemapXml, 'utf8')
     
-    console.log('✅ Sitemap generated at ./public/sitemap.xml')
-    console.log(`📊 Generated ${sitemapConfig.urls.length} URLs`)
+    console.info('✅ Sitemap generated at ./public/sitemap.xml')
+    console.info(`📊 Generated ${sitemapConfig.urls.length} URLs`)
     
   } catch (error) {
     console.error('❌ Error generating sitemap:', error)

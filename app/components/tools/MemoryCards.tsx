@@ -114,7 +114,7 @@ export default function MemoryCards() {
       localStorage.setItem('memoryCards_bestScore', Math.max(currentScore, bestScore).toString())
     } catch {
       // Handle localStorage errors silently
-      console.log('Could not save progress to localStorage')
+      console.error('Could not save progress to localStorage')
     }
   }
 

@@ -37,8 +37,6 @@ export default function Anchor({
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
 
-  console.log(getVariantClasses());
-
   return (
     <Link href={href} {...linkProps} className={anchorClasses}>
       {children}
