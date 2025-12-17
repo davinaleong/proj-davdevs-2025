@@ -104,7 +104,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     if (checked !== undefined) typeSpecificProps.checked = checked
   }
 
-  const baseClassName = "min-h-[1em] w-full block flex-1 bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
+  const baseClassName = "min-h-[1em] w-full block flex-1 px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
   const finalClassName = `${baseClassName} ${className}`.trim()
 
   // Get variant-specific styling for checkbox/radio
@@ -212,21 +212,22 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     )
   }
 
-  return (
-    <div className="relative">
-      <input
-        ref={ref}
-        id={inputId}
-        type={type === 'password' ? inputType : type}
-        className={finalClassName}
-        placeholder={placeholder}
-        name={name}
-        {...typeSpecificProps}
-        {...props}
-      />
-      
-      {/* Password visibility toggle */}
-      {type === 'password' && (
+  // For password inputs, wrap in relative container for toggle button
+  if (type === 'password') {
+    return (
+      <div className="relative">
+        <input
+          ref={ref}
+          id={inputId}
+          type={inputType}
+          className={finalClassName}
+          placeholder={placeholder}
+          name={name}
+          {...typeSpecificProps}
+          {...props}
+        />
+        
+        {/* Password visibility toggle */}
         <Button
           type="button"
           onClick={togglePasswordVisibility}
@@ -240,8 +241,22 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
             <Eye size={16} />
           )}
         </Button>
-      )}
-    </div>
+      </div>
+    )
+  }
+
+  // For all other input types, return input directly
+  return (
+    <input
+      ref={ref}
+      id={inputId}
+      type={type}
+      className={finalClassName}
+      placeholder={placeholder}
+      name={name}
+      {...typeSpecificProps}
+      {...props}
+    />
   )
 })
 
