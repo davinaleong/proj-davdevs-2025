@@ -239,7 +239,7 @@ export default function ColorValueConverter() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="e.g., #3b82f6, rgb(59, 130, 246), oklch(70.7% 0.165 254.624), blue"
               className={`w-full px-3 py-2 border rounded-sm ${
-                !isValidColor ? "border-red-500" : "border-gray-300"
+                !isValidColor ? "border-red-500" : "border-gray-200 dark:border-gray-800"
               }`}
             />
             {detectedFormat !== "unknown" && isValidColor && (
@@ -253,7 +253,7 @@ export default function ColorValueConverter() {
           {isValidColor && colorFormats.length > 0 && (
             <div className="flex items-center gap-2">
               <div
-                className="w-12 h-12 rounded-sm border-2 border-gray-300 shadow-sm"
+                className="w-12 h-12 rounded-sm border-2 border-gray-200 dark:border-gray-800 shadow-sm"
                 style={{ backgroundColor: inputValue }}
                 title="Color preview"
               />
@@ -280,15 +280,15 @@ export default function ColorValueConverter() {
             {colorFormats.map((format) => (
               <div
                 key={format.format}
-                className="bg-gray-50 rounded-sm border border-gray-200 p-4 hover:bg-gray-100"
+                className="bg-gray-50 dark:bg-gray-950 rounded-sm border border-gray-200 dark:border-gray-800 p-4 hover:opacity-80"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-medium text-gray-700">
+                  <span className="font-medium opacity-75">
                     {format.name}
                   </span>
                   <button
                     onClick={() => copyToClipboard(format.value, format.format)}
-                    className="p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-200 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-1 bg-gray-300 dark:bg-gray-700 hover:opacity-80 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Copy to clipboard"
                     disabled={format.value === "N/A"}
                   >
@@ -300,8 +300,8 @@ export default function ColorValueConverter() {
                   </button>
                 </div>
                 <code
-                  className={`text-sm bg-white px-2 py-1 rounded border block ${
-                    format.value === "N/A" ? "text-gray-400" : "text-gray-800"
+                  className={`text-sm bg-white dark:bg-black px-2 py-1 rounded-sm border-gray-200 dark:border-gray-800 block ${
+                    format.value === "N/A" ? "text-gray-400 dark:text-gray-600" : "text-gray-800 dark:text-gray-200"
                   }`}
                 >
                   {format.value}
@@ -314,7 +314,7 @@ export default function ColorValueConverter() {
 
       {/* Example Colors */}
       <div className="mt-8">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">
+        <h3 className="text-lg font-medium opacity-75 mb-4">
           Example Colors
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -335,7 +335,7 @@ export default function ColorValueConverter() {
             <button
               key={example}
               onClick={() => setInputValue(example)}
-              className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded border text-gray-700 transition-colors"
+              className="px-3 py-1 text-sm border border-gray-200 dark:border-gray-800 rounded-sm"
             >
               {example}
             </button>
