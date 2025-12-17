@@ -460,7 +460,7 @@ export default function CardMilesConverter() {
         <div>
           <Group variant="vertical">
             <Label>
-              <Globe className="w-4 h-4 inline mr-1" />
+              <Globe size={16} />
               Display Currency
             </Label>
             <DropdownMenu

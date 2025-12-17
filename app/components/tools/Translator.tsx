@@ -11,10 +11,15 @@ import {
   MessageCircle,
   Sparkles,
 } from "lucide-react"
+import Button from "../Button"
+import Textarea from "../Textarea"
+import Group from "../Group"
+import DropdownMenu from "../DropdownMenu"
 
 /* TODO:
- * Reuse the Input component
+ * Reuse the DropdownMenu component
  * Reuse the Button component
+ * Reuse the Group and Textarea components
  */
 export default function Translator() {
   const [sourceText, setSourceText] = useState("")
@@ -239,6 +244,8 @@ Please respond in the following JSON format:
         // Try to parse as JSON
         translationResult = JSON.parse(cleanedText.trim())
       } catch (parseError) {
+        console.error(parseError)
+
         // If parsing fails, check if responseText is already a valid response
         if (typeof data.response === "object" && data.response !== null) {
           translationResult = data.response
@@ -331,12 +338,11 @@ Please respond in the following JSON format:
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg
-">
+    <article className="p-6 max-w-6xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
+      <header className="flex items-center gap-3 mb-8">
         <div className="p-2 bg-blue-100 rounded-sm">
-          <Languages className="w-6 h-6 text-blue-600" />
+          <Languages className="w-6 h-6 text-blue-500" />
         </div>
         <div>
           <h2 className="text-2xl font-semibold opacity-75">
@@ -346,7 +352,7 @@ Please respond in the following JSON format:
             Translate text between languages with different tones
           </p>
         </div>
-      </div>
+      </header>
 
       <form
         onSubmit={(e) => {
@@ -358,60 +364,54 @@ Please respond in the following JSON format:
         {/* Language Selection */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
           {/* Source Language */}
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium opacity-75 mb-2">
-              <Globe className="w-4 h-4 inline mr-1" />
+          <Group variant="vertical" className="md:col-span-2">
+            <label className="flex items-center gap-2 text-sm font-medium opacity-75 mb-2">
+              <Globe size={16} />
               From
             </label>
-            <select
+            <DropdownMenu
+              options={languages.map(lang => ({
+                value: lang.code,
+                label: `${lang.flag} ${lang.name}`
+              }))}
               value={sourceLang}
-              onChange={(e) => setSourceLang(e.target.value)}
-              className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
-            >
-              {languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name}
-                </option>
-              ))}
-            </select>
-          </div>
+              onChange={setSourceLang}
+            />
+          </Group>
 
           {/* Swap Button */}
           <div className="flex justify-center">
-            <button
+            <Button
               type="button"
               onClick={swapLanguages}
-              className="p-2 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded-sm transition-colors"
+              variant="icon"
               title="Swap languages"
             >
-              <ArrowRightLeft className="w-5 h-5" />
-            </button>
+              <ArrowRightLeft size={20} />
+            </Button>
           </div>
 
           {/* Target Language */}
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium opacity-75 mb-2">
-              <Globe className="w-4 h-4 inline mr-1" />
+          <Group variant="vertical" className="md:col-span-2">
+            <label className="flex items-center gap-2 text-sm font-medium opacity-75 mb-2">
+              <Globe size={16} />
               To
             </label>
-            <select
+            <DropdownMenu
+              options={languages.map(lang => ({
+                value: lang.code,
+                label: `${lang.flag} ${lang.name}`
+              }))}
               value={targetLang}
-              onChange={(e) => setTargetLang(e.target.value)}
-              className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
-            >
-              {languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name}
-                </option>
-              ))}
-            </select>
-          </div>
+              onChange={setTargetLang}
+            />
+          </Group>
         </div>
 
         {/* Tone Selection */}
-        <div>
-          <label className="block text-sm font-medium opacity-75 mb-3">
-            <MessageCircle className="w-4 h-4 inline mr-1" />
+        <section>
+          <label className="flex items-center gap-2 text-sm font-medium opacity-75 mb-3">
+            <MessageCircle size={16} />
             Translation Style
           </label>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -446,46 +446,41 @@ Please respond in the following JSON format:
               </label>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Text Areas */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Source Text */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium opacity-75">
-              <span className="flex items-center gap-1">
-                <Sparkles size={16} />
-                Text to translate
-              </span>
+          <Group variant="vertical" className="space-y-2">
+            <label className="flex items-center gap-2 text-sm font-medium opacity-75">
+              <Sparkles size={16} />
+              Text to translate
             </label>
-            <div className="relative">
-              <textarea
+            <Textarea
                 value={sourceText}
                 onChange={(e) => setSourceText(e.target.value)}
-                rows={8}
+                rows={7}
                 placeholder="Enter your text here..."
-                className="w-full px-4 py-3 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                resize="none"
+                className="px-4 py-3"
               />
-              <div className="absolute bottom-2 right-2 text-xs text-gray-400">
+              <p className="text-right text-xs opacity-60">
                 {sourceText.length} characters
-              </div>
-            </div>
-          </div>
+              </p>
+          </Group>
 
           {/* Translated Text */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium opacity-75">
-              <span className="flex items-center gap-1">
-                <Languages size={16} />
-                Translation
-              </span>
+          <div className="flow">
+            <label className="flex items-center gap-2 text-sm font-medium opacity-75">
+              <Languages size={16} />
+              Translation
             </label>
             <div className="relative">
-              <div className="w-full h-48 px-4 py-3 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 overflow-auto">
+              <div className="w-full h-48 px-4 py-3 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm overflow-auto">
                 {isTranslating ? (
                   <div className="flex items-center justify-center h-full">
-                    <div className="flex items-center space-x-2 text-blue-600">
-                      <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="flex items-center space-x-2 text-blue-500">
+                      <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
                       <span className="text-sm">Translating...</span>
                     </div>
                   </div>
@@ -501,64 +496,67 @@ Please respond in the following JSON format:
                       <div className="text-xs text-red-600 leading-relaxed">
                         {error.split(':')[1]?.trim() || error}
                       </div>
-                      <button
+                      <Button
                         type="button"
                         onClick={() => setError(null)}
-                        className="mt-3 text-xs text-blue-600 hover:text-blue-800 underline"
+                        variant="secondary"
+                        className="mt-3 text-xs text-blue-500 hover:text-blue-800 underline"
                       >
                         Dismiss
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 ) : translatedText ? (
                   <div className="opacity-75">{translatedText}</div>
                 ) : (
-                  <div className="text-gray-400 italic">
+                  <div className="text-gray-500 opacity-40 italic">
                     Translation will appear here...
                   </div>
                 )}
               </div>
               {translatedText && !error && (
                 <div className="absolute top-2 right-2 flex gap-1">
-                  <button
+                  <Button
                     type="button"
                     onClick={copyToClipboard}
-                    className="p-1.5 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                    variant="icon"
                     title="Copy translation"
                   >
                     {copied ? (
-                      <Check className="w-4 h-4 text-green-600" />
+                      <Check size={16} className="text-green-500" />
                     ) : (
                       <Copy size={16} />
                     )}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
-                    className="p-1.5 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                    variant="icon"
                     title="Listen to translation"
                   >
                     <Volume2 size={16} />
-                  </button>
+                  </Button>
                 </div>
               )}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 justify-between pt-4 border-t border-gray-300 dark:border-gray-700">
-          <button
+        <footer className="flex flex-wrap gap-3 justify-between pt-4 border-t border-gray-300 dark:border-gray-700">
+          <Button
             type="button"
             onClick={clearAll}
-            className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-sm transition-colors"
+            variant="secondary"
+            className="px-4 py-2"
           >
             Clear All
-          </button>
+          </Button>
           <div className="flex gap-3">
-            <button
+            <Button
               type="submit"
               disabled={!sourceText.trim() || isTranslating}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium rounded-sm transition-colors flex items-center gap-2"
+              variant="primary"
+              className="px-6 py-2"
             >
               {isTranslating ? (
                 <>
@@ -571,11 +569,11 @@ Please respond in the following JSON format:
                   Translate
                 </>
               )}
-            </button>
+            </Button>
           </div>
-        </div>
+        </footer>
       </form>
-    </div>
+    </article>
   )
 }
 

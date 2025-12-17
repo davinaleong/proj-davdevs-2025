@@ -76,7 +76,7 @@ export default function DropdownMenu({
 
   return (
     <div className={`relative ${className}`}>
-      <div className="flex items-center text-black bg-white dark:bg-blue-300 rounded-sm overflow-hidden">
+      <div className="flex items-center border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm overflow-hidden">
         <span className="block flex-1 px-3 py-2">{displayLabel}</span>
         <button
           type="button"
@@ -88,7 +88,7 @@ export default function DropdownMenu({
       </div>
       
       {isOpen && (
-        <ul className="absolute top-full left-0 right-0 z-10 mt-1 text-black bg-white dark:bg-blue-300 rounded-sm shadow-lg border border-gray-200 dark:border-gray-600">
+        <ul className="absolute top-full left-0 right-0 z-10 mt-1 bg-white dark:bg-black rounded-sm shadow-lg border border-gray-200 dark:border-gray-600">
           {/* Render flat options */}
           {options.map(option => renderOption(option))}
           
