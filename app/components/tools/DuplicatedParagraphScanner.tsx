@@ -2,6 +2,10 @@
 
 import React, { useState } from "react"
 
+/* TODO:
+ * Reuse the Button component.
+ * Reuse the Input component.
+ */
 export default function DuplicateParagraphScanner() {
   const [url, setUrl] = useState("")
   const [duplicates, setDuplicates] = useState<string[]>([])
@@ -42,7 +46,7 @@ export default function DuplicateParagraphScanner() {
   }
 
   return (
-    <section className="p-6 bg-white rounded-sm shadow-lg">
+    <section className="p-6 flow border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
       <p>Enter a website URL to scan for duplicate paragraphs:</p>
 
       <div className="flex gap-2">
@@ -51,7 +55,7 @@ export default function DuplicateParagraphScanner() {
           placeholder="https://example.com"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-sm"
         />
         <button
           onClick={handleScan}
