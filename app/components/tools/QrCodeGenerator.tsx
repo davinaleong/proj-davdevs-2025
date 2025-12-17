@@ -3,6 +3,9 @@
 import { useState } from "react"
 import { QRCode } from "react-qrcode-logo"
 
+/* TODO
+ * Reuse the Input component here.
+ */
 export default function QrCodeGenerator() {
   const [text, setText] = useState("https://example.com")
   const [size, setSize] = useState(200)
@@ -10,7 +13,7 @@ export default function QrCodeGenerator() {
   const [bgColor, setBgColor] = useState("#ffffff")
 
   return (
-    <div className="flex flex-col items-center gap-6 p-6 max-w-lg mx-auto bg-white rounded-sm shadow-lg">
+    <div className="flex flex-col items-center gap-6 p-6 max-w-lg mx-auto border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
       <h1 className="text-2xl font-bold">QR Code Generator</h1>
 
       <div className="w-full flex flex-col gap-4">
@@ -57,7 +60,7 @@ export default function QrCodeGenerator() {
         </label>
       </div>
 
-      <div className="p-4 border rounded bg-white">
+      <div className="p-4 border rounded-sm bg-gray-50 border-gray-300 dark:bg-gray-950 dark:border dark:border-gray-700">
         <QRCode
           value={text}
           size={size}
