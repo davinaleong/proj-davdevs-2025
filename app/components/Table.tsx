@@ -1,14 +1,35 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
+import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react'
 
 type TableStyle = 'striped' | 'bordered' | 'interactive'
+type SortDirection = 'asc' | 'desc' | null
+
+interface SortConfig {
+  key: string | null
+  direction: SortDirection
+}
+
+interface TableData {
+  [key: string]: any
+}
 
 interface TableProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   styles?: TableStyle[]
   caption?: string
+  sortable?: boolean
+  onSort?: (key: string, direction: SortDirection) => void
+  sortConfig?: SortConfig
+  data?: TableData[]
+  columns?: Array<{
+    key: string
+    label: string
+    sortable?: boolean
+    render?: (value: any, row: TableData) => React.ReactNode
+  }>
 }
 
 interface TableSectionProps {
@@ -18,6 +39,9 @@ interface TableSectionProps {
 
 interface ExtendedTableSectionProps extends TableSectionProps {
   tableStyles?: TableStyle[]
+  sortable?: boolean
+  onSort?: (key: string, direction: SortDirection) => void
+  sortConfig?: SortConfig
 }
 
 interface TableRowProps {
@@ -31,6 +55,9 @@ interface ExtendedTableRowProps extends TableRowProps {
   isHeader?: boolean
   isFooter?: boolean
   rowIndex?: number
+  sortable?: boolean
+  onSort?: (key: string, direction: SortDirection) => void
+  sortConfig?: SortConfig
 }
 
 interface TableCellProps {
@@ -40,6 +67,10 @@ interface TableCellProps {
   colSpan?: number
   rowSpan?: number
   tableStyles?: TableStyle[]
+  sortable?: boolean
+  sortKey?: string
+  onSort?: (key: string, direction: SortDirection) => void
+  sortConfig?: SortConfig
 }
 
 const getTableStyles = (styles: TableStyle[]) => {
@@ -67,9 +98,107 @@ const getRowStyles = (styles: TableStyle[], isEven: boolean = false) => {
 }
 
 // Main Table Component
-function Table({ children, className = '', styles = [], caption }: TableProps) {
+function Table({ 
+  children, 
+  className = '', 
+  styles = [], 
+  caption, 
+  sortable = false,
+  onSort,
+  sortConfig,
+  data,
+  columns
+}: TableProps) {
+  const [internalSortConfig, setInternalSortConfig] = useState<SortConfig>({ key: null, direction: null })
+  
+  const currentSortConfig = sortConfig || internalSortConfig
+  
+  const handleSort = (key: string, direction: SortDirection) => {
+    if (onSort) {
+      onSort(key, direction)
+    } else {
+      setInternalSortConfig({ key, direction })
+    }
+  }
+  
+  // Sort data if provided
+  const sortedData = React.useMemo(() => {
+    if (!data || !currentSortConfig.key || !currentSortConfig.direction) {
+      return data
+    }
+    
+    const sorted = [...data].sort((a, b) => {
+      const aVal = a[currentSortConfig.key!]
+      const bVal = b[currentSortConfig.key!]
+      
+      // Handle different data types
+      let comparison = 0
+      
+      if (typeof aVal === 'string' && typeof bVal === 'string') {
+        comparison = aVal.localeCompare(bVal)
+      } else if (typeof aVal === 'number' && typeof bVal === 'number') {
+        comparison = aVal - bVal
+      } else {
+        // Convert to string for comparison
+        comparison = String(aVal).localeCompare(String(bVal))
+      }
+      
+      return currentSortConfig.direction === 'desc' ? -comparison : comparison
+    })
+    
+    return sorted
+  }, [data, currentSortConfig])
+  
   const styleClasses = getTableStyles(styles)
   
+  // If data and columns are provided, render data-driven table
+  if (data && columns) {
+    return (
+      <div className={`overflow-x-auto ${className}`}>
+        <table className={`w-full ${styleClasses}`.trim()}>
+          {caption && (
+            <caption className="text-sm uppercase font-medium text-gray-700 dark:text-gray-300 mb-3 text-left">
+              {caption}
+            </caption>
+          )}
+          <TableHead tableStyles={styles} sortable={sortable} onSort={handleSort} sortConfig={currentSortConfig}>
+            <TableRow tableStyles={styles} isHeader={true} sortable={sortable} onSort={handleSort} sortConfig={currentSortConfig}>
+              {columns.map((column) => (
+                <TableHeader 
+                  key={column.key}
+                  sortKey={column.sortable !== false ? column.key : undefined}
+                  tableStyles={styles}
+                  sortable={sortable && column.sortable !== false}
+                  onSort={handleSort}
+                  sortConfig={currentSortConfig}
+                >
+                  {column.label}
+                </TableHeader>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody tableStyles={styles}>
+            {sortedData?.map((row, index) => (
+              <TableRow 
+                key={index} 
+                tableStyles={styles} 
+                isEven={index % 2 === 0}
+                rowIndex={index}
+              >
+                {columns.map((column) => (
+                  <TableCell key={column.key} tableStyles={styles}>
+                    {column.render ? column.render(row[column.key], row) : row[column.key]}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </table>
+      </div>
+    )
+  }
+  
+  // Fall back to children-based rendering
   return (
     <div className={`overflow-x-auto ${className}`}>
       <table className={`w-full ${styleClasses}`.trim()}>
@@ -82,7 +211,10 @@ function Table({ children, className = '', styles = [], caption }: TableProps) {
           if (React.isValidElement<ExtendedTableSectionProps>(child)) {
             return React.cloneElement(child, { 
               ...child.props,
-              tableStyles: styles 
+              tableStyles: styles,
+              sortable,
+              onSort: handleSort,
+              sortConfig: currentSortConfig
             })
           }
           return child
@@ -93,7 +225,14 @@ function Table({ children, className = '', styles = [], caption }: TableProps) {
 }
 
 // Table Head Component
-function TableHead({ children, className = '', tableStyles = [] }: ExtendedTableSectionProps) {
+function TableHead({ 
+  children, 
+  className = '', 
+  tableStyles = [], 
+  sortable = false, 
+  onSort, 
+  sortConfig 
+}: ExtendedTableSectionProps) {
   return (
     <thead className={className}>
       {React.Children.map(children, (child) => {
@@ -101,7 +240,10 @@ function TableHead({ children, className = '', tableStyles = [] }: ExtendedTable
           return React.cloneElement(child, {
             ...child.props,
             tableStyles,
-            isHeader: true
+            isHeader: true,
+            sortable,
+            onSort,
+            sortConfig
           })
         }
         return child
@@ -154,7 +296,10 @@ function TableRow({
   tableStyles = [],
   isEven = false,
   isHeader = false,
-  isFooter = false
+  isFooter = false,
+  sortable = false,
+  onSort,
+  sortConfig
 }: ExtendedTableRowProps) {
   const rowClasses = getRowStyles(tableStyles, isEven)
   const headerFooterClasses = (isHeader || isFooter) ? 'font-medium' : ''
@@ -165,7 +310,10 @@ function TableRow({
         if (React.isValidElement<TableCellProps>(child)) {
           return React.cloneElement(child, {
             ...child.props,
-            tableStyles
+            tableStyles,
+            sortable: isHeader ? sortable : false,
+            onSort,
+            sortConfig
           })
         }
         return child
@@ -182,27 +330,79 @@ function TableCell({
   colSpan,
   rowSpan,
   tableStyles,
+  sortable = false,
+  sortKey,
+  onSort,
+  sortConfig,
   ..._props 
 }: TableCellProps) {
   const baseClasses = 'px-4 py-3 text-left'
   const headerClasses = Component === 'th' ? 'font-semibold text-gray-900 dark:text-gray-100' : 'text-gray-700 dark:text-gray-300'
   const borderClasses = tableStyles?.includes('bordered') ? 'border-r border-gray-200 dark:border-gray-700 last:border-r-0' : ''
+  const sortableClasses = sortable && sortKey ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 select-none' : ''
+  
+  const handleClick = () => {
+    if (sortable && sortKey && onSort) {
+      const currentDirection = sortConfig?.key === sortKey ? sortConfig.direction : null
+      const newDirection: SortDirection = 
+        currentDirection === 'asc' ? 'desc' : 
+        currentDirection === 'desc' ? null : 'asc'
+      onSort(sortKey, newDirection)
+    }
+  }
+  
+  const getSortIcon = () => {
+    if (!sortable || !sortKey || !sortConfig) return null
+    
+    const isActive = sortConfig.key === sortKey
+    const iconClass = "w-4 h-4 ml-1 inline-block"
+    
+    if (!isActive) {
+      return <ChevronsUpDown className={`${iconClass} text-gray-400`} />
+    }
+    
+    return sortConfig.direction === 'asc' ? 
+      <ChevronUp className={`${iconClass} text-gray-600 dark:text-gray-300`} /> : 
+      <ChevronDown className={`${iconClass} text-gray-600 dark:text-gray-300`} />
+  }
   
   return (
     <Component 
-      className={`${baseClasses} ${headerClasses} ${borderClasses} ${className}`.trim()}
+      className={`${baseClasses} ${headerClasses} ${borderClasses} ${sortableClasses} ${className}`.trim()}
       colSpan={colSpan}
       rowSpan={rowSpan}
+      onClick={handleClick}
       {..._props}
     >
-      {children}
+      <div className="flex items-center justify-between">
+        <span>{children}</span>
+        {getSortIcon()}
+      </div>
     </Component>
   )
 }
 
-function TableHeader({ children, className = '', tableStyles, ..._props }: Omit<TableCellProps, 'as'>) {
+function TableHeader({ 
+  children, 
+  className = '', 
+  tableStyles, 
+  sortable, 
+  sortKey, 
+  onSort, 
+  sortConfig, 
+  ..._props 
+}: Omit<TableCellProps, 'as'>) {
   return (
-    <TableCell as="th" className={className} tableStyles={tableStyles} {..._props}>
+    <TableCell 
+      as="th" 
+      className={className} 
+      tableStyles={tableStyles} 
+      sortable={sortable}
+      sortKey={sortKey}
+      onSort={onSort}
+      sortConfig={sortConfig}
+      {..._props}
+    >
       {children}
     </TableCell>
   )
