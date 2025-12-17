@@ -6,6 +6,10 @@ const TYPE_PASSWORD = "password"
 const TYPE_TEXT = "text"
 const TOTAL_SCORE = 8
 
+/* TODO:
+ * Reuse the Input component here.
+ * Reuse the Button component here.
+ */
 function PasswordStrengthMeter() {
   const [passwordFieldType, setPasswordFieldType] = useState(TYPE_PASSWORD)
   const [meterLength, setMeterLength] = useState(0)
@@ -42,7 +46,7 @@ function PasswordStrengthMeter() {
   }
 
   return (
-    <form action="" method="post" className="p-6 bg-white rounded-sm shadow-lg">
+    <form action="" method="post" className="p-6 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
       <div className="grid gap-2">
         <label htmlFor="input-password" className="text-lg">
           Please enter your password:
@@ -55,7 +59,7 @@ function PasswordStrengthMeter() {
           onChange={handlePasswordChange}
           className="text-lg p-2 border rounded"
         />
-        <div className="h-2 w-full bg-gray-300 rounded overflow-hidden mt-2">
+        <div className="h-2 w-full bg-gray-300 dark:bg-gray-700 rounded overflow-hidden mt-2">
           <div
             className={`h-full ${meterColour} transition-all duration-300`}
             style={{ width: `${meterLength}%` }}
