@@ -335,7 +335,7 @@ Please respond in the following JSON format:
 ">
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">
-        <div className="p-2 bg-blue-100 rounded-lg">
+        <div className="p-2 bg-blue-100 rounded-sm">
           <Languages className="w-6 h-6 text-blue-600" />
         </div>
         <div>
@@ -366,7 +366,7 @@ Please respond in the following JSON format:
             <select
               value={sourceLang}
               onChange={(e) => setSourceLang(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+              className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
             >
               {languages.map((lang) => (
                 <option key={lang.code} value={lang.code}>
@@ -381,7 +381,7 @@ Please respond in the following JSON format:
             <button
               type="button"
               onClick={swapLanguages}
-              className="p-2 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              className="p-2 opacity-75 hover:text-blue-600 hover:bg-blue-50 rounded-sm transition-colors"
               title="Swap languages"
             >
               <ArrowRightLeft className="w-5 h-5" />
@@ -397,7 +397,7 @@ Please respond in the following JSON format:
             <select
               value={targetLang}
               onChange={(e) => setTargetLang(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+              className="w-full px-3 py-2 border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm"
             >
               {languages.map((lang) => (
                 <option key={lang.code} value={lang.code}>
@@ -418,10 +418,10 @@ Please respond in the following JSON format:
             {styles.map((styleOption) => (
               <label
                 key={styleOption.value}
-                className={`relative cursor-pointer rounded-lg border p-3 transition-all hover:shadow-md ${
+                className={`relative cursor-pointer rounded-sm border p-3 ${
                   style === styleOption.value
-                    ? "border-blue-500 bg-blue-50 ring-2 ring-blue-500"
-                    : "border-gray-300 bg-white hover:border-gray-400"
+                    ? "border-blue-500 bg-blue-50 ring-2 ring-blue-500 dark:bg-blue-950"
+                    : "bg-gray-50 border-gray-300 dark:bg-gray-950 dark:border-gray-700 hover:opacity-60"
                 }`}
               >
                 <input
@@ -464,7 +464,7 @@ Please respond in the following JSON format:
                 onChange={(e) => setSourceText(e.target.value)}
                 rows={8}
                 placeholder="Enter your text here..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
               />
               <div className="absolute bottom-2 right-2 text-xs text-gray-400">
                 {sourceText.length} characters
@@ -481,7 +481,7 @@ Please respond in the following JSON format:
               </span>
             </label>
             <div className="relative">
-              <div className="w-full h-48 px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 overflow-auto">
+              <div className="w-full h-48 px-4 py-3 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 overflow-auto">
                 {isTranslating ? (
                   <div className="flex items-center justify-center h-full">
                     <div className="flex items-center space-x-2 text-blue-600">
@@ -546,11 +546,11 @@ Please respond in the following JSON format:
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 justify-between pt-4 border-t border-gray-200">
+        <div className="flex flex-wrap gap-3 justify-between pt-4 border-t border-gray-300 dark:border-gray-700">
           <button
             type="button"
             onClick={clearAll}
-            className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+            className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-sm transition-colors"
           >
             Clear All
           </button>
@@ -558,7 +558,7 @@ Please respond in the following JSON format:
             <button
               type="submit"
               disabled={!sourceText.trim() || isTranslating}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium rounded-lg transition-colors flex items-center gap-2"
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium rounded-sm transition-colors flex items-center gap-2"
             >
               {isTranslating ? (
                 <>
