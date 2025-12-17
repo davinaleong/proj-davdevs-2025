@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useCallback, useMemo } from "react"
+import loyaltyData from "@/app/data/loyalty-programs.json"
 import {
   CreditCard,
   Plane,
@@ -14,7 +15,6 @@ import {
   DollarSign,
   Globe,
   Search,
-  Filter,
   X,
   SlidersHorizontal,
 } from "lucide-react"
@@ -76,9 +76,7 @@ export default function CardMilesConverter() {
   const [targetProgramId, setTargetProgramId] =
     useState<string>("singapore-airlines")
   const [selectedCurrency, setSelectedCurrency] = useState<string>("SGD")
-  const [conversionResults, setConversionResults] = useState<
-    ConversionResult[]
-  >([])
+
   const [copied, setCopied] = useState<string | null>(null)
 
   // Filter and search states
@@ -95,390 +93,30 @@ export default function CardMilesConverter() {
   const [sortBy, setSortBy] = useState<"value" | "name" | "type">("value")
 
   // Current exchange rates (in practice, these would be fetched from an API)
-  const exchangeRates: ExchangeRates = {
-    USD: 1.0,
-    SGD: 0.74, // 1 SGD = 0.74 USD
-    MYR: 0.23, // 1 MYR = 0.23 USD
-    THB: 0.028, // 1 THB = 0.028 USD
-    IDR: 0.000066, // 1 IDR = 0.000066 USD
-    PHP: 0.018, // 1 PHP = 0.018 USD
-    AUD: 0.67, // 1 AUD = 0.67 USD
-    HKD: 0.13, // 1 HKD = 0.13 USD
-    TWD: 0.031, // 1 TWD = 0.031 USD
-    AED: 0.27, // 1 AED = 0.27 USD
-  }
+  const exchangeRates: ExchangeRates = useMemo(() => loyaltyData.exchangeRates, [])
 
-  const currencies = [
-    { code: "SGD", name: "Singapore Dollar", flag: "🇸🇬" },
-    { code: "MYR", name: "Malaysian Ringgit", flag: "🇲🇾" },
-    { code: "THB", name: "Thai Baht", flag: "🇹🇭" },
-    { code: "IDR", name: "Indonesian Rupiah", flag: "🇮🇩" },
-    { code: "PHP", name: "Philippine Peso", flag: "🇵🇭" },
-    { code: "AUD", name: "Australian Dollar", flag: "🇦🇺" },
-    { code: "HKD", name: "Hong Kong Dollar", flag: "🇭🇰" },
-    { code: "TWD", name: "Taiwan Dollar", flag: "🇹🇼" },
-    { code: "AED", name: "UAE Dirham", flag: "🇦🇪" },
-    { code: "USD", name: "US Dollar", flag: "🇺🇸" },
-  ]
+  const currencies = loyaltyData.currencies
 
-  const loyaltyPrograms: LoyaltyProgram[] = [
-    // ASEAN Credit Card Programs
-    {
-      id: "dbs-points",
-      name: "DBS Points (Singapore)",
-      type: "credit_card",
-      icon: "🏦",
-      cashValue: 0.67, // ~1 SGD cent = 0.67 USD cents
-      transferRatio: 1,
-      currency: "points",
-      region: "singapore",
-      baseCurrency: "SGD",
-    },
-    {
-      id: "ocbc-voyage",
-      name: "OCBC Voyage Miles",
-      type: "credit_card",
-      icon: "⛵",
-      cashValue: 0.74,
-      transferRatio: 1,
-      currency: "miles",
-      region: "singapore",
-      baseCurrency: "SGD",
-    },
-    {
-      id: "uob-unirewards",
-      name: "UOB UNI$ Points",
-      type: "credit_card",
-      icon: "🦄",
-      cashValue: 0.67,
-      transferRatio: 1,
-      currency: "points",
-      region: "singapore",
-      baseCurrency: "SGD",
-    },
-    {
-      id: "maybank-treats",
-      name: "Maybank TreatsPoints",
-      type: "credit_card",
-      icon: "🎁",
-      cashValue: 0.23, // ~1 MYR cent = 0.23 USD cents
-      transferRatio: 1,
-      currency: "points",
-      region: "malaysia",
-      baseCurrency: "MYR",
-    },
-    {
-      id: "cimb-rewards",
-      name: "CIMB Rewards Points",
-      type: "credit_card",
-      icon: "🔴",
-      cashValue: 0.2,
-      transferRatio: 1,
-      currency: "points",
-      region: "malaysia",
-      baseCurrency: "MYR",
-    },
-    {
-      id: "bca-points",
-      name: "BCA Rewards Points",
-      type: "credit_card",
-      icon: "💙",
-      cashValue: 0.000066, // IDR value
-      transferRatio: 100, // 100 BCA points = 1 mile
-      currency: "points",
-      region: "indonesia",
-      baseCurrency: "IDR",
-    },
+  const loyaltyPrograms: LoyaltyProgram[] = useMemo(() => loyaltyData.loyaltyPrograms, [])
 
-    // Global Programs (available in ASEAN)
-    {
-      id: "citi-ty",
-      name: "Citi ThankYou Points",
-      type: "credit_card",
-      icon: "🏛️",
-      cashValue: 1.6,
-      transferRatio: 1,
-      currency: "points",
-      region: "global",
-      baseCurrency: "USD",
-    },
-    {
-      id: "amex-mr",
-      name: "American Express Membership Rewards",
-      type: "credit_card",
-      icon: "💎",
-      cashValue: 2.0,
-      transferRatio: 1,
-      currency: "points",
-      region: "global",
-      baseCurrency: "USD",
-    },
+  const getProgram = useCallback((id: string) => loyaltyPrograms.find((p) => p.id === id), [loyaltyPrograms])
 
-    // ASEAN Airlines
-    {
-      id: "singapore-airlines",
-      name: "Singapore Airlines KrisFlyer",
-      type: "airline",
-      icon: "🛫",
-      cashValue: 1.5,
-      transferRatio: 1,
-      currency: "miles",
-      region: "singapore",
-      baseCurrency: "SGD",
-    },
-    {
-      id: "malaysia-airlines",
-      name: "Malaysia Airlines Enrich",
-      type: "airline",
-      icon: "🦅",
-      cashValue: 1.2,
-      transferRatio: 1,
-      currency: "miles",
-      region: "malaysia",
-      baseCurrency: "MYR",
-    },
-    {
-      id: "thai-airways",
-      name: "Thai Airways Royal Orchid Plus",
-      type: "airline",
-      icon: "🌺",
-      cashValue: 1.0,
-      transferRatio: 1,
-      currency: "miles",
-      region: "thailand",
-      baseCurrency: "THB",
-    },
-    {
-      id: "garuda-indonesia",
-      name: "Garuda Indonesia GarudaMiles",
-      type: "airline",
-      icon: "🦅",
-      cashValue: 0.8,
-      transferRatio: 1,
-      currency: "miles",
-      region: "indonesia",
-      baseCurrency: "IDR",
-    },
-    {
-      id: "philippine-airlines",
-      name: "Philippine Airlines Mabuhay Miles",
-      type: "airline",
-      icon: "🇵🇭",
-      cashValue: 1.1,
-      transferRatio: 1,
-      currency: "miles",
-      region: "philippines",
-      baseCurrency: "PHP",
-    },
-    {
-      id: "jetstar-asia",
-      name: "Jetstar Asia Club Jetstar",
-      type: "airline",
-      icon: "⭐",
-      cashValue: 0.9,
-      transferRatio: 1,
-      currency: "points",
-      region: "asean",
-      baseCurrency: "SGD",
-    },
-    {
-      id: "airasia-bigpoints",
-      name: "AirAsia BIG Points",
-      type: "airline",
-      icon: "🔴",
-      cashValue: 0.8,
-      transferRatio: 1,
-      currency: "points",
-      region: "asean",
-      baseCurrency: "MYR",
-    },
-
-    // International Airlines (popular in ASEAN)
-    {
-      id: "united-miles",
-      name: "United MileagePlus",
-      type: "airline",
-      icon: "🛫",
-      cashValue: 1.3,
-      transferRatio: 1,
-      currency: "miles",
-      region: "global",
-      baseCurrency: "USD",
-    },
-
-    // Asia Pacific Airlines
-    {
-      id: "cathay-pacific",
-      name: "Cathay Pacific Asia Miles",
-      type: "airline",
-      icon: "🐉",
-      cashValue: 1.4,
-      transferRatio: 1,
-      currency: "miles",
-      region: "hong_kong",
-      baseCurrency: "HKD",
-    },
-    {
-      id: "eva-air",
-      name: "EVA Air Infinity MileageLands",
-      type: "airline",
-      icon: "🌟",
-      cashValue: 1.2,
-      transferRatio: 1,
-      currency: "miles",
-      region: "taiwan",
-      baseCurrency: "TWD",
-    },
-    {
-      id: "qantas-ff",
-      name: "Qantas Frequent Flyer",
-      type: "airline",
-      icon: "🦘",
-      cashValue: 1.5,
-      transferRatio: 1,
-      currency: "points",
-      region: "australia",
-      baseCurrency: "AUD",
-    },
-
-    // Middle East Airlines
-    {
-      id: "etihad-guest",
-      name: "Etihad Guest",
-      type: "airline",
-      icon: "🏜️",
-      cashValue: 1.3,
-      transferRatio: 1,
-      currency: "miles",
-      region: "middle_east",
-      baseCurrency: "AED",
-    },
-    {
-      id: "qatar-privilege",
-      name: "Qatar Airways Privilege Club",
-      type: "airline",
-      icon: "🏛️",
-      cashValue: 1.4,
-      transferRatio: 1,
-      currency: "miles",
-      region: "middle_east",
-      baseCurrency: "USD",
-    },
-
-    // European Airlines (popular in Asia Pacific)
-    {
-      id: "flying-blue",
-      name: "Flying Blue (Air France-KLM)",
-      type: "airline",
-      icon: "🔵",
-      cashValue: 1.2,
-      transferRatio: 1,
-      currency: "miles",
-      region: "global",
-      baseCurrency: "USD",
-    },
-    {
-      id: "british-airways",
-      name: "British Airways Executive Club",
-      type: "airline",
-      icon: "🇬🇧",
-      cashValue: 1.1,
-      transferRatio: 1,
-      currency: "points",
-      region: "global",
-      baseCurrency: "USD",
-    },
-    {
-      id: "turkish-miles",
-      name: "Turkish Airlines Miles&Smiles",
-      type: "airline",
-      icon: "🦃",
-      cashValue: 1.0,
-      transferRatio: 1,
-      currency: "miles",
-      region: "global",
-      baseCurrency: "USD",
-    },
-
-    // ASEAN Hotels
-    {
-      id: "shangri-la",
-      name: "Shangri-La Circle",
-      type: "hotel",
-      icon: "🏯",
-      cashValue: 1.2,
-      transferRatio: 2,
-      currency: "points",
-      region: "asean",
-      baseCurrency: "USD",
-    },
-    {
-      id: "far-east-hospitality",
-      name: "Far East Hospitality",
-      type: "hotel",
-      icon: "🏨",
-      cashValue: 0.67,
-      transferRatio: 3,
-      currency: "points",
-      region: "singapore",
-      baseCurrency: "SGD",
-    },
-
-    // Global Hotels
-    {
-      id: "marriott-points",
-      name: "Marriott Bonvoy",
-      type: "hotel",
-      icon: "🏨",
-      cashValue: 0.8,
-      transferRatio: 3,
-      currency: "points",
-      region: "global",
-      baseCurrency: "USD",
-    },
-    {
-      id: "hilton-points",
-      name: "Hilton Honors",
-      type: "hotel",
-      icon: "🏩",
-      cashValue: 0.5,
-      transferRatio: 10,
-      currency: "points",
-      region: "global",
-      baseCurrency: "USD",
-    },
-    {
-      id: "ihg-rewards",
-      name: "IHG Rewards Club",
-      type: "hotel",
-      icon: "🏰",
-      cashValue: 0.5,
-      transferRatio: 10,
-      currency: "points",
-      region: "global",
-      baseCurrency: "USD",
-    },
-  ]
-
-  const getProgram = (id: string) => loyaltyPrograms.find((p) => p.id === id)
-
-  const convertToUSD = (amount: number, fromCurrency: string): number => {
+  const convertToUSD = useCallback((amount: number, fromCurrency: string): number => {
     return amount * exchangeRates[fromCurrency]
-  }
+  }, [exchangeRates])
 
-  const convertFromUSD = (amount: number, toCurrency: string): number => {
+  const convertFromUSD = useCallback((amount: number, toCurrency: string): number => {
     return amount / exchangeRates[toCurrency]
-  }
+  }, [exchangeRates])
 
-  const calculateConversions = () => {
+  const conversionResults = useMemo(() => {
     const amount = parseFloat(sourceAmount)
     if (!amount || amount <= 0) {
-      setConversionResults([])
-      return
+      return []
     }
 
     const sourceProgram = getProgram(sourceProgramId)
-    if (!sourceProgram) return
+    if (!sourceProgram) return []
 
     const results: ConversionResult[] = loyaltyPrograms.map((targetProgram) => {
       let convertedAmount = amount
@@ -531,11 +169,11 @@ export default function CardMilesConverter() {
 
     // Sort by USD cash value (highest first)
     results.sort((a, b) => b.cashValueUSD - a.cashValueUSD)
-    setConversionResults(results)
-  }
+    return results
+  }, [sourceAmount, sourceProgramId, selectedCurrency, convertFromUSD, convertToUSD, getProgram, loyaltyPrograms])
 
   const getFilteredAndSortedResults = () => {
-    let filtered = conversionResults.filter((result) => {
+    const filtered = conversionResults.filter((result) => {
       // Search filter
       const matchesSearch =
         searchTerm === "" ||
@@ -676,10 +314,6 @@ export default function CardMilesConverter() {
         return "🌍"
     }
   }
-
-  useEffect(() => {
-    calculateConversions()
-  }, [sourceAmount, sourceProgramId, targetProgramId, selectedCurrency])
 
   const sourceProgram = getProgram(sourceProgramId)
   const bestValue = conversionResults[0]
@@ -1023,7 +657,7 @@ export default function CardMilesConverter() {
                         type="checkbox"
                         checked={selectedTypes.includes(type.value)}
                         onChange={() => toggleType(type.value)}
-                        className="border border-gray-300 dark:border-gray-700 rounded-sm-sm dark:border-gray-700 text-blue-500 focus:ring-blue-500"
+                        className="border border-gray-300 dark:border-gray-700 rounded-sm text-blue-500 focus:ring-blue-500"
                       />
                       <span className="ml-2 text-sm opacity-75">
                         {type.icon} {type.label}
@@ -1121,7 +755,7 @@ export default function CardMilesConverter() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {getFilteredAndSortedResults().map((result, index) => {
+            {getFilteredAndSortedResults().map((result) => {
               // Find the original index for highlighting the best overall value
               const originalIndex = conversionResults.findIndex(
                 (r) => r.program.id === result.program.id
