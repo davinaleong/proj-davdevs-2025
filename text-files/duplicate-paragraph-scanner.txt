@@ -1,0 +1,38 @@
+1.
+A second neutral document containing intentionally duplicated paragraphs to test cross-document comparison and exact-match detection.
+
+2.
+9 Sept 2025·2 min read
+
+3.
+By Davina Leong
+
+4.
+This file complements another document in the same test group. Together, they simulate realistic reuse scenarios.
+
+5.
+⚠️ DO NOT EDIT THIS PARAGRAPH Exact paragraph repetition across multiple documents is a common occurrence in large content systems, especially when templates, reused explanations, or shared documentation blocks are involved.
+
+6.
+This should be detected regardless of formatting differences.
+
+7.
+⚠️ DO NOT EDIT THIS PARAGRAPH This paragraph is designed to remain identical across multiple files so that automated scanners can verify exact matching behavior without ambiguity.
+
+8.
+The surrounding text intentionally varies.
+
+9.
+⚠️ DO NOT EDIT THIS PARAGRAPH When evaluating duplicate detection systems, it is important to separate identical content from surrounding structural or stylistic differences.
+
+10.
+This helps prevent false positives.
+
+11.
+Return to the first document here: 👉 Pattern Consistency Demo
+
+12.
+Designing with purpose. Building with code. Living by faith.
+
+13.
+Dav/Devs © 2019-2025 Davina Leong. All rights reserved.
