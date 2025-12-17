@@ -48,7 +48,7 @@ export default function Card({
 }: CardProps) {
   
   const getFeaturedBadgeStyles = () => {
-    return "upper text-sm text-white bg-orange-500";
+    return "uppercase text-sm text-white bg-orange-500 p-1";
   };
 
   const getCardStyles = () => {
@@ -62,8 +62,6 @@ export default function Card({
     const borderStyle = featured ? "border-orange-500" : "border-blue-500";
     return `${baseStyles} ${borderStyle} ${className}`;
   };
-
-
 
   const renderImage = () => {
     if (!showImage || !imageProps) return null;
