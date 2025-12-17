@@ -293,7 +293,7 @@ export default function MemoryCards() {
   }
 
   return (
-    <article className="p-6 max-w-4xl mx-auto bg-white dark:bg-black dark:border dark:border-gray-700 rounded-sm shadow-lg">
+    <article className="p-6 max-w-4xl mx-auto border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm">
       <header className="flex items-center gap-2 mb-6">
         <Brain className="w-6 h-6 text-purple-600" />
         <h2 className="text-xl font-semibold">Memory Cards</h2>
