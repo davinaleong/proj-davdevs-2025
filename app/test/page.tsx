@@ -201,6 +201,63 @@ export default function Test() {
                             ]}
                         />
                     </div>
+
+                    {/* Responsive table demo */}
+                    <div>
+                        <h3 className="text-md font-medium mb-2">Responsive Table Demo</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            This table adapts to mobile screens by stacking cells vertically with labels. Resize your browser to see the effect.
+                        </p>
+                        <Table 
+                            styles={['striped', 'bordered']} 
+                            responsive
+                            caption="Top 3 OSU! Ranked Players"
+                            data={[
+                                {
+                                    username: 'mrekk',
+                                    pp: 24519,
+                                    accuracy: '98.10%',
+                                    playCount: 153569
+                                },
+                                {
+                                    username: 'lifeline',
+                                    pp: 21603,
+                                    accuracy: '98.21%',
+                                    playCount: 216329
+                                },
+                                {
+                                    username: 'Rimuru',
+                                    pp: 21258,
+                                    accuracy: '97.94%',
+                                    playCount: 276903
+                                }
+                            ]}
+                            columns={[
+                                { 
+                                    key: 'username', 
+                                    label: 'Username',
+                                    mobileLabel: 'Username'
+                                },
+                                { 
+                                    key: 'pp', 
+                                    label: 'Performance Points (pp)',
+                                    mobileLabel: 'Performance Points',
+                                    render: (value) => value.toLocaleString()
+                                },
+                                { 
+                                    key: 'accuracy', 
+                                    label: 'Accuracy',
+                                    mobileLabel: 'Accuracy'
+                                },
+                                { 
+                                    key: 'playCount', 
+                                    label: 'Play Count',
+                                    mobileLabel: 'Play Count',
+                                    render: (value) => value.toLocaleString()
+                                }
+                            ]}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

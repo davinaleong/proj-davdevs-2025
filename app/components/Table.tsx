@@ -24,9 +24,11 @@ interface TableProps {
   onSort?: (key: string, direction: SortDirection) => void
   sortConfig?: SortConfig
   data?: TableData[]
+  responsive?: boolean
   columns?: Array<{
     key: string
     label: string
+    mobileLabel?: string
     sortable?: boolean
     render?: (value: any, row: TableData) => React.ReactNode
   }>
@@ -42,6 +44,7 @@ interface ExtendedTableSectionProps extends TableSectionProps {
   sortable?: boolean
   onSort?: (key: string, direction: SortDirection) => void
   sortConfig?: SortConfig
+  responsive?: boolean
 }
 
 interface TableRowProps {
@@ -58,6 +61,7 @@ interface ExtendedTableRowProps extends TableRowProps {
   sortable?: boolean
   onSort?: (key: string, direction: SortDirection) => void
   sortConfig?: SortConfig
+  responsive?: boolean
 }
 
 interface TableCellProps {
@@ -71,6 +75,8 @@ interface TableCellProps {
   sortKey?: string
   onSort?: (key: string, direction: SortDirection) => void
   sortConfig?: SortConfig
+  responsive?: boolean
+  mobileLabel?: string
 }
 
 const getTableStyles = (styles: TableStyle[]) => {
@@ -107,6 +113,7 @@ function Table({
   onSort,
   sortConfig,
   data,
+  responsive = false,
   columns
 }: TableProps) {
   const [internalSortConfig, setInternalSortConfig] = useState<SortConfig>({ key: null, direction: null })
@@ -154,15 +161,28 @@ function Table({
   // If data and columns are provided, render data-driven table
   if (data && columns) {
     return (
-      <div className={`overflow-x-auto ${className}`}>
+      <div className={`${responsive ? '' : 'overflow-x-auto'} ${className}`}>
         <table className={`w-full ${styleClasses}`.trim()}>
           {caption && (
             <caption className="text-sm uppercase font-medium text-gray-700 dark:text-gray-300 mb-3 text-left">
               {caption}
             </caption>
           )}
-          <TableHead tableStyles={styles} sortable={sortable} onSort={handleSort} sortConfig={currentSortConfig}>
-            <TableRow tableStyles={styles} isHeader={true} sortable={sortable} onSort={handleSort} sortConfig={currentSortConfig}>
+          <TableHead 
+            tableStyles={styles} 
+            sortable={sortable} 
+            onSort={handleSort} 
+            sortConfig={currentSortConfig}
+            responsive={responsive}
+          >
+            <TableRow 
+              tableStyles={styles} 
+              isHeader={true} 
+              sortable={sortable} 
+              onSort={handleSort} 
+              sortConfig={currentSortConfig}
+              responsive={responsive}
+            >
               {columns.map((column) => (
                 <TableHeader 
                   key={column.key}
@@ -171,22 +191,29 @@ function Table({
                   sortable={sortable && column.sortable !== false}
                   onSort={handleSort}
                   sortConfig={currentSortConfig}
+                  responsive={responsive}
                 >
                   {column.label}
                 </TableHeader>
               ))}
             </TableRow>
           </TableHead>
-          <TableBody tableStyles={styles}>
+          <TableBody tableStyles={styles} responsive={responsive}>
             {sortedData?.map((row, index) => (
               <TableRow 
                 key={index} 
                 tableStyles={styles} 
                 isEven={index % 2 === 0}
                 rowIndex={index}
+                responsive={responsive}
               >
                 {columns.map((column) => (
-                  <TableCell key={column.key} tableStyles={styles}>
+                  <TableCell 
+                    key={column.key} 
+                    tableStyles={styles}
+                    responsive={responsive}
+                    mobileLabel={column.mobileLabel || column.label}
+                  >
                     {column.render ? column.render(row[column.key], row) : row[column.key]}
                   </TableCell>
                 ))}
@@ -231,10 +258,13 @@ function TableHead({
   tableStyles = [], 
   sortable = false, 
   onSort, 
-  sortConfig 
+  sortConfig,
+  responsive = false
 }: ExtendedTableSectionProps) {
+  const responsiveClasses = responsive ? 'sm:table-header-group hidden' : ''
+  
   return (
-    <thead className={className}>
+    <thead className={`${responsiveClasses} ${className}`.trim()}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement<ExtendedTableRowProps>(child)) {
           return React.cloneElement(child, {
@@ -243,7 +273,8 @@ function TableHead({
             isHeader: true,
             sortable,
             onSort,
-            sortConfig
+            sortConfig,
+            responsive
           })
         }
         return child
@@ -253,7 +284,7 @@ function TableHead({
 }
 
 // Table Body Component  
-function TableBody({ children, className = '', tableStyles = [] }: ExtendedTableSectionProps) {
+function TableBody({ children, className = '', tableStyles = [], responsive = false }: ExtendedTableSectionProps) {
   return (
     <tbody className={className}>
       {React.Children.map(children, (child, index) => {
@@ -262,7 +293,8 @@ function TableBody({ children, className = '', tableStyles = [] }: ExtendedTable
             ...child.props,
             tableStyles,
             rowIndex: index,
-            isEven: index % 2 === 0
+            isEven: index % 2 === 0,
+            responsive
           })
         }
         return child
@@ -272,7 +304,7 @@ function TableBody({ children, className = '', tableStyles = [] }: ExtendedTable
 }
 
 // Table Foot Component
-function TableFoot({ children, className = '', tableStyles = [] }: ExtendedTableSectionProps) {
+function TableFoot({ children, className = '', tableStyles = [], responsive = false }: ExtendedTableSectionProps) {
   return (
     <tfoot className={className}>
       {React.Children.map(children, (child) => {
@@ -280,7 +312,8 @@ function TableFoot({ children, className = '', tableStyles = [] }: ExtendedTable
           return React.cloneElement(child, {
             ...child.props,
             tableStyles,
-            isFooter: true
+            isFooter: true,
+            responsive
           })
         }
         return child
@@ -299,7 +332,8 @@ function TableRow({
   isFooter = false,
   sortable = false,
   onSort,
-  sortConfig
+  sortConfig,
+  responsive = false
 }: ExtendedTableRowProps) {
   const rowClasses = getRowStyles(tableStyles, isEven)
   const headerFooterClasses = (isHeader || isFooter) ? 'font-medium' : ''
@@ -313,7 +347,8 @@ function TableRow({
             tableStyles,
             sortable: isHeader ? sortable : false,
             onSort,
-            sortConfig
+            sortConfig,
+            responsive
           })
         }
         return child
@@ -334,12 +369,21 @@ function TableCell({
   sortKey,
   onSort,
   sortConfig,
+  responsive = false,
+  mobileLabel,
   ..._props 
 }: TableCellProps) {
-  const baseClasses = 'px-4 py-3 text-left'
+  const baseClasses = responsive && Component === 'td' 
+    ? 'px-4 py-2 sm:py-3 text-left sm:table-cell grid grid-cols-[minmax(0,18ch)_1fr] gap-2 sm:gap-0'
+    : 'px-4 py-3 text-left'
   const headerClasses = Component === 'th' ? 'font-semibold text-gray-900 dark:text-gray-100' : 'text-gray-700 dark:text-gray-300'
   const borderClasses = tableStyles?.includes('bordered') ? 'border-r border-gray-200 dark:border-gray-700 last:border-r-0' : ''
   const sortableClasses = sortable && sortKey ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 select-none' : ''
+  
+  // Add mobile-specific classes for first and last cells in responsive mode
+  const mobileClasses = responsive && Component === 'td' 
+    ? 'first:pt-6 sm:first:pt-3 last:pb-6 sm:last:pb-3'
+    : ''
   
   const handleClick = () => {
     if (sortable && sortKey && onSort) {
@@ -366,6 +410,23 @@ function TableCell({
       <ChevronDown className={`${iconClass} text-gray-600 dark:text-gray-300`} />
   }
   
+  // In responsive mode, render mobile label and content separately
+  if (responsive && Component === 'td' && mobileLabel) {
+    return (
+      <Component 
+        className={`${baseClasses} ${headerClasses} ${borderClasses} ${mobileClasses} ${className}`.trim()}
+        colSpan={colSpan}
+        rowSpan={rowSpan}
+        {..._props}
+      >
+        <span className="font-bold text-gray-900 dark:text-gray-100 capitalize sm:hidden">
+          {mobileLabel}:
+        </span>
+        <span className="sm:contents">{children}</span>
+      </Component>
+    )
+  }
+  
   return (
     <Component 
       className={`${baseClasses} ${headerClasses} ${borderClasses} ${sortableClasses} ${className}`.trim()}
@@ -389,7 +450,9 @@ function TableHeader({
   sortable, 
   sortKey, 
   onSort, 
-  sortConfig, 
+  sortConfig,
+  responsive,
+  mobileLabel,
   ..._props 
 }: Omit<TableCellProps, 'as'>) {
   return (
@@ -401,6 +464,8 @@ function TableHeader({
       sortKey={sortKey}
       onSort={onSort}
       sortConfig={sortConfig}
+      responsive={responsive}
+      mobileLabel={mobileLabel}
       {..._props}
     >
       {children}

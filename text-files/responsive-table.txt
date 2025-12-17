@@ -1,0 +1,238 @@
+<main>
+  <div class="wrapper">
+    <h1>Responsive Tables</h1>
+    
+    <section>
+      <h3>Sources:</h3>
+      
+      <ul style="list-style-type:'→ ';"> 
+        <li><a href="https://www.youtube.com/watch?v=czZ1PvNW5hk" target="_blank">"How to create a responsive HTML table"</a> by <a href="https://www.youtube.com/@KevinPowell" target="_blank">Kevin Powell</a></li>
+        
+        <li><a href="https://adrianroselli.com/2017/11/a-responsive-accessible-table.html" target="_blank">"A Responsive Accessible Table"</a> - Blogpost made by <a href="https://adrianroselli.com" target="_blank">Adrian Roselli</a></li>
+        
+        <li><a href="https://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html" target="_blank">"Functions to Add ARIA to Tables and Lists"</a> - Blogpost made by <a href="https://adrianroselli.com" target="_blank">Adrian Roselli</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3 class="testing">Testing</h3>
+      <p>You can easily make changes in <span class="code">:root</span> <span class="code-css">CSS</span></p>
+    </section>
+    
+
+    <table>
+      <caption>
+        Top 3 osu! ranked players (25th April 2023)
+      </caption>
+      
+      <tr>
+        <th>Username</th>
+        <th>Performance Points (pp)</th>
+        <th>Accuracy</th>
+        <th>Play Count</th>
+      </tr>
+
+      <tr>
+        <td data-cell="username">mrekk</td> 
+        <td data-cell="performance points">24,519</td> 
+        <td data-cell="accuracy">98.10%</td> 
+        <td data-cell="play count">153,569</td>
+      </tr>
+
+      <tr>
+        <td data-cell="username">lifeline</td> 
+        <td data-cell="performance points">21,603</td> 
+        <td data-cell="accuracy">98.21%</td> 
+        <td data-cell="play count">216,329</td>
+      </tr>
+
+      <tr>
+        <td data-cell="username">Rimuru</td> 
+        <td data-cell="performance points">21,258</td> 
+        <td data-cell="accuracy">97.94%</td> 
+        <td data-cell="play count">276,903</td>
+      </tr>
+    </table>
+  </div>
+</main>
+
+/*
+  You can easily make changes in the CSS with the variables below.
+
+  All variables are done in HSL(hue saturation light / opacity):
+  - hue:        0 to 360;
+  - saturation: 0 to 100 (%);
+  - light:      0 to 100 (%);
+  - / opacity:  0.00 to 1 (1 by default)
+*/
+
+:root {
+  --text-color: hsl(0 0% 100%);
+  
+  --table-background-hue: 255;
+  --table-background-saturation: 20%;
+  --table-background-light: 20%;
+  
+  --th-opacity: 0.5;
+  --th-2n: 0.15;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  color: var(--text-color);
+  font-size: 1.125rem;
+  font-family: system-ui;
+  line-height: 1.5;
+}
+
+
+
+/* All the code below is for "Sources" and "Testing" sections. They're not necessary to make the table itself.*/
+h1 {
+  color: #fafafa;  
+}
+
+section {
+  margin-bottom: 2rem;
+  color: #fafafa;
+}
+section h3 {
+  line-height: 2rem;
+}
+
+span.code-css {
+  background-color: hsl(210 100% 50%);
+  color: hsl(0 0% 100%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+span.code {
+  background-color: hsl(0 0% 0% / 0.25);
+  font-style: italic;
+  color: hsl(0 0% 80%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+a:link, a:visited {
+  background-color: transparent;
+  color: hsl(120 100% 50%);
+  text-decoration: none;
+  border-radius: .25rem;
+  line-height: 2rem;
+  transition: .3s;
+}
+a:hover, a:active {
+  color: hsl(120 100% 0%);
+  background-color: hsl(120 100% 50%);
+  padding: 0.25rem 0.5rem;
+}
+/* ------------------------------------ */
+
+
+
+
+
+.wrapper {
+  width: min(900px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+table {
+  width: 100%;
+  background: hsl(var(--table-background-hue) var(--table-background-saturation) var(--table-background-light));
+  border-collapse: collapse;
+}
+
+caption, 
+th, 
+td {
+  padding: 1rem;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+caption {
+  background: hsl(0 0% 0%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+th {
+  background: hsl(0 0% 0% / var(--th-opacity));
+}
+
+tr:nth-of-type(2n) {
+  background: hsl(0 0% 0% / var(--th-2n));
+}
+
+
+
+@media (max-width: 650px) {
+  th {
+    display: none;
+  }
+  
+  td {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 18ch auto;
+    padding: 0.5rem 1rem;
+  }  
+  
+  td:first-child {
+    padding-top: 2rem;
+  }
+  td:last-child {
+    padding-bottom: 2rem;
+  }
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+}
+
+function AddTableARIA() {
+  try {
+    var allTables = document.querySelectorAll('table');
+    for (var i = 0; i < allTables.length; i++) {
+      allTables[i].setAttribute('role','table');
+    }
+    var allCaptions = document.querySelectorAll('caption');
+    for (var i = 0; i < allCaptions.length; i++) {
+      allCaptions[i].setAttribute('role','caption');
+    }
+    var allRowGroups = document.querySelectorAll('thead, tbody, tfoot');
+    for (var i = 0; i < allRowGroups.length; i++) {
+      allRowGroups[i].setAttribute('role','rowgroup');
+    }
+    var allRows = document.querySelectorAll('tr');
+    for (var i = 0; i < allRows.length; i++) {
+      allRows[i].setAttribute('role','row');
+    }
+    var allCells = document.querySelectorAll('td');
+    for (var i = 0; i < allCells.length; i++) {
+      allCells[i].setAttribute('role','cell');
+    }
+    var allHeaders = document.querySelectorAll('th');
+    for (var i = 0; i < allHeaders.length; i++) {
+      allHeaders[i].setAttribute('role','columnheader');
+    }
+    // this accounts for scoped row headers
+    var allRowHeaders = document.querySelectorAll('th[scope=row]');
+    for (var i = 0; i < allRowHeaders.length; i++) {
+      allRowHeaders[i].setAttribute('role','rowheader');
+    }
+  } catch (e) {
+    console.log("AddTableARIA(): " + e);
+  }
+}
+
+AddTableARIA();
