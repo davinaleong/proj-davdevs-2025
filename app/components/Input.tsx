@@ -10,8 +10,6 @@ type InputType =
 
 interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'id'> {
   type?: InputType
-  label?: string
-  required?: boolean
   className?: string
   name?: string
   // Type-specific attributes
@@ -28,9 +26,7 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, '
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({
   type = 'text',
-  label,
   placeholder,
-  required = false,
   className = '',
   name,
   minLength,
@@ -48,63 +44,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   const [inputType, setInputType] = useState(type)
   const uniqueId = useId()
 
-  // Generate smart defaults based on input type
-  const getSmartLabel = (inputType: InputType): string => {
-    const labels: Record<InputType, string> = {
-      text: 'Text',
-      email: 'Email Address',
-      password: 'Password',
-      number: 'Number',
-      tel: 'Phone Number',
-      url: 'Website URL',
-      search: 'Search',
-      date: 'Date',
-      'datetime-local': 'Date and Time',
-      month: 'Month',
-      time: 'Time',
-      week: 'Week',
-      color: 'Color',
-      file: 'File',
-      range: 'Range',
-      checkbox: 'Checkbox',
-      radio: 'Radio',
-      hidden: 'Hidden'
-    }
-    return labels[inputType] || 'Input'
-  }
-
-  const getSmartPlaceholder = (inputType: InputType): string => {
-    const placeholders: Record<InputType, string> = {
-      text: 'Enter text',
-      email: 'example@domain.com',
-      password: 'Enter your password',
-      number: 'Enter number',
-      tel: '+1 (555) 123-4567',
-      url: 'https://example.com',
-      search: 'Search...',
-      date: 'YYYY-MM-DD',
-      'datetime-local': 'YYYY-MM-DDTHH:MM',
-      month: 'YYYY-MM',
-      time: 'HH:MM',
-      week: 'YYYY-W##',
-      color: '#000000',
-      file: 'Choose file',
-      range: '',
-      checkbox: '',
-      radio: '',
-      hidden: ''
-    }
-    return placeholders[inputType] || ''
-  }
-
   // Generate unique ID using React's useId hook with optional name/type prefix
   const generateId = (): string => {
     const prefix = name || type
     return `input-${prefix}-${uniqueId}`
   }
 
-  const finalLabel = label || getSmartLabel(type)
-  const finalPlaceholder = placeholder || getSmartPlaceholder(type)
   const inputId = generateId()
 
   // Handle password visibility toggle
@@ -143,63 +88,46 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   // Special rendering for checkbox and radio
   if (type === 'checkbox' || type === 'radio') {
     return (
-      <div className="flex items-center gap-2">
-        <input
-          ref={ref}
-          id={inputId}
-          type={type}
-          className={`w-4 h-4 ${className}`.trim()}
-          required={required}
-          name={name}
-          {...typeSpecificProps}
-          {...props}
-        />
-        <label htmlFor={inputId} className="text-sm font-medium cursor-pointer">
-          {finalLabel}
-          {required && <span className="text-red-500 ml-1">*</span>}
-        </label>
-      </div>
+      <input
+        ref={ref}
+        id={inputId}
+        type={type}
+        className={`w-4 h-4 ${className}`.trim()}
+        name={name}
+        {...typeSpecificProps}
+        {...props}
+      />
     )
   }
 
   return (
-    <div className="flex gap-2">
-      {/* Label */}
-      <label htmlFor={inputId} className="text-sm font-medium">
-        {finalLabel}
-        {required && <span className="text-red-500 ml-1">*</span>}
-      </label>
+    <div className="relative">
+      <input
+        ref={ref}
+        id={inputId}
+        type={type === 'password' ? inputType : type}
+        className={finalClassName}
+        placeholder={placeholder}
+        name={name}
+        {...typeSpecificProps}
+        {...props}
+      />
       
-      {/* Input Container */}
-      <div className="relative">
-        <input
-          ref={ref}
-          id={inputId}
-          type={type === 'password' ? inputType : type}
-          className={finalClassName}
-          placeholder={finalPlaceholder}
-          required={required}
-          name={name}
-          {...typeSpecificProps}
-          {...props}
-        />
-        
-        {/* Password visibility toggle */}
-        {type === 'password' && (
-          <button
-            type="button"
-            onClick={togglePasswordVisibility}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
-            aria-label={showPassword ? 'Hide password' : 'Show password'}
-          >
-            {showPassword ? (
-              <EyeOff className="w-4 h-4" />
-            ) : (
-              <Eye className="w-4 h-4" />
-            )}
-          </button>
-        )}
-      </div>
+      {/* Password visibility toggle */}
+      {type === 'password' && (
+        <button
+          type="button"
+          onClick={togglePasswordVisibility}
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
+          aria-label={showPassword ? 'Hide password' : 'Show password'}
+        >
+          {showPassword ? (
+            <EyeOff className="w-4 h-4" />
+          ) : (
+            <Eye className="w-4 h-4" />
+          )}
+        </button>
+      )}
     </div>
   )
 })
