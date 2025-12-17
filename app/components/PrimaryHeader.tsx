@@ -22,7 +22,7 @@ export default function PrimaryHeader({ onMenuOpen }: PrimaryHeaderProps) {
             <ThemeSwitcherButton />
             <Link 
                 href="/funny" 
-                className="hover:opacity-80"
+                className="hover:opacity-60"
                 title="Go to jokes page"
             >
                 <Smile size={16} />

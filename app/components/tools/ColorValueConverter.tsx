@@ -280,7 +280,7 @@ export default function ColorValueConverter() {
             {colorFormats.map((format) => (
               <div
                 key={format.format}
-                className="bg-gray-50 dark:bg-gray-950 rounded-sm border border-gray-200 dark:border-gray-800 p-4 hover:opacity-80"
+                className="bg-gray-50 dark:bg-gray-950 rounded-sm border border-gray-200 dark:border-gray-800 p-4 hover:opacity-60"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-medium opacity-75">
@@ -288,7 +288,7 @@ export default function ColorValueConverter() {
                   </span>
                   <button
                     onClick={() => copyToClipboard(format.value, format.format)}
-                    className="p-1 bg-gray-300 dark:bg-gray-700 hover:opacity-80 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-1 bg-gray-300 dark:bg-gray-700 hover:opacity-60 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Copy to clipboard"
                     disabled={format.value === "N/A"}
                   >

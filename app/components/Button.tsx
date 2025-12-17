@@ -21,8 +21,8 @@ export default function Button({
   const baseClasses = "inline-flex items-center gap-2 cursor-pointer rounded-sm shadow-lg p-2";
   
   const variantClasses = {
-    primary: "text-white bg-blue-500 hover:opacity-80",
-    secondary: "text-blue-500 bg-white hover:opacity-80"
+    primary: "text-white bg-blue-500 hover:opacity-60",
+    secondary: "text-blue-500 bg-white hover:opacity-60"
   };
   
   const disabledClasses = disabled 

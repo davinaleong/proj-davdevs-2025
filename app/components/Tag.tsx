@@ -15,7 +15,7 @@ export default function Tag({
 }: TagProps) {
   const baseClasses = "inline-flex items-center text-sm px-2.5 py-1 font-medium rounded-full bg-gray-100 dark:bg-gray-800 transition-colors";
   const interactionClasses = clickable || onClick 
-    ? "cursor-pointer hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1" 
+    ? "cursor-pointer hover:opacity-60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1" 
     : "";
 
   const tagClasses = `${baseClasses} ${interactionClasses} ${className}`;

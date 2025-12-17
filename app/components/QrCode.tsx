@@ -68,7 +68,7 @@ export default function QrCode({
     <Link 
       href={href} 
       {...linkProps}
-      className={`w-30 flex flex-col items-center bg-gray-100 dark:bg-slate-900 shadow-lg hover:opacity-80 transition-opacity gap-2 p-2 rounded-sm ${className}`}
+      className={`w-30 flex flex-col items-center bg-gray-100 dark:bg-slate-900 shadow-lg hover:opacity-60 transition-opacity gap-2 p-2 rounded-sm ${className}`}
     >
       <p className="text-sm font-medium text-gray-900 dark:text-gray-100 text-center">
         {displayLabel}

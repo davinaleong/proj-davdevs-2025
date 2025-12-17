@@ -81,7 +81,7 @@ export default function DropdownMenu({
         <button
           type="button"
           onClick={handleToggle}
-          className="px-3 py-2 cursor-pointer hover:opacity-80"
+          className="px-3 py-2 cursor-pointer hover:opacity-60"
         >
           {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         </button>

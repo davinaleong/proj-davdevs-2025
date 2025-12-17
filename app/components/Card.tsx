@@ -108,7 +108,7 @@ export default function Card({
   );
 
   const cardContent = (
-    <article className={`${getCardStyles()} ${clickable || href ? ' cursor-pointer hover:opacity-80 transition-shadow' : ''}`}>
+    <article className={`${getCardStyles()} ${clickable || href ? ' cursor-pointer hover:opacity-60 transition-shadow' : ''}`}>
       {renderImage()}
       {renderContent()}
     </article>

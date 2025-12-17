@@ -19,15 +19,15 @@ export default function Anchor({
   const getVariantClasses = () => {
     switch (variant) {
       case 'white':
-        return "underline text-white hover:opacity-80";
+        return "underline text-white hover:opacity-60";
       case 'black':
-        return "underline text-black hover:opacity-80";
+        return "underline text-black hover:opacity-60";
       case 'blue-500':
-        return "underline text-blue-500 hover:opacity-80";
+        return "underline text-blue-500 hover:opacity-60";
       case 'blue-300':
-        return "underline text-blue-300 hover:opacity-80";
+        return "underline text-blue-300 hover:opacity-60";
       default:
-        return "underline text-blue-500 hover:opacity-80";
+        return "underline text-blue-500 hover:opacity-60";
     }
   };
   

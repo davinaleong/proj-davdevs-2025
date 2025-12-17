@@ -120,115 +120,115 @@ export default function Calculator() {
         </div>
         <button
           onClick={backspace}
-          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <SquareChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={clear}
-          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">AC</span>
         </button>
         <button
           onClick={() => inputOperator("%")}
-          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-200 dark:bg-gray-800 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <Percent className="w-5 h-5" />
         </button>
         <button
           onClick={() => inputOperator("÷")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <Divide className="w-5 h-5" />
         </button>
         <button
           onClick={() => inputNumber("7")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">7</span>
         </button>
         <button
           onClick={() => inputNumber("8")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">8</span>
         </button>
         <button
           onClick={() => inputNumber("9")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">9</span>
         </button>
         <button
           onClick={() => inputOperator("×")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
         <button
           onClick={() => inputNumber("4")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">4</span>
         </button>
         <button
           onClick={() => inputNumber("5")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">5</span>
         </button>
         <button
           onClick={() => inputNumber("6")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">6</span>
         </button>
         <button
           onClick={() => inputOperator("-")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <Minus className="w-5 h-5" />
         </button>
         <button
           onClick={() => inputNumber("1")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">1</span>
         </button>
         <button
           onClick={() => inputNumber("2")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">2</span>
         </button>
         <button
           onClick={() => inputNumber("3")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">3</span>
         </button>
         <button
           onClick={() => inputOperator("+")}
-          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-blue-300 dark:bg-blue-700 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <Plus className="w-5 h-5" />
         </button>
         <button
           onClick={toggleSign}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <Diff className="w-5 h-5" />
         </button>
         <button
           onClick={() => inputNumber("0")}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">0</span>
         </button>
         <button
           onClick={inputDecimal}
-          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-80 rounded-sm flex items-center justify-center"
+          className="cursor-pointer p-3 bg-gray-100 dark:bg-gray-900 hover:opacity-60 rounded-sm flex items-center justify-center"
         >
           <span className="font-semibold">.</span>
         </button>
