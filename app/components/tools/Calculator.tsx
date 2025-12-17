@@ -13,6 +13,9 @@ import {
   Diff,
 } from "lucide-react"
 
+/* TODO
+ * Reuse Button component for calculator buttons.
+ */
 export default function Calculator() {
   const [display, setDisplay] = useState("0")
   const [previousValue, setPreviousValue] = useState<number | null>(null)
