@@ -36,6 +36,9 @@ const foreignWords: Record<string, string> = {
   peace: "salem", // Hebrew
 }
 
+/* TODO:
+ * Reuse the Button component here.
+ */
 function spellOut(word: string): string {
   return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents
 }
@@ -107,7 +110,7 @@ export default function PasswordCreator() {
   }
 
   return (
-    <section className="flow p-6 bg-white rounded-sm shadow-lg">
+    <section className="flow p-6 border bg-white border-gray-300 dark:bg-black dark:border dark:border-gray-700 rounded-sm">
       <h3 className="text-2xl font-semibold">
         🔑 Generate a Secure, Memorable Password
       </h3>
