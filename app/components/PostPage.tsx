@@ -5,6 +5,10 @@ import Prose from "./Prose"
 import TagFlex from "./TagFlex"
 import Tag from "./Tag"
 import Anchor from "./Anchor"
+import Nav from "./Nav"
+import LinkButton from "./LinkButton"
+import ImageDisplay from "./ImageDisplay"
+import Gallery from "./Gallery"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import dateFormatConfig from '../config/date-format.json'
@@ -72,9 +76,44 @@ export default function PostPage({ params, postType }: PostPageProps) {
                     <span>{post.readingTime} min read</span>
                 </p>
                 <p className="text-sm opacity-75">By {post.author}</p>
+                
+                {post.links && post.links.length > 0 && (
+                    <Nav justify="center">
+                        {post.links.map((link, index) => (
+                            <LinkButton
+                                key={index}
+                                href={link.href}
+                                external={link.href.startsWith('http')}
+                                className="text-sm"
+                            >
+                                {link.label}
+                            </LinkButton>
+                        ))}
+                    </Nav>
+                )}
             </HeroSection>
             
             <section className="container mx-auto p-4 flow max-w-4xl">
+                {/* Images Section */}
+                {post.images && post.images.length > 0 && (
+                    <div className="mb-8">
+                        {post.images.length === 1 ? (
+                            <div className="flex justify-center">
+                                <ImageDisplay
+                                    src={post.images[0].src}
+                                    alt={post.images[0].alt}
+                                    aspectRatio={postType === 'articles' ? 'square' : 'landscape'}
+                                    width={600}
+                                    height={600}
+                                    className="rounded-lg"
+                                />
+                            </div>
+                        ) : (
+                            <Gallery images={post.images} maxDisplay={4} />
+                        )}
+                    </div>
+                )}
+
                 {postType === 'tools' && TOOL_COMPONENTS[post.slug] ? (
                     // Render tool component and MDX content for tools
                     <>

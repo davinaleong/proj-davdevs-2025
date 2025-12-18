@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export type PostType = 'projects' | 'articles' | 'fem' | 'notebooks' | 'tools' | 'sermons' | 'static' | 'technical-demos';
+export type PostType = 'projects' | 'articles' | 'fem-solutions' | 'notebooks' | 'tools' | 'sermons' | 'static' | 'technical-demos';
 
 export interface PostMetadata {
   title: string;
@@ -14,6 +14,8 @@ export interface PostMetadata {
   featured: boolean;
   readingTime: number;
   published: boolean;
+  links?: Array<{ label: string; href: string }>;
+  images?: Array<{ src: string; alt: string }>;
 }
 
 export interface Post extends PostMetadata {
@@ -65,6 +67,8 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
       featured: Boolean(data.featured),
       readingTime: Number(data.readingTime) || 0,
       published: Boolean(data.published),
+      links: Array.isArray(data.links) ? data.links : undefined,
+      images: Array.isArray(data.images) ? data.images : undefined,
       content,
       type,
       filePath

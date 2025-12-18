@@ -35,7 +35,7 @@ export default function ImageDisplay({
         alt={alt}
         width={width}
         height={height}
-        className={`w-full h-full object-cover ${aspectClass}`}
+        className={`w-full h-full rounded-sm object-cover ${aspectClass}`}
       />
     </div>
   );
