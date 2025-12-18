@@ -84,7 +84,7 @@ export default function Calculator() {
     <ToolPanel title="Calculator" description="Simple calculator for basic math operations" icon={CalculatorIcon}>
       <div className="max-w-sm mx-auto">
         {/* Display */}
-        <div className="mb-4 p-4 bg-gray-100 dark:bg-gray-900 rounded-sm border">
+        <div className="mb-4 p-4 bg-gray-100 dark:bg-gray-900 rounded-sm border border-gray-300 dark:border-gray-700">
           <div className="text-right text-2xl font-mono overflow-hidden">
             {display}
           </div>
