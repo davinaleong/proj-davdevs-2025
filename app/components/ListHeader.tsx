@@ -29,12 +29,12 @@ export default function ListHeader({
                 onSearch={onSearch}
                 onSearchChange={onSearchChange}
                 placeholder={searchPlaceholder}
-                className="flex-2" 
+                className="flex-auto min-w-0" 
             />
             <SortInput 
                 value={sortValue}
                 onChange={onSortChange}
-                className="flex-1" 
+                className="shrink-0 w-48" 
             />
         </header>
     )
