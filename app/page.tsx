@@ -6,12 +6,14 @@ import { findLinkByLabel } from './utils/links'
 
 export default function Home() {
   const toolsLink = findLinkByLabel("Tools");
+  const femLink = findLinkByLabel("Fem");
   const faithLink = findLinkByLabel("Faith");
   
   return (
     <div>
       <HomeHeroSection />
       <HomePostSection title="Tools & Utilities 🛠️" postType="tools" variant="neutral" viewAllHref={toolsLink?.href || "/tools"} viewAllText="View All Tools" />
+      <HomePostSection title="Frontend Mentor Solutions 🎯" postType="fem" viewAllHref={femLink?.href || "/fem"} viewAllText="View All Solutions" />
       <HomePostSection title="Messages of Faith 🙏✨" postType="sermons" variant="primary" viewAllHref={faithLink?.href || "/faith"} viewAllText="View All Sermons" />
       <HomeSocialSection />
       <HomeJokeSection />

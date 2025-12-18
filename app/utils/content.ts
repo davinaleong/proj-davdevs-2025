@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export type PostType = 'projects' | 'articles' | 'fem-solutions' | 'notebooks' | 'tools' | 'sermons' | 'static' | 'technical-demos';
+export type PostType = 'projects' | 'articles' | 'fem' | 'notebooks' | 'tools' | 'sermons' | 'static' | 'technical-demos';
 
 export interface PostMetadata {
   title: string;
@@ -133,6 +133,8 @@ export function getLatestPostsByType(type: PostType, count: number = 3): PostSum
     featured: post.featured,
     readingTime: post.readingTime,
     published: post.published,
+    links: post.links,
+    images: post.images,
     type: post.type,
     filePath: post.filePath
   }));
@@ -142,7 +144,7 @@ export function getLatestPostsByType(type: PostType, count: number = 3): PostSum
  * Get latest posts from all types
  */
 export function getLatestPostsAllTypes(countPerType: number = 3): Record<PostType, PostSummary[]> {
-  const types: PostType[] = ['projects', 'articles', 'fem-solutions', 'notebooks', 'tools', 'sermons', 'static'];
+  const types: PostType[] = ['projects', 'articles', 'fem', 'notebooks', 'tools', 'sermons', 'static'];
   const result: Record<PostType, PostSummary[]> = {} as Record<PostType, PostSummary[]>;
 
   for (const type of types) {
@@ -164,7 +166,7 @@ export function getPostBySlug(type: PostType, slug: string): Post | null {
  * Get all posts across all types, sorted by date
  */
 export function getAllPostsSorted(limit?: number): PostSummary[] {
-  const types: PostType[] = ['projects', 'articles', 'fem-solutions', 'notebooks', 'tools', 'sermons', 'static'];
+  const types: PostType[] = ['projects', 'articles', 'fem', 'notebooks', 'tools', 'sermons', 'static'];
   const allPosts: PostSummary[] = [];
 
   for (const type of types) {
@@ -180,6 +182,8 @@ export function getAllPostsSorted(limit?: number): PostSummary[] {
       featured: post.featured,
       readingTime: post.readingTime,
       published: post.published,
+      links: post.links,
+      images: post.images,
       type: post.type,
       filePath: post.filePath
     })));

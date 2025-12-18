@@ -47,13 +47,13 @@ export default function Card({
 
   const getCardStyles = () => {
     if (highlighted) {
-      const borderStyle = post.featured ? "border-orange-500" : "border-white";
+      const borderStyle = post?.featured ? "border-orange-500" : "border-white";
       const highlightedStyles = `text-white bg-blue-500 border ${borderStyle} rounded-sm overflow-hidden shadow-lg flex flex-col h-full`;
       return `${highlightedStyles} ${className}`;
     }
     
     const baseStyles = "bg-gray-100 dark:bg-slate-900 border rounded-sm overflow-hidden shadow-lg flex flex-col h-full";
-    const borderStyle = post.featured ? "border-orange-500" : "border-blue-500";
+    const borderStyle = post?.featured ? "border-orange-500" : "border-blue-500";
     return `${baseStyles} ${borderStyle} ${className}`;
   };
 
@@ -61,7 +61,7 @@ export default function Card({
     if (!showImage) return null;
     
     // Use post images first, then fall back to imageProps
-    if (post.images && post.images.length > 0) {
+    if (post?.images && post.images.length > 0) {
       const firstImage = post.images[0];
       return (
         <ImageDisplay 
@@ -78,7 +78,7 @@ export default function Card({
     
     return (
       <ImageDisplay 
-        alt={alt || post.title}
+        alt={alt || post?.title || 'Image'}
         aspectRatio={aspectRatio}
         {...restImageProps}
       />
@@ -86,24 +86,24 @@ export default function Card({
   };
 
   const renderContent = () => {
-    const formattedDate = new Date(post.date).toLocaleDateString(
+    const formattedDate = new Date(post?.date || new Date()).toLocaleDateString(
       dateFormatConfig.dateFormat.locale, 
       dateFormatConfig.dateFormat.options as Intl.DateTimeFormatOptions
     );
     
     return (
       <div className="flex-1">
-        {post.featured && (
+        {post?.featured && (
           <div className={getFeaturedBadgeStyles()}>Featured</div>
         )}
         
         <header className="flow p-2">
           <h4 className={`text-lg line-clamp-1 font-bold ${highlighted ? 'text-white' : 'text-gray-900 dark:text-gray-100'}`}>
-            {post.title}
+            {post?.title || 'Untitled'}
           </h4>
         </header>
 
-        {post.description && (
+        {post?.description && (
           <p className={`text-sm p-2 ${highlighted ? 'text-white/90' : 'text-gray-600 dark:text-gray-300'}`}>
             {post.description}
           </p>
@@ -120,7 +120,7 @@ export default function Card({
     );
   };
 
-  const href = baseHref ? `${baseHref}/${post.slug}` : undefined;
+  const href = baseHref && post?.slug ? `${baseHref}/${post.slug}` : undefined;
   
   const cardContent = (
     <article className={`${getCardStyles()} ${clickable || href ? ' cursor-pointer hover:opacity-60 transition-shadow' : ''}`}>

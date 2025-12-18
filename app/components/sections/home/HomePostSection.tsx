@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
 import HomeSection from '../../HomeSection'
-import CardCarousel from '../../CardCarousel'
-import { getLatestPostsByType, type PostType, type PostSummary } from '../../../utils/content'
+import Card from '../../Card'
+import { getLatestPostsByType, type PostType } from '../../../utils/content'
 
 interface HomePostSectionProps {
   title: string;
@@ -30,16 +30,6 @@ export default function HomePostSection({
   const defaultViewAllHref = `/${postType}`;
   const finalViewAllHref = viewAllHref || defaultViewAllHref;
   const finalViewAllText = viewAllText || `View All ${title}`;
-
-  // Convert posts to card data
-  const cardData = posts.map((post: PostSummary) => ({
-    title: post.title,
-    description: post.description,
-    footerText: `${post.readingTime} min read • ${new Date(post.date).toLocaleDateString()}`,
-    href: `/${post.type}/${post.slug}`,
-    featured: post.featured,
-    external: false
-  }));
 
   // Don't render if no posts
   if (posts.length === 0) {
@@ -71,9 +61,15 @@ export default function HomePostSection({
       } : undefined}
     >
       <div className="container mx-auto p-6">
-        <CardCarousel
-          cards={cardData}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <Card
+              key={post.slug}
+              post={post}
+              baseHref={`/${postType}`}
+            />
+          ))}
+        </div>
       </div>
     </HomeSection>
   );
