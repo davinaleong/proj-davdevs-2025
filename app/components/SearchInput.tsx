@@ -103,7 +103,7 @@ export default function SearchInput({
     return (
         <div ref={containerRef} className={`relative ${className}`}>
             <form 
-                className="flex items-center gap-2 bg-gray-50 dark:bg-gray-950 rounded-sm overflow-hidden"
+                className="flex items-center gap-2 border bg-white border-gray-300 dark:black dark:border-gray-700 rounded-sm overflow-hidden"
                 onSubmit={handleSubmit}
             >
                 <label 
