@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getBrandLink } from "../utils/links"
 
-import Logo from "./../assets/images/logo.svg"
+import Logo from "./../assets/images/logos/logo.svg"
 
 interface BrandProps {
     className?: string;

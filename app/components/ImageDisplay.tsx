@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import PlaceholderLandscape from './../assets/images/placeholder-landscape.svg'
-import PlaceholderSquare from './../assets/images/placeholder-square.svg'
+import PlaceholderLandscape from './../assets/images/placeholders/placeholder-landscape.svg'
+import PlaceholderSquare from './../assets/images/placeholders/placeholder-square.svg'
 
 interface ImageDisplayProps {
   src?: string;

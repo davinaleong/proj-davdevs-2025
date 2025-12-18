@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import ImageDisplay from "./../components/ImageDisplay"
-import FbQr from './../assets/images/fb-qr.png'
-import GhQr from './../assets/images/gh-qr.png'
-import IgQr from './../assets/images/ig-qr.png'
-import LiQr from './../assets/images/li-qr.png'
-import ThQr from './../assets/images/th-qr.png'
-import YtQr from './../assets/images/yt-qr.png'
+import FbQr from './../assets/images/qr-codes/fb-qr.png'
+import GhQr from './../assets/images/qr-codes/gh-qr.png'
+import IgQr from './../assets/images/qr-codes/ig-qr.png'
+import LiQr from './../assets/images/qr-codes/li-qr.png'
+import ThQr from './../assets/images/qr-codes/th-qr.png'
+import YtQr from './../assets/images/qr-codes/yt-qr.png'
 
 type Platform = 'facebook' | 'github' | 'instagram' | 'linkedin' | 'threads' | 'youtube';
 

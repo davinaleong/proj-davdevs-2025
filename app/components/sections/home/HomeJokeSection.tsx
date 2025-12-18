@@ -30,15 +30,17 @@ export default function HomeJokeSection() {
             {joke.question}
           </p>
           
-          {!showAnswer ? (
+          <div className="flex justify-center">
+            {!showAnswer ? (
             <Button variant="secondary" onClick={handleShowAnswer}>
-              Show Answer
-            </Button>
-          ) : (
-            <p className="text-black bg-white rounded-sm shadow-lg p-2 whitespace-pre-line leading-relaxed font-semibold">
-              {joke.answer}
-            </p>
-          )}
+                Show Answer
+              </Button>
+            ) : (
+              <p className="text-black bg-white rounded-sm shadow-lg p-2 whitespace-pre-line leading-relaxed font-semibold">
+                {joke.answer}
+              </p>
+            )}
+          </div>
         </div>
       );
     }
