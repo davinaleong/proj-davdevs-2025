@@ -20,7 +20,7 @@ export default function Button({
 }: ButtonProps) {
   const baseClasses = variant === 'list' 
     ? "cursor-pointer" 
-    : "flex items-center gap-2 cursor-pointer rounded-sm hover:opacity-60 p-2";
+    : "flex items-center gap-2 px-3 py-2 cursor-pointer rounded-sm hover:opacity-60 p-2";
   
   const variantClasses = {
     primary: "text-white bg-blue-500",

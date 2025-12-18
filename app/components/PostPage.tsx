@@ -21,6 +21,7 @@ import PasswordCreator from './tools/apps/PasswordCreator'
 import PasswordStrengthMeter from './tools/apps/PasswordStrengthMeter'
 import QrCodeGenerator from './tools/apps/QrCodeGenerator'
 import Translator from './tools/apps/Translator'
+import Timers from './tools/apps/Timers'
 
 // Tool component mapping
 const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {
@@ -34,6 +35,7 @@ const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {
     '20250511-password-strength-meter': () => <PasswordStrengthMeter />,
     '20250511-qr-code-generator': () => <QrCodeGenerator />,
     '20251010-translator': () => <Translator />,
+    '20251218-timers': () => <Timers />,
 }
 
 interface PostPageParams {
