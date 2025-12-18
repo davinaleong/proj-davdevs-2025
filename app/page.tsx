@@ -3,18 +3,46 @@ import HomePostSection from './components/sections/home/HomePostSection'
 import HomeSocialSection from './components/sections/home/HomeSocialSection'
 import HomeJokeSection from './components/sections/home/HomeJokeSection'
 import { findLinkByLabel } from './utils/links'
+import { getPostSectionContent } from './utils/hero-content'
 
 export default function Home() {
   const toolsLink = findLinkByLabel("Tools");
   const femLink = findLinkByLabel("Fem");
   const faithLink = findLinkByLabel("Faith");
   
+  const toolsContent = getPostSectionContent('tools');
+  const femContent = getPostSectionContent('fem');
+  const sermonsContent = getPostSectionContent('sermons');
+  
   return (
     <div>
       <HomeHeroSection />
-      <HomePostSection title="Tools & Utilities 🛠️" postType="tools" variant="neutral" viewAllHref={toolsLink?.href || "/tools"} viewAllText="View All Tools" />
-      <HomePostSection title="Frontend Mentor Solutions 🎯" postType="fem" viewAllHref={femLink?.href || "/fem"} viewAllText="View All Solutions" />
-      <HomePostSection title="Messages of Faith 🙏✨" postType="sermons" variant="primary" viewAllHref={faithLink?.href || "/faith"} viewAllText="View All Sermons" />
+      {toolsContent && (
+        <HomePostSection 
+          title={toolsContent.title} 
+          postType="tools" 
+          variant={toolsContent.variant} 
+          viewAllHref={toolsLink?.href || "/tools"} 
+          viewAllText={toolsContent.viewAllText} 
+        />
+      )}
+      {femContent && (
+        <HomePostSection 
+          title={femContent.title} 
+          postType="fem" 
+          viewAllHref={femLink?.href || "/fem"} 
+          viewAllText={femContent.viewAllText} 
+        />
+      )}
+      {sermonsContent && (
+        <HomePostSection 
+          title={sermonsContent.title} 
+          postType="sermons" 
+          variant={sermonsContent.variant} 
+          viewAllHref={faithLink?.href || "/faith"} 
+          viewAllText={sermonsContent.viewAllText} 
+        />
+      )}
       <HomeSocialSection />
       <HomeJokeSection />
     </div>

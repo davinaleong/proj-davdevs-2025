@@ -1,0 +1,57 @@
+{
+  "heroContent": {
+    "home": {
+      "title": "Dav/Devs",
+      "description": "Designing with purpose. Building with code. Living by faith in Christ Jesus.",
+      "variant": "gradient",
+      "height": "full"
+    },
+    "tools": {
+      "title": "Tools & Utilities 🛠️",
+      "description": "Discover a variety of practical tools designed to enhance your productivity, creativity, and daily tasks.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "fem": {
+      "title": "Frontend Mentor Solutions 🎯", 
+      "description": "A curated collection of Frontend Mentor challenges—crafted with clean code, thoughtful UI, and real-world best practices.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "faith": {
+      "title": "Messages of Faith 🙏✨",
+      "description": "Discover hope, inspiration, and spiritual growth through heartfelt messages that encourage your journey of faith.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "technical-demos": {
+      "title": "Technical Demos 🖹",
+      "description": "Sample documents designed for testing duplicate paragraph detection and content comparison across multiple MDX files.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "test": {
+      "title": "🧪 Test Page",
+      "description": "This page is for testing components during development.",
+      "variant": "gradient",
+      "height": "half"
+    }
+  },
+  "postSections": {
+    "tools": {
+      "title": "Tools & Utilities 🛠️",
+      "viewAllText": "View All Tools",
+      "variant": "neutral"
+    },
+    "fem": {
+      "title": "Frontend Mentor Solutions 🎯",
+      "viewAllText": "View All Solutions",
+      "variant": "default"
+    },
+    "sermons": {
+      "title": "Messages of Faith 🙏✨",
+      "viewAllText": "View All Sermons",
+      "variant": "primary"
+    }
+  }
+}

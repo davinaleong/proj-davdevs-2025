@@ -17,7 +17,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
             <li key={link.href}>
                 <Link 
                     href={link.href}
-                    className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
+                    className="block py-2 px-4 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm"
                     onClick={onClose}
                     {...linkProps}
                 >
