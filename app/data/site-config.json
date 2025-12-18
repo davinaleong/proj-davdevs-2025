@@ -130,6 +130,11 @@
     "tools": {
       "title": "Tools & Utilities 🛠️",
       "viewAllText": "View All Tools",
+      "variant": "default"
+    },
+    "notebooks": {
+      "title": "Python Notebooks 🐍",
+      "viewAllText": "View All Notebooks",
       "variant": "neutral"
     },
     "fem": {
