@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Key } from "lucide-react"
-import ToolPanel from "./ToolPanel"
+import ToolPanel from "../components/ToolPanel"
 
 const TYPE_PASSWORD = "password"
 const TYPE_TEXT = "text"

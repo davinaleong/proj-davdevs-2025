@@ -3,10 +3,10 @@
 import { useState } from "react"
 import { QrCode } from "lucide-react"
 import { QRCode } from "react-qrcode-logo"
-import ToolPanel from "./ToolPanel"
-import Input from "../Input"
-import Group from "../Group"
-import Label from "../Label"
+import ToolPanel from "../components/ToolPanel"
+import Input from "../../Input"
+import Group from "../../Group"
+import Label from "../../Label"
 
 export default function QrCodeGenerator() {
   const [text, setText] = useState("https://example.com")
@@ -57,7 +57,7 @@ export default function QrCodeGenerator() {
         </Group>
       </Group>
 
-      <div className="flex justify-center p-4 rounded-sm bg-gray-50 dark:bg-gray-950 ">
+      <div className="flex justify-center p-4 rounded-sm bg-gray-50 dark:bg-gray-950 min-w-[250px]">
         <QRCode
           value={text}
           size={size}

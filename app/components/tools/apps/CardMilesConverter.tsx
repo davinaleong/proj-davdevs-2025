@@ -17,12 +17,12 @@ import {
   X,
   SlidersHorizontal,
 } from "lucide-react"
-import Button from "../Button"
-import Input from "../Input"
-import Label from "../Label"
-import Group from "../Group"
-import DropdownMenu from "../DropdownMenu"
-import ToolPanel from "./ToolPanel"
+import Button from "../../Button"
+import Input from "../../Input"
+import Label from "../../Label"
+import Group from "../../Group"
+import DropdownMenu from "../../DropdownMenu"
+import ToolPanel from "../components/ToolPanel"
 
 interface LoyaltyProgram {
   id: string
@@ -330,7 +330,7 @@ export default function CardMilesConverter() {
       {/* Input Section */}
       <div className="flex flex-col lg:flex-row gap-4 mb-8 lg:items-end">
         {/* Amount Input */}
-        <div className="flex-1 lg:flex-[1]">
+        <div className="flex-1 lg:flex-1">
           <Group variant="vertical">
             <Label>Amount to Convert</Label>
             <Input
@@ -344,7 +344,7 @@ export default function CardMilesConverter() {
         </div>
 
         {/* Source Program */}
-        <div className="flex-1 lg:flex-[2]">
+        <div className="flex-1 lg:flex-2">
           <Group variant="vertical">
             <Label>From Program</Label>
             <DropdownMenu
@@ -465,7 +465,7 @@ export default function CardMilesConverter() {
         </div>
 
         {/* Swap Button */}
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <Button
             onClick={swapPrograms}
             variant="secondary"

@@ -11,16 +11,16 @@ import dateFormatConfig from '../config/date-format.json'
 import colorsData from '../data/colors.json'
 
 // Tool Components
-import Calculator from './tools/Calculator'
-import CardMilesConverter from './tools/CardMilesConverter'
-import ColorPalettes from './tools/ColorPalettes'
-import ColorValueConverter from './tools/ColorValueConverter'
-import DuplicatedParagraphScanner from './tools/DuplicatedParagraphScanner'
-import MemoryCards from './tools/MemoryCards'
-import PasswordCreator from './tools/PasswordCreator'
-import PasswordStrengthMeter from './tools/PasswordStrengthMeter'
-import QrCodeGenerator from './tools/QrCodeGenerator'
-import Translator from './tools/Translator'
+import Calculator from './tools/apps/Calculator'
+import CardMilesConverter from './tools/apps/CardMilesConverter'
+import ColorPalettes from './tools/apps/ColorPalettes'
+import ColorValueConverter from './tools/apps/ColorValueConverter'
+import DuplicatedParagraphScanner from './tools/apps/DuplicatedParagraphScanner'
+import MemoryCards from './tools/apps/MemoryCards'
+import PasswordCreator from './tools/apps/PasswordCreator'
+import PasswordStrengthMeter from './tools/apps/PasswordStrengthMeter'
+import QrCodeGenerator from './tools/apps/QrCodeGenerator'
+import Translator from './tools/apps/Translator'
 
 // Tool component mapping
 const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {

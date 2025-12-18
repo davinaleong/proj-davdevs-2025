@@ -2,10 +2,10 @@
 
 import React, { useState } from "react"
 import { Search, Copy, Download } from "lucide-react"
-import Button from "../Button"
-import Input from "../Input"
-import Table from "../Table"
-import ToolPanel from "./ToolPanel"
+import Button from "../../Button"
+import Input from "../../Input"
+import Table from "../../Table"
+import ToolPanel from "../components/ToolPanel"
 
 interface DuplicateData {
   text: string

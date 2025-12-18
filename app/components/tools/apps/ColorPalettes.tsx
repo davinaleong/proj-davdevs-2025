@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useState } from "react"
-import Swatch from "./Swatch"
-import Tab from "../Tab"
-import TabFlex from "../TabFlex"
-import DropdownMenu from "../DropdownMenu"
-import ToolPanel from "./ToolPanel"
+import Tab from "../../Tab"
+import TabFlex from "../../TabFlex"
+import DropdownMenu from "../../DropdownMenu"
+import Swatch from "../components/Swatch"
+import ToolPanel from "../components/ToolPanel"
 import { Palette } from "lucide-react"
 
 export interface ColorItem {

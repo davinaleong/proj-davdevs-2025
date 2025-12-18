@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import Button from '@/app/components/Button'
-import MemoryCard from './MemoryCard'
-import ToolPanel from './ToolPanel'
+import Button from '../../Button'
+import MemoryCard from '../components/MemoryCard'
+import ToolPanel from '../components/ToolPanel'
 import {
   Brain,
   Heart,

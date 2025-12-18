@@ -3,10 +3,9 @@
 import { useState } from "react"
 import { colord } from "colord"
 import { Palette, Copy, Check, AlertCircle } from "lucide-react"
-import colorExamples from "../../data/color-converter-examples.json"
-import Button from "../Button"
-import Input from "../Input"
-import ToolPanel from "./ToolPanel"
+import Button from "../../Button"
+import Input from "../../Input"
+import ToolPanel from "../components/ToolPanel"
 
 interface ColorFormat {
   name: string
@@ -257,7 +256,7 @@ export default function ColorValueConverter() {
           <Input
             type="text"
             value={inputValue}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               const newValue = e.target.value
               setInputValue(newValue)
               convertColor(newValue)
@@ -338,7 +337,15 @@ export default function ColorValueConverter() {
           Example Colors
         </h3>
         <div className="flex flex-wrap gap-2">
-          {colorExamples.examples.map((example) => (
+          {[
+            "#3b82f6",
+            "rgb(239, 68, 68)", 
+            "hsl(120, 100%, 50%)",
+            "oklch(70% 0.25 142)",
+            "red",
+            "#00ff00",
+            "rgb(255, 165, 0)"
+          ].map((example: string) => (
             <Button
               key={example}
               onClick={() => {

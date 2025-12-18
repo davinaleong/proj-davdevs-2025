@@ -11,13 +11,44 @@ import {
   MessageCircle,
   Sparkles,
 } from "lucide-react"
-import Button from "../Button"
-import Textarea from "../Textarea"
-import Group from "../Group"
-import DropdownMenu from "../DropdownMenu"
-import languagesData from "../../data/translator-languages.json"
-import stylesData from "../../data/translator-styles.json"
-import ToolPanel from "./ToolPanel"
+import Button from "../../Button"
+import Textarea from "../../Textarea"
+import Group from "../../Group"
+import DropdownMenu from "../../DropdownMenu"
+import ToolPanel from "../components/ToolPanel"
+
+interface Language {
+  code: string
+  name: string
+  flag: string
+}
+
+interface StyleOption {
+  value: string
+  label: string
+  description: string
+  icon: string
+}
+
+const languages: Language[] = [
+  { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "es", name: "Spanish", flag: "🇪🇸" },
+  { code: "fr", name: "French", flag: "🇫🇷" },
+  { code: "de", name: "German", flag: "🇩🇪" },
+  { code: "it", name: "Italian", flag: "🇮🇹" },
+  { code: "pt", name: "Portuguese", flag: "🇵🇹" },
+  { code: "ru", name: "Russian", flag: "🇷🇺" },
+  { code: "ja", name: "Japanese", flag: "🇯🇵" },
+  { code: "ko", name: "Korean", flag: "🇰🇷" },
+  { code: "zh", name: "Chinese", flag: "🇨🇳" }
+]
+
+const styles: StyleOption[] = [
+  { value: "formal", label: "Formal", description: "Professional tone", icon: "💼" },
+  { value: "casual", label: "Casual", description: "Conversational tone", icon: "😊" },
+  { value: "friendly", label: "Friendly", description: "Warm and approachable", icon: "🤝" },
+  { value: "technical", label: "Technical", description: "Precise and detailed", icon: "⚙️" }
+]
 
 export default function Translator() {
   const [sourceText, setSourceText] = useState("")
@@ -28,9 +59,6 @@ export default function Translator() {
   const [isTranslating, setIsTranslating] = useState(false)
   const [copied, setCopied] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  const languages = languagesData.languages
-  const styles = stylesData.styles
 
   const parseApiError = (error: { message?: string; details?: string } | Error | unknown) => {
     const errorObj = error as { message?: string; details?: string }
@@ -80,10 +108,10 @@ export default function Translator() {
     translationStyle: string
   ) => {
     const fromLanguage =
-      languages.find((l) => l.code === fromLang)?.name || fromLang
-    const toLanguage = languages.find((l) => l.code === toLang)?.name || toLang
+      languages.find((l: Language) => l.code === fromLang)?.name || fromLang
+    const toLanguage = languages.find((l: Language) => l.code === toLang)?.name || toLang
     const styleDesc =
-      styles.find((s) => s.value === translationStyle)?.description ||
+      styles.find((s: StyleOption) => s.value === translationStyle)?.description ||
       translationStyle
 
     return `Please translate the following text from ${fromLanguage} to ${toLanguage} using a ${translationStyle} style (${styleDesc}).
@@ -202,8 +230,8 @@ Please respond in the following JSON format:
           translationResult = {
             provider: data.provider || "openai",
             translatedText: responseText,
-            sourceLanguage: languages.find((l) => l.code === sourceLang)?.name,
-            targetLanguage: languages.find((l) => l.code === targetLang)?.name,
+            sourceLanguage: languages.find((l: Language) => l.code === sourceLang)?.name,
+            targetLanguage: languages.find((l: Language) => l.code === targetLang)?.name,
             style: style,
             confidence: 0.85,
           }
@@ -301,7 +329,7 @@ Please respond in the following JSON format:
               From
             </label>
             <DropdownMenu
-              options={languages.map(lang => ({
+              options={languages.map((lang: Language) => ({
                 value: lang.code,
                 label: `${lang.flag} ${lang.name}`
               }))}
@@ -329,7 +357,7 @@ Please respond in the following JSON format:
               To
             </label>
             <DropdownMenu
-              options={languages.map(lang => ({
+              options={languages.map((lang: Language) => ({
                 value: lang.code,
                 label: `${lang.flag} ${lang.name}`
               }))}
@@ -346,7 +374,7 @@ Please respond in the following JSON format:
             Translation Style
           </label>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {styles.map((styleOption) => (
+            {styles.map((styleOption: StyleOption) => (
               <label
                 key={styleOption.value}
                 className={`relative cursor-pointer rounded-sm border p-3 ${
@@ -389,7 +417,7 @@ Please respond in the following JSON format:
             </label>
             <Textarea
                 value={sourceText}
-                onChange={(e) => setSourceText(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setSourceText(e.target.value)}
                 rows={7}
                 placeholder="Enter your text here..."
                 resize="none"
