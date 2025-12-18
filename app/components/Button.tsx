@@ -5,7 +5,7 @@ import { ReactNode, ButtonHTMLAttributes } from 'react'
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   children: ReactNode;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'gray' | 'calc-number' | 'calc-function' | 'calc-operation' | 'icon';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'gray' | 'calc-number' | 'calc-function' | 'calc-operation' | 'icon' | 'list';
   disabled?: boolean;
   className?: string;
 }
@@ -18,7 +18,9 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const baseClasses = "flex items-center gap-2 cursor-pointer rounded-sm hover:opacity-60 p-2";
+  const baseClasses = variant === 'list' 
+    ? "cursor-pointer" 
+    : "flex items-center gap-2 cursor-pointer rounded-sm hover:opacity-60 p-2";
   
   const variantClasses = {
     primary: "text-white bg-blue-500",
@@ -29,7 +31,8 @@ export default function Button({
     'calc-number': "font-semibold bg-gray-100 dark:bg-gray-900 text-black dark:text-white",
     'calc-function': "font-semibold bg-gray-200 dark:bg-gray-800 text-black dark:text-white",
     'calc-operation': "bg-blue-300 dark:bg-blue-700 text-black dark:text-white",
-    icon: "border border-white dark:border-black text-blue-500 hover:border-blue-500 hover:opacity-60 p-1 bg-transparent"
+    icon: "border border-white dark:border-black text-blue-500 hover:border-blue-500 hover:opacity-60 p-1 bg-transparent",
+    list: "w-full p-3 text-left hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border-b border-gray-200 dark:border-gray-800 last:border-b-0 rounded-none gap-0 flex-col items-start"
   };
   
   const disabledClasses = disabled 
