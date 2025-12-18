@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown, ChevronUp, Search } from "lucide-react"
 
 interface DropdownOption {
   label: string;
@@ -31,6 +31,7 @@ export default function DropdownMenu({
   className = ""
 }: DropdownMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   
   // Flatten all options for finding selected option
   const allOptions = [
@@ -38,11 +39,29 @@ export default function DropdownMenu({
     ...groups.flatMap(group => group.options)
   ];
   
+  const totalItemCount = allOptions.length;
+  const showSearch = totalItemCount > 20;
+  
+  // Filter options based on search term
+  const filteredOptions = options.filter(option => 
+    option.label.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  
+  const filteredGroups = groups.map(group => ({
+    ...group,
+    options: group.options.filter(option =>
+      option.label.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  })).filter(group => group.options.length > 0);
+  
   const selectedOption = allOptions.find(option => option.value === value);
   const displayLabel = selectedOption ? selectedOption.label : placeholder;
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      setSearchTerm(''); // Reset search when opening
+    }
   };
 
   const handleSelect = (optionValue: string) => {
@@ -88,18 +107,44 @@ export default function DropdownMenu({
       </div>
       
       {isOpen && (
-        <ul className="absolute top-full left-0 right-0 z-10 mt-1 bg-white dark:bg-black rounded-sm shadow-lg border border-gray-200 dark:border-gray-600">
-          {/* Render flat options */}
-          {options.map(option => renderOption(option))}
-          
-          {/* Add separator if both flat options and groups exist */}
-          {options.length > 0 && groups.length > 0 && (
-            <hr className="border-gray-200 dark:border-gray-500" />
+        <div className="absolute top-full left-0 right-0 z-10 mt-1 bg-white dark:bg-black rounded-sm shadow-lg border border-gray-200 dark:border-gray-600">
+          {/* Search field for large lists */}
+          {showSearch && (
+            <div className="sticky top-0 p-2 border-b border-gray-200 dark:border-gray-600 bg-white dark:bg-black">
+              <div className="flex items-center gap-2 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded-sm">
+                <Search size={14} className="text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search options..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="flex-1 text-sm bg-transparent border-none outline-none"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
+            </div>
           )}
           
-          {/* Render grouped options */}
-          {groups.map((group, index) => renderGroup(group, index))}
-        </ul>
+          <ul className="max-h-60 overflow-y-auto">
+            {/* Show "no results" message when search yields no results */}
+            {showSearch && searchTerm && filteredOptions.length === 0 && filteredGroups.length === 0 && (
+              <li className="px-3 py-4 text-center text-gray-500 dark:text-gray-400">
+                No options found for "{searchTerm}"
+              </li>
+            )}
+            
+            {/* Render filtered flat options */}
+            {filteredOptions.map(option => renderOption(option))}
+            
+            {/* Add separator if both flat options and groups exist */}
+            {filteredOptions.length > 0 && filteredGroups.length > 0 && (
+              <hr className="border-gray-200 dark:border-gray-500" />
+            )}
+            
+            {/* Render filtered grouped options */}
+            {filteredGroups.map((group, index) => renderGroup(group, index))}
+          </ul>
+        </div>
       )}
     </div>
   );
