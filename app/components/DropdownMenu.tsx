@@ -129,7 +129,7 @@ export default function DropdownMenu({
             {/* Show "no results" message when search yields no results */}
             {showSearch && searchTerm && filteredOptions.length === 0 && filteredGroups.length === 0 && (
               <li className="px-3 py-4 text-center text-gray-500 dark:text-gray-400">
-                No options found for "{searchTerm}"
+                No options found for <q>{searchTerm}</q>
               </li>
             )}
             
