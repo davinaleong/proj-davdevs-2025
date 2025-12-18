@@ -2,8 +2,7 @@ import HomeHeroSection from './components/sections/home/HomeHeroSection'
 import HomePostSection from './components/sections/home/HomePostSection'
 import HomeSocialSection from './components/sections/home/HomeSocialSection'
 import HomeJokeSection from './components/sections/home/HomeJokeSection'
-import { findLinkByLabel } from './utils/links'
-import { getPostSectionContent } from './utils/hero-content'
+import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
   const toolsLink = findLinkByLabel("Tools");

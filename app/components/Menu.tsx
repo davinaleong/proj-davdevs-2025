@@ -1,6 +1,6 @@
 import Link from "next/link"
 import CloseButton from "./CloseButton"
-import { getNavigationLinks, getLinkProps, type LinkItem } from "../utils/links"
+import { getNavigationLinks, getLinkProps, type LinkItem } from "../utils/site-config"
 
 interface MenuProps {
     isOpen: boolean;

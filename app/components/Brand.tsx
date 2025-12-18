@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getBrandLink } from "../utils/links"
+import { getBrandLink } from "../utils/site-config"
 
 import Logo from "./../assets/images/logos/logo.svg"
 

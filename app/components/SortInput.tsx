@@ -1,5 +1,5 @@
 import DropdownMenu from './DropdownMenu'
-import sortConfig from './../config/sort-options.json'
+import { getSortOptions } from '../utils/site-config'
 
 interface SortInputProps {
   value?: string;
@@ -12,6 +12,8 @@ export default function SortInput({
   onChange,
   className = ""
 }: SortInputProps) {
+  const sortConfig = getSortOptions()
+  
   return (
     <DropdownMenu
       groups={sortConfig.groups}

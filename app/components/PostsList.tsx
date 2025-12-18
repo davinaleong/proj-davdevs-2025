@@ -6,7 +6,7 @@ import ListHeader from "./ListHeader"
 import ListFooter from "./ListFooter"
 import CardGrid from "./CardGrid"
 import Card from "./Card"
-import sortOptions from '../config/sort-options.json'
+import { getSortOptions } from '../utils/site-config'
 
 interface PostsListProps {
     posts: PostSummary[]
@@ -22,7 +22,8 @@ export default function PostsList({
     baseHref 
 }: PostsListProps) {
     // Get default sort value from config
-    const defaultSortValue = sortOptions.groups
+    const sortConfig = getSortOptions()
+    const defaultSortValue = sortConfig.groups
         .flatMap(group => group.options)
         .find(option => option.value === 'newest')?.value || 'newest'
         

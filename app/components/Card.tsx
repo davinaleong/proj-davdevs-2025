@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ComponentProps } from 'react'
 import ImageDisplay from './ImageDisplay'
 import { PostSummary } from '../utils/content'
-import dateFormatConfig from '../config/date-format.json'
+import { getDateFormatConfig } from '../utils/site-config'
 
 type ImageProps = Omit<ComponentProps<typeof ImageDisplay>, 'alt'> & {
   alt?: string;
@@ -86,9 +86,10 @@ export default function Card({
   };
 
   const renderContent = () => {
+    const dateConfig = getDateFormatConfig()
     const formattedDate = new Date(post?.date || new Date()).toLocaleDateString(
-      dateFormatConfig.dateFormat.locale, 
-      dateFormatConfig.dateFormat.options as Intl.DateTimeFormatOptions
+      dateConfig.locale, 
+      dateConfig.options as Intl.DateTimeFormatOptions
     );
     
     return (

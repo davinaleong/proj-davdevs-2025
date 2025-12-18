@@ -1,5 +1,5 @@
 import HeroSection from './../../HeroSection'
-import { getHeroContent } from '../../../utils/hero-content'
+import { getHeroContent } from '../../../utils/site-config'
 
 export default function HomeHeroSection() {
     const content = getHeroContent('home')

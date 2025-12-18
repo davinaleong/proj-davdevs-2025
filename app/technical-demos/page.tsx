@@ -1,7 +1,7 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
 import { getPostsByType } from "../utils/content"
-import { getHeroContent } from "../utils/hero-content"
+import { getHeroContent } from "../utils/site-config"
 
 export default function TechnicalDemosPage() {
     // Get all technical demo posts on server side

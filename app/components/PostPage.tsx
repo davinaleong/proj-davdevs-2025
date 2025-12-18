@@ -11,7 +11,7 @@ import ImageDisplay from "./ImageDisplay"
 import Gallery from "./Gallery"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import dateFormatConfig from '../config/date-format.json'
+import { getDateFormatConfig } from '../utils/site-config'
 import colorsData from '../data/colors.json'
 
 // Tool Components
@@ -58,9 +58,10 @@ export default function PostPage({ params, postType }: PostPageProps) {
         notFound()
     }
 
+    const dateConfig = getDateFormatConfig()
     const formattedDate = new Date(post.date).toLocaleDateString(
-        dateFormatConfig.dateFormat.locale, 
-        dateFormatConfig.dateFormat.options as Intl.DateTimeFormatOptions
+        dateConfig.locale, 
+        dateConfig.options as Intl.DateTimeFormatOptions
     )
 
     return (

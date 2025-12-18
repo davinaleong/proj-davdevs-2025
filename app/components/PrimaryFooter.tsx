@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getFooterNavigationLinks, getSocialLinks, getLegalLinks, getLinkProps, type LinkItem } from "../utils/links";
+import { getFooterNavigationLinks, getSocialLinks, getLegalLinks, getLinkProps, type LinkItem } from "../utils/site-config";
 
 interface PrimaryFooterProps {
     className?: string;

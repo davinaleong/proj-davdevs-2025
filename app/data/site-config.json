@@ -1,0 +1,162 @@
+{
+  "site": {
+    "title": "Dav/Devs",
+    "description": "Designing with purpose. Building with code. Living by faith in Christ Jesus.",
+    "brand": {
+      "href": "/",
+      "external": false
+    }
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/",
+      "external": false
+    },
+    {
+      "label": "Resume",
+      "href": "/pages/resume", 
+      "external": false
+    },
+    {
+      "label": "Timeline",
+      "href": "/pages/timeline",
+      "external": false
+    },
+    {
+      "label": "Tools",
+      "href": "/tools",
+      "external": false
+    },
+    {
+      "label": "Fem",
+      "href": "/fem",
+      "external": false
+    },
+    {
+      "label": "Faith",
+      "href": "/faith",
+      "external": false
+    },
+    {
+      "label": "Funny",
+      "href": "/funny",
+      "external": false
+    }
+  ],
+  "socialLinks": [
+    {
+      "label": "leong.shi.yun@gmail.com",
+      "href": "mailto:leong.shi.yun@gmail.com",
+      "external": true
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/davinaleong",
+      "external": true
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/davina-leong-s-y/",
+      "external": true
+    },
+    {
+      "label": "Resume",
+      "href": "/pages/resume",
+      "external": false
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Privacy Policy",
+      "href": "/pages/privacy",
+      "external": false
+    }
+  ],
+  "heroContent": {
+    "home": {
+      "title": "Dav/Devs",
+      "description": "Designing with purpose. Building with code. Living by faith in <strong>Christ Jesus</strong>.",
+      "variant": "gradient",
+      "height": "full"
+    },
+    "tools": {
+      "title": "Tools & Utilities 🛠️",
+      "description": "Discover a variety of practical tools designed to enhance your productivity, creativity, and daily tasks.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "fem": {
+      "title": "Frontend Mentor Solutions 🎯", 
+      "description": "A curated collection of Frontend Mentor challenges—crafted with clean code, thoughtful UI, and real-world best practices.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "faith": {
+      "title": "Messages of Faith 🙏✨",
+      "description": "Discover hope, inspiration, and spiritual growth through heartfelt messages that encourage your journey of faith.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "technical-demos": {
+      "title": "Technical Demos 🖹",
+      "description": "Sample documents designed for testing duplicate paragraph detection and content comparison across multiple MDX files.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "test": {
+      "title": "🧪 Test Page",
+      "description": "This page is for testing components during development.",
+      "variant": "gradient",
+      "height": "half"
+    }
+  },
+  "postSections": {
+    "tools": {
+      "title": "Tools & Utilities 🛠️",
+      "viewAllText": "View All Tools",
+      "variant": "neutral"
+    },
+    "fem": {
+      "title": "Frontend Mentor Solutions 🎯",
+      "viewAllText": "View All Solutions",
+      "variant": "default"
+    },
+    "sermons": {
+      "title": "Messages of Faith 🙏✨",
+      "viewAllText": "View All Sermons",
+      "variant": "primary"
+    }
+  },
+  "ui": {
+    "dateFormat": {
+      "locale": "en-SG",
+      "options": {
+        "year": "numeric",
+        "month": "short",
+        "day": "numeric"
+      }
+    },
+    "sortOptions": {
+      "groups": [
+        {
+          "label": "Alphabetical",
+          "options": [
+            { "label": "A-Z", "value": "asc" },
+            { "label": "Z-A", "value": "desc" }
+          ]
+        },
+        {
+          "label": "Date",
+          "options": [
+            { "label": "Newest", "value": "newest" },
+            { "label": "Oldest", "value": "oldest" }
+          ]
+        }
+      ]
+    },
+    "pagination": {
+      "itemsPerPage": 24
+    }
+  }
+}
