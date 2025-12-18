@@ -188,6 +188,115 @@ export default function Prose({ children, className = "" }: ProseProps) {
         .dark .prose blockquote {
           background: #1f2937;
         }
+
+        /* ===============================
+          Lists
+        =============================== */
+        .prose ul,
+        .prose ol {
+          margin: 1.25em 0;
+          padding-left: 1.5em;
+        }
+
+        .prose ul {
+          list-style-type: disc;
+        }
+
+        .prose ol {
+          list-style-type: decimal;
+        }
+
+        /* List items */
+        .prose li {
+          margin: 0.5em 0;
+          padding-left: 0.25em;
+          color: var(--prose-body);
+        }
+
+        /* Nested lists */
+        .prose ul ul,
+        .prose ul ol,
+        .prose ol ul,
+        .prose ol ol {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+        }
+
+        /* Marker styling (modern browsers) */
+        .prose li::marker {
+          color: var(--prose-bullets);
+          font-weight: 600;
+        }
+
+        /* Ordered list numbers */
+        .prose ol li::marker {
+          color: var(--prose-counters);
+          font-weight: 600;
+        }
+
+        /* Paragraphs inside list items */
+        .prose li p {
+          margin: 0.5em 0;
+        }
+
+        /* Tight lists (optional utility style) */
+        .prose .list-tight li {
+          margin: 0.25em 0;
+        }
+
+        /* ===============================
+            Tables
+          =============================== */
+          .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+          }
+
+          /* Header */
+          .prose thead th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--prose-headings);
+            padding: 0.75rem 0.75rem;
+            border-bottom: 2px solid var(--prose-th-borders);
+            vertical-align: bottom;
+          }
+
+          /* Body cells */
+          .prose tbody td {
+            padding: 0.75rem 0.75rem;
+            border-bottom: 1px solid var(--prose-td-borders);
+            vertical-align: top;
+          }
+
+          /* Zebra striping (very subtle) */
+          .prose tbody tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.02);
+          }
+
+          .dark .prose tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.03);
+          }
+
+          /* Inline code inside tables */
+          .prose table code {
+            font-size: 0.85em;
+          }
+
+          /* Paragraph spacing inside cells */
+          .prose td p,
+          .prose th p {
+            margin: 0.5em 0;
+          }
+
+          /* First / last row cleanup */
+          .prose tbody tr:last-child td {
+            border-bottom: none;
+          }
+
       `}</style>
 
       {children}
