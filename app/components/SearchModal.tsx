@@ -34,7 +34,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         <div className="text-sm text-gray-600 dark:text-gray-400">
           <p>Search through all tools, blog posts, and projects on this site.</p>
           <p className="mt-2">
-            <strong>Tips:</strong> Use keywords like "calculator", "password", "color" to find specific tools.
+            <strong>Tips:</strong> Use keywords like <q>calculator</q>, <q>password</q>, <q>color</q> to find specific tools.
           </p>
         </div>
       </div>
