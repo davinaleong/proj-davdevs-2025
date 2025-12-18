@@ -9,36 +9,39 @@ featured: false
 readingTime: 2
 published: true
 ---
-
-# Task: Fruit Sorting Challenge¶
-
+# Task: Fruit Sorting Challenge
 You are given quantities of three fruits: apples, bananas, and
-                oranges. Write a Python program that:
-
+ oranges. Write a Python program that:
 1. Takes user input for the quantity of each fruit.
 2. Uses
-                  all six comparison operators
-                  (==, !=, >,
-                  <, >=, <=) to
-                  compare the quantities.
+ all six comparison operators
+```python
+    (==, !=, >,
+    <, >=, <=) to
+```
+ compare the quantities.
+```python
 3. Uses increments (+=) and
-                  decrements (-=) to update a
-                  "basket counter" for each fruit.
+ decrements (-=) to update a
+```
+    "basket counter" for each fruit.
 4. Prints out:
-
 Which fruit has the highest quantity
 If any fruits have the same or different amounts
-
-                      Warnings if any fruit count is too low (≤
-                      5) or plentiful (≥ 10)
+ Warnings if any fruit count is too low (≤
+```python
+    5) or plentiful (≥ 10)
+```
 5. Which fruit has the highest quantity
 6. If any fruits have the same or different amounts
 7. Warnings if any fruit count is too low (≤
-                      5) or plentiful (≥ 10)
+```python
+    5) or plentiful (≥ 10)
+```
 8. Calculates how many full baskets can be made with every
-                  5 units of fruit.
+    5 units of fruit.
 9. Outputs a summary of basket counts for each fruit.
-
+```python
 ```python
 apples = int(input('Enter the number of apples:'))
 bananas = int(input('Enter the number of bananas:'))
@@ -46,63 +49,87 @@ oranges = int(input('Enter the number of oranges:'))
 max_fruit_quantity = int(input('Set the **high stock threshold** (e.g. 10 or more fruits): '))
 min_fruit_quantity = int(input('Set the **low stock warning** level (e.g. 5 or fewer fruits): '))
 capacity = int(input('Enter the basket capacity:'))
+```
 # Basket counters
+```python
 apple_basket = 0
 banana_basket = 0
 orange_basket = 0
+```
 # Comparisons and increments
+```python
 print('=== Start of Fruit Comparison ===')
 if apples > bananas and apples > oranges:
-    print('🍎 is the most!')
-    apple_basket += 1
+ print('🍎 is the most!')
+ apple_basket += 1
+```
 elif bananas > apples and bananas > oranges:
-    print('🍌 is the most!')
-    banana_basket += 1
+```python
+ print('🍌 is the most!')
+ banana_basket += 1
+```
 elif oranges > apples and oranges > bananas:
-    print('🍊 is the most!')
-    orange_basket += 1
+```python
+ print('🍊 is the most!')
+ orange_basket += 1
+```
 else:
-    print('There is a tie for the most fruits!')
+```python
+ print('There is a tie for the most fruits!')
+```
 # Use of equality and inequality
+```python
 if apples == bananas:
-    print('🍎 == 🍌')
+ print('🍎 == 🍌')
 if oranges != bananas:
-    print('🍊 != 🍌')
+ print('🍊 != 🍌')
+```
 # Use of >=, <=
+```python
 if apples >= max_fruit_quantity:
-    print(f'You have at least {max_fruit_quantity} 🍎!')
+ print(f'You have at least {max_fruit_quantity} 🍎!')
 if bananas >= max_fruit_quantity:
-    print(f'You have at least {max_fruit_quantity} 🍌!')
+ print(f'You have at least {max_fruit_quantity} 🍌!')
 if oranges >= max_fruit_quantity:
-    print(f'You have at least {max_fruit_quantity} 🍊!')
+ print(f'You have at least {max_fruit_quantity} 🍊!')
 if apples <= min_fruit_quantity:
-    print('🍎 are running low!')
+ print('🍎 are running low!')
 if bananas <= min_fruit_quantity:
-    print('🍌 are running low!')
+ print('🍌 are running low!')
 if oranges <= min_fruit_quantity:
-    print('🍊 are running low!')
+ print('🍊 are running low!')
+```
 # Use of += incrementing baskets manually
 # For every x apples, add 1 basket
+```python
 apple_basket += apples // capacity
 banana_basket += bananas // capacity
 orange_basket += oranges // capacity
+```
 # Summary
+```python
 print('=== Summary ===')
 print(f'Basket capacity: {capacity}')
 print(f'🍎 baskets: {apple_basket}')
 print(f'🍌 baskets: {banana_basket}')
 print(f'🍊 baskets: {orange_basket}')
 ```
-
+```
 **Output:**
 ```
+```python
 === Start of Fruit Comparison ===
+```
 🍊 is the most!
+```python
 🍊 != 🍌
+```
 🍎 are running low!
 🍌 are running low!
 🍊 are running low!
+```python
 === Summary ===
+```
 Basket capacity: 5
 🍎 baskets: 0
 🍌 baskets: 0

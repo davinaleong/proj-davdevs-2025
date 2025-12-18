@@ -9,208 +9,191 @@ featured: false
 readingTime: 17
 published: true
 ---
-
-# CSS to Typescript Converter¶
-
-I'm going to use this notebook to convert a CSS file into a
-                Typescript file.
-
-Basically, I want to extract the TailwindCSS colors into the
-                following format to use in my code:
-
+# CSS to Typescript Converter
+I'm going to use this notebook to convert a CSS file into a TypeScript file.
+Basically, I want to extract the TailwindCSS colors into the following format to use in my code:
+```typescript
 {
-    groupTitle: "Brand Colors",
-    colors: [
+ groupTitle: "Brand Colors",
+ colors: [
       {
-        title: "Blue",
-        value: "#2B7FFF",
-        textColor: "#ffffff",
-        bgColor: "#2B7FFF",
+ title: "Blue",
+ value: "#2B7FFF",
+ textColor: "#ffffff",
+ bgColor: "#2B7FFF",
       },
       {
-        title: "Dark Blue",
-        value: "#1447E6",
-        textColor: "#ffffff",
-        bgColor: "#1447E6",
+ title: "Dark Blue",
+ value: "#1447E6",
+ textColor: "#ffffff",
+ bgColor: "#1447E6",
       },
       {
-        title: "Sky Blue",
-        value: "#00A6F4",
-        textColor: "#ffffff",
-        bgColor: "#00A6F4",
+ title: "Sky Blue",
+ value: "#00A6F4",
+ textColor: "#ffffff",
+ bgColor: "#00A6F4",
       },
       {
-        title: "Orange",
-        value: "#FF6900",
-        textColor: "#ffffff",
-        bgColor: "#FF6900",
+ title: "Orange",
+ value: "#FF6900",
+ textColor: "#ffffff",
+ bgColor: "#FF6900",
       },
       {
-        title: "Light Slate",
-        value: "#F1F5F9",
-        textColor: "#000000",
-        bgColor: "#F1F5F9",
+ title: "Light Slate",
+ value: "#F1F5F9",
+ textColor: "#000000",
+ bgColor: "#F1F5F9",
       },
     ],
   },
-
+```
 First, I want to use ChatGPT to give me the code to extract the
-                colors from the TailwindCSS file that I took from the website.
-
+ colors from the TailwindCSS file that I took from the website.
 Prompt: Give me the code to extract the colors
-                (e.g. "--color-red-100:oklch(93.6% .032 17.717)") from the CSS
-                into a dataframe.
-
+```python
+    (e.g. "--color-red-100:oklch(93.6% .032 17.717)") from the CSS
+```
+ into a dataframe.
 Now, I want to convert the colors into hexadecimal format.
-
 Prompt: Using this same dataframe, convert the
-                colors into hexadecimal format.
-
+ colors into hexadecimal format.
 Response:
-
 The required libraries for converting OKLCH to hexadecimal color
-                (coloraide, colours, or
-                colour) are not installed in this environment.
-
+    (coloraide, colours, or
+ colour) are not installed in this environment.
 As a workaround, I can give you a Python script that you can run
-                locally in your own environment. It will:
-
+ locally in your own environment. It will:
 1. Read a list of OKLCH values.
 2. Convert them into hex format.
 3. Output the result as a DataFrame or CSV.
-
 Would you like me to generate this standalone script for you?
-
 Prompt: Yes, please!
-
 Ooo, got a sample output from the code given by ChatGPT.
-
 But now, I want to apply the color function to all colors
-                extracted from the CSS file.
-
+ extracted from the CSS file.
 Prompt: Extract the colors from this CSS file
-                and apply the color converter function to ALL of them. Sample
-                pattern: --color-red-100:oklch(93.6% .032 17.717);
-
+ and apply the color converter function to ALL of them. Sample
+```python
+ pattern: --color-red-100:oklch(93.6% .032 17.717);
+```
 - Follow up action: upload the CSS file to ChatGPT again.
-
 Ok, next I want to get the names of the colors from the
-                variables like this: color-red-50 becomes
-                Red 50.
-
+ variables like this: color-red-50 becomes
+ Red 50.
 Prompt: Generate Name from the Variable column
-                in this pattern: Red 50.
-
+ in this pattern: Red 50.
 Now after transforming the data into what I want (the Hex and
-                Name columns), I want to convert it into a Typescript friendly
-                formant using ChatGPT.
-
+ Name columns), I want to convert it into a Typescript friendly
+ formant using ChatGPT.
 Prompt: Take the Hex and Name columns and
-                convert them into the following format--group name is
-                Tailwind CSS Colors:
-
+ convert them into the following format--group name is
+ Tailwind CSS Colors:
+```typescript
 {
-    groupTitle: "Brand Colors",
-    colors: [
+ groupTitle: "Brand Colors",
+ colors: [
       {
-        title: "Blue",
-        value: "#2B7FFF",
-        textColor: "#ffffff",
-        bgColor: "#2B7FFF",
+ title: "Blue",
+ value: "#2B7FFF",
+ textColor: "#ffffff",
+ bgColor: "#2B7FFF",
       },
       {
-        title: "Dark Blue",
-        value: "#1447E6",
-        textColor: "#ffffff",
-        bgColor: "#1447E6",
+ title: "Dark Blue",
+ value: "#1447E6",
+ textColor: "#ffffff",
+ bgColor: "#1447E6",
       },
       {
-        title: "Sky Blue",
-        value: "#00A6F4",
-        textColor: "#ffffff",
-        bgColor: "#00A6F4",
+ title: "Sky Blue",
+ value: "#00A6F4",
+ textColor: "#ffffff",
+ bgColor: "#00A6F4",
       },
       {
-        title: "Orange",
-        value: "#FF6900",
-        textColor: "#ffffff",
-        bgColor: "#FF6900",
+ title: "Orange",
+ value: "#FF6900",
+ textColor: "#ffffff",
+ bgColor: "#FF6900",
       },
       {
-        title: "Light Slate",
-        value: "#F1F5F9",
-        textColor: "#000000",
-        bgColor: "#F1F5F9",
+ title: "Light Slate",
+ value: "#F1F5F9",
+ textColor: "#000000",
+ bgColor: "#F1F5F9",
       },
     ],
   },
-
+```
 Now, the last step is to output it into a file that I can use.
-
 Prompt: Give me the code to save
-                grouped_colors in a file.
-
+ grouped_colors in a file.
 Yay! I got the format I wanted!
-
 -- THE END --
-
 ```python
 import pandas as pd
 import re
+```
 # Load the CSS file content
+```python
 file_path = "./data/tailwind-css.css"
 with open(file_path, "r", encoding="utf-8") as file:
-    css_content = file.read()
+ css_content = file.read()
+```
 # Regex pattern to match the color definitions
+```python
 pattern = re.compile(r'--(color-[\w-]+):\s*(oklch\([^)]+\))')
+```
 # Find all matches
+```python
 matches = pattern.findall(css_content)
+```
 # Create a DataFrame
+```python
 df = pd.DataFrame(matches, columns=["Variable", "Color"])
 display(df.head())
 ```
-
+```
 **Output:**
 ```
 Variable
 Color
-
-
-
-
 0
 color-red-50
+```python
 oklch(97.1% .013 17.38)
-
-
+```
 1
 color-red-100
+```python
 oklch(93.6% .032 17.717)
-
-
+```
 2
 color-red-200
+```python
 oklch(88.5% .062 18.334)
-
-
+```
 3
 color-red-300
+```python
 oklch(80.8% .114 19.571)
-
-
+```
 4
 color-red-400
+```python
 oklch(70.4% .191 22.216)
 ```
-
+```
 ```python
 !pip install coloraide pandas
 ```
-
 **Output:**
 ```
 Collecting coloraide
-  Downloading coloraide-4.6-py3-none-any.whl.metadata (4.0 kB)
+```python
+ Downloading coloraide-4.6-py3-none-any.whl.metadata (4.0 kB)
 Requirement already satisfied: pandas in c:\users\davina leong\anaconda3\lib\site-packages (2.2.2)
 Requirement already satisfied: numpy>=1.26.0 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (1.26.4)
 Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (2.9.0.post0)
@@ -218,274 +201,309 @@ Requirement already satisfied: pytz>=2020.1 in c:\users\davina leong\anaconda3\l
 Requirement already satisfied: tzdata>=2022.7 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (2023.3)
 Requirement already satisfied: six>=1.5 in c:\users\davina leong\anaconda3\lib\site-packages (from python-dateutil>=2.8.2->pandas) (1.16.0)
 Downloading coloraide-4.6-py3-none-any.whl (261 kB)
+```
 Installing collected packages: coloraide
 Successfully installed coloraide-4.6
 ```
-
+```python
 ```python
 import pandas as pd
 from coloraide import Color
+```
 # Read your CSS-derived color data into a DataFrame
 # Example data structure — replace with your actual file path if using a CSV
+```python
 data = [
     {"Variable": "color-red-100", "Color": "oklch(93.6% .032 17.717)"},
     {"Variable": "color-red-200", "Color": "oklch(88.5% .062 18.334)"},
     {"Variable": "color-red-300", "Color": "oklch(80.8% .114 19.571)"},
+```
 ]
+```python
 df = pd.DataFrame(data)
+```
 # Function to convert OKLCH to hex
+```python
 def oklch_to_hex(oklch_str):
-    try:
-        color = Color(oklch_str)
-        return color.convert("srgb").to_string(hex=True)
-    except Exception as e:
-        print(f"Error converting {oklch_str}: {e}")
-        return None
+```
+ try:
+```python
+ color = Color(oklch_str)
+ return color.convert("srgb").to_string(hex=True)
+```
+ except Exception as e:
+```python
+ print(f"Error converting {oklch_str}: {e}")
+```
+ return None
 # Apply conversion
+```python
 df["Hex"] = df["Color"].apply(oklch_to_hex)
 display(df.head())
 ```
-
+```
 **Output:**
 ```
 Variable
 Color
 Hex
-
-
-
-
 0
 color-red-100
+```python
 oklch(93.6% .032 17.717)
+```
 #ffe2e2
-
-
 1
 color-red-200
+```python
 oklch(88.5% .062 18.334)
+```
 #ffc9c9
-
-
 2
 color-red-300
+```python
 oklch(80.8% .114 19.571)
+```
 #ffa2a2
 ```
-
+```python
 ```python
 import re
 import math
 import pandas as pd
 import matplotlib.colors as mcolors
+```
 # Load CSS content from file
+```python
 with open("./data/tailwind-css.css", "r", encoding="utf-8") as f:
-    css = f.read()
+ css = f.read()
+```
 # Extract --color-* variables with OKLCH values
+```python
 pattern = r"--(color-[\w-]+):\s*oklch\(([\d.]+)%\s+([\d.]+)\s+([\d.]+)\);"
 matches = re.findall(pattern, css)
+```
 # Build dataframe
+```python
 df_colors = pd.DataFrame([
+```
     {
         "Variable": var,
+```python
         "Lightness": float(l),
         "Chroma": float(c),
         "Hue": float(h),
         "Original": f"oklch({l}% {c} {h})"
+```
     }
-    for var, l, c, h in matches
+```python
+ for var, l, c, h in matches
+```
 ])
 # OKLCH to RGB hex approximation
+```python
 def oklch_to_rgb_hex(L, C, h):
-    h_rad = math.radians(h)
-    a = math.cos(h_rad) * C
-    b = math.sin(h_rad) * C
+ h_rad = math.radians(h)
+ a = math.cos(h_rad) * C
+ b = math.sin(h_rad) * C
+```
     # OKLab intermediate
-    l_ = L
-    m = l_ + 0.3963377774 * a + 0.2158037573 * b
-    s = l_ - 0.1055613458 * a - 0.0638541728 * b
-    l = l_ - 0.0894841775 * a - 1.2914855480 * b
+```python
+ l_ = L
+ m = l_ + 0.3963377774 * a + 0.2158037573 * b
+ s = l_ - 0.1055613458 * a - 0.0638541728 * b
+ l = l_ - 0.0894841775 * a - 1.2914855480 * b
+```
     # LMS to linear sRGB
-    r = 4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s
-    g = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s
-    b = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s
+```python
+ r = 4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s
+ g = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s
+ b = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s
+```
     # Clamp and gamma correct
-    r = max(0, min(1, r)) ** (1/2.2)
-    g = max(0, min(1, g)) ** (1/2.2)
-    b = max(0, min(1, b)) ** (1/2.2)
-    return mcolors.to_hex([r, g, b])
+```python
+ r = max(0, min(1, r)) ** (1/2.2)
+ g = max(0, min(1, g)) ** (1/2.2)
+ b = max(0, min(1, b)) ** (1/2.2)
+ return mcolors.to_hex([r, g, b])
+```
 # Convert to Hex
+```python
 df_colors["Hex"] = df_colors.apply(
-    lambda row: oklch_to_rgb_hex(row["Lightness"] / 100, row["Chroma"], row["Hue"]),
-    axis=1
+ lambda row: oklch_to_rgb_hex(row["Lightness"] / 100, row["Chroma"], row["Hue"]),
+ axis=1
+```
 )
 # Show results
+```python
 display(df_colors.head())
 ```
-
+```
 **Output:**
 ```
 Variable
 Lightness
-Chroma
-Hue
+Chroma Hue
 Original
 Hex
-
-
-
-
 0
 color-red-50
 97.1
 0.013
 17.380
+```python
 oklch(97.1% .013 17.38)
+```
 #f6fefb
-
-
 1
 color-red-100
 93.6
 0.032
 17.717
+```python
 oklch(93.6% .032 17.717)
+```
 #eafef5
-
-
 2
 color-red-200
 88.5
 0.062
 18.334
+```python
 oklch(88.5% .062 18.334)
+```
 #d4ffed
-
-
 3
 color-red-300
 80.8
 0.114
 19.571
+```python
 oklch(80.8% .114 19.571)
+```
 #a7ffe0
-
-
 4
 color-red-400
 70.4
 0.191
 22.216
+```python
 oklch(70.4% .191 22.216)
+```
 #00ffcb
 ```
-
 ```python
 # Function to convert variable name like "color-red-50" to "Red 50"
+```python
 def format_variable_name(variable):
-    parts = variable.replace("color-", "").split("-")
-    if len(parts) >= 2:
-        name = parts[0].capitalize()
-        level = parts[1]
-        return f"{name} {level}"
-    return variable
+ parts = variable.replace("color-", "").split("-")
+ if len(parts) >= 2:
+ name = parts[0].capitalize()
+ level = parts[1]
+```
+ return f"{name} {level}"
+ return variable
 # Apply to DataFrame
+```python
 df_colors["Name"] = df_colors["Variable"].apply(format_variable_name)
 display(df_colors.head())
 ```
-
+```
 **Output:**
 ```
 Variable
 Lightness
-Chroma
-Hue
+Chroma Hue
 Original
 Hex
 Name
-
-
-
-
 0
 color-red-50
 97.1
 0.013
 17.380
+```python
 oklch(97.1% .013 17.38)
+```
 #f6fefb
 Red 50
-
-
 1
 color-red-100
 93.6
 0.032
 17.717
+```python
 oklch(93.6% .032 17.717)
+```
 #eafef5
 Red 100
-
-
 2
 color-red-200
 88.5
 0.062
 18.334
+```python
 oklch(88.5% .062 18.334)
+```
 #d4ffed
 Red 200
-
-
 3
 color-red-300
 80.8
 0.114
 19.571
+```python
 oklch(80.8% .114 19.571)
+```
 #a7ffe0
 Red 300
-
-
 4
 color-red-400
 70.4
 0.191
 22.216
+```python
 oklch(70.4% .191 22.216)
+```
 #00ffcb
 Red 400
 ```
-
 ```python
 # Function to determine ideal text color for contrast (black or white)
+```python
 def get_contrast_text_color(hex_color):
-    r, g, b = mcolors.to_rgb(hex_color)
-    luminance = 0.299 * r + 0.587 * g + 0.114 * b
-    return "#000000" if luminance > 0.5 else "#ffffff"
+ r, g, b = mcolors.to_rgb(hex_color)
+ luminance = 0.299 * r + 0.587 * g + 0.114 * b
+```
+ return "#000000" if luminance > 0.5 else "#ffffff"
 # Generate the desired format
+```python
 colors_formatted = [
+```
     {
         "title": row["Name"],
         "value": row["Hex"],
+```python
         "textColor": get_contrast_text_color(row["Hex"]),
+```
         "bgColor": row["Hex"]
     }
-    for _, row in df_colors.iterrows()
+```python
+ for _, row in df_colors.iterrows()
+```
 ]
 # Wrap in final structure
+```python
 grouped_colors = {
+```
     "groupTitle": "Tailwind CSS Colors",
     "colors": colors_formatted
 }
 grouped_colors
 ```
-
 **Output:**
 ```
 Out[16]:
-
-
 {'groupTitle': 'Tailwind CSS Colors',
  'colors': [{'title': 'Red 50',
    'value': '#f6fefb',

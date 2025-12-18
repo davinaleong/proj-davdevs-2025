@@ -120,8 +120,14 @@
       "height": "half"
     },
     "test": {
-      "title": "🧪 Test Page",
+      "title": "Test Page 🧪",
       "description": "This page is for testing components during development.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "notebooks": {
+      "title": "Python Notebooks 🐍",
+      "description": "A showcase of Python projects and coding exercises demonstrating programming skills, problem-solving approaches, and data science implementations.",
       "variant": "gradient",
       "height": "half"
     }
