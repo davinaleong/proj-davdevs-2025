@@ -24,12 +24,27 @@
       "external": false
     },
     {
+      "label": "Portfolio",
+      "href": "/portfolio",
+      "external": false
+    },
+    {
+      "label": "Articles", 
+      "href": "/articles",
+      "external": false
+    },
+    {
       "label": "Tools",
       "href": "/tools",
       "external": false
     },
     {
-      "label": "Fem",
+      "label": "Python",
+      "href": "/notebooks",
+      "external": false
+    },
+    {
+      "label": "FEM",
       "href": "/fem",
       "external": false
     },

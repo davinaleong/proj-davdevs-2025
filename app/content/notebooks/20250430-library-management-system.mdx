@@ -1,0 +1,766 @@
+---
+title: "Library Management System"
+slug: "20250430-library-management-system"
+description: "This is a beginner-friendly project made with"
+date: "2025-04-30"
+author: "Davina Leong"
+tags: ["python", "jupyter", "tutorial", "data-science", "library-management"]
+featured: false
+readingTime: 13
+published: true
+---
+
+# 📚 Simple Library Management System¶
+
+This is a beginner-friendly project made with
+                Python in Jupyter Notebook. It helps you
+                practice using:
+
+- ✅ Lists
+- ✅ Tuples
+- ✅ Sets
+- ✅ Dictionaries
+- ✅ Nested data (like a list inside a
+                  dictionary)
+
+## 🎯 What This Project Does¶
+
+You’ll build a small system to:
+
+1. Store book info like title and author
+2. Track users and which books they borrowed
+3. Show available books
+4. Let users borrow or return books
+5. Learn core Python data types
+
+## 🛠️ What You’ll Learn¶
+
+Python Concept
+What You’ll Use It For
+
+List
+To track borrowed books
+
+Tuple
+To store book details (title, author)
+
+Set
+To collect unique genres
+
+Dictionary
+To store books and user info
+
+Nested data
+A dictionary with lists or tuples
+
+## 📋 Steps in the Notebook¶
+
+1. Create a book list using a dictionary:
+
+books = {
+  "B001": ("The Alchemist", "Paulo Coelho", "Fiction"),
+  "B002": ("1984", "George Orwell", "Dystopian")
+}
+
+1. Track users and what they borrowed:
+
+users = {
+  "alice": ["B001"],
+  "bob": []
+}
+
+1. Get unique genres using a set:
+
+genres = set(book[2] for book in books.values())
+
+1. Make simple functions:
+
+- View all books
+- Borrow a book
+- Return a book
+
+1. Add a menu using a while loop:
+
+while True:
+    print("1. View Books\n2. Borrow\n3. Return\n4. Exit")
+    choice = input("Choose an option: ")
+
+# 📚 Welcome to Davina's Library Code Walkthrough¶
+
+This Python program simulates a small library system. It
+                organizes a collection of books by their genres and displays
+                them in an easy-to-read format.
+
+## 🏷️ Library Name¶
+
+library = "Davina's Library"
+print(f"=== Welcome to {library} ===")
+
+We start by setting the name of the library and printing a
+                welcome message. The {library} part gets replaced
+                with the actual name.
+
+## 📖 Book Collection¶
+
+books = {
+    "B001": ("The Alchemist", "Paulo Coelho", "Fiction"),
+    ...
+}
+
+- This is a dictionary where each book has a
+                  unique ID like "B001".
+- Each book's value is a tuple containing:
+
+The title of the book
+The author’s name
+The genre it belongs to
+- The title of the book
+- The author’s name
+- The genre it belongs to
+
+Think of it like a library record card for each book.
+
+## 🗂️ Genres¶
+
+genres = {
+    "Fiction",
+    "Dystopian",
+    ...
+}
+
+This is a set of all the different book genres.
+                Sets are used when we only want unique values (no duplicates).
+
+## 🧩 Grouping Books by Genre¶
+
+books_by_genre = {}
+
+We create an empty dictionary to store books
+                sorted by genre.
+
+### 🔄 Looping Through the Books¶
+
+for book_id, (title, author, genre) in books.items():
+    if genre not in books_by_genre:
+        books_by_genre[genre] = []
+    books_by_genre[genre].append(book_id)
+
+- This loop checks each book’s genre.
+- If the genre isn’t in the dictionary yet, it creates a new
+                  list for that genre.
+- Then, it adds the book ID to the list under the correct genre.
+
+## 📋 Displaying the Books¶
+
+for genre, book_uuids in books_by_genre.items():
+    print(f"\n📚 Genre: {genre}")
+    for book_uuid in book_uuids:
+        title, author, _ = books[book_uuid]
+        print(f"  - {book_uuid}: {title} by {author}")
+
+This section prints each genre followed by a list of books under
+                that category, including their:
+
+- Book ID
+- Title
+- Author
+
+### ✅ Example Output¶
+
+```
+📚 Genre: Fiction
+  - B001: The Alchemist by Paulo Coelho
+
+📚 Genre: Classic
+  - B003: To Kill a Mockingbird by Harper Lee
+  - B004: The Great Gatsby by F. Scott Fitzgerald
+```
+
+## 💡 Summary¶
+
+This code teaches:
+
+- How to store and access book info using dictionaries and
+                  tuples
+- How to avoid duplicate genres using a set
+- How to organize data using loops and nested structures
+
+Perfect for beginners building a simple but structured Python
+                project!
+
+# 👤 User Management in Davina's Library¶
+
+This section of the Python program manages the
+                library users and shows what books they've
+                borrowed. It interacts with users by asking for their name and
+                displaying their borrowed books if they're registered.
+
+## 📇 User Data¶
+
+users = {
+    "alice": ["B001", "B005"],
+    "bob": [],
+    "charlie": ["B007"],
+    "diana": ["B003", "B010"],
+    "ethan": ["B006"]
+}
+
+- This is a dictionary where each key is a
+                  user name.
+- Each user has a list of book IDs they’ve
+                  borrowed.
+- If the list is empty ([]), the user hasn't
+                  borrowed any books yet.
+
+Think of it like each user has a folder with a list of
+                  borrowed book IDs inside.
+
+## 👀 Show All Users¶
+
+print(f"--- Users of {library} ---")
+for user in users:
+    print(f"- {user}")
+
+- Prints out a list of all users in the system.
+- Helpful for testing or verifying who is registered.
+
+## 🧾 User Login and Borrowed Books Check¶
+
+user = input("Please enter your name:")
+user_input = str(user).lower()
+
+- Asks the user to type their name.
+- Converts the name to lowercase so the check is
+                  case-insensitive (e.g., Alice =
+                  alice).
+
+### ✅ If the User Exists¶
+
+if user_input in users:
+    print(f"Welcome back, {user}:")
+
+- Checks if the entered name is already in the
+                  users dictionary.
+
+### 📚 Show Borrowed Books¶
+
+borrowed_book_uuids = users[user_input]
+
+if borrowed_book_uuids:
+    print("You have borrowed the following books:")
+
+    for borrowed_book_uuid in borrowed_book_uuids:
+        (title, author, genre) = books[borrowed_book_uuid]
+        print(f"  - {borrowed_book_uuid}: {title} by {author}, {genre}")
+
+- Retrieves the list of book IDs the user has borrowed.
+- For each book ID, it looks up the
+                  book title, author, and genre from the
+                  books dictionary.
+- Prints the full book info in a friendly format.
+
+### ❌ If the User is Not Found¶
+
+else:
+    print(f"User '{user}' not found. Please register first.")
+
+- This message is shown when someone who isn't in the system
+                  tries to log in.
+
+## 💡 Summary¶
+
+This code helps beginners understand:
+
+Concept
+Purpose
+
+dict
+To store users and what they’ve borrowed
+
+list
+To keep track of each user’s borrowed books
+
+input()
+To get the user’s name
+
+for loop
+To print lists of users and books
+
+if statement
+To check if the user exists and what they borrowed
+
+# 🔁 Borrow & Return System — Davina's Library¶
+
+This part of the program allows registered users to
+                borrow or return books using simple commands.
+                It includes a basic menu and checks to ensure everything is
+                valid.
+
+## 🖥️ System Startup¶
+
+print(f"--- {library} Borrow/Return System ---")
+
+- Displays a title for the borrow/return section of the system.
+- {library} refers to the library name you set
+                  earlier.
+
+## 🧾 Available Actions¶
+
+actions = ("borrow", "return")
+
+- A tuple that defines two options:
+                  "borrow" or "return".
+- These options are used later to decide what the user wants to
+                  do.
+
+## 👤 Ask for User Name¶
+
+user = input("Please enter your name:")
+user_input = str(user).lower()
+
+- Gets the user’s name as input.
+- Converts the name to lowercase so it matches stored names
+                  regardless of capitalization.
+
+## 🔐 Check If User Is Registered¶
+
+if user_input in users:
+
+- Looks for the user in the system.
+- If the user exists, they can continue to borrow or return
+                  books.
+
+## 🧭 Choose an Action¶
+
+print(f"Available options: {actions}")
+action = input("Please enter your choice (borrow/return): ").lower()
+
+- Displays available actions.
+- Asks the user what they want to do.
+
+## 📚 If the User Chooses to Borrow¶
+
+if action == actions[0]:
+
+- Shows books grouped by genre.
+- Each book is displayed with its ID, title, and author.
+
+book_uuid = input("Which book would you like to borrow?")
+
+- Asks for the book’s ID.
+
+if book_uuid in books and book_uuid not in users[user_input]:
+    users[user_input].append(book_uuid)
+    ...
+
+- Confirms the book exists and isn’t already borrowed by the
+                  user.
+- Adds the book to the user’s list of borrowed books.
+
+## 📤 If the User Chooses to Return¶
+
+elif action == actions[1]:
+
+- Lists all books the user has borrowed.
+
+book_uuid = input("Which book would you like to return?")
+
+- Asks which book the user wants to return.
+
+if book_uuid in borrowed_book_uuids:
+    borrowed_book_uuids.remove(book_uuid)
+
+- Removes the returned book from the user’s borrowed list.
+
+## 🛑 Error Handling¶
+
+else:
+    print(f"Invalid action '{action}'.")
+
+- Shows an error if the user types anything other than "borrow"
+                  or "return".
+
+else:
+    print(f"User '{user}' not found. Please register first.")
+
+- If the user isn’t in the system, it prompts them to register.
+
+## 💡 Summary¶
+
+This code demonstrates: | Concept | What It Does |
+                |-----------------|-----------------------------------------------------------|
+                | tuple | Stores fixed choices
+                (borrow, return) | |
+                input() | Gets information from the user | |
+                if/else | Controls the flow based on user input | |
+                list | Tracks books each user has borrowed | |
+                dictionary | Matches users and book IDs | |
+                loop | Displays multiple books neatly |
+
+```python
+library = "Davina's Library"
+print(f"=== Welcome to {library} ===")
+# books data structure > dictionary { book uuid }
+# book item data structure > tuple: (title, author, genre)
+books = {
+    "B001": ("The Alchemist", "Paulo Coelho", "Fiction"),
+    "B002": ("1984", "George Orwell", "Dystopian"),
+    "B003": ("To Kill a Mockingbird", "Harper Lee", "Classic"),
+    "B004": ("The Great Gatsby", "F. Scott Fitzgerald", "Classic"),
+    "B005": ("Sapiens", "Yuval Noah Harari", "Non-fiction"),
+    "B006": ("Python Crash Course", "Eric Matthes", "Programming"),
+    "B007": ("The Hobbit", "J.R.R. Tolkien", "Fantasy"),
+    "B008": ("A Brief History of Time", "Stephen Hawking", "Science"),
+    "B009": ("Becoming", "Michelle Obama", "Biography"),
+    "B010": ("The Silent Patient", "Alex Michaelides", "Thriller")
+}
+# genres data structure > dictionary { genre name }
+genres = {
+    "Fiction",
+    "Dystopian",
+    "Classic",
+    "Non-fiction",
+    "Programming",
+    "Fantasy",
+    "Science",
+    "Biography",
+    "Thriller"
+}
+# books_by_genre > dictionary { book uuid }
+books_by_genre = {}
+print("--- Books Sorted by Genre ---")
+for book_id, (title, author, genre) in books.items():
+    if genre not in books_by_genre:
+        books_by_genre[genre] = []
+    books_by_genre[genre].append(book_id)
+for genre, book_uuids in books_by_genre.items():
+    print(f"\n📚 Genre: {genre}")
+    for book_uuid in book_uuids:
+        title, author, _ = books[book_uuid]
+        print(f"  - {book_uuid}: {title} by {author}")
+```
+
+**Output:**
+```
+=== Welcome to Davina's Library ===
+--- Books Sorted by Genre ---
+
+📚 Genre: Fiction
+  - B001: The Alchemist by Paulo Coelho
+
+📚 Genre: Dystopian
+  - B002: 1984 by George Orwell
+
+📚 Genre: Classic
+  - B003: To Kill a Mockingbird by Harper Lee
+  - B004: The Great Gatsby by F. Scott Fitzgerald
+
+📚 Genre: Non-fiction
+  - B005: Sapiens by Yuval Noah Harari
+
+📚 Genre: Programming
+  - B006: Python Crash Course by Eric Matthes
+
+📚 Genre: Fantasy
+  - B007: The Hobbit by J.R.R. Tolkien
+
+📚 Genre: Science
+  - B008: A Brief History of Time by Stephen Hawking
+
+📚 Genre: Biography
+  - B009: Becoming by Michelle Obama
+
+📚 Genre: Thriller
+  - B010: The Silent Patient by Alex Michaelides
+```
+
+```python
+# users data structure > dictionary { user name }
+# user item data structure > list: [book uuid]
+users = {
+    "alice": ["B001", "B005"],          # Borrowed: The Alchemist, Sapiens
+    "bob": [],                          # No borrowed books
+    "charlie": ["B007"],               # Borrowed: The Hobbit
+    "diana": ["B003", "B010"],         # Borrowed: To Kill a Mockingbird, The Silent Patient
+    "ethan": ["B006"]                  # Borrowed: Python Crash Course
+}
+# Print out the users of the library management system
+print(f"--- Users of {library} ---")
+for user in users:
+    print(f"- {user}")
+user = input("Please enter your name:")
+user_input = str(user).lower()
+if user_input in users:
+    print(f"Welcome back, {user}:")
+    borrowed_book_uuids = users[user_input]
+    if borrowed_book_uuids:
+        print("You have borrowed the following books:")
+        for borrowed_book_uuid in borrowed_book_uuids:
+            (title, author, genre) = books[borrowed_book_uuid]
+            print(f"  - {borrowed_book_uuid}: {title} by {author}, {genre}")
+else:
+    print(f"User '{user}' not found. Please register first.")
+```
+
+**Output:**
+```
+--- Users of Davina's Library ---
+- alice
+- bob
+- charlie
+- diana
+- ethan
+
+
+
+
+
+
+
+
+
+
+Welcome back, Alice:
+You have borrowed the following books:
+  - B001: The Alchemist by Paulo Coelho, Fiction
+  - B005: Sapiens by Yuval Noah Harari, Non-fiction
+```
+
+```python
+print(f"--- {library} Borrow/Return System ---")
+# actions data structure > tuple
+actions = ("borrow", "return")
+user = input("Please enter your name:")
+user_input = str(user).lower()
+if user_input in users:
+    user = users[user_input]
+    print(f"Would you like to borrow or return a book?")
+    print(f"Available options: {actions}")
+    action = input("Please enter your choice (borrow/return): ").lower()
+    # if user wants to borrow a book
+    if action == actions[0]:
+        print("Available books:")
+        for genre, book_uuids in books_by_genre.items():
+            print(f"\n📚 Genre: {genre}")
+            for book_uuid in book_uuids:
+                title, author, _ = books[book_uuid]
+                print(f"  - {book_uuid}: {title} by {author}")
+        book_uuid = input("Which book would you like to borrow?").upper()
+        if book_uuid in books and book_uuid not in users[user_input]:
+            users[user_input].append(book_uuid)
+            title, author, genre = books[book_uuid]
+            print(f"You borrowed '{book_uuid}: {title} by {author}, {genre}'")
+        else:
+            print(f"Book '{book_uuid}' not found.")
+    # if user wants to return a book
+    elif action == actions[1]:
+        borrowed_book_uuids = users[user_input]
+        if borrowed_book_uuids:
+            print("You have borrowed the following books:")
+            for borrowed_book_uuid in borrowed_book_uuids:
+                (title, author, genre) = books[borrowed_book_uuid]
+                print(f"  - {borrowed_book_uuid}: {title} by {author}, {genre}")
+            book_uuid = input("Which book would you like to return?").upper()
+            if book_uuid in borrowed_book_uuids:
+                borrowed_book_uuids.remove(book_uuid)
+                users[user_input] = borrowed_book_uuids
+                (title, author, genre) = books[book_uuid]
+                print(f"You returned: '{book_uuid}: {title} by {author}, {genre}")
+                if borrowed_book_uuids:
+                    print("You have following books left:")
+                    for borrowed_book_uuid in borrowed_book_uuids:
+                        (title, author, genre) = books[borrowed_book_uuid]
+                        print(f"  - {borrowed_book_uuid}: {title} by {author}, {genre}")
+            else:
+                print(f"Book '{book_uuid}' not found.")
+        else:
+            print("You haven't borrowed any books yet.")
+    else:
+        print(f"Invalid action '{action}'.")
+else:
+    print(f"User '{user}' not found. Please register first.")
+```
+
+**Output:**
+```
+--- Davina's Library Borrow/Return System ---
+
+
+
+
+
+
+
+
+
+
+Would you like to borrow or return a book?
+Available options: ('borrow', 'return')
+
+
+
+
+
+
+
+
+
+
+You have borrowed the following books:
+  - B006: Python Crash Course by Eric Matthes, Programming
+
+
+
+
+
+
+
+
+
+
+You returned: 'B006: Python Crash Course by Eric Matthes, Programming
+```
+
+```python
+# === Davina's Library System ===
+library = "Davina's Library"
+print(f"=== Welcome to {library} ===")
+# Book database: book_id => (title, author, genre)
+books = {
+    "B001": ("The Alchemist", "Paulo Coelho", "Fiction"),
+    "B002": ("1984", "George Orwell", "Dystopian"),
+    "B003": ("To Kill a Mockingbird", "Harper Lee", "Classic"),
+    "B004": ("The Great Gatsby", "F. Scott Fitzgerald", "Classic"),
+    "B005": ("Sapiens", "Yuval Noah Harari", "Non-fiction"),
+    "B006": ("Python Crash Course", "Eric Matthes", "Programming"),
+    "B007": ("The Hobbit", "J.R.R. Tolkien", "Fantasy"),
+    "B008": ("A Brief History of Time", "Stephen Hawking", "Science"),
+    "B009": ("Becoming", "Michelle Obama", "Biography"),
+    "B010": ("The Silent Patient", "Alex Michaelides", "Thriller")
+}
+# Users and their borrowed book IDs
+users = {
+    "alice": ["B001", "B005"],
+    "bob": [],
+    "charlie": ["B007"],
+    "diana": ["B003", "B010"],
+    "ethan": ["B006"]
+}
+# Group books by genre
+books_by_genre = {}
+for book_id, (_, _, genre) in books.items():
+    books_by_genre.setdefault(genre, []).append(book_id)
+# Show all books grouped by genre
+def show_all_books():
+    print("\n--- Books Sorted by Genre ---")
+    for genre, book_ids in books_by_genre.items():
+        print(f"\n📚 {genre}")
+        for book_id in book_ids:
+            title, author, _ = books[book_id]
+            print(f"  - {book_id}: {title} by {author}")
+# Show a user's borrowed books
+def show_borrowed_books(username):
+    borrowed = users[username]
+    if not borrowed:
+        print("You haven't borrowed any books yet.")
+    else:
+        print("You have borrowed the following books:")
+        for book_id in borrowed:
+            title, author, genre = books[book_id]
+            print(f"  - {book_id}: {title} by {author}, {genre}")
+# Borrow a book
+def borrow_book(username):
+    show_all_books()
+    book_id = input("\nWhich book would you like to borrow? ").upper()
+    if book_id not in books:
+        print("That book ID does not exist.")
+    elif book_id in users[username]:
+        print("You've already borrowed this book.")
+    else:
+        users[username].append(book_id)
+        title, author, genre = books[book_id]
+        print(f"You borrowed: {book_id}: {title} by {author} ({genre})")
+# Return a book
+def return_book(username):
+    borrowed = users[username]
+    if not borrowed:
+        print("You haven't borrowed any books yet.")
+        return
+    show_borrowed_books(username)
+    book_id = input("\nWhich book would you like to return? ").upper()
+    if book_id in borrowed:
+        borrowed.remove(book_id)
+        title, author, genre = books[book_id]
+        print(f"You returned: {book_id}: {title} by {author} ({genre})")
+    else:
+        print("You haven't borrowed that book.")
+# === Start Program ===
+# Show registered users
+print("\n--- Registered Users ---")
+for name in users:
+    print(f"- {name}")
+# Login
+username_input = input("\nPlease enter your name: ").strip().lower()
+if username_input in users:
+    print(f"\nWelcome back, {username_input.capitalize()}!")
+    show_borrowed_books(username_input)
+    action = input("\nWould you like to borrow or return a book? (borrow/return): ").lower()
+    if action == "borrow":
+        borrow_book(username_input)
+    elif action == "return":
+        return_book(username_input)
+    else:
+        print("Invalid action. Please type 'borrow' or 'return'.")
+else:
+    print(f"User '{username_input}' not found. Please register first.")
+```
+
+**Output:**
+```
+=== Welcome to Davina's Library ===
+
+--- Registered Users ---
+- alice
+- bob
+- charlie
+- diana
+- ethan
+
+
+
+
+
+
+
+
+
+
+Welcome back, Alice!
+You have borrowed the following books:
+  - B001: The Alchemist by Paulo Coelho, Fiction
+  - B005: Sapiens by Yuval Noah Harari, Non-fiction
+
+
+
+
+
+
+
+
+
+
+You have borrowed the following books:
+  - B001: The Alchemist by Paulo Coelho, Fiction
+  - B005: Sapiens by Yuval Noah Harari, Non-fiction
+
+
+
+
+
+
+
+
+
+
+You returned: B001: The Alchemist by Paulo Coelho (Fiction)
+```

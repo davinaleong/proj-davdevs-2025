@@ -1,0 +1,329 @@
+---
+title: "Calculator"
+slug: "20250502-calculator"
+description: "This Jupyter Notebook builds a"
+date: "2025-05-02"
+author: "Davina Leong"
+tags: ["python", "jupyter", "tutorial", "calculator"]
+featured: false
+readingTime: 6
+published: true
+---
+
+# 📊 Davina's Calculator Notebook Summary¶
+
+This Jupyter Notebook builds a
+                simple calculator in Python using arithmetic
+                operations, structured into three main sections (cells).
+
+## 🟡 Cell 1: Basic Arithmetic Functions¶
+
+Defines core functions for:
+
+- Addition (add)
+- Subtraction (subtract)
+- Multiplication (multiply)
+- Division (divide) — with
+                  ZeroDivisionError handling
+- Floor Division (floorDivision) — with
+                  ZeroDivisionError handling
+- Modulus (modulus) — with
+                  ZeroDivisionError handling
+- Exponentiation (exponentiation)
+
+At the end, it tests these functions with
+                x = 5 and y = 3, printing the results.
+
+## 🟠 Cell 2: Calculator Function¶
+
+Creates a wrapper function
+calculator(x, y, operator) that:
+
+- Checks if the operator is valid.
+- Routes to the correct arithmetic function based on the
+                  operator:
+
+                      Handles /, //,
+                      % inside a try block (due to
+                      possible division by zero).
+
+                      Handles +, -, *,
+                      ** directly.
+- Handles /, //,
+                      % inside a try block (due to
+                      possible division by zero).
+- Handles +, -, *,
+                      ** directly.
+- Returns a human-readable message describing
+                  the operation result.
+
+Then it runs test calls for each operator,
+                again using x = 5 and y = 3.
+
+## 🟢
+                Cell 3: Operator Dictionary + User Interaction¶
+
+Defines an operators dictionary that:
+
+- Maps each operator symbol to its name and
+                  layperson-friendly description.
+
+Then:
+
+- Greets the user.
+- Prompts the user to input two numbers.
+- Lists all available operators with their descriptions.
+- Prompts the user to choose an operator.
+- Runs the calculator() function with the user’s
+                  inputs and prints the result.
+
+## 💡 Key Takeaways¶
+
+✅ Error handling for division by zero
+                ✅ Clear separation between low-level arithmetic functions and
+                high-level calculator logic
+                ✅ Friendly user prompts and operator explanations
+                ✅ Good modular design for easy expansion later
+
+## 🟡 Cell 1: Define Basic Arithmetic Functions¶
+
+This cell defines individual functions for basic arithmetic
+                operations
+                (add, subtract, multiply, divide, floor division, modulus,
+                exponentiation)
+                and runs test calculations using example numbers.
+
+## 🟠 Cell 2: Build Calculator Wrapper Function¶
+
+This cell defines the
+                calculator(x, y, operator) function,
+                which selects the correct arithmetic function based on the
+                chosen operator
+                and returns a friendly result message; it also runs test cases
+                for all operators.
+
+## 🟢 Cell 3: Set Up Operator Info and User Interaction¶
+
+This cell creates a dictionary of operators with their names and
+                descriptions,
+                displays available operations to the user, takes user input for
+                numbers and operator,
+                and runs the calculator to display the final result.
+
+```python
+def add(x, y):
+    return x + y
+def subtract(x, y):
+    return x - y
+def multiply(x, y):
+    return x * y
+def divide(x, y):
+    result = 0
+    try:
+        return x / y
+    except ZeroDivisionError:
+        print("Error: you can't divide by zero!")
+def floorDivision(x, y):
+    try:
+        return x // y
+    except ZeroDivisionError:
+        print("Error: you can't divide by zero!")
+def modulus(x, y):
+    try:
+        return x % y
+    except ZeroDivisionError:
+        print("Error: you can't divide by zero!")
+def exponentiation(x, y):
+    return x ** y
+# Test functions
+x = 5
+y = 3
+print("== Start: Test Calculation Functions ==")
+print(f"Add {x} and {y}:", add(x, y))
+print(f"Subtract {x} from {y}:", subtract(x, y))
+print(f"Multiply {x} and {y}:", multiply(x, y))
+print(f"Divide {x} by {y}:", divide(x, y))
+print(f"Floor divide {x} from {y}:", floorDivision(x, y))
+print(f"Find the remainder of {x} from {y}:", modulus(x, y))
+print(f"Find the exponent of {x} from {y}:", exponentiation(x, y))
+print("== End: Test Calculation Functions ==")
+```
+
+**Output:**
+```
+== Start: Test Calculation Functions ==
+Add 5 and 3: 8
+Subtract 5 from 3: 2
+Multiply 5 and 3: 15
+Divide 5 by 3: 1.6666666666666667
+Floor divide 5 from 3: 1
+Find the remainder of 5 from 3: 2
+Find the exponent of 5 from 3: 125
+== End: Test Calculation Functions ==
+```
+
+```python
+operators = {
+    "+": {
+        "name": "Add",
+        "description": "Add things together",
+    },
+    "-": {
+        "name": "Subtract",
+        "description": "Take one thing away from another",
+    },
+    "*": {
+        "name": "Multiply",
+        "description": "Multiply (like repeated addition)",
+    },
+    "/": {
+        "name": "Divide",
+        "description": "Divide (split into equal parts)",
+    },
+    "//": {
+        "name": "Floor Division",
+        "description": "Divide and drop the decimals (only whole number part)",
+    },
+    "%": {
+        "name": "Modulus",
+        "description": "Get what’s left over after dividing (the remainder)",
+    },
+    "**": {
+        "name": "Exponentiation",
+        "description": "Raise a number to a power (like 2 to the power of 3)"
+    },
+}
+def calculator(x, y, operator):
+    message = ""
+    if operator not in operators:
+        message = f"Operator '{operator}' is undefined."
+    if operator in ("/", "//", "%"):
+        try:
+            if operator == "/":
+                result = divide(x, y)
+                message = f"{x} divided by {y} is {result}."
+            if operator == "//":
+                result = floorDivision(x, y)
+                message = f"The floor of {x} divided by {y} is {result}."
+            if operator == "%":
+                result = modulus(x, y)
+                message = f"The remainder of {x} divided by {y} is {result}."
+        except ZeroDivisionError:
+            message = "Error: you can't divide by zero!"
+    elif operator in ("+", "-", "*", "**"):
+        if operator == "+":
+            result = add(x, y)
+            message = f"{x} added to {y} is {result}."
+        if operator == "-":
+            result = subtract(x, y)
+            message = f"{x} subtracted from {y} is {result}."
+        if operator == "*":
+            result = multiply(x, y)
+            message = f"{x} multiplied by {y} is {result}."
+        if operator == "**":
+            result = modulus(x, y)
+            message = f"The exponent of {x} by {y} is {result}."
+    return message
+# Test functions
+x = 5
+y = 3
+print("== Start: Test Calculator Functions ==")
+print(calculator(x, y, "+"))
+print(calculator(x, y, "-"))
+print(calculator(x, y, "*"))
+print(calculator(x, y, "/"))
+print(calculator(x, y, "//"))
+print(calculator(x, y, "%"))
+print(calculator(x, y, "**"))
+print("== End: Test Calculator Functions ==")
+```
+
+**Output:**
+```
+== Start: Test Calculator Functions ==
+5 added to 3 is 8.
+5 subtracted from 3 is 2.
+5 multiplied by 3 is 15.
+5 divided by 3 is 1.6666666666666667.
+The floor of 5 divided by 3 is 1.
+The remainder of 5 divided by 3 is 2.
+The exponent of 5 by 3 is 2.
+== End: Test Calculator Functions ==
+```
+
+```python
+operators = {
+    "+": {
+        "name": "Add",
+        "description": "Add things together",
+    },
+    "-": {
+        "name": "Subtract",
+        "description": "Take one thing away from another",
+    },
+    "*": {
+        "name": "Multiply",
+        "description": "Multiply (like repeated addition)",
+    },
+    "/": {
+        "name": "Divide",
+        "description": "Divide (split into equal parts)",
+    },
+    "//": {
+        "name": "Floor Division",
+        "description": "Divide and drop the decimals (only whole number part)",
+    },
+    "%": {
+        "name": "Modulus",
+        "description": "Get what’s left over after dividing (the remainder)",
+    },
+    "**": {
+        "name": "Exponentiation",
+        "description": "Raise a number to a power (like 2 to the power of 3)"
+    },
+}
+print("== Welcome to Davina's Calculator ==")
+x = float(input("Please give a number (decimals and negative numbers are allowed):"))
+y = float(input("Please give another number (decimals and negative numbers are allowed):"))
+print("Here are the available arithmetic operators:")
+for op_symbol, op_info in operators.items():
+    name = op_info["name"]
+    description = op_info["description"]
+    print(f"\t'{op_symbol}' - {name}: {description}")
+operator = input("Choose one:")
+print(calculator(x, y, operator))
+```
+
+**Output:**
+```
+== Welcome to Davina's Calculator ==
+
+
+
+
+
+
+
+
+
+
+Here are the available arithmetic operators:
+	'+' - Add: Add things together
+	'-' - Subtract: Take one thing away from another
+	'*' - Multiply: Multiply (like repeated addition)
+	'/' - Divide: Divide (split into equal parts)
+	'//' - Floor Division: Divide and drop the decimals (only whole number part)
+	'%' - Modulus: Get what’s left over after dividing (the remainder)
+	'**' - Exponentiation: Raise a number to a power (like 2 to the power of 3)
+
+
+
+
+
+
+
+
+
+
+5.5 multiplied by 3.3 is 18.15.
+```

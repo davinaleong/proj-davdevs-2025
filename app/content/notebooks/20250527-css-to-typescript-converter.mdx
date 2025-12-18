@@ -1,0 +1,1458 @@
+---
+title: "CSS to Typescript Converter"
+slug: "20250527-css-to-typescript-converter"
+description: "I'm going to use this notebook to convert a CSS file into a"
+date: "2025-05-27"
+author: "Davina Leong"
+tags: ["python", "jupyter", "tutorial", "pandas", "numpy", "data-science", "css", "typescript"]
+featured: false
+readingTime: 17
+published: true
+---
+
+# CSS to Typescript Converter¶
+
+I'm going to use this notebook to convert a CSS file into a
+                Typescript file.
+
+Basically, I want to extract the TailwindCSS colors into the
+                following format to use in my code:
+
+{
+    groupTitle: "Brand Colors",
+    colors: [
+      {
+        title: "Blue",
+        value: "#2B7FFF",
+        textColor: "#ffffff",
+        bgColor: "#2B7FFF",
+      },
+      {
+        title: "Dark Blue",
+        value: "#1447E6",
+        textColor: "#ffffff",
+        bgColor: "#1447E6",
+      },
+      {
+        title: "Sky Blue",
+        value: "#00A6F4",
+        textColor: "#ffffff",
+        bgColor: "#00A6F4",
+      },
+      {
+        title: "Orange",
+        value: "#FF6900",
+        textColor: "#ffffff",
+        bgColor: "#FF6900",
+      },
+      {
+        title: "Light Slate",
+        value: "#F1F5F9",
+        textColor: "#000000",
+        bgColor: "#F1F5F9",
+      },
+    ],
+  },
+
+First, I want to use ChatGPT to give me the code to extract the
+                colors from the TailwindCSS file that I took from the website.
+
+Prompt: Give me the code to extract the colors
+                (e.g. "--color-red-100:oklch(93.6% .032 17.717)") from the CSS
+                into a dataframe.
+
+Now, I want to convert the colors into hexadecimal format.
+
+Prompt: Using this same dataframe, convert the
+                colors into hexadecimal format.
+
+Response:
+
+The required libraries for converting OKLCH to hexadecimal color
+                (coloraide, colours, or
+                colour) are not installed in this environment.
+
+As a workaround, I can give you a Python script that you can run
+                locally in your own environment. It will:
+
+1. Read a list of OKLCH values.
+2. Convert them into hex format.
+3. Output the result as a DataFrame or CSV.
+
+Would you like me to generate this standalone script for you?
+
+Prompt: Yes, please!
+
+Ooo, got a sample output from the code given by ChatGPT.
+
+But now, I want to apply the color function to all colors
+                extracted from the CSS file.
+
+Prompt: Extract the colors from this CSS file
+                and apply the color converter function to ALL of them. Sample
+                pattern: --color-red-100:oklch(93.6% .032 17.717);
+
+- Follow up action: upload the CSS file to ChatGPT again.
+
+Ok, next I want to get the names of the colors from the
+                variables like this: color-red-50 becomes
+                Red 50.
+
+Prompt: Generate Name from the Variable column
+                in this pattern: Red 50.
+
+Now after transforming the data into what I want (the Hex and
+                Name columns), I want to convert it into a Typescript friendly
+                formant using ChatGPT.
+
+Prompt: Take the Hex and Name columns and
+                convert them into the following format--group name is
+                Tailwind CSS Colors:
+
+{
+    groupTitle: "Brand Colors",
+    colors: [
+      {
+        title: "Blue",
+        value: "#2B7FFF",
+        textColor: "#ffffff",
+        bgColor: "#2B7FFF",
+      },
+      {
+        title: "Dark Blue",
+        value: "#1447E6",
+        textColor: "#ffffff",
+        bgColor: "#1447E6",
+      },
+      {
+        title: "Sky Blue",
+        value: "#00A6F4",
+        textColor: "#ffffff",
+        bgColor: "#00A6F4",
+      },
+      {
+        title: "Orange",
+        value: "#FF6900",
+        textColor: "#ffffff",
+        bgColor: "#FF6900",
+      },
+      {
+        title: "Light Slate",
+        value: "#F1F5F9",
+        textColor: "#000000",
+        bgColor: "#F1F5F9",
+      },
+    ],
+  },
+
+Now, the last step is to output it into a file that I can use.
+
+Prompt: Give me the code to save
+                grouped_colors in a file.
+
+Yay! I got the format I wanted!
+
+-- THE END --
+
+```python
+import pandas as pd
+import re
+# Load the CSS file content
+file_path = "./data/tailwind-css.css"
+with open(file_path, "r", encoding="utf-8") as file:
+    css_content = file.read()
+# Regex pattern to match the color definitions
+pattern = re.compile(r'--(color-[\w-]+):\s*(oklch\([^)]+\))')
+# Find all matches
+matches = pattern.findall(css_content)
+# Create a DataFrame
+df = pd.DataFrame(matches, columns=["Variable", "Color"])
+display(df.head())
+```
+
+**Output:**
+```
+Variable
+Color
+
+
+
+
+0
+color-red-50
+oklch(97.1% .013 17.38)
+
+
+1
+color-red-100
+oklch(93.6% .032 17.717)
+
+
+2
+color-red-200
+oklch(88.5% .062 18.334)
+
+
+3
+color-red-300
+oklch(80.8% .114 19.571)
+
+
+4
+color-red-400
+oklch(70.4% .191 22.216)
+```
+
+```python
+!pip install coloraide pandas
+```
+
+**Output:**
+```
+Collecting coloraide
+  Downloading coloraide-4.6-py3-none-any.whl.metadata (4.0 kB)
+Requirement already satisfied: pandas in c:\users\davina leong\anaconda3\lib\site-packages (2.2.2)
+Requirement already satisfied: numpy>=1.26.0 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (1.26.4)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (2024.1)
+Requirement already satisfied: tzdata>=2022.7 in c:\users\davina leong\anaconda3\lib\site-packages (from pandas) (2023.3)
+Requirement already satisfied: six>=1.5 in c:\users\davina leong\anaconda3\lib\site-packages (from python-dateutil>=2.8.2->pandas) (1.16.0)
+Downloading coloraide-4.6-py3-none-any.whl (261 kB)
+Installing collected packages: coloraide
+Successfully installed coloraide-4.6
+```
+
+```python
+import pandas as pd
+from coloraide import Color
+# Read your CSS-derived color data into a DataFrame
+# Example data structure — replace with your actual file path if using a CSV
+data = [
+    {"Variable": "color-red-100", "Color": "oklch(93.6% .032 17.717)"},
+    {"Variable": "color-red-200", "Color": "oklch(88.5% .062 18.334)"},
+    {"Variable": "color-red-300", "Color": "oklch(80.8% .114 19.571)"},
+]
+df = pd.DataFrame(data)
+# Function to convert OKLCH to hex
+def oklch_to_hex(oklch_str):
+    try:
+        color = Color(oklch_str)
+        return color.convert("srgb").to_string(hex=True)
+    except Exception as e:
+        print(f"Error converting {oklch_str}: {e}")
+        return None
+# Apply conversion
+df["Hex"] = df["Color"].apply(oklch_to_hex)
+display(df.head())
+```
+
+**Output:**
+```
+Variable
+Color
+Hex
+
+
+
+
+0
+color-red-100
+oklch(93.6% .032 17.717)
+#ffe2e2
+
+
+1
+color-red-200
+oklch(88.5% .062 18.334)
+#ffc9c9
+
+
+2
+color-red-300
+oklch(80.8% .114 19.571)
+#ffa2a2
+```
+
+```python
+import re
+import math
+import pandas as pd
+import matplotlib.colors as mcolors
+# Load CSS content from file
+with open("./data/tailwind-css.css", "r", encoding="utf-8") as f:
+    css = f.read()
+# Extract --color-* variables with OKLCH values
+pattern = r"--(color-[\w-]+):\s*oklch\(([\d.]+)%\s+([\d.]+)\s+([\d.]+)\);"
+matches = re.findall(pattern, css)
+# Build dataframe
+df_colors = pd.DataFrame([
+    {
+        "Variable": var,
+        "Lightness": float(l),
+        "Chroma": float(c),
+        "Hue": float(h),
+        "Original": f"oklch({l}% {c} {h})"
+    }
+    for var, l, c, h in matches
+])
+# OKLCH to RGB hex approximation
+def oklch_to_rgb_hex(L, C, h):
+    h_rad = math.radians(h)
+    a = math.cos(h_rad) * C
+    b = math.sin(h_rad) * C
+    # OKLab intermediate
+    l_ = L
+    m = l_ + 0.3963377774 * a + 0.2158037573 * b
+    s = l_ - 0.1055613458 * a - 0.0638541728 * b
+    l = l_ - 0.0894841775 * a - 1.2914855480 * b
+    # LMS to linear sRGB
+    r = 4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s
+    g = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s
+    b = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s
+    # Clamp and gamma correct
+    r = max(0, min(1, r)) ** (1/2.2)
+    g = max(0, min(1, g)) ** (1/2.2)
+    b = max(0, min(1, b)) ** (1/2.2)
+    return mcolors.to_hex([r, g, b])
+# Convert to Hex
+df_colors["Hex"] = df_colors.apply(
+    lambda row: oklch_to_rgb_hex(row["Lightness"] / 100, row["Chroma"], row["Hue"]),
+    axis=1
+)
+# Show results
+display(df_colors.head())
+```
+
+**Output:**
+```
+Variable
+Lightness
+Chroma
+Hue
+Original
+Hex
+
+
+
+
+0
+color-red-50
+97.1
+0.013
+17.380
+oklch(97.1% .013 17.38)
+#f6fefb
+
+
+1
+color-red-100
+93.6
+0.032
+17.717
+oklch(93.6% .032 17.717)
+#eafef5
+
+
+2
+color-red-200
+88.5
+0.062
+18.334
+oklch(88.5% .062 18.334)
+#d4ffed
+
+
+3
+color-red-300
+80.8
+0.114
+19.571
+oklch(80.8% .114 19.571)
+#a7ffe0
+
+
+4
+color-red-400
+70.4
+0.191
+22.216
+oklch(70.4% .191 22.216)
+#00ffcb
+```
+
+```python
+# Function to convert variable name like "color-red-50" to "Red 50"
+def format_variable_name(variable):
+    parts = variable.replace("color-", "").split("-")
+    if len(parts) >= 2:
+        name = parts[0].capitalize()
+        level = parts[1]
+        return f"{name} {level}"
+    return variable
+# Apply to DataFrame
+df_colors["Name"] = df_colors["Variable"].apply(format_variable_name)
+display(df_colors.head())
+```
+
+**Output:**
+```
+Variable
+Lightness
+Chroma
+Hue
+Original
+Hex
+Name
+
+
+
+
+0
+color-red-50
+97.1
+0.013
+17.380
+oklch(97.1% .013 17.38)
+#f6fefb
+Red 50
+
+
+1
+color-red-100
+93.6
+0.032
+17.717
+oklch(93.6% .032 17.717)
+#eafef5
+Red 100
+
+
+2
+color-red-200
+88.5
+0.062
+18.334
+oklch(88.5% .062 18.334)
+#d4ffed
+Red 200
+
+
+3
+color-red-300
+80.8
+0.114
+19.571
+oklch(80.8% .114 19.571)
+#a7ffe0
+Red 300
+
+
+4
+color-red-400
+70.4
+0.191
+22.216
+oklch(70.4% .191 22.216)
+#00ffcb
+Red 400
+```
+
+```python
+# Function to determine ideal text color for contrast (black or white)
+def get_contrast_text_color(hex_color):
+    r, g, b = mcolors.to_rgb(hex_color)
+    luminance = 0.299 * r + 0.587 * g + 0.114 * b
+    return "#000000" if luminance > 0.5 else "#ffffff"
+# Generate the desired format
+colors_formatted = [
+    {
+        "title": row["Name"],
+        "value": row["Hex"],
+        "textColor": get_contrast_text_color(row["Hex"]),
+        "bgColor": row["Hex"]
+    }
+    for _, row in df_colors.iterrows()
+]
+# Wrap in final structure
+grouped_colors = {
+    "groupTitle": "Tailwind CSS Colors",
+    "colors": colors_formatted
+}
+grouped_colors
+```
+
+**Output:**
+```
+Out[16]:
+
+
+{'groupTitle': 'Tailwind CSS Colors',
+ 'colors': [{'title': 'Red 50',
+   'value': '#f6fefb',
+   'textColor': '#000000',
+   'bgColor': '#f6fefb'},
+  {'title': 'Red 100',
+   'value': '#eafef5',
+   'textColor': '#000000',
+   'bgColor': '#eafef5'},
+  {'title': 'Red 200',
+   'value': '#d4ffed',
+   'textColor': '#000000',
+   'bgColor': '#d4ffed'},
+  {'title': 'Red 300',
+   'value': '#a7ffe0',
+   'textColor': '#000000',
+   'bgColor': '#a7ffe0'},
+  {'title': 'Red 400',
+   'value': '#00ffcb',
+   'textColor': '#000000',
+   'bgColor': '#00ffcb'},
+  {'title': 'Red 500',
+   'value': '#00ffbc',
+   'textColor': '#000000',
+   'bgColor': '#00ffbc'},
+  {'title': 'Red 600',
+   'value': '#00ffb1',
+   'textColor': '#000000',
+   'bgColor': '#00ffb1'},
+  {'title': 'Red 700',
+   'value': '#00f9a7',
+   'textColor': '#000000',
+   'bgColor': '#00f9a7'},
+  {'title': 'Red 800',
+   'value': '#00e89e',
+   'textColor': '#000000',
+   'bgColor': '#00e89e'},
+  {'title': 'Red 900',
+   'value': '#00d698',
+   'textColor': '#000000',
+   'bgColor': '#00d698'},
+  {'title': 'Red 950',
+   'value': '#00b17d',
+   'textColor': '#ffffff',
+   'bgColor': '#00b17d'},
+  {'title': 'Orange 50',
+   'value': '#f1fffc',
+   'textColor': '#000000',
+   'bgColor': '#f1fffc'},
+  {'title': 'Orange 100',
+   'value': '#dbfff8',
+   'textColor': '#000000',
+   'bgColor': '#dbfff8'},
+  {'title': 'Orange 200',
+   'value': '#adfff0',
+   'textColor': '#000000',
+   'bgColor': '#adfff0'},
+  {'title': 'Orange 300',
+   'value': '#40ffe4',
+   'textColor': '#000000',
+   'bgColor': '#40ffe4'},
+  {'title': 'Orange 400',
+   'value': '#00ffd4',
+   'textColor': '#000000',
+   'bgColor': '#00ffd4'},
+  {'title': 'Orange 500',
+   'value': '#00ffca',
+   'textColor': '#000000',
+   'bgColor': '#00ffca'},
+  {'title': 'Orange 600',
+   'value': '#00ffbf',
+   'textColor': '#000000',
+   'bgColor': '#00ffbf'},
+  {'title': 'Orange 700',
+   'value': '#00ffb2',
+   'textColor': '#000000',
+   'bgColor': '#00ffb2'},
+  {'title': 'Orange 800',
+   'value': '#00eaa6',
+   'textColor': '#000000',
+   'bgColor': '#00eaa6'},
+  {'title': 'Orange 900',
+   'value': '#00d89d',
+   'textColor': '#000000',
+   'bgColor': '#00d89d'},
+  {'title': 'Orange 950',
+   'value': '#00b181',
+   'textColor': '#ffffff',
+   'bgColor': '#00b181'},
+  {'title': 'Amber 50',
+   'value': '#eefffd',
+   'textColor': '#000000',
+   'bgColor': '#eefffd'},
+  {'title': 'Amber 100',
+   'value': '#cdfff9',
+   'textColor': '#000000',
+   'bgColor': '#cdfff9'},
+  {'title': 'Amber 200',
+   'value': '#82fff3',
+   'textColor': '#000000',
+   'bgColor': '#82fff3'},
+  {'title': 'Amber 300',
+   'value': '#00ffeb',
+   'textColor': '#000000',
+   'bgColor': '#00ffeb'},
+  {'title': 'Amber 400',
+   'value': '#00ffe3',
+   'textColor': '#000000',
+   'bgColor': '#00ffe3'},
+  {'title': 'Amber 500',
+   'value': '#00ffd8',
+   'textColor': '#000000',
+   'bgColor': '#00ffd8'},
+  {'title': 'Amber 600',
+   'value': '#00ffc8',
+   'textColor': '#000000',
+   'bgColor': '#00ffc8'},
+  {'title': 'Amber 700',
+   'value': '#00fab6',
+   'textColor': '#000000',
+   'bgColor': '#00fab6'},
+  {'title': 'Amber 800',
+   'value': '#00e7a9',
+   'textColor': '#000000',
+   'bgColor': '#00e7a9'},
+  {'title': 'Amber 900',
+   'value': '#00d7a0',
+   'textColor': '#000000',
+   'bgColor': '#00d7a0'},
+  {'title': 'Amber 950',
+   'value': '#00b485',
+   'textColor': '#ffffff',
+   'bgColor': '#00b485'},
+  {'title': 'Yellow 50',
+   'value': '#ecfffd',
+   'textColor': '#000000',
+   'bgColor': '#ecfffd'},
+  {'title': 'Yellow 100',
+   'value': '#c8fffb',
+   'textColor': '#000000',
+   'bgColor': '#c8fffb'},
+  {'title': 'Yellow 200',
+   'value': '#83fff6',
+   'textColor': '#000000',
+   'bgColor': '#83fff6'},
+  {'title': 'Yellow 300',
+   'value': '#00ffef',
+   'textColor': '#000000',
+   'bgColor': '#00ffef'},
+  {'title': 'Yellow 400',
+   'value': '#00ffe7',
+   'textColor': '#000000',
+   'bgColor': '#00ffe7'},
+  {'title': 'Yellow 500',
+   'value': '#00ffdf',
+   'textColor': '#000000',
+   'bgColor': '#00ffdf'},
+  {'title': 'Yellow 600',
+   'value': '#00ffce',
+   'textColor': '#000000',
+   'bgColor': '#00ffce'},
+  {'title': 'Yellow 700',
+   'value': '#00f2ba',
+   'textColor': '#000000',
+   'bgColor': '#00f2ba'},
+  {'title': 'Yellow 800',
+   'value': '#00e2ad',
+   'textColor': '#000000',
+   'bgColor': '#00e2ad'},
+  {'title': 'Yellow 900',
+   'value': '#00d3a4',
+   'textColor': '#000000',
+   'bgColor': '#00d3a4'},
+  {'title': 'Yellow 950',
+   'value': '#00b189',
+   'textColor': '#ffffff',
+   'bgColor': '#00b189'},
+  {'title': 'Lime 50',
+   'value': '#edfffd',
+   'textColor': '#000000',
+   'bgColor': '#edfffd'},
+  {'title': 'Lime 100',
+   'value': '#d7fffb',
+   'textColor': '#000000',
+   'bgColor': '#d7fffb'},
+  {'title': 'Lime 200',
+   'value': '#aefff8',
+   'textColor': '#000000',
+   'bgColor': '#aefff8'},
+  {'title': 'Lime 300',
+   'value': '#6dfff4',
+   'textColor': '#000000',
+   'bgColor': '#6dfff4'},
+  {'title': 'Lime 400',
+   'value': '#00ffee',
+   'textColor': '#000000',
+   'bgColor': '#00ffee'},
+  {'title': 'Lime 500',
+   'value': '#00fde5',
+   'textColor': '#000000',
+   'bgColor': '#00fde5'},
+  {'title': 'Lime 600',
+   'value': '#00e9d5',
+   'textColor': '#000000',
+   'bgColor': '#00e9d5'},
+  {'title': 'Lime 700',
+   'value': '#18d5c2',
+   'textColor': '#000000',
+   'bgColor': '#18d5c2'},
+  {'title': 'Lime 800',
+   'value': '#34c5b4',
+   'textColor': '#000000',
+   'bgColor': '#34c5b4'},
+  {'title': 'Lime 900',
+   'value': '#48b9ab',
+   'textColor': '#000000',
+   'bgColor': '#48b9ab'},
+  {'title': 'Lime 950',
+   'value': '#389b90',
+   'textColor': '#ffffff',
+   'bgColor': '#389b90'},
+  {'title': 'Green 50',
+   'value': '#fbfdfe',
+   'textColor': '#000000',
+   'bgColor': '#fbfdfe'},
+  {'title': 'Green 100',
+   'value': '#f6f9fc',
+   'textColor': '#000000',
+   'bgColor': '#f6f9fc'},
+  {'title': 'Green 200',
+   'value': '#edf4f9',
+   'textColor': '#000000',
+   'bgColor': '#edf4f9'},
+  {'title': 'Green 300',
+   'value': '#dbedf5',
+   'textColor': '#000000',
+   'bgColor': '#dbedf5'},
+  {'title': 'Green 400',
+   'value': '#bce6ed',
+   'textColor': '#000000',
+   'bgColor': '#bce6ed'},
+  {'title': 'Green 500',
+   'value': '#a4dfe4',
+   'textColor': '#000000',
+   'bgColor': '#a4dfe4'},
+  {'title': 'Green 600',
+   'value': '#97d2d6',
+   'textColor': '#000000',
+   'bgColor': '#97d2d6'},
+  {'title': 'Green 700',
+   'value': '#92c1c5',
+   'textColor': '#000000',
+   'bgColor': '#92c1c5'},
+  {'title': 'Green 800',
+   'value': '#90b2b7',
+   'textColor': '#000000',
+   'bgColor': '#90b2b7'},
+  {'title': 'Green 900',
+   'value': '#8ea6ac',
+   'textColor': '#000000',
+   'bgColor': '#8ea6ac'},
+  {'title': 'Green 950',
+   'value': '#778b90',
+   'textColor': '#000000',
+   'bgColor': '#778b90'},
+  {'title': 'Emerald 50',
+   'value': '#fdfbfd',
+   'textColor': '#000000',
+   'bgColor': '#fdfbfd'},
+  {'title': 'Emerald 100',
+   'value': '#f8f6fb',
+   'textColor': '#000000',
+   'bgColor': '#f8f6fb'},
+  {'title': 'Emerald 200',
+   'value': '#f4eef8',
+   'textColor': '#000000',
+   'bgColor': '#f4eef8'},
+  {'title': 'Emerald 300',
+   'value': '#eee2f3',
+   'textColor': '#000000',
+   'bgColor': '#eee2f3'},
+  {'title': 'Emerald 400',
+   'value': '#dfd6ea',
+   'textColor': '#000000',
+   'bgColor': '#dfd6ea'},
+  {'title': 'Emerald 500',
+   'value': '#d4cde1',
+   'textColor': '#000000',
+   'bgColor': '#d4cde1'},
+  {'title': 'Emerald 600',
+   'value': '#c7bed2',
+   'textColor': '#000000',
+   'bgColor': '#c7bed2'},
+  {'title': 'Emerald 700',
+   'value': '#bfafc3',
+   'textColor': '#000000',
+   'bgColor': '#bfafc3'},
+  {'title': 'Emerald 800',
+   'value': '#b3a2b5',
+   'textColor': '#000000',
+   'bgColor': '#b3a2b5'},
+  {'title': 'Emerald 900',
+   'value': '#ac98aa',
+   'textColor': '#000000',
+   'bgColor': '#ac98aa'},
+  {'title': 'Emerald 950',
+   'value': '#957f90',
+   'textColor': '#000000',
+   'bgColor': '#957f90'},
+  {'title': 'Teal 50',
+   'value': '#fffbfe',
+   'textColor': '#000000',
+   'bgColor': '#fffbfe'},
+  {'title': 'Teal 100',
+   'value': '#fff2fc',
+   'textColor': '#000000',
+   'bgColor': '#fff2fc'},
+  {'title': 'Teal 200',
+   'value': '#ffe6fa',
+   'textColor': '#000000',
+   'bgColor': '#ffe6fa'},
+  {'title': 'Teal 300',
+   'value': '#ffd7f5',
+   'textColor': '#000000',
+   'bgColor': '#ffd7f5'},
+  {'title': 'Teal 400',
+   'value': '#ffc8ed',
+   'textColor': '#000000',
+   'bgColor': '#ffc8ed'},
+  {'title': 'Teal 500',
+   'value': '#fcbee2',
+   'textColor': '#000000',
+   'bgColor': '#fcbee2'},
+  {'title': 'Teal 600',
+   'value': '#eeafd3',
+   'textColor': '#000000',
+   'bgColor': '#eeafd3'},
+  {'title': 'Teal 700',
+   'value': '#dea3c4',
+   'textColor': '#000000',
+   'bgColor': '#dea3c4'},
+  {'title': 'Teal 800',
+   'value': '#cf98b6',
+   'textColor': '#000000',
+   'bgColor': '#cf98b6'},
+  {'title': 'Teal 900',
+   'value': '#c292ab',
+   'textColor': '#000000',
+   'bgColor': '#c292ab'},
+  {'title': 'Teal 950',
+   'value': '#ab7b94',
+   'textColor': '#000000',
+   'bgColor': '#ab7b94'},
+  {'title': 'Cyan 50',
+   'value': '#fff9fe',
+   'textColor': '#000000',
+   'bgColor': '#fff9fe'},
+  {'title': 'Cyan 100',
+   'value': '#ffeffd',
+   'textColor': '#000000',
+   'bgColor': '#ffeffd'},
+  {'title': 'Cyan 200',
+   'value': '#ffe1fa',
+   'textColor': '#000000',
+   'bgColor': '#ffe1fa'},
+  {'title': 'Cyan 300',
+   'value': '#ffcbf7',
+   'textColor': '#000000',
+   'bgColor': '#ffcbf7'},
+  {'title': 'Cyan 400',
+   'value': '#ffb2ef',
+   'textColor': '#000000',
+   'bgColor': '#ffb2ef'},
+  {'title': 'Cyan 500',
+   'value': '#ffa7e5',
+   'textColor': '#000000',
+   'bgColor': '#ffa7e5'},
+  {'title': 'Cyan 600',
+   'value': '#ff96d5',
+   'textColor': '#000000',
+   'bgColor': '#ff96d5'},
+  {'title': 'Cyan 700',
+   'value': '#ff8dc6',
+   'textColor': '#000000',
+   'bgColor': '#ff8dc6'},
+  {'title': 'Cyan 800',
+   'value': '#f487b9',
+   'textColor': '#000000',
+   'bgColor': '#f487b9'},
+  {'title': 'Cyan 900',
+   'value': '#e582ae',
+   'textColor': '#000000',
+   'bgColor': '#e582ae'},
+  {'title': 'Cyan 950',
+   'value': '#cd709a',
+   'textColor': '#000000',
+   'bgColor': '#cd709a'},
+  {'title': 'Sky 50',
+   'value': '#fff8fd',
+   'textColor': '#000000',
+   'bgColor': '#fff8fd'},
+  {'title': 'Sky 100',
+   'value': '#fff1fb',
+   'textColor': '#000000',
+   'bgColor': '#fff1fb'},
+  {'title': 'Sky 200',
+   'value': '#ffe1f7',
+   'textColor': '#000000',
+   'bgColor': '#ffe1f7'},
+  {'title': 'Sky 300',
+   'value': '#ffc3f1',
+   'textColor': '#000000',
+   'bgColor': '#ffc3f1'},
+  {'title': 'Sky 400',
+   'value': '#ff9ee9',
+   'textColor': '#000000',
+   'bgColor': '#ff9ee9'},
+  {'title': 'Sky 500',
+   'value': '#ff8ae2',
+   'textColor': '#000000',
+   'bgColor': '#ff8ae2'},
+  {'title': 'Sky 600',
+   'value': '#ff78d3',
+   'textColor': '#000000',
+   'bgColor': '#ff78d3'},
+  {'title': 'Sky 700',
+   'value': '#ff70c4',
+   'textColor': '#000000',
+   'bgColor': '#ff70c4'},
+  {'title': 'Sky 800',
+   'value': '#ff71b9',
+   'textColor': '#000000',
+   'bgColor': '#ff71b9'},
+  {'title': 'Sky 900',
+   'value': '#f870ae',
+   'textColor': '#000000',
+   'bgColor': '#f870ae'},
+  {'title': 'Sky 950',
+   'value': '#d86498',
+   'textColor': '#000000',
+   'bgColor': '#d86498'},
+  {'title': 'Blue 50',
+   'value': '#fff7fc',
+   'textColor': '#000000',
+   'bgColor': '#fff7fc'},
+  {'title': 'Blue 100',
+   'value': '#ffedf8',
+   'textColor': '#000000',
+   'bgColor': '#ffedf8'},
+  {'title': 'Blue 200',
+   'value': '#ffdef4',
+   'textColor': '#000000',
+   'bgColor': '#ffdef4'},
+  {'title': 'Blue 300',
+   'value': '#ffc2ed',
+   'textColor': '#000000',
+   'bgColor': '#ffc2ed'},
+  {'title': 'Blue 400',
+   'value': '#ff94e2',
+   'textColor': '#000000',
+   'bgColor': '#ff94e2'},
+  {'title': 'Blue 500',
+   'value': '#ff5dd8',
+   'textColor': '#000000',
+   'bgColor': '#ff5dd8'},
+  {'title': 'Blue 600',
+   'value': '#ff00ce',
+   'textColor': '#ffffff',
+   'bgColor': '#ff00ce'},
+  {'title': 'Blue 700',
+   'value': '#ff00c4',
+   'textColor': '#ffffff',
+   'bgColor': '#ff00c4'},
+  {'title': 'Blue 800',
+   'value': '#ff00b7',
+   'textColor': '#ffffff',
+   'bgColor': '#ff00b7'},
+  {'title': 'Blue 900',
+   'value': '#ff3cac',
+   'textColor': '#000000',
+   'bgColor': '#ff3cac'},
+  {'title': 'Blue 950',
+   'value': '#eb4f95',
+   'textColor': '#000000',
+   'bgColor': '#eb4f95'},
+  {'title': 'Indigo 50',
+   'value': '#fff6fb',
+   'textColor': '#000000',
+   'bgColor': '#fff6fb'},
+  {'title': 'Indigo 100',
+   'value': '#ffeef8',
+   'textColor': '#000000',
+   'bgColor': '#ffeef8'},
+  {'title': 'Indigo 200',
+   'value': '#ffddf1',
+   'textColor': '#000000',
+   'bgColor': '#ffddf1'},
+  {'title': 'Indigo 300',
+   'value': '#ffc1e8',
+   'textColor': '#000000',
+   'bgColor': '#ffc1e8'},
+  {'title': 'Indigo 400',
+   'value': '#ff93da',
+   'textColor': '#000000',
+   'bgColor': '#ff93da'},
+  {'title': 'Indigo 500',
+   'value': '#ff5ccf',
+   'textColor': '#000000',
+   'bgColor': '#ff5ccf'},
+  {'title': 'Indigo 600',
+   'value': '#ff00c4',
+   'textColor': '#ffffff',
+   'bgColor': '#ff00c4'},
+  {'title': 'Indigo 700',
+   'value': '#ff00bb',
+   'textColor': '#ffffff',
+   'bgColor': '#ff00bb'},
+  {'title': 'Indigo 800',
+   'value': '#ff00af',
+   'textColor': '#ffffff',
+   'bgColor': '#ff00af'},
+  {'title': 'Indigo 900',
+   'value': '#ff4ba5',
+   'textColor': '#000000',
+   'bgColor': '#ff4ba5'},
+  {'title': 'Indigo 950',
+   'value': '#e1528d',
+   'textColor': '#000000',
+   'bgColor': '#e1528d'},
+  {'title': 'Violet 50',
+   'value': '#fff8fb',
+   'textColor': '#000000',
+   'bgColor': '#fff8fb'},
+  {'title': 'Violet 100',
+   'value': '#fff3f8',
+   'textColor': '#000000',
+   'bgColor': '#fff3f8'},
+  {'title': 'Violet 200',
+   'value': '#ffe7f3',
+   'textColor': '#000000',
+   'bgColor': '#ffe7f3'},
+  {'title': 'Violet 300',
+   'value': '#ffd0e9',
+   'textColor': '#000000',
+   'bgColor': '#ffd0e9'},
+  {'title': 'Violet 400',
+   'value': '#ffabda',
+   'textColor': '#000000',
+   'bgColor': '#ffabda'},
+  {'title': 'Violet 500',
+   'value': '#ff7dcd',
+   'textColor': '#000000',
+   'bgColor': '#ff7dcd'},
+  {'title': 'Violet 600',
+   'value': '#ff58c3',
+   'textColor': '#000000',
+   'bgColor': '#ff58c3'},
+  {'title': 'Violet 700',
+   'value': '#ff47bb',
+   'textColor': '#000000',
+   'bgColor': '#ff47bb'},
+  {'title': 'Violet 800',
+   'value': '#ff48b1',
+   'textColor': '#000000',
+   'bgColor': '#ff48b1'},
+  {'title': 'Violet 900',
+   'value': '#ff53a6',
+   'textColor': '#000000',
+   'bgColor': '#ff53a6'},
+  {'title': 'Violet 950',
+   'value': '#fd4292',
+   'textColor': '#000000',
+   'bgColor': '#fd4292'},
+  {'title': 'Purple 50',
+   'value': '#fffbfc',
+   'textColor': '#000000',
+   'bgColor': '#fffbfc'},
+  {'title': 'Purple 100',
+   'value': '#fff4f8',
+   'textColor': '#000000',
+   'bgColor': '#fff4f8'},
+  {'title': 'Purple 200',
+   'value': '#ffebf3',
+   'textColor': '#000000',
+   'bgColor': '#ffebf3'},
+  {'title': 'Purple 300',
+   'value': '#ffd8e9',
+   'textColor': '#000000',
+   'bgColor': '#ffd8e9'},
+  {'title': 'Purple 400',
+   'value': '#ffb8d9',
+   'textColor': '#000000',
+   'bgColor': '#ffb8d9'},
+  {'title': 'Purple 500',
+   'value': '#ff96cd',
+   'textColor': '#000000',
+   'bgColor': '#ff96cd'},
+  {'title': 'Purple 600',
+   'value': '#ff7ac2',
+   'textColor': '#000000',
+   'bgColor': '#ff7ac2'},
+  {'title': 'Purple 700',
+   'value': '#ff6fb8',
+   'textColor': '#000000',
+   'bgColor': '#ff6fb8'},
+  {'title': 'Purple 800',
+   'value': '#ff74ae',
+   'textColor': '#000000',
+   'bgColor': '#ff74ae'},
+  {'title': 'Purple 900',
+   'value': '#ff75a3',
+   'textColor': '#000000',
+   'bgColor': '#ff75a3'},
+  {'title': 'Purple 950',
+   'value': '#f45d90',
+   'textColor': '#000000',
+   'bgColor': '#f45d90'},
+  {'title': 'Fuchsia 50',
+   'value': '#fffbfc',
+   'textColor': '#000000',
+   'bgColor': '#fffbfc'},
+  {'title': 'Fuchsia 100',
+   'value': '#fff7f9',
+   'textColor': '#000000',
+   'bgColor': '#fff7f9'},
+  {'title': 'Fuchsia 200',
+   'value': '#ffeef2',
+   'textColor': '#000000',
+   'bgColor': '#ffeef2'},
+  {'title': 'Fuchsia 300',
+   'value': '#ffe2e7',
+   'textColor': '#000000',
+   'bgColor': '#ffe2e7'},
+  {'title': 'Fuchsia 400',
+   'value': '#ffd0d8',
+   'textColor': '#000000',
+   'bgColor': '#ffd0d8'},
+  {'title': 'Fuchsia 500',
+   'value': '#ffc1cb',
+   'textColor': '#000000',
+   'bgColor': '#ffc1cb'},
+  {'title': 'Fuchsia 600',
+   'value': '#ffb6bf',
+   'textColor': '#000000',
+   'bgColor': '#ffb6bf'},
+  {'title': 'Fuchsia 700',
+   'value': '#ffaeb4',
+   'textColor': '#000000',
+   'bgColor': '#ffaeb4'},
+  {'title': 'Fuchsia 800',
+   'value': '#f2a5a9',
+   'textColor': '#000000',
+   'bgColor': '#f2a5a9'},
+  {'title': 'Fuchsia 900',
+   'value': '#de9fa1',
+   'textColor': '#000000',
+   'bgColor': '#de9fa1'},
+  {'title': 'Fuchsia 950',
+   'value': '#c4898a',
+   'textColor': '#000000',
+   'bgColor': '#c4898a'},
+  {'title': 'Pink 50',
+   'value': '#fcfcfb',
+   'textColor': '#000000',
+   'bgColor': '#fcfcfb'},
+  {'title': 'Pink 100',
+   'value': '#fafaf8',
+   'textColor': '#000000',
+   'bgColor': '#fafaf8'},
+  {'title': 'Pink 200',
+   'value': '#f4f7f0',
+   'textColor': '#000000',
+   'bgColor': '#f4f7f0'},
+  {'title': 'Pink 300',
+   'value': '#e6f3e3',
+   'textColor': '#000000',
+   'bgColor': '#e6f3e3'},
+  {'title': 'Pink 400',
+   'value': '#c9f0d0',
+   'textColor': '#000000',
+   'bgColor': '#c9f0d0'},
+  {'title': 'Pink 500',
+   'value': '#a7f1c3',
+   'textColor': '#000000',
+   'bgColor': '#a7f1c3'},
+  {'title': 'Pink 600',
+   'value': '#6df2b6',
+   'textColor': '#000000',
+   'bgColor': '#6df2b6'},
+  {'title': 'Pink 700',
+   'value': '#44e9ac',
+   'textColor': '#000000',
+   'bgColor': '#44e9ac'},
+  {'title': 'Pink 800',
+   'value': '#4bdaa2',
+   'textColor': '#000000',
+   'bgColor': '#4bdaa2'},
+  {'title': 'Pink 900',
+   'value': '#5dcb9b',
+   'textColor': '#000000',
+   'bgColor': '#5dcb9b'},
+  {'title': 'Pink 950',
+   'value': '#44ae83',
+   'textColor': '#000000',
+   'bgColor': '#44ae83'},
+  {'title': 'Rose 50',
+   'value': '#f6fefa',
+   'textColor': '#000000',
+   'bgColor': '#f6fefa'},
+  {'title': 'Rose 100',
+   'value': '#edfef6',
+   'textColor': '#000000',
+   'bgColor': '#edfef6'},
+  {'title': 'Rose 200',
+   'value': '#defdef',
+   'textColor': '#000000',
+   'bgColor': '#defdef'},
+  {'title': 'Rose 300',
+   'value': '#b6ffe0',
+   'textColor': '#000000',
+   'bgColor': '#b6ffe0'},
+  {'title': 'Rose 400',
+   'value': '#62ffcc',
+   'textColor': '#000000',
+   'bgColor': '#62ffcc'},
+  {'title': 'Rose 500',
+   'value': '#00ffbd',
+   'textColor': '#000000',
+   'bgColor': '#00ffbd'},
+  {'title': 'Rose 600',
+   'value': '#00ffb2',
+   'textColor': '#000000',
+   'bgColor': '#00ffb2'},
+  {'title': 'Rose 700',
+   'value': '#00f4a8',
+   'textColor': '#000000',
+   'bgColor': '#00f4a8'},
+  {'title': 'Rose 800',
+   'value': '#00e2a0',
+   'textColor': '#000000',
+   'bgColor': '#00e2a0'},
+  {'title': 'Rose 900',
+   'value': '#00d39a',
+   'textColor': '#000000',
+   'bgColor': '#00d39a'},
+  {'title': 'Rose 950',
+   'value': '#00b080',
+   'textColor': '#ffffff',
+   'bgColor': '#00b080'},
+  {'title': 'Slate 50',
+   'value': '#fffcfd',
+   'textColor': '#000000',
+   'bgColor': '#fffcfd'},
+  {'title': 'Slate 100',
+   'value': '#fff9fc',
+   'textColor': '#000000',
+   'bgColor': '#fff9fc'},
+  {'title': 'Slate 200',
+   'value': '#fff3f7',
+   'textColor': '#000000',
+   'bgColor': '#fff3f7'},
+  {'title': 'Slate 300',
+   'value': '#ffe8f0',
+   'textColor': '#000000',
+   'bgColor': '#ffe8f0'},
+  {'title': 'Slate 400',
+   'value': '#f9cbdb',
+   'textColor': '#000000',
+   'bgColor': '#f9cbdb'},
+  {'title': 'Slate 500',
+   'value': '#ecb0c6',
+   'textColor': '#000000',
+   'bgColor': '#ecb0c6'},
+  {'title': 'Slate 600',
+   'value': '#db9cb3',
+   'textColor': '#000000',
+   'bgColor': '#db9cb3'},
+  {'title': 'Slate 700',
+   'value': '#d18ba6',
+   'textColor': '#000000',
+   'bgColor': '#d18ba6'},
+  {'title': 'Slate 800',
+   'value': '#c07592',
+   'textColor': '#000000',
+   'bgColor': '#c07592'},
+  {'title': 'Slate 900',
+   'value': '#b45e80',
+   'textColor': '#ffffff',
+   'bgColor': '#b45e80'},
+  {'title': 'Slate 950',
+   'value': '#a53569',
+   'textColor': '#ffffff',
+   'bgColor': '#a53569'},
+  {'title': 'Gray 50',
+   'value': '#fffdfd',
+   'textColor': '#000000',
+   'bgColor': '#fffdfd'},
+  {'title': 'Gray 100',
+   'value': '#fdfafb',
+   'textColor': '#000000',
+   'bgColor': '#fdfafb'},
+  {'title': 'Gray 200',
+   'value': '#fbf5f7',
+   'textColor': '#000000',
+   'bgColor': '#fbf5f7'},
+  {'title': 'Gray 300',
+   'value': '#f7edf0',
+   'textColor': '#000000',
+   'bgColor': '#f7edf0'},
+  {'title': 'Gray 400',
+   'value': '#ecd2db',
+   'textColor': '#000000',
+   'bgColor': '#ecd2db'},
+  {'title': 'Gray 500',
+   'value': '#dbb8c4',
+   'textColor': '#000000',
+   'bgColor': '#dbb8c4'},
+  {'title': 'Gray 600',
+   'value': '#cfa3b3',
+   'textColor': '#000000',
+   'bgColor': '#cfa3b3'},
+  {'title': 'Gray 700',
+   'value': '#c892a5',
+   'textColor': '#000000',
+   'bgColor': '#c892a5'},
+  {'title': 'Gray 800',
+   'value': '#b77a91',
+   'textColor': '#000000',
+   'bgColor': '#b77a91'},
+  {'title': 'Gray 900',
+   'value': '#ac6580',
+   'textColor': '#ffffff',
+   'bgColor': '#ac6580'},
+  {'title': 'Gray 950',
+   'value': '#944968',
+   'textColor': '#ffffff',
+   'bgColor': '#944968'},
+  {'title': 'Zinc 50',
+   'value': '#fdfdfd',
+   'textColor': '#000000',
+   'bgColor': '#fdfdfd'},
+  {'title': 'Zinc 100',
+   'value': '#fcfbfb',
+   'textColor': '#000000',
+   'bgColor': '#fcfbfb'},
+  {'title': 'Zinc 200',
+   'value': '#f8f5f6',
+   'textColor': '#000000',
+   'bgColor': '#f8f5f6'},
+  {'title': 'Zinc 300',
+   'value': '#f3eef0',
+   'textColor': '#000000',
+   'bgColor': '#f3eef0'},
+  {'title': 'Zinc 400',
+   'value': '#e4d6da',
+   'textColor': '#000000',
+   'bgColor': '#e4d6da'},
+  {'title': 'Zinc 500',
+   'value': '#d0bec3',
+   'textColor': '#000000',
+   'bgColor': '#d0bec3'},
+  {'title': 'Zinc 600',
+   'value': '#bfaab0',
+   'textColor': '#000000',
+   'bgColor': '#bfaab0'},
+  {'title': 'Zinc 700',
+   'value': '#af9da3',
+   'textColor': '#000000',
+   'bgColor': '#af9da3'},
+  {'title': 'Zinc 800',
+   'value': '#958b8e',
+   'textColor': '#000000',
+   'bgColor': '#958b8e'},
+  {'title': 'Zinc 900',
+   'value': '#867a7e',
+   'textColor': '#ffffff',
+   'bgColor': '#867a7e'},
+  {'title': 'Zinc 950',
+   'value': '#716669',
+   'textColor': '#ffffff',
+   'bgColor': '#716669'},
+  {'title': 'Neutral 50',
+   'value': '#fdfdfd',
+   'textColor': '#000000',
+   'bgColor': '#fdfdfd'},
+  {'title': 'Neutral 100',
+   'value': '#fbfbfb',
+   'textColor': '#000000',
+   'bgColor': '#fbfbfb'},
+  {'title': 'Neutral 200',
+   'value': '#f6f6f6',
+   'textColor': '#000000',
+   'bgColor': '#f6f6f6'},
+  {'title': 'Neutral 300',
+   'value': '#efefef',
+   'textColor': '#000000',
+   'bgColor': '#efefef'},
+  {'title': 'Neutral 400',
+   'value': '#dadada',
+   'textColor': '#000000',
+   'bgColor': '#dadada'},
+  {'title': 'Neutral 500',
+   'value': '#c3c3c3',
+   'textColor': '#000000',
+   'bgColor': '#c3c3c3'},
+  {'title': 'Neutral 600',
+   'value': '#afafaf',
+   'textColor': '#000000',
+   'bgColor': '#afafaf'},
+  {'title': 'Neutral 700',
+   'value': '#a2a2a2',
+   'textColor': '#000000',
+   'bgColor': '#a2a2a2'},
+  {'title': 'Neutral 800',
+   'value': '#8c8c8c',
+   'textColor': '#000000',
+   'bgColor': '#8c8c8c'},
+  {'title': 'Neutral 900',
+   'value': '#7c7c7c',
+   'textColor': '#ffffff',
+   'bgColor': '#7c7c7c'},
+  {'title': 'Neutral 950',
+   'value': '#6a6a6a',
+   'textColor': '#ffffff',
+   'bgColor': '#6a6a6a'},
+  {'title': 'Stone 50',
+   'value': '#fdfdfd',
+   'textColor': '#000000',
+   'bgColor': '#fdfdfd'},
+  {'title': 'Stone 100',
+   'value': '#fbfcfb',
+   'textColor': '#000000',
+   'bgColor': '#fbfcfb'},
+  {'title': 'Stone 200',
+   'value': '#f4f7f6',
+   'textColor': '#000000',
+   'bgColor': '#f4f7f6'},
+  {'title': 'Stone 300',
+   'value': '#ebf1ef',
+   'textColor': '#000000',
+   'bgColor': '#ebf1ef'},
+  {'title': 'Stone 400',
+   'value': '#d2ded9',
+   'textColor': '#000000',
+   'bgColor': '#d2ded9'},
+  {'title': 'Stone 500',
+   'value': '#b6c8c2',
+   'textColor': '#000000',
+   'bgColor': '#b6c8c2'},
+  {'title': 'Stone 600',
+   'value': '#a3b5b0',
+   'textColor': '#000000',
+   'bgColor': '#a3b5b0'},
+  {'title': 'Stone 700',
+   'value': '#96a8a2',
+   'textColor': '#000000',
+   'bgColor': '#96a8a2'},
+  {'title': 'Stone 800',
+   'value': '#84908b',
+   'textColor': '#000000',
+   'bgColor': '#84908b'},
+  {'title': 'Stone 900',
+   'value': '#75837e',
+   'textColor': '#ffffff',
+   'bgColor': '#75837e'},
+  {'title': 'Stone 950',
+   'value': '#636e6a',
+   'textColor': '#ffffff',
+   'bgColor': '#636e6a'}]}
+```

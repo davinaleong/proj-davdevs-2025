@@ -1,0 +1,140 @@
+---
+title: "Advanced Fruit Calculator"
+slug: "20250426-advanced-fruit-calculator"
+description: "Simulate a simple fruit shop checkout where you:"
+date: "2025-04-26"
+author: "Davina Leong"
+tags: ["python", "jupyter", "tutorial", "calculator"]
+featured: false
+readingTime: 3
+published: true
+---
+
+# 🍍 Project: Fruit Shop Calculator¶
+
+## 🎯 Objective:¶
+
+Simulate a simple fruit shop checkout where you:
+
+- Add and subtract quantities
+- Multiply for total cost
+- Divide to find average price
+- Use modulus %, exponentiation **,
+                  and floor division // for calculations
+
+## 🧾 Task Description:¶
+
+You're buying:
+
+- 3 apples at SGD2 each
+- 5 bananas at SGD1.5 each
+- 4 durians at SGD15 each
+
+You're also running a promotion:
+
+- You get 1 free apple for every 2 bought
+- Apply a 9% tax
+- Show average price per fruit
+- Show cost per fruit rounded down and leftover cents
+
+# Starter code from ChatGPT¶
+
+# Fruit prices¶
+
+apple_price = 2 banana_price = 1.5 durian_price = 15
+
+# Quantities¶
+
+apples_bought = 3 bananas_bought = 5 durians_bought = 4
+
+# Free apples¶
+
+free_apples = apples_bought // 2 # 1 free for every 2 bought
+                total_apples = apples_bought + free_apples
+
+# Total cost before tax¶
+
+cost = (apples_bought * apple_price) + (bananas_bought *
+                banana_price) + (durians_bought * durian_price)
+
+# Apply tax (9%)¶
+
+tax_rate = 0.09 tax_amount = cost * tax_rate total_cost = cost +
+                tax_amount
+
+# Average price per fruit (including free apples)¶
+
+total_fruits = total_apples + bananas_bought + durians_bought
+                average_price = total_cost / total_fruits
+
+# Floor division and modulus for durian price¶
+
+dollar_part = durian_price // 1 cent_part = durian_price % 1
+
+# Exponentiation (bonus): Square the number of bananas¶
+
+banana_power = bananas_bought ** 2
+
+# Print results¶
+
+print(f"Free apples: {free_apples}") print(f"Total cost after
+                tax: ${total_cost:.2f}") print(f"Average price per fruit:
+                ${average_price:.2f}") print(f"Durian cost split: ${dollar_part}
+                + {cent_part*100:.0f} cents") print(f"Bananas to the power of 2:
+                {banana_power}")
+
+The next section accepts user input to function as a practical
+                fruit cost calculator.
+
+```python
+# Inputs for fruit prices
+str_apple_price = input('Enter the price of a single apple: ')
+str_banana_price = input('Enter the price of a single banana: ')
+str_durian_price = input('Enter the price of a single durian: ')
+# Inputs for fruits bought
+str_apples_bought = input('How many apples did you buy? ')
+str_bananas_bought = input('How many bananas did you buy? ')
+str_durians_bought = input('How many durians did you buy? ')
+# Fruit prices
+apple_price = float(str_apple_price)
+banana_price = float(str_banana_price)
+durian_price = float(str_durian_price)
+# Quantities
+apples_bought = int(str_apples_bought)
+bananas_bought = int(str_bananas_bought)
+durians_bought = int(str_durians_bought)
+# Free apples
+free_apples = apples_bought // 2  # 1 free for every 2 bought
+total_apples = apples_bought + free_apples
+# Total cost before tax
+cost = (apples_bought * apple_price) + (bananas_bought * banana_price) + (durians_bought * durian_price)
+# Apply tax (9%)
+tax_rate = 0.09
+tax_amount = cost * tax_rate
+total_cost = cost + tax_amount
+# Average price per fruit (including free apples)
+total_fruits = total_apples + bananas_bought + durians_bought
+average_price = total_cost / total_fruits
+# Floor division and modulus for durian price
+dollar_part = durian_price // 1
+cent_part = durian_price % 1
+# Exponentiation (bonus): Square the number of bananas
+banana_power = bananas_bought ** 2
+# Print results
+print(f"\n=== Fruit Shop Summary ===")
+print(f"Free apples received: {free_apples}")
+print(f"Total cost after 9% tax: SGD{total_cost:.2f}")
+print(f"Average price per fruit: SGD{average_price:.2f}")
+print(f"Durian price breakdown: SGD{int(dollar_part)} and {int(cent_part * 100)} cents")
+print(f"Bananas squared: {banana_power}")
+```
+
+**Output:**
+```
+=== Fruit Shop Summary ===
+Free apples received: 6
+Total cost after 9% tax: SGD148.78
+Average price per fruit: SGD4.96
+Durian price breakdown: SGD15 and 0 cents
+Bananas squared: 25
+```

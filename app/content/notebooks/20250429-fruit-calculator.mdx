@@ -1,0 +1,41 @@
+---
+title: "Fruit Calculator"
+slug: "20250429-fruit-calculator"
+description: "1. Enter the number of apples you'd like to"
+date: "2025-04-29"
+author: "Davina Leong"
+tags: ["python", "jupyter", "tutorial", "calculator"]
+featured: false
+readingTime: 1
+published: true
+---
+
+# Fruits Calculator¶
+
+1. Enter the number of apples you'd like to
+                  have.
+2. Enter the number of oranges you'd like to
+                  have.
+3. This calculator will give you the
+                  total number of apples and oranges you have.
+
+```python
+# Get the number of apples that the customer has bought.
+str_num_of_apples = input("Enter the number of apples you have.")
+# Get the number of oranges that the customer has bought.
+str_num_of_oranges = input("Enter the number of oranges you have.")
+# Cast the number of apples into a string
+num_of_apples = int(str_num_of_apples)
+# Cast the number of oranges into a string
+num_of_oranges = int(str_num_of_oranges)
+# Get the total number of fruits that the customer has
+num_total_fruits = num_of_apples + num_of_oranges
+# Construct the print statement into something human-friendly
+str_total_fruits = f"{str_num_of_apples} apples and {str_num_of_oranges} oranges amounts to {num_total_fruits} fruits."
+print(str_total_fruits)
+```
+
+**Output:**
+```
+KeyboardInterrupt
+```
