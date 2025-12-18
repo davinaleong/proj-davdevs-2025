@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { Key } from "lucide-react"
 import zxcvbn from "zxcvbn"
 import ToolPanel from "../components/ToolPanel"
-import { generateSecurePassword } from "../utilssword-generation"
+import { generateSecurePassword } from "../utils/password-generation"
 
 export default function PasswordCreator() {
   const [password, setPassword] = useState("")
