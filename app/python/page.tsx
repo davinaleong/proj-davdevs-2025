@@ -1,7 +1,9 @@
+import ComingSoon from "../components/ComingSoon"
+
 export default function Python() {
     return (
         <div>
-            Python
+            <ComingSoon />
         </div>
     )
 }
