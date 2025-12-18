@@ -9,13 +9,9 @@ export default function Test() {
     }
 
     return (
-        <div className="container mx-auto flow p-4">
+        <div className="relative container mx-auto flow p-4">
             <h1 className="text-2xl lg:text-4xl font-bold mb-4">🧪 Test Page</h1>
             <p>This page is for testing components during development.</p>
-            
-            <div className="flow border border-gray-200 dark:border-gray-800 p-4 rounded-sm">
-                <h2 className="text-lg font-semibold">Demo</h2>
-            </div>
         </div>
     )
 }
