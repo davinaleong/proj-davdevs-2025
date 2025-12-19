@@ -1,5 +1,6 @@
 import Anchor from "./Anchor"
-import CloseButton from "./CloseButton"
+import Button from "./Button"
+import { X } from "lucide-react"
 import { getNavigationLinks, type LinkItem } from "../utils/site-config"
 
 interface MenuProps {
@@ -41,10 +42,14 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
                 transform transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : 'translate-x-full'}
             `}>
-                <CloseButton 
+                <Button 
                     onClick={onClose}
-                    className="mb-4"
-                />
+                    variant="danger"
+                    className="absolute top-4 right-4 p-2"
+                    aria-label="Close menu"
+                >
+                    <X size={20} />
+                </Button>
 
                 <nav>
                     <ul className="space-y-2">
