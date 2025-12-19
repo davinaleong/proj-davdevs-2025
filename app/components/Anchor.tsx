@@ -7,6 +7,7 @@ interface AnchorProps {
   external?: boolean;
   className?: string;
   variant?: 'white' | 'black' | 'blue-500' | 'blue-300';
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export default function Anchor({ 
@@ -14,7 +15,8 @@ export default function Anchor({
   href, 
   external = false,
   className = "",
-  variant = 'blue-500'
+  variant = 'blue-500',
+  onClick
 }: AnchorProps) {
   const getVariantClasses = () => {
     switch (variant) {
@@ -38,7 +40,7 @@ export default function Anchor({
     : {};
 
   return (
-    <Link href={href} {...linkProps} className={anchorClasses}>
+    <Link href={href} {...linkProps} className={anchorClasses} onClick={onClick}>
       {children}
     </Link>
   );
