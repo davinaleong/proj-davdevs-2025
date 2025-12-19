@@ -32,8 +32,8 @@ export default function PrimaryHeader({ onMenuOpen, onSearchOpen }: PrimaryHeade
     return (
         <header className="sticky top-0 flex items-center justify-between gap-2 md:gap-8 p-2 bg-slate-100 dark:bg-gray-900 z-30 print:hidden">
             <Brand/>
-            <Nav className="hidden md:flex bg-linear-to-r from-slate-100 via-slate-300 to-slate-100 dark:from-gray-900 dark:via-gray-700 dark:to-gray-900 py-2 rounded-sm">
-                <ul className="flex-2 flex items-center gap-4 max-w-50 overflow-x-auto">
+            <Nav className="hidden md:flex bg-linear-to-r from-slate-100 via-slate-300 to-slate-100 dark:from-gray-900 dark:via-gray-700 dark:to-gray-900 py-2 rounded-sm overflow-x-auto">
+                <ul className="flex-2 flex items-center gap-4">
                     {navigationLinks.map(renderNavigationLink)}
                 </ul>
             </Nav>
