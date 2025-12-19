@@ -32,6 +32,7 @@ export default function HomeSection({
         switch (variant) {
             case 'default':
             case 'neutral':
+                return 'blue-500';
             case 'primary-light':
                 return 'black';
             case 'primary':
