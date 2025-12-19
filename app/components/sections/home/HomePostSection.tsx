@@ -43,7 +43,7 @@ export default function HomePostSection({
         className={className}
       >
         <div className="container mx-auto p-6 text-center">
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="opacity-70">
             No {postType} posts available yet.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function HomePostSection({
       } : undefined}
     >
       <div className="container mx-auto p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {posts.map((post) => (
             <Card
               key={post.slug}
