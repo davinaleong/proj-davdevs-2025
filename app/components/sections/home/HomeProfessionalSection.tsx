@@ -1,12 +1,8 @@
 import HomeSection from '../../HomeSection'
 import Card from '../../Card'
-import { findLinkByLabel } from '../../../utils/site-config'
 import { getPostBySlug } from '../../../utils/content'
 
 export default function HomeProfessionalSection() {
-  const resumeLink = findLinkByLabel("Resume");
-  const timelineLink = findLinkByLabel("Timeline");
-
   // Load Resume and Timeline data from actual MDX files
   const resumePost = getPostBySlug('static', 'resume');
   const timelinePost = getPostBySlug('static', 'timeline');
