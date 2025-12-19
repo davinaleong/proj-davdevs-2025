@@ -2,6 +2,7 @@ import { ComponentProps } from 'react'
 import HomeSection from '../../HomeSection'
 import Card from '../../Card'
 import { getLatestPostsByType, type PostType } from '../../../utils/content'
+import { getHomepageItemsPerSection } from '../../../utils/site-config'
 
 interface HomePostSectionProps {
   title: string;
@@ -24,7 +25,8 @@ export default function HomePostSection({
   className = "",
   id
 }: HomePostSectionProps) {
-  const posts = getLatestPostsByType(postType, 3);
+  const itemsPerSection = getHomepageItemsPerSection();
+  const posts = getLatestPostsByType(postType, itemsPerSection);
   
   // Generate default view all href if not provided
   const defaultViewAllHref = `/${postType}`;

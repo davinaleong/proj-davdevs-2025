@@ -203,6 +203,9 @@
     },
     "pagination": {
       "itemsPerPage": 24
+    },
+    "homepage": {
+      "itemsPerSection": 4
     }
   }
 }

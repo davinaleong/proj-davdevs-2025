@@ -91,6 +91,10 @@ export function getItemsPerPage(): number {
   return siteConfig.ui.pagination.itemsPerPage
 }
 
+export function getHomepageItemsPerSection(): number {
+  return siteConfig.ui.homepage.itemsPerSection
+}
+
 // Utility functions
 export function getAllHeroKeys(): string[] {
   return Object.keys(siteConfig.heroContent)
