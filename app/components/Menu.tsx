@@ -1,6 +1,6 @@
-import Link from "next/link"
+import Anchor from "./Anchor"
 import CloseButton from "./CloseButton"
-import { getNavigationLinks, getLinkProps, type LinkItem } from "../utils/site-config"
+import { getNavigationLinks, type LinkItem } from "../utils/site-config"
 
 interface MenuProps {
     isOpen: boolean;
@@ -11,18 +11,16 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
     const navigationLinks = getNavigationLinks();
 
     const renderNavigationLink = (link: LinkItem) => {
-        const linkProps = getLinkProps(link);
-        
         return (
             <li key={link.href}>
-                <Link 
+                <Anchor 
                     href={link.href}
-                    className="block py-2 px-4 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm"
+                    external={link.external}
+                    variant="menu"
                     onClick={onClose}
-                    {...linkProps}
                 >
                     {link.label}
-                </Link>
+                </Anchor>
             </li>
         );
     };
