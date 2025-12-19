@@ -1,269 +1,114 @@
 ---
-title: "Python Tutorial Python Basics"
+title: "Python Tutorial: Python Basics"
 slug: "20250515-python-tutorial-python-basics"
-description: "A foundational Python tutorial covering basic programming concepts including variables, data types, loops, conditionals, and fundamental operations."
+description: "A beginner-friendly Python tutorial covering core language fundamentals such as variables, data types, input, and basic operations."
 date: "2025-05-15"
 author: "Davina Leong"
-tags: ["python", "jupyter", "tutorial", "numpy"]
+tags:
+  [
+    "Python",
+    "Jupyter Notebook",
+    "Python Tutorial",
+    "Beginner Programming",
+    "Python Basics",
+    "Fundamentals"
+  ]
 featured: false
-readingTime: 5
+readingTime: 4
 published: true
 ---
-# Question 1: Check if a number is Palindrome* or not [10%]
-Suggestion: Complete IU 3.5.5 before attempting this question.
-1 a) Write a code snippet for user to input a number. [2%]
-1 b) Run a check to see if the input is a number or a string, if
- user input a string, display out a message showing, "Incorrect
- format, please input a number." [4%]
-1 c) Once the user inputs a number, run a check to see if the
- number is palindrome or not. If the number is palindrome display
-    "The given number is Palindrome". If it's not a palindrome, then
- display, "The given number is not a Palindrome." [4%]
-Examples:
-- input: "bib": output: Incorrect format, please input a number.
-- input: "415": output: The given number is not a Palindrome.
-- input: "212": output: The given number is Palindrome.
-* A palindrome number is a number that remains the same when its
- digits are reversed. In other words, it reads the same backward
- as forward. Palindrome numbers are symmetric and exhibit the
- same sequence of digits when read from left to right and from
- right to left.
-# Question 2: Frequently occurring words [10%]
-Suggestion: Complete IU 3.5.6 before attempting this question.
-2 a) Implement a function that takes a string text and an
- integer k. [2%]
-2 b) Checks the occurrence of each word in the sentence. [3%]
-2 c) Returns the list of words that occur in the text at least k
- times. [3%]
-2 d) The words must be returned in the order of their first
- occurrence in the text. [2%]
-Example:
-- input: text = "a mouse is smaller than a dog but a dog is
- stronger"
-- k = 2
-- output: ['a', 'is', 'dog']
+
+## 🐍 Introduction: Starting with the Basics
+
+Every programming journey starts somewhere — and for Python, that starting point is understanding the **basics**.
+
+This tutorial introduces fundamental Python concepts in a clear, beginner-friendly way. It focuses on building confidence with the language before moving on to more complex ideas like data processing or system design.
+
+Simple concepts, explained clearly.
+
+---
+
+## 🎯 Purpose: Building a Strong Foundation
+
+The goal of this tutorial is to help beginners understand:
+
+- What Python is and how it’s used
+- How variables store data
+- Common built-in data types
+- How basic operations work
+- How to interact with users via input
+
+These fundamentals form the backbone of every Python program.
+
+---
+
+## 🧠 How It Works: Core Concepts in Action
+
+The notebook walks through Python basics step by step, including:
+
+1. Assigning values to variables
+2. Working with numbers and strings
+3. Performing basic arithmetic
+4. Using `input()` to accept user data
+5. Printing output clearly
+
+Each concept builds on the previous one, reinforcing understanding through simple examples.
+
+---
+
+## 🧩 The Technical Part: Variables, Types, and Operations
+
+A simplified example of the concepts covered looks like this:
+
 ```python
-Explanation: The list of words that occur at least k = 2 times
-```
- is ["a", "is", "dog"]. "a" occurs 3 times, "is" and "dog" both
- occur 2 times. No other word occurs at least 2 times. The answer
- is in order of the first appearance in text.
-# Question 3: Suffix stripping Stemmer* [10%]
-Suggestion: Complete IU 3.5.6 before attempting this question.
-3 a) Implement a function that takes a sentence without
- punctuation. [1%]
-3 b) If the word ends in 'ed', 'ly' or 'ing', remove the suffix.
-    [4%]
-3 c) If the resulting word is longer than 7 letters, keep the
- first 7 letters. [3%]
-3 d) Return the stemmed counterpart of individual words as a string. [2%]
-Example:
-- input: text = "an extremely ferocious dog is barking"
-- output: an extreme ferocio dog is bark
-Explanation:
-'an' does not end in one of the suffixes and is less than 7
- letters, 'extremely' is 'extreme' after removing the suffix and
-    'extreme' is less than 7 letters, 'ferocious' is 9 letters long,
- so reduce it to 7 letters: 'ferocio','dog' and 'is' are
- unchanged, 'barking' is 'bark' after removing the suffix and is
- less than 7 letters.
-* Stemming is the process of extracting the base word from a word. For instance, the base for "worked" is "work".
-# Question 4: Scientific Calculator [10%]
-Suggestion: Complete IU 3.5.7 before attempting this question.
-4 a) Implement a function to create a simple scientific
- calculator. [2%]
-4 b) The operations that can be performed are: [7%]
-- Addition
-- Subtraction
-- Multiplication
-- Division
-- Exponential
-- Square root
-- Logarithm
-- Sin
-- Cosine
-- Tan
-4 c) Return the results after computing the selected operation.
-    [1%]
-```python
-try:
-```python
- x = int(input("Please give a number:"))
- str_x = f"{x}"
- str_x_reverse = str_x[::-1]
- if str_x == str_x_reverse:
- print(f"The given number is Palindrome.")
-```
- else:
-```python
- print(f"The given number is not a Palindrome.")
-```
-except ValueError:
-```python
- print("Incorrect format, please input a number.")
-```
-```
-**Output:**
-```
-The given number is Palindrome.
-```
-```python
-```python
-def frequent_words(text, k):
-```
-    # 2a: Split the text into words
-```python
- words = text.split(" ")
-```
-    # 2b: Count word occurrences
-```python
- word_counts = {}
- for word in words:
- word_counts[word] = word_counts.get(word, 0) + 1
-```
-    # 2c + 2d: Collect words with count ≥ k in order of first appearance
-```python
- result = []
- for word in words:
- if word_counts[word] >= k and word not in result:
- result.append(word)
-```
- return result
-```python
-text = "a mouse is smaller than a dog but a dog is stronger"
-k = 2
-print(frequent_words(text, k))
-```
-```
-**Output:**
-```
-['a', 'is', 'dog']
-```
-```python
-```python
-sentence = input("Give a sentence without a punctuation:")
-def stemming(text):
- separator = " "
- suffixes = ("ed", "ly", "ing")
- max_word_length = 7
- words = text.split(separator)
- result_words = []
- for word in words:
-```
-        # Step 1: Remove suffix if present
-```python
- if word.endswith("ing"):
- word = word[:-3]
- elif word.endswith(("ed", "ly")):
- word = word[:-2]
-```
-        # Step 2: Truncate if longer than max_word_length
-```python
- if len(word) > max_word_length:
- word = word[:max_word_length]
- result_words.append(word)
- result = separator.join(result_words)
-```
- return result
-```python
-print(stemming(sentence))
-```
-```
-**Output:**
-```
-an extreme ferocio dog is bark
-```
-```python
-```python
-import numpy as np
-def scientific_calculator(x, operator, y):
- if isinstance(operator, (float, int)):
- if operator == 0:
- return np.add(x, y)
- elif operator == 1:
- return np.subtract(x, y)
- elif operator == 2:
- return np.multiply(x, y)
- elif operator == 3:
- return np.divide(x, y)
- elif operator == 4:
- return np.exp(x)
- elif operator == 5:
- return np.sqrt(x)
- elif operator == 6:
- return np.log(x)
- elif operator == 7:
- return np.sin(x)
- elif operator == 8:
- return np.cos(x)
- elif operator == 9:
- return np.tan(x)
-```
- else:
- return None
- else:
- return None
-```python
-print("== Welcome to Davina's Scientific Calculator! ==")
-x = float(input("Please give a number (decimals and negatives are allowed): "))
-y = float(input("Please give another number (decimals and negatives are allowed): "))
-operations = [
-```
-    "Addition",
-    "Subtraction",
-    "Multiplication",
-    "Division",
-    "Exponential",
-    "Square root",
-    "Logarithm",
-    "Sin",
-    "Cosine",
-    "Tan",
-]
-```python
-print("Here are the following operations:")
-for index, operation in enumerate(operations):
- print(f"{index}: {operation}")
-while True:
- operator_input = input("Please give an operation (number): ")
-```
- try:
-```python
- operator = int(operator_input)
-```
- except ValueError:
-```python
- print(f"'{operator_input}' is not a valid number. Please try again.")
-```
- continue
-```python
- result = scientific_calculator(x, operator, y)
- if result is not None:
- print("Result:", result)
-```
- break
- else:
-```python
- print(f"Operator '{operator}' is invalid. Please try again.")
-```
-```
-**Output:**
-```
-```python
-== Welcome to Davina's Scientific Calculator! ==
-```
-Here are the following operations:
-0: Addition
-1: Subtraction
-2: Multiplication
-3: Division
-4: Exponential
-5: Square root
-6: Logarithm
-7: Sin
-8: Cosine
-9: Tan
-Operator '10' is invalid. Please try again.
-'we' is not a valid number. Please try again.
-Result: 50.0
-```
+name = input("What is your name? ")
+age = int(input("How old are you? "))
+
+print(f"Hello {name}, you are {age} years old.")
+````
+
+### 🔍 What’s Being Demonstrated
+
+* 📦 Variables store information
+* 🔤 Strings and numbers behave differently
+* 🔄 Type conversion is sometimes required
+* 🧠 Python syntax is designed to be readable
+
+These ideas appear in every Python project, no matter how small or large.
+
+---
+
+## 💡 Key Takeaways: Why Basics Matter
+
+This tutorial reinforces several important lessons:
+
+* 🧱 Strong fundamentals make learning easier later
+* 🧠 Understanding types prevents common bugs
+* 🔁 Small programs are built from basic statements
+* 🚀 Confidence grows through simple wins
+
+Skipping the basics only makes things harder later — this notebook makes sure they stick.
+
+---
+
+## 🏁 Conclusion: The First Step in Your Python Journey
+
+The **Python Tutorial: Python Basics** notebook sets the tone for everything that follows:
+
+> Learn the language first —
+> then learn what to build with it.
+
+With these foundations in place, learners are ready to explore:
+
+* Conditionals and loops
+* Functions and modules
+* Data processing
+* Mini projects and systems
+
+Every Python expert started right here.
+
+---
+
+## 🔗 Link to Notebook
+
+**Notebook link:** *Coming Soon*
