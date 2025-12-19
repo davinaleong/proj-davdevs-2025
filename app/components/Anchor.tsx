@@ -6,7 +6,7 @@ interface AnchorProps {
   href: string;
   external?: boolean;
   className?: string;
-  variant?: 'white' | 'black' | 'blue-500' | 'blue-300';
+  variant?: 'white' | 'black' | 'blue-500' | 'blue-300' | 'footer' | 'footer-legal';
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
@@ -28,6 +28,10 @@ export default function Anchor({
         return "underline text-blue-500 hover:opacity-60";
       case 'blue-300':
         return "underline text-blue-300 hover:opacity-60";
+      case 'footer':
+        return "text-blue-100 hover:text-white transition-colors";
+      case 'footer-legal':
+        return "text-blue-100 hover:text-white underline transition-colors";
       default:
         return "underline text-blue-500 hover:opacity-60";
     }

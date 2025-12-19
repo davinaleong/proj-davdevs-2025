@@ -14,16 +14,6 @@
       "external": false
     },
     {
-      "label": "Resume",
-      "href": "/pages/resume", 
-      "external": false
-    },
-    {
-      "label": "Timeline",
-      "href": "/pages/timeline",
-      "external": false
-    },
-    {
       "label": "Portfolio",
       "href": "/portfolio",
       "external": false
@@ -61,7 +51,7 @@
   ],
   "socialLinks": [
     {
-      "label": "leong.shi.yun@gmail.com",
+      "label": "Email",
       "href": "mailto:leong.shi.yun@gmail.com",
       "external": true
     },
@@ -72,12 +62,37 @@
     },
     {
       "label": "LinkedIn",
-      "href": "https://www.linkedin.com/in/davina-leong-s-y/",
+      "href": "https://www.linkedin.com/in/davina-leong/",
+      "external": true
+    },
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/DavinaLSY",
+      "external": true
+    },
+    {
+      "label": "YouTube",
+      "href": "https://www.youtube.com/@DavDevsMedia",
+      "external": true
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/davinaleong/",
+      "external": true
+    },
+    {
+      "label": "Threads",
+      "href": "https://www.threads.com/@davinaleong?hl=en",
       "external": true
     },
     {
       "label": "Resume",
       "href": "/pages/resume",
+      "external": false
+    },
+    {
+      "label": "Timeline",
+      "href": "/pages/timeline",
       "external": false
     }
   ],
@@ -85,6 +100,11 @@
     {
       "label": "Privacy Policy",
       "href": "/pages/privacy",
+      "external": false
+    },
+    {
+      "label": "Terms of Service",
+      "href": "/pages/terms",
       "external": false
     }
   ],

@@ -1,5 +1,7 @@
-import Link from "next/link";
-import { getFooterNavigationLinks, getSocialLinks, getLegalLinks, getLinkProps, type LinkItem } from "../utils/site-config";
+import Anchor from "./Anchor";
+import ImageDisplay from "./ImageDisplay";
+import Logo from "./../assets/images/logos/logo.svg"
+import { getFooterNavigationLinks, getSocialLinks, getLegalLinks, type LinkItem } from "../utils/site-config";
 
 interface PrimaryFooterProps {
     className?: string;
@@ -16,32 +18,29 @@ export default function PrimaryFooter({
     const legalLinks = getLegalLinks();
 
     const renderLink = (link: LinkItem) => {
-        const linkProps = getLinkProps(link);
-        
         return (
-            <Link 
+            <Anchor 
                 key={link.href}
                 href={link.href}
-                className="block text-blue-100 hover:text-white transition-colors text-sm"
-                {...linkProps}
+                external={link.external}
+                variant="footer"
+                className="block text-sm"
             >
                 {link.label}
-            </Link>
+            </Anchor>
         );
     };
 
     const renderLegalLink = (link: LinkItem) => {
-        const linkProps = getLinkProps(link);
-        
         return (
-            <Link 
+            <Anchor 
                 key={link.href}
                 href={link.href}
-                className="text-blue-100 hover:text-white underline transition-colors"
-                {...linkProps}
+                external={link.external}
+                variant="footer-legal"
             >
                 {link.label}
-            </Link>
+            </Anchor>
         );
     };
     
@@ -49,12 +48,13 @@ export default function PrimaryFooter({
         <footer className={`bg-blue-700 text-white p-4 ${className} print:hidden`}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
                 {/* Brand Section */}
-                <div className="text-center md:text-left">
+                <Anchor href="/" variant="footer" className="text-center md:text-left flow">
                     <h3 className="text-lg font-bold mb-2">Dav/Devs</h3>
                     <p className="text-blue-100 text-sm">
                         Designing with purpose. Building with code. Living by faith.
                     </p>
-                </div>
+                    <ImageDisplay src={Logo} alt="Dav/Devs Logo" aspectRatio="square" className="max-w-30" />
+                </Anchor>
 
                 {/* Quick Links */}
                 <div className="text-center">
