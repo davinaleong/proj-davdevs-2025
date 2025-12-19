@@ -21,13 +21,13 @@ export default function HomeProfessionalSection() {
             {resumePost && (
               <Card
                 post={resumePost}
-                baseHref={resumeLink?.href || '/pages/resume'}
+                baseHref="/pages"
               />
             )}
             {timelinePost && (
               <Card
                 post={timelinePost}
-                baseHref={timelineLink?.href || '/pages/timeline'}
+                baseHref="/pages"
               />
             )}
           </div>
