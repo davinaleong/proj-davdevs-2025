@@ -2,6 +2,7 @@ import HomeHeroSection from './components/sections/home/HomeHeroSection'
 import HomePostSection from './components/sections/home/HomePostSection'
 import HomeSocialSection from './components/sections/home/HomeSocialSection'
 import HomeJokeSection from './components/sections/home/HomeJokeSection'
+import HomeProfessionalSection from './components/sections/home/HomeProfessionalSection'
 import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <div>
       <HomeHeroSection />
+      <HomeProfessionalSection />
       {toolsContent && (
         <HomePostSection 
           title={toolsContent.title} 
