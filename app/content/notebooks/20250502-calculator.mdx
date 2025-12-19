@@ -1,351 +1,132 @@
 ---
 title: "Calculator"
 slug: "20250502-calculator"
-description: "A step-by-step tutorial for building a functional calculator in Python with basic arithmetic operations and user input handling."
+description: "A Python Jupyter Notebook that implements a simple calculator using functions, operator handling, and basic error management."
 date: "2025-05-02"
 author: "Davina Leong"
-tags: ["python", "jupyter", "tutorial", "calculator"]
+tags:
+  [
+    "Python",
+    "Jupyter Notebook",
+    "Beginner Programming",
+    "Functions",
+    "Arithmetic",
+    "Control Flow"
+  ]
 featured: false
-readingTime: 6
+readingTime: 3
 published: true
 ---
-# 📊 Davina's Calculator Notebook Summary
-This Jupyter Notebook builds a simple calculator in Python using arithmetic
-```python
- operations, structured into three main sections (cells).
-```
-## 🟡 Cell 1: Basic Arithmetic Functions
-Defines core functions for:
-- Addition (add)
-- Subtraction (subtract)
-- Multiplication (multiply)
-- Division (divide) — with
- ZeroDivisionError handling
-- Floor Division (floorDivision) — with
- ZeroDivisionError handling
-- Modulus (modulus) — with
- ZeroDivisionError handling
-- Exponentiation (exponentiation)
-At the end, it tests these functions with
-```python
- x = 5 and y = 3, printing the results.
-```
-## 🟠 Cell 2: Calculator Function
-Creates a wrapper function
-```python
-calculator(x, y, operator) that:
-```
-- Checks if the operator is valid.
-- Routes to the correct arithmetic function based on the
- operator:
- Handles /, //,
-    % inside a try block (due to
- possible division by zero).
- Handles +, -, *,
-    ** directly.
-- Handles /, //,
-    % inside a try block (due to
- possible division by zero).
-- Handles +, -, *,
-    ** directly.
-- Returns a human-readable message describing
- the operation result.
-Then it runs test calls for each operator,
-```python
- again using x = 5 and y = 3.
-```
-## 🟢
- Cell 3: Operator Dictionary + User Interaction
-Defines an operators dictionary that:
-- Maps each operator symbol to its name and
- layperson-friendly description.
-Then:
-- Greets the user.
-- Prompts the user to input two numbers.
-- Lists all available operators with their descriptions.
-- Prompts the user to choose an operator.
-- Runs the calculator() function with the user’s
- inputs and prints the result.
-## 💡 Key Takeaways
-✅ Error handling for division by zero
-    ✅ Clear separation between low-level arithmetic functions and
- high-level calculator logic
-    ✅ Friendly user prompts and operator explanations
-    ✅ Good modular design for easy expansion later
-## 🟡 Cell 1: Define Basic Arithmetic Functions
-This cell defines individual functions for basic arithmetic
- operations
-    (add, subtract, multiply, divide, floor division, modulus,
- exponentiation)
- and runs test calculations using example numbers.
-## 🟠 Cell 2: Build Calculator Wrapper Function
-This cell defines the
-```python
- calculator(x, y, operator) function,
-```
- which selects the correct arithmetic function based on the
- chosen operator
- and returns a friendly result message; it also runs test cases
-```python
- for all operators.
-```
-## 🟢 Cell 3: Set Up Operator Info and User Interaction
-This cell creates a dictionary of operators with their names and
- descriptions,
- displays available operations to the user, takes user input for
- numbers and operator,
- and runs the calculator to display the final result.
-```python
+
+## 🧮 Introduction: Building a Real Calculator in Python
+
+After working through focused exercises like fruit calculators and sorters, it’s time to bring everything together into something familiar and practical — a **calculator**.
+
+This notebook implements a basic calculator using Python, covering arithmetic operations, function abstraction, and operator-based decision logic. It’s simple, readable, and intentionally beginner-friendly.
+
+---
+
+## 🎯 Purpose: Practicing Core Programming Skills
+
+The purpose of this notebook is to reinforce several foundational concepts at once:
+
+- Writing reusable **functions**
+- Performing common arithmetic operations
+- Using conditionals to route logic
+- Handling basic runtime errors (like division by zero)
+
+Together, these form the backbone of many real-world programs.
+
+---
+
+## 🧠 How It Works: High-Level Flow
+
+The calculator follows a clear, structured flow:
+
+1. Define individual functions for arithmetic operations
+2. Create a wrapper function to act as the calculator engine
+3. Pass operands and an operator into the calculator
+4. Execute the correct operation and return the result
+
+This separation of responsibilities keeps the code easy to read and extend.
+
+---
+
+## 🧩 The Technical Part: Functions and Operators
+
+A simplified version of the logic looks like this:
+
 ```python
 def add(x, y):
-```
- return x + y
-```python
+    return x + y
+
 def subtract(x, y):
-```
- return x - y
-```python
+    return x - y
+
 def multiply(x, y):
-```
- return x * y
-```python
+    return x * y
+
 def divide(x, y):
- result = 0
-```
- try:
- return x / y
- except ZeroDivisionError:
-```python
- print("Error: you can't divide by zero!")
-def floorDivision(x, y):
-```
- try:
- return x // y
- except ZeroDivisionError:
-```python
- print("Error: you can't divide by zero!")
-def modulus(x, y):
-```
- try:
- return x % y
- except ZeroDivisionError:
-```python
- print("Error: you can't divide by zero!")
-def exponentiation(x, y):
-```
- return x ** y
-# Test functions
-```python
-x = 5
-y = 3
-print("== Start: Test Calculation Functions ==")
-print(f"Add {x} and {y}:", add(x, y))
-print(f"Subtract {x} from {y}:", subtract(x, y))
-print(f"Multiply {x} and {y}:", multiply(x, y))
-print(f"Divide {x} by {y}:", divide(x, y))
-print(f"Floor divide {x} from {y}:", floorDivision(x, y))
-print(f"Find the remainder of {x} from {y}:", modulus(x, y))
-print(f"Find the exponent of {x} from {y}:", exponentiation(x, y))
-print("== End: Test Calculation Functions ==")
-```
-```
-**Output:**
-```
-```python
-== Start: Test Calculation Functions ==
-```
-Add 5 and 3: 8
-Subtract 5 from 3: 2
-Multiply 5 and 3: 15
-Divide 5 by 3: 1.6666666666666667
-Floor divide 5 from 3: 1
-Find the remainder of 5 from 3: 2
-Find the exponent of 5 from 3: 125
-```python
-== End: Test Calculation Functions ==
-```
-```
-```python
-```python
-operators = {
-```
-    "+": {
-        "name": "Add",
-        "description": "Add things together",
-    },
-    "-": {
-        "name": "Subtract",
-        "description": "Take one thing away from another",
-    },
-    "*": {
-        "name": "Multiply",
-```python
-        "description": "Multiply (like repeated addition)",
-```
-    },
-    "/": {
-        "name": "Divide",
-```python
-        "description": "Divide (split into equal parts)",
-```
-    },
-    "//": {
-        "name": "Floor Division",
-```python
-        "description": "Divide and drop the decimals (only whole number part)",
-```
-    },
-    "%": {
-        "name": "Modulus",
-```python
-        "description": "Get what’s left over after dividing (the remainder)",
-```
-    },
-    "**": {
-        "name": "Exponentiation",
-```python
-        "description": "Raise a number to a power (like 2 to the power of 3)"
-```
-    },
-}
-```python
+    if y == 0:
+        return "Error: Division by zero"
+    return x / y
+
 def calculator(x, y, operator):
- message = ""
- if operator not in operators:
- message = f"Operator '{operator}' is undefined."
- if operator in ("/", "//", "%"):
-```
- try:
-```python
- if operator == "/":
- result = divide(x, y)
- message = f"{x} divided by {y} is {result}."
- if operator == "//":
- result = floorDivision(x, y)
- message = f"The floor of {x} divided by {y} is {result}."
- if operator == "%":
- result = modulus(x, y)
- message = f"The remainder of {x} divided by {y} is {result}."
-```
- except ZeroDivisionError:
-```python
- message = "Error: you can't divide by zero!"
- elif operator in ("+", "-", "*", "**"):
- if operator == "+":
- result = add(x, y)
- message = f"{x} added to {y} is {result}."
- if operator == "-":
- result = subtract(x, y)
- message = f"{x} subtracted from {y} is {result}."
- if operator == "*":
- result = multiply(x, y)
- message = f"{x} multiplied by {y} is {result}."
- if operator == "**":
- result = modulus(x, y)
- message = f"The exponent of {x} by {y} is {result}."
-```
- return message
-# Test functions
-```python
-x = 5
-y = 3
-print("== Start: Test Calculator Functions ==")
-print(calculator(x, y, "+"))
-print(calculator(x, y, "-"))
-print(calculator(x, y, "*"))
-print(calculator(x, y, "/"))
-print(calculator(x, y, "//"))
-print(calculator(x, y, "%"))
-print(calculator(x, y, "**"))
-print("== End: Test Calculator Functions ==")
-```
-```
-**Output:**
-```
-```python
-== Start: Test Calculator Functions ==
-```
-5 added to 3 is 8.
-5 subtracted from 3 is 2.
-5 multiplied by 3 is 15.
-5 divided by 3 is 1.6666666666666667.
-The floor of 5 divided by 3 is 1.
-The remainder of 5 divided by 3 is 2.
-The exponent of 5 by 3 is 2.
-```python
-== End: Test Calculator Functions ==
-```
-```
-```python
-```python
-operators = {
-```
-    "+": {
-        "name": "Add",
-        "description": "Add things together",
-    },
-    "-": {
-        "name": "Subtract",
-        "description": "Take one thing away from another",
-    },
-    "*": {
-        "name": "Multiply",
-```python
-        "description": "Multiply (like repeated addition)",
-```
-    },
-    "/": {
-        "name": "Divide",
-```python
-        "description": "Divide (split into equal parts)",
-```
-    },
-    "//": {
-        "name": "Floor Division",
-```python
-        "description": "Divide and drop the decimals (only whole number part)",
-```
-    },
-    "%": {
-        "name": "Modulus",
-```python
-        "description": "Get what’s left over after dividing (the remainder)",
-```
-    },
-    "**": {
-        "name": "Exponentiation",
-```python
-        "description": "Raise a number to a power (like 2 to the power of 3)"
-```
-    },
-}
-```python
-print("== Welcome to Davina's Calculator ==")
-x = float(input("Please give a number (decimals and negative numbers are allowed):"))
-y = float(input("Please give another number (decimals and negative numbers are allowed):"))
-print("Here are the available arithmetic operators:")
-for op_symbol, op_info in operators.items():
- name = op_info["name"]
- description = op_info["description"]
- print(f"\t'{op_symbol}' - {name}: {description}")
-operator = input("Choose one:")
-print(calculator(x, y, operator))
-```
-```
-**Output:**
-```
-```python
-== Welcome to Davina's Calculator ==
-```
-Here are the available arithmetic operators:
-	'+' - Add: Add things together
-	'-' - Subtract: Take one thing away from another
-```python
-	'*' - Multiply: Multiply (like repeated addition)
-	'/' - Divide: Divide (split into equal parts)
-	'//' - Floor Division: Divide and drop the decimals (only whole number part)
-	'%' - Modulus: Get what’s left over after dividing (the remainder)
-	'**' - Exponentiation: Raise a number to a power (like 2 to the power of 3)
-```
-5.5 multiplied by 3.3 is 18.15.
-```
+    if operator == "+":
+        return add(x, y)
+    elif operator == "-":
+        return subtract(x, y)
+    elif operator == "*":
+        return multiply(x, y)
+    elif operator == "/":
+        return divide(x, y)
+    else:
+        return "Invalid operator"
+````
+
+### 🔍 What This Demonstrates
+
+* 🧩 Each operation is encapsulated in its own function
+* 🔀 Conditional logic routes execution based on the operator
+* 🛡 Basic error handling prevents crashes
+* 🧠 The calculator logic stays clean and readable
+
+This is an early example of **command routing**, a pattern used in APIs and applications.
+
+---
+
+## 💡 Key Takeaways: From Syntax to Structure
+
+From this notebook, we learn that:
+
+* 🧱 Functions improve clarity and reuse
+* 🔁 Control flow determines program behaviour
+* ⚠️ Guarding against invalid input is essential
+* 🛠 Clean structure matters more than clever code
+
+These ideas scale directly into larger systems.
+
+---
+
+## 🏁 Conclusion: A Foundational Building Block
+
+The **Calculator** notebook represents a key milestone:
+
+> You’re no longer experimenting with isolated statements —
+> you’re composing logic into a working program.
+
+With this foundation, you’re well prepared to explore:
+
+* Loops for continuous input
+* Dictionaries for operator mapping
+* User-driven calculator menus
+* Object-oriented calculator designs
+
+Every complex system starts with a simple calculator.
+
+---
+
+## 🔗 Link to Notebook
+
+**Notebook link:** *Coming Soon*
+
