@@ -1,171 +1,120 @@
 ---
-title: "Python Tutorial Library Management System"
+title: "Python Tutorial: Library Management System"
 slug: "20250515-python-tutorial-library-management-system"
-description: "A Python tutorial implementing a library management system with object-oriented programming concepts, classes, and method implementations."
+description: "A step-by-step Python tutorial that builds a simple library management system, demonstrating collections, functions, and state management."
 date: "2025-05-15"
 author: "Davina Leong"
-tags: ["python", "jupyter", "tutorial", "data-science", "library-management"]
+tags:
+  [
+    "Python",
+    "Jupyter Notebook",
+    "Python Tutorial",
+    "Mini Project",
+    "Data Structures",
+    "State Management"
+  ]
 featured: false
 readingTime: 4
 published: true
 ---
-# Building a Library Management System [10%]
-Suggestion: Complete IU 3.6.9.1 before attempting this question.
-You are tasked with building a library management system using
- Python classes and objects. The system should allow for the
- management of books, library members, and borrowing
- transactions. Here are the requirements:
-1. Create a class called Book with the following attributes and
- methods: [2%]
-- Attributes: title, author, isbn, copies_available,
- total_copies
-- Method: display_info() that displays information about the
- book.
-1. Create a class called Member with the following attributes and
- methods: [3%]
-- Attributes: name, member_id, books_borrowed (a list of books
- borrowed)
-- Method: borrow_book(book) that allows a member to borrow a book.
-- Method: return_book(book) that allows a member to return a book.
-1. Create a class called Library with the following attributes
- and methods: [5%]
-- Attributes: name, books (a list of books), members (a list of
- members)
-- Method: add_book(book) to add a book to the library.
-- Method: add_member(member) to add a member to the library.
-- Method: get_available_books() to get a list of books available
+
+## 📚 Introduction: Building a Small System with Python
+
+Learning Python syntax is important — but learning how to **combine concepts into a working system** is what really builds confidence.
+
+This tutorial walks through the creation of a **Library Management System** using Python. It brings together data structures, functions, and control flow to simulate how a real-world system might behave.
+
+This is where Python starts to feel practical.
+
+---
+
+## 🎯 Purpose: Applying Multiple Concepts Together
+
+The goal of this tutorial is to help learners understand how to:
+
+- Represent real-world entities using data structures
+- Track system state (available vs borrowed books)
+- Organise logic using functions
+- Think in terms of workflows, not just lines of code
+
+Rather than focusing on one concept, this notebook focuses on **integration**.
+
+---
+
+## 🧠 How It Works: System-Level Thinking
+
+At a high level, the library system follows this flow:
+
+1. Initialise a collection of books
+2. Display available books to the user
+3. Allow borrowing and returning actions
+4. Update the system state after each action
+
+Each operation affects what the user sees next, reinforcing the idea of **persistent state within a program run**.
+
+---
+
+## 🧩 The Technical Part: Data Structures and Actions
+
+A simplified example of the logic looks like this:
+
 ```python
- for borrowing.
-```
-- Method: get_borrowed_books() to get a list of borrowed books.
-- Method: get_member_books(member) to get a list of books
- borrowed by a member.
-Your goal is to create the above class hierarchy and implement
- the methods to demonstrate interactions between books, members,
- and the library.
-Test your classes by creating instances, adding books and
- members, and simulating borrowing and returning transactions.
-This code defines three core classes for a simple Library
- Management System:
-- Book: Represents a book with details such as title, author,
- ISBN, available copies, and total copies. Includes a method
- to display book information.
-- Member: Represents a library member with a name, ID, and a list
- of borrowed books. Provides methods to borrow and return
- books, with appropriate messages.
-- Library: Represents a library with a name, and collections of
- books and members. Includes methods to add books and
- members, list available and borrowed books, and display
- books borrowed by a specific member.
-These classes form the foundation for simulating library
- operations such as lending and inventory tracking.
-This code sets up sample data to test the Book,
- Member, and Library classes. It
- creates a list of book objects with predefined details, a list
-    of members with unique IDs, and initializes a Library instance named "National Library"
- containing these books and members. The setup allows you to test
- core functionalities such as borrowing, returning, and tracking
- books and members.
-This code tests the functionality of a basic Library Management
- System by simulating book borrowing and returning actions. It
- checks the availability of books, updates inventory accordingly,
-```python
- handles edge cases (like unavailable books), and displays the
-```
- borrowing status of individual members and the overall library.
-```python
-# Display available books in the library
-```python
-library.get_available_books()
-```
-# Alice borrows "1984"
-```python
-member1.borrow_book(book1)
-book1.copies_available -= 1  # update inventory manually
-library.get_member_books(member1)
-```
-# Benjamin tries to borrow "Pride and Prejudice" (no available copies)
-```python
-if book4.copies_available > 0:
- member2.borrow_book(book4)
- book4.copies_available -= 1
-```
-else:
-```python
- print(f"{book4.title} is currently unavailable for borrowing.")
-```
-# Clara borrows "The Great Gatsby"
-```python
-member3.borrow_book(book3)
-book3.copies_available -= 1
-library.get_member_books(member3)
-```
-# Display borrowed books in the library
-```python
-library.get_borrowed_books()
-```
-# Display updated available books
-```python
-library.get_available_books()
-```
-# Alice returns "1984"
-```python
-member1.return_book(book1)
-book1.copies_available += 1
-library.get_member_books(member1)
-```
-# Display final state of borrowed and available books
-```python
-library.get_borrowed_books()
-library.get_available_books()
-```
-```
-**Output:**
-```
-📚 Available Books in National Library:
-- 1984: 3 copy/copies available
-- To Kill a Mockingbird: 2 copy/copies available
-- The Great Gatsby: 1 copy/copies available
-- Pride and Prejudice: 0 copy/copies available
-- The Catcher in the Rye: 4 copy/copies available
-```python
-Alice Tan has borrowed: 1984 by George Orwell (ISBN: 9780451524935)
-```
-👤 Books Borrowed by Alice Tan:
-- 1984 by George Orwell (ISBN: 9780451524935)
-Pride and Prejudice is currently unavailable for borrowing.
-```python
-Clara Lim has borrowed: The Great Gatsby by F. Scott Fitzgerald (ISBN: 9780743273565)
-```
-👤 Books Borrowed by Clara Lim:
-- The Great Gatsby by F. Scott Fitzgerald (ISBN: 9780743273565)
-📦 Borrowed Books in National Library:
-- 1984: 3 copy/copies borrowed
-- To Kill a Mockingbird: 2 copy/copies borrowed
-- The Great Gatsby: 2 copy/copies borrowed
-- Pride and Prejudice: 3 copy/copies borrowed
-- The Catcher in the Rye: 0 copy/copies borrowed
-📚 Available Books in National Library:
-- 1984: 2 copy/copies available
-- To Kill a Mockingbird: 2 copy/copies available
-- The Great Gatsby: 0 copy/copies available
-- Pride and Prejudice: 0 copy/copies available
-- The Catcher in the Rye: 4 copy/copies available
-```python
-Alice Tan has returned: 1984 by George Orwell (ISBN: 9780451524935)
-```
-👤 Books Borrowed by Alice Tan:
-No books currently borrowed.
-📦 Borrowed Books in National Library:
-- 1984: 2 copy/copies borrowed
-- To Kill a Mockingbird: 2 copy/copies borrowed
-- The Great Gatsby: 2 copy/copies borrowed
-- Pride and Prejudice: 3 copy/copies borrowed
-- The Catcher in the Rye: 0 copy/copies borrowed
-📚 Available Books in National Library:
-- 1984: 3 copy/copies available
-- To Kill a Mockingbird: 2 copy/copies available
-- The Great Gatsby: 0 copy/copies available
-- Pride and Prejudice: 0 copy/copies available
-- The Catcher in the Rye: 4 copy/copies available
-```
+library = ["1984", "The Hobbit", "To Kill a Mockingbird"]
+
+def show_books():
+    for book in library:
+        print(book)
+
+def borrow_book(book):
+    if book in library:
+        library.remove(book)
+        print("Book borrowed successfully")
+    else:
+        print("Book not available")
+````
+
+### 🔍 What This Demonstrates
+
+* 📦 Lists model collections of items
+* 🔄 Functions encapsulate system actions
+* 🧠 Conditional checks protect system rules
+* 🗂 State changes persist throughout execution
+
+This mirrors the foundations of backend business logic.
+
+---
+
+## 💡 Key Takeaways: Thinking Beyond Scripts
+
+This tutorial reinforces several important programming ideas:
+
+* 🧱 Systems are built from small, clear rules
+* 🔁 Data changes over time
+* 🛠 Functions improve readability and reuse
+* 🧠 Real applications are state-driven
+
+These concepts scale directly into web apps, APIs, and database-backed systems.
+
+---
+
+## 🏁 Conclusion: From Exercises to Applications
+
+The **Python Tutorial: Library Management System** represents a meaningful step forward:
+
+> You’re no longer just learning Python —
+> you’re designing behaviour.
+
+With this foundation, learners are ready to explore:
+
+* Dictionaries for richer data models
+* Menus and loops for interaction
+* Persistent storage (files or databases)
+* Object-oriented designs
+
+Every real application starts as a simple system like this.
+
+---
+
+## 🔗 Link to Notebook
+
+**Notebook link:** *Coming Soon*
