@@ -1,9 +1,8 @@
-import Link from 'next/link'
-import { Smile, Search } from 'lucide-react'
+import Anchor from './Anchor'
+import { Smile, Search, Menu } from 'lucide-react'
 
 import Brand from "./Brand"
 import Button from "./Button"
-import MenuButton from "./MenuButton"
 import ThemeSwitcherButton from "./ThemeSwitcherButton"
 
 interface PrimaryHeaderProps {
@@ -18,21 +17,25 @@ export default function PrimaryHeader({ onMenuOpen, onSearchOpen }: PrimaryHeade
             <Button 
                 onClick={onSearchOpen}
                 variant="secondary"
-                className="flex-1 justify-start"
-                title="Open search modal"
+                className="flex-1 justify-start px-3 py-2"
             >
                 <Search size={16} />
                 <span className="text-gray-500 dark:text-gray-400">Search...</span>
             </Button>
+            <>Nav goes here</>
             <ThemeSwitcherButton />
-            <Link 
+            <Anchor 
                 href="/tools" 
-                className="hover:opacity-60"
-                title="Browse developer tools"
+                variant="header"
             >
                 <Smile size={16} />
-            </Link>
-            <MenuButton onClick={onMenuOpen} />
+            </Anchor>
+            <Button 
+                onClick={onMenuOpen}
+                variant="header"
+            >
+                <Menu size={24} />
+            </Button>
         </header>
     )
 }
