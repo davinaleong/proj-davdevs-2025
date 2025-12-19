@@ -1,8 +1,8 @@
 ---
 title: "Advanced Fruit Calculator"
-slug: "20250426-advanced-fruit-calculator"
+slug: "20250429-advanced-fruit-calculator"
 description: "A Python tutorial simulating a fruit shop checkout system with calculations for quantities, costs, taxes, and discounts using arithmetic operations."
-date: "2025-04-26"
+date: "2025-04-29"
 author: "Davina Leong"
 tags: ["python", "jupyter", "tutorial", "calculator"]
 featured: false
@@ -30,35 +30,40 @@ You're also running a promotion:
 # Starter code from ChatGPT
 # Fruit prices
 ```python
-apple_price = 2 banana_price = 1.5 durian_price = 15
+apple_price = 2
+banana_price = 1.5
+durian_price = 15
 ```
 # Quantities
 ```python
-apples_bought = 3 bananas_bought = 5 durians_bought = 4
+apples_bought = 3
+bananas_bought = 5
+durians_bought = 4
 ```
 # Free apples
 ```python
-free_apples = apples_bought // 2 # 1 free for every 2 bought
- total_apples = apples_bought + free_apples
+free_apples = apples_bought // 2  # 1 free for every 2 bought
+total_apples = apples_bought + free_apples
 ```
 # Total cost before tax
 ```python
-cost = (apples_bought * apple_price) + (bananas_bought *
- banana_price) + (durians_bought * durian_price)
+cost = (apples_bought * apple_price) + (bananas_bought * banana_price) + (durians_bought * durian_price)
 ```
 # Apply tax (9%)
 ```python
-tax_rate = 0.09 tax_amount = cost * tax_rate total_cost = cost +
+tax_rate = 0.09
+tax_amount = cost * tax_rate
+total_cost = cost + tax_amount
 ```
- tax_amount
 # Average price per fruit (including free apples)
 ```python
 total_fruits = total_apples + bananas_bought + durians_bought
- average_price = total_cost / total_fruits
+average_price = total_cost / total_fruits
 ```
 # Floor division and modulus for durian price
 ```python
-dollar_part = durian_price // 1 cent_part = durian_price % 1
+dollar_part = durian_price // 1
+cent_part = durian_price % 1
 ```
 # Exponentiation (bonus): Square the number of bananas
 ```python
@@ -66,12 +71,12 @@ banana_power = bananas_bought ** 2
 ```
 # Print results
 ```python
-print(f"Free apples: {free_apples}") print(f"Total cost after
- tax: ${total_cost:.2f}") print(f"Average price per fruit:
-    ${average_price:.2f}") print(f"Durian cost split: ${dollar_part}
-    + {cent_part*100:.0f} cents") print(f"Bananas to the power of 2:
+print(f"Free apples: {free_apples}")
+print(f"Total cost after tax: ${total_cost:.2f}")
+print(f"Average price per fruit: ${average_price:.2f}")
+print(f"Durian cost split: ${dollar_part} + {cent_part*100:.0f} cents")
+print(f"Bananas to the power of 2: {banana_power}")
 ```
-    {banana_power}")
 The next section accepts user input to function as a practical
  fruit cost calculator.
 ```python
