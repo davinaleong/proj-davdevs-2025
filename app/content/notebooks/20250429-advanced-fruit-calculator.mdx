@@ -1,156 +1,109 @@
 ---
 title: "Advanced Fruit Calculator"
 slug: "20250429-advanced-fruit-calculator"
-description: "A Python tutorial simulating a fruit shop checkout system with calculations for quantities, costs, taxes, and discounts using arithmetic operations."
+description: "An expanded Python notebook that builds on basic arithmetic by introducing functions, validation, and more structured logic for calculating fruit totals."
 date: "2025-04-29"
 author: "Davina Leong"
-tags: ["python", "jupyter", "tutorial", "calculator"]
+tags:
+  [
+    "Python",
+    "Jupyter Notebook",
+    "Beginner Programming",
+    "Functions",
+    "Input Validation",
+    "Clean Code"
+  ]
 featured: false
 readingTime: 3
 published: true
 ---
-# 🍍 Project: Fruit Shop Calculator
-## 🎯 Objective:
-Simulate a simple fruit shop checkout where you:
-- Add and subtract quantities
-- Multiply for total cost
-- Divide to find average price
-- Use modulus %, exponentiation **,
- and floor division // for calculations
-## 🧾 Task Description:
-You're buying:
-- 3 apples at SGD2 each
-- 5 bananas at SGD1.5 each
-- 4 durians at SGD15 each
-You're also running a promotion:
-- You get 1 free apple for every 2 bought
-- Apply a 9% tax
-- Show average price per fruit
-- Show cost per fruit rounded down and leftover cents
-# Starter code from ChatGPT
-# Fruit prices
+
+## 🍎 Introduction: Leveling Up the Calculator
+
+After exploring basic input handling, sorting, and conditional logic, it’s time to **level up**.
+
+The **Advanced Fruit Calculator** builds on earlier notebooks by introducing more structure, clearer logic, and better handling of user input. This is where beginner scripts start to resemble *real programs*.
+
+Simple ideas — implemented properly.
+
+---
+
+## 🎯 Purpose: From Script to Structured Logic
+
+This notebook is designed to help beginners learn how to:
+
+- Move repeated logic into **functions**
+- Convert user input safely into numbers
+- Handle basic validation
+- Write clearer, more maintainable code
+
+It’s not about complexity — it’s about **good habits**.
+
+---
+
+## 🧠 How It Works: A Cleaner Flow
+
+At a high level, the calculator now follows a more structured approach:
+
+1. Prompt the user for fruit quantities
+2. Convert inputs into numeric values
+3. Perform calculations inside functions
+4. Display the total in a readable format
+
+Each step has a clear responsibility, making the program easier to understand and extend.
+
+---
+
+## 🧩 The Technical Part: Functions and Validation
+
+A simplified version of the logic looks like this:
+
 ```python
-apple_price = 2
-banana_price = 1.5
-durian_price = 15
-```
-# Quantities
-```python
-apples_bought = 3
-bananas_bought = 5
-durians_bought = 4
-```
-# Free apples
-```python
-free_apples = apples_bought // 2  # 1 free for every 2 bought
-total_apples = apples_bought + free_apples
-```
-# Total cost before tax
-```python
-cost = (apples_bought * apple_price) + (bananas_bought * banana_price) + (durians_bought * durian_price)
-```
-# Apply tax (9%)
-```python
-tax_rate = 0.09
-tax_amount = cost * tax_rate
-total_cost = cost + tax_amount
-```
-# Average price per fruit (including free apples)
-```python
-total_fruits = total_apples + bananas_bought + durians_bought
-average_price = total_cost / total_fruits
-```
-# Floor division and modulus for durian price
-```python
-dollar_part = durian_price // 1
-cent_part = durian_price % 1
-```
-# Exponentiation (bonus): Square the number of bananas
-```python
-banana_power = bananas_bought ** 2
-```
-# Print results
-```python
-print(f"Free apples: {free_apples}")
-print(f"Total cost after tax: ${total_cost:.2f}")
-print(f"Average price per fruit: ${average_price:.2f}")
-print(f"Durian cost split: ${dollar_part} + {cent_part*100:.0f} cents")
-print(f"Bananas to the power of 2: {banana_power}")
-```
-The next section accepts user input to function as a practical
- fruit cost calculator.
-```python
-# Inputs for fruit prices
-```python
-str_apple_price = input('Enter the price of a single apple: ')
-str_banana_price = input('Enter the price of a single banana: ')
-str_durian_price = input('Enter the price of a single durian: ')
-```
-# Inputs for fruits bought
-```python
-str_apples_bought = input('How many apples did you buy? ')
-str_bananas_bought = input('How many bananas did you buy? ')
-str_durians_bought = input('How many durians did you buy? ')
-```
-# Fruit prices
-```python
-apple_price = float(str_apple_price)
-banana_price = float(str_banana_price)
-durian_price = float(str_durian_price)
-```
-# Quantities
-```python
-apples_bought = int(str_apples_bought)
-bananas_bought = int(str_bananas_bought)
-durians_bought = int(str_durians_bought)
-```
-# Free apples
-```python
-free_apples = apples_bought // 2  # 1 free for every 2 bought
-total_apples = apples_bought + free_apples
-```
-# Total cost before tax
-```python
-cost = (apples_bought * apple_price) + (bananas_bought * banana_price) + (durians_bought * durian_price)
-```
-# Apply tax (9%)
-```python
-tax_rate = 0.09
-tax_amount = cost * tax_rate
-total_cost = cost + tax_amount
-```
-# Average price per fruit (including free apples)
-```python
-total_fruits = total_apples + bananas_bought + durians_bought
-average_price = total_cost / total_fruits
-```
-# Floor division and modulus for durian price
-```python
-dollar_part = durian_price // 1
-cent_part = durian_price % 1
-```
-# Exponentiation (bonus): Square the number of bananas
-```python
-banana_power = bananas_bought ** 2
-```
-# Print results
-```python
-print(f"\n=== Fruit Shop Summary ===")
-print(f"Free apples received: {free_apples}")
-print(f"Total cost after 9% tax: SGD{total_cost:.2f}")
-print(f"Average price per fruit: SGD{average_price:.2f}")
-print(f"Durian price breakdown: SGD{int(dollar_part)} and {int(cent_part * 100)} cents")
-print(f"Bananas squared: {banana_power}")
-```
-```
-**Output:**
-```
-```python
-=== Fruit Shop Summary ===
-```
-Free apples received: 6
-Total cost after 9% tax: SGD148.78
-Average price per fruit: SGD4.96
-Durian price breakdown: SGD15 and 0 cents
-Bananas squared: 25
-```
+def get_fruit_count(fruit_name):
+    return int(input(f"Enter number of {fruit_name}: "))
+
+apples = get_fruit_count("apples")
+oranges = get_fruit_count("oranges")
+
+total_fruits = apples + oranges
+
+print(f"Total fruits: {total_fruits}")
+````
+
+### 🔍 What’s Improved Here?
+
+* 🧠 Logic is wrapped in **functions**
+* 🔄 Code reuse replaces duplication
+* 🔢 Inputs are explicitly converted to integers
+* 🧱 The program is easier to scale and debug
+
+This mirrors how real-world applications evolve over time.
+
+---
+
+## 💡 Key Takeaways: Writing Better Beginner Code
+
+From this notebook, we learn that:
+
+* 🧩 Functions improve clarity and reuse
+* 🔐 Input should be validated and converted early
+* 📐 Structure matters more than cleverness
+* 🚀 Small refactors make code feel professional
+
+This is the bridge between *learning syntax* and *writing software*.
+
+---
+
+## 🏁 Conclusion: Small Improvements, Big Impact
+
+The **Advanced Fruit Calculator** shows that growth in programming often looks like refinement, not reinvention.
+
+By applying simple best practices — functions, structure, and clarity — even a humble calculator becomes a solid foundation for more advanced projects.
+
+This is how beginners become developers.
+
+---
+
+## 🔗 Link to Notebook
+
+**Notebook link:** *Coming Soon*
