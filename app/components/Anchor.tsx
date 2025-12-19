@@ -29,7 +29,7 @@ export default function Anchor({
       case 'blue-300':
         return "underline text-blue-300 hover:opacity-60";
       case 'header':
-        return "text-black dark:text=white hover:opacity-60";
+        return "text-black dark:text-white hover:opacity-60";
       case 'footer':
         return "text-blue-100 hover:text-white";
       case 'footer-legal':
