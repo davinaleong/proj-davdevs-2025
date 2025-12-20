@@ -68,12 +68,16 @@ export default function PostPage({ params, postType }: PostPageProps) {
             <HeroSection variant="responsive" height="half">
                 <h1 className="text-4xl lg:text-6xl font-bold">{post.title}</h1>
                 <p className="max-w-[60ch] mx-auto lg:text-lg">{post.description}</p>
-                <p className="flex justify-center gap-1 text-sm">
+                <p className="flex items-center justify-center gap-1 text-sm">
                     <span>
                         <time dateTime={post.date}>{formattedDate}</time>
                     </span>
                     <span>&middot;</span>
                     <span>{post.readingTime} min read</span>
+                    {post.featured && (<>
+                        <span>&middot;</span>
+                        <span className="inline-block uppercase text-xs rounded-sm text-white bg-orange-500 px-2 py-1">Featured</span>
+                    </>)}
                 </p>
                 <p className="text-sm opacity-75">By {post.author}</p>
                 
