@@ -121,7 +121,7 @@ export default function JokeSection() {
     const renderJokeContent = () => {
         if (joke.type === 'single') {
             return (
-                <div className="max-w-2xl mx-auto p-6 text-center">
+                <div className="max-w-2xl mx-auto p-6 text-center text-black bg-white dark:text-white dark:bg-black rounded-sm shadow-lg">
                     <p className="whitespace-pre-line leading-relaxed text-xl">
                         {joke.text}
                     </p>
@@ -131,7 +131,7 @@ export default function JokeSection() {
 
         if (joke.type === 'qa') {
             return (
-                <div className="max-w-2xl mx-auto p-6 text-center space-y-6">
+                <div className="max-w-2xl mx-auto p-6 text-center space-y-6 text-black bg-white dark:text-white dark:bg-black rounded-sm shadow-lg">
                     <p className="whitespace-pre-line leading-relaxed font-medium text-xl">
                         {joke.question}
                     </p>
@@ -139,12 +139,12 @@ export default function JokeSection() {
                     <div className="space-y-4">
                         {/* Progress Bar */}
                         {!showAnswer && (
-                            <div className="w-full bg-white/20 rounded-full h-2 border border-white/30">
+                            <div className="w-full text-black bg-white dark:text-white dark:bg-black rounded-full h-2 overflow-hidden border border-gray-300 dark:border-gray-700">
                                 <div 
                                     className={`h-2 rounded-full transition-all duration-100 ${
                                         isFlashing 
                                             ? 'bg-red-400 animate-pulse' 
-                                            : 'bg-white'
+                                            : 'bg-blue-500'
                                     }`}
                                     style={{ width: `${progressPercentage}%` }}
                                 />
@@ -152,23 +152,23 @@ export default function JokeSection() {
                         )}
 
                         {!showAnswer ? (
-                            <div className="space-y-4">
+                            <div className="text-center flow">
                                 {/* User Answer Input */}
-                                <div className="space-y-3">
-                                    <div className="flex gap-2 max-w-md bg-white rounded-sm p-2 mx-auto">
+                                <div className="text-center flow">
+                                    <div className="flex gap-2 max-w-md border bg-white border-gray-300 dark:bg-black dark:border-gray-700 rounded-sm mx-auto">
                                         <input
                                             type="text"
                                             value={userAnswer}
                                             onChange={(e) => setUserAnswer(e.target.value)}
                                             onKeyDown={(e) => e.key === 'Enter' && handleSubmitAnswer()}
                                             placeholder="Type your answer..."
-                                            className="flex-1 text-black"
+                                            className="flex-1 px-3 py-2"
                                             disabled={hasSubmitted}
                                         />
                                         <Button 
-                                            variant="secondary" 
+                                            variant="primary" 
                                             onClick={handleSubmitAnswer}
-                                            className="shadow-none"
+                                            className="shadow-none px-3 py-2"
                                             disabled={!userAnswer.trim() || hasSubmitted}
                                         >
                                             <span>Submit</span>
@@ -186,7 +186,7 @@ export default function JokeSection() {
                                     )}
                                 </div>
                                 
-                                <Button variant="secondary" onClick={handleShowAnswer}>
+                                <Button variant="secondary" className="px-3 py-2" onClick={handleShowAnswer}>
                                     <span>Show Answer ({Math.ceil(timeLeft)}s)</span>
                                     <Eye size={16} />
                                 </Button>
@@ -200,7 +200,7 @@ export default function JokeSection() {
                                     {joke.answer}
                                 </p>
                                 {joke.explanation && (
-                                    <p className="flex gap-2 text-sm italic">
+                                    <p className="flex gap-2 justify-center text-sm italic">
                                         <span>Explanation:</span>
                                         <span>{joke.explanation}</span>
                                     </p>
