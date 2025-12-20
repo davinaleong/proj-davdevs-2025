@@ -183,6 +183,11 @@
       "title": "Messages of Faith 🙏✨",
       "viewAllText": "View All Sermons",
       "variant": "primary"
+    },
+    "knowledgeSharing": {
+      "title": "Knowledge Sharing 📚",
+      "viewAllText": "",
+      "variant": "neutral"
     }
   },
   "knowledgeSharing": {
@@ -211,7 +216,8 @@
       "images": [{ "src": "/knowledge-sharing/dev-to.png", "alt": "7 Useful JS Fiddles on DEV.to" }],
       "url": "https://dev.to/davinaleong/7-useful-js-fiddles-1mg0",
       "type": "articles",
-      "filePath": ""
+      "filePath": "",
+      "links": []
     },
     "talks": {
       "slug": "talks",
@@ -226,9 +232,11 @@
       "images": [{ "src": "/knowledge-sharing/talks.png", "alt": "Engineering Talks and Presentations" }],
       "url": "https://engineers.sg/episodes/search?search=davina+leong",
       "type": "articles",
-      "filePath": ""
+      "filePath": "",
+      "links": []
     }
-  },  "ui": {
+  },
+  "ui": {
     "dateFormat": {
       "locale": "en-SG",
       "options": {
