@@ -6,6 +6,7 @@ import HomeProfessionalSection from './components/sections/home/HomeProfessional
 import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
+  const portfolioLink = findLinkByLabel("Portfolio");
   const articleLink = findLinkByLabel("Articles");
   const toolsLink = findLinkByLabel("Tools");
   const notebooksLink = findLinkByLabel("Python");
@@ -13,6 +14,7 @@ export default function Home() {
   const femLink = findLinkByLabel("Fem");
   const faithLink = findLinkByLabel("Faith");
   
+  const portfolioContent = getPostSectionContent('portfolio');
   const articleContent = getPostSectionContent('articles');
   const toolsContent = getPostSectionContent('tools');
   const notebooksContent = getPostSectionContent('notebooks');
@@ -25,6 +27,15 @@ export default function Home() {
       <HomeHeroSection />
       <HomeProfessionalSection />
       
+      {portfolioContent && (
+        <HomePostSection 
+          title={portfolioContent.title} 
+          postType="projects" 
+          variant={portfolioContent.variant} 
+          viewAllHref={portfolioLink?.href || "/projects"} 
+          viewAllText={portfolioContent.viewAllText} 
+        />
+      )}
       {articleContent && (
         <HomePostSection 
           title={articleContent.title} 

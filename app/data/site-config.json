@@ -15,7 +15,7 @@
     },
     {
       "label": "Portfolio",
-      "href": "/portfolio",
+      "href": "/projects",
       "external": false
     },
     {
@@ -120,6 +120,12 @@
       "variant": "gradient",
       "height": "full"
     },
+    "portfolio": {
+      "title": "Projects & Portfolio 💼",
+      "description": "Explore a diverse collection of web applications, tools, and experiments built with React, Laravel, JavaScript, and modern web technologies—each crafted with purpose and passion.",
+      "variant": "gradient",
+      "height": "full"
+    },
      "articles": {
       "title": "Tech Articles & Insights 📚",
       "description": "Explore comprehensive guides on web development, cybersecurity, AI tools, and practical tech tips to enhance your digital journey.",
@@ -170,25 +176,30 @@
     }
   },
   "postSections": {
+    "portfolio": {
+      "title": "Projects & Portfolio 💼",
+      "viewAllText": "View All Projects",
+      "variant": "primary-light"
+    },
     "articles": {
       "title": "Tech Articles & Insights 📚",
       "viewAllText": "View All Articles",
-      "variant": "default"
+      "variant": "neutral"
     },
     "tools": {
       "title": "Tools & Utilities 🛠️",
       "viewAllText": "View All Tools",
-      "variant": "primary-light"
+      "variant": "default"
     },
     "notebooks": {
       "title": "Python Notebooks 🐍",
       "viewAllText": "View All Notebooks",
-      "variant": "default"
+      "variant": "neutral"
     },
     "fem": {
       "title": "Frontend Mentor Solutions 🎯",
       "viewAllText": "View All Solutions",
-      "variant": "default"
+      "variant": "neutral"
     },
     "sermons": {
       "title": "Messages of Faith 🙏✨",
@@ -198,7 +209,7 @@
     "knowledgeSharing": {
       "title": "Knowledge Sharing 📚",
       "viewAllText": "View All Knowledge Sharing",
-      "variant": "neutral"
+      "variant": "default"
     }
   },
   "knowledgeSharing": {
