@@ -96,7 +96,7 @@ export default function PostPage({ params, postType }: PostPageProps) {
             
             <section className="container mx-auto p-4 flow max-w-4xl">
                 {/* Images Section */}
-                {post.images && post.images.length > 0 && (
+                {postType !== 'static' && post.images && post.images.length > 0 && (
                     <div className="rounded-sm overflow-hidden">
                         {post.images.length === 1 ? (
                             <div className="flex justify-center">
