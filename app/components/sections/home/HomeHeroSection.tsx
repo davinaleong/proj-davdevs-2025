@@ -12,7 +12,9 @@ export default function HomeHeroSection() {
         <HeroSection variant={content.variant} height={content.height}>
             <div className="flow">
                 <h1 className="text-4xl lg:text-8xl font-bold">{content.title}</h1>
-                <p className="lg:text-xl">{content.description}</p>
+                <p className="lg:text-xl">
+                    Designing with purpose. Building with code. Living by faith in <strong><mark>Christ Jesus</mark></strong>.
+                </p>
             </div>
         </HeroSection>
     )
