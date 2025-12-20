@@ -7,11 +7,13 @@ import HomeKnowledgeSharingSection from './components/sections/home/HomeKnowledg
 import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
+  const articleLink = findLinkByLabel("Articles");
   const toolsLink = findLinkByLabel("Tools");
   const notebooksLink = findLinkByLabel("Python");
   const femLink = findLinkByLabel("Fem");
   const faithLink = findLinkByLabel("Faith");
   
+  const articleContent = getPostSectionContent('articles');
   const toolsContent = getPostSectionContent('tools');
   const notebooksContent = getPostSectionContent('notebooks');
   const femContent = getPostSectionContent('fem');
@@ -21,6 +23,15 @@ export default function Home() {
     <div>
       <HomeHeroSection />
       <HomeProfessionalSection />
+      {articleContent && (
+        <HomePostSection 
+          title={articleContent.title} 
+          postType="articles" 
+          variant={articleContent.variant} 
+          viewAllHref={articleLink?.href || "/articles"} 
+          viewAllText={articleContent.viewAllText} 
+        />
+      )}
       {toolsContent && (
         <HomePostSection 
           title={toolsContent.title} 

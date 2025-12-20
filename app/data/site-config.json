@@ -115,6 +115,12 @@
       "variant": "gradient",
       "height": "full"
     },
+     "articles": {
+      "title": "Tech Articles & Insights 📚",
+      "description": "Explore comprehensive guides on web development, cybersecurity, AI tools, and practical tech tips to enhance your digital journey.",
+      "variant": "gradient",
+      "height": "half"
+    },
     "tools": {
       "title": "Tools & Utilities 🛠️",
       "description": "Discover a variety of practical tools designed to enhance your productivity, creativity, and daily tasks.",
@@ -153,27 +159,33 @@
     }
   },
   "postSections": {
+    "articles": {
+      "title": "Tech Articles & Insights 📚",
+      "viewAllText": "View All Articles",
+      "variant": "default"
+    },
     "tools": {
       "title": "Tools & Utilities 🛠️",
       "viewAllText": "View All Tools",
-      "variant": "default"
+      "variant": "primary-light"
     },
     "notebooks": {
       "title": "Python Notebooks 🐍",
       "viewAllText": "View All Notebooks",
-      "variant": "neutral"
+      "variant": "default"
     },
     "fem": {
       "title": "Frontend Mentor Solutions 🎯",
       "viewAllText": "View All Solutions",
-      "variant": "default"
+      "variant": "neutral"
     },
     "sermons": {
       "title": "Messages of Faith 🙏✨",
       "viewAllText": "View All Sermons",
       "variant": "primary"
     }
-  },  "knowledgeSharing": {
+  },
+  "knowledgeSharing": {
     "devto": {
       "label": "Latest DEV.to Post",
       "href": "https://dev.to/davinaleong/7-useful-js-fiddles-1mg0",

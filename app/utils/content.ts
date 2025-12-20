@@ -58,6 +58,14 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
       }
     }
 
+    // Transform image paths to absolute paths for Next.js Image component
+    const transformedImages = Array.isArray(data.images) 
+      ? data.images.map((image: any) => ({
+          ...image,
+          src: image.src.startsWith('/') ? image.src : `/${type}/${image.src}`
+        }))
+      : undefined;
+
     return {
       title: data.title,
       slug: data.slug,
@@ -69,7 +77,7 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
       readingTime: Number(data.readingTime) || 0,
       published: Boolean(data.published),
       links: Array.isArray(data.links) ? data.links : undefined,
-      images: Array.isArray(data.images) ? data.images : undefined,
+      images: transformedImages,
       content,
       type,
       filePath
