@@ -124,7 +124,7 @@
       "title": "Projects & Portfolio 💼",
       "description": "Explore a diverse collection of web applications, tools, and experiments built with React, Laravel, JavaScript, and modern web technologies—each crafted with purpose and passion.",
       "variant": "gradient",
-      "height": "full"
+      "height": "half"
     },
      "articles": {
       "title": "Tech Articles & Insights 📚",
