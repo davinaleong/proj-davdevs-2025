@@ -6,19 +6,20 @@ import { getHeroContent } from "../utils/site-config"
 export default function Articles() {
     // Get all sermon posts on server side
     const allArticles = getPostsByType('articles')
-    const heroContent = getHeroContent('Articles')
+    const heroContent = getHeroContent('articles')
 
     return (
         <div>
             {heroContent && (
-                <HeroSection variant={heroContent.variant} height={heroContent.height}>
+                <HeroSection variant={heroContent.variant} height={heroContent.height} showArrow={true} arrowHref="#list">
                     <div className="flow">
                         <h1 className="text-3xl lg:text-6xl font-bold">{heroContent.title}</h1>
                         <p className="lg:text-xl">{heroContent.description}</p>
                     </div>
                 </HeroSection>
             )}
-            <PostsList 
+            <PostsList
+                id="list"
                 posts={allArticles} 
                 postType="articles"
                 searchPlaceholder="Search articles..."

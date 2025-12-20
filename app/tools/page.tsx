@@ -11,7 +11,7 @@ export default function Tools() {
     return (
         <div>
             {heroContent && (
-                <HeroSection variant={heroContent.variant} height={heroContent.height}>
+                <HeroSection variant={heroContent.variant} height={heroContent.height} showArrow={true} arrowHref="#list">
                     <div className="flow">
                         <h1 className="text-3xl lg:text-6xl font-bold">{heroContent.title}</h1>
                         <p className="lg:text-xl">{heroContent.description}</p>
@@ -19,6 +19,7 @@ export default function Tools() {
                 </HeroSection>
             )}
             <PostsList 
+                id="list"
                 posts={allTools} 
                 postType="tools"
                 searchPlaceholder="Search tools..."

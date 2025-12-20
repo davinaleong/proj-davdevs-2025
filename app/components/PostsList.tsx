@@ -13,13 +13,15 @@ interface PostsListProps {
     postType: PostType
     searchPlaceholder?: string
     baseHref?: string
+    id?: string
 }
 
 export default function PostsList({ 
     posts, 
     postType, 
     searchPlaceholder,
-    baseHref 
+    baseHref,
+    id,
 }: PostsListProps) {
     // Get default sort value from config
     const sortConfig = getSortOptions()
@@ -106,7 +108,7 @@ export default function PostsList({
     }
 
     return (
-        <>
+        <div id={id} className="w-full">
             <ListHeader 
                 onSearch={handleSearch}
                 onSearchChange={handleSearchChange}
@@ -131,6 +133,6 @@ export default function PostsList({
                     className="mt-4"
                 />
             )}
-        </>
+        </div>
     )
 }
