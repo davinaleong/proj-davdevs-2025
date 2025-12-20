@@ -9,6 +9,7 @@ export default function HomeProfessionalSection() {
 
   return (
     <HomeSection
+      id="professional"
       title="My Professional Journey 💼"
       variant="neutral"
     >

@@ -9,7 +9,7 @@ export default function HomeHeroSection() {
     }
     
     return (
-        <HeroSection variant={content.variant} height={content.height}>
+        <HeroSection variant={content.variant} height={content.height} showArrow={true} arrowHref="#professional">
             <div className="flow">
                 <h1 className="text-4xl lg:text-8xl font-bold">{content.title}</h1>
                 <p className="lg:text-xl">
