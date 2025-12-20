@@ -12,10 +12,13 @@ interface LightboxImage {
 
 interface LightboxProps {
   image: LightboxImage;
+  postType: string;
   onClose: () => void;
 }
 
-export default function Lightbox({ image, onClose }: LightboxProps) {
+export default function Lightbox({ image, postType, onClose }: LightboxProps) {
+  const aspectRatio = postType === 'articles' ? 'square' : 'landscape'
+  
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -45,9 +48,9 @@ export default function Lightbox({ image, onClose }: LightboxProps) {
     >
       <div className="relative max-w-4xl max-h-full">
         <Button
-          variant="icon"
+          variant="danger"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-black bg-opacity-50 text-white hover:bg-opacity-75"
+          className="absolute top-4 right-4 z-10 p-2"
         >
           <X size={24} />
         </Button>
@@ -55,9 +58,9 @@ export default function Lightbox({ image, onClose }: LightboxProps) {
         <ImageDisplay
           src={image.src}
           alt={image.alt}
-          aspectRatio="landscape"
-          width={800}
-          height={600}
+          aspectRatio={aspectRatio}
+          width={aspectRatio === 'square' ? 800 : 1000}
+          height={aspectRatio === 'square' ? 800 : 600}
           className="max-w-full max-h-[90vh] object-contain"
         />
       </div>

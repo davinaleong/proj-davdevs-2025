@@ -1,9 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import Button from './Button'
 import ImageDisplay from './ImageDisplay'
-import Lightbox from './Lightbox'
 
 interface GalleryImage {
   src: string;
@@ -12,50 +10,57 @@ interface GalleryImage {
 
 interface GalleryProps {
   images: GalleryImage[];
+  postType: string;
   maxDisplay?: number;
+  onImageClick?: (image: GalleryImage) => void;
 }
 
-export default function Gallery({ images, maxDisplay = 4 }: GalleryProps) {
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
-  
+export default function Gallery({ images, postType, maxDisplay = 9, onImageClick }: GalleryProps) {
   const displayImages = images.slice(0, maxDisplay)
+  const imageCount = displayImages.length
   
   const handleImageClick = (image: GalleryImage) => {
-    setSelectedImage(image)
-  }
-  
-  const handleCloseLightbox = () => {
-    setSelectedImage(null)
+    if (onImageClick) {
+      onImageClick(image)
+    }
   }
 
+  // Determine grid layout based on image count
+  const getGridClasses = () => {
+    if (imageCount === 1) return ''
+    if (imageCount >= 2 && imageCount <= 4) return 'grid grid-cols-2'
+    return 'grid grid-cols-3'
+  }
+
+  // Determine aspect ratio based on count and post type
+  const getAspectRatio = () => {
+    if (imageCount === 1) {
+      return postType === 'articles' ? 'square' : 'landscape'
+    }
+    return 'square'
+  }
+
+  const aspectRatio = getAspectRatio()
+  const dimensions = aspectRatio === 'square' ? { width: 300, height: 300 } : { width: 600, height: 400 }
+
   return (
-    <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {displayImages.map((image, index) => (
-          <Button
-            key={index}
-            variant="gallery"
-            onClick={() => handleImageClick(image)}
-            className="p-0 overflow-hidden rounded-lg hover:opacity-80 transition-opacity"
-          >
-            <ImageDisplay
-              src={image.src}
-              alt={image.alt}
-              aspectRatio="square"
-              width={300}
-              height={300}
-              className="w-full h-full object-cover"
-            />
-          </Button>
-        ))}
-      </div>
-      
-      {selectedImage && (
-        <Lightbox
-          image={selectedImage}
-          onClose={handleCloseLightbox}
-        />
-      )}
-    </>
+    <div className={getGridClasses()}>
+      {displayImages.map((image, index) => (
+        <Button
+          key={index}
+          variant="image"
+          onClick={() => handleImageClick(image)}
+        >
+          <ImageDisplay
+            src={image.src}
+            alt={image.alt}
+            aspectRatio={aspectRatio}
+            width={dimensions.width}
+            height={dimensions.height}
+            className="w-full h-full object-cover"
+          />
+        </Button>
+      ))}
+    </div>
   )
 }

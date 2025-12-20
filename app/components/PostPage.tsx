@@ -7,8 +7,7 @@ import Tag from "./Tag"
 import Anchor from "./Anchor"
 import Nav from "./Nav"
 import LinkButton from "./LinkButton"
-import ImageDisplay from "./ImageDisplay"
-import Gallery from "./Gallery"
+import PostImages from "./PostImages"
 import { getPostBySlug, PostType } from "../utils/content"
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getDateFormatConfig } from '../utils/site-config'
@@ -97,22 +96,7 @@ export default function PostPage({ params, postType }: PostPageProps) {
             <section className="container mx-auto p-4 flow max-w-4xl">
                 {/* Images Section */}
                 {postType !== 'static' && post.images && post.images.length > 0 && (
-                    <div className="rounded-sm overflow-hidden">
-                        {post.images.length === 1 ? (
-                            <div className="flex justify-center">
-                                <ImageDisplay
-                                    src={post.images[0].src}
-                                    alt={post.images[0].alt}
-                                    aspectRatio={postType === 'articles' ? 'square' : 'landscape'}
-                                    width={600}
-                                    height={600}
-                                    className="rounded-lg"
-                                />
-                            </div>
-                        ) : (
-                            <Gallery images={post.images} maxDisplay={4} />
-                        )}
-                    </div>
+                    <PostImages images={post.images} postType={postType} />
                 )}
 
                 {postType === 'tools' && TOOL_COMPONENTS[post.slug] ? (
