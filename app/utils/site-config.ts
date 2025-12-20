@@ -106,24 +106,17 @@ export function getAllPostSectionKeys(): string[] {
 }
 
 // Safe formatting for religious terms
-export function formatReligiousTerms(text: string): string {
-  const religiousTerms = [
-    'Christ Jesus',
-    'Jesus Christ', 
-    'Jesus',
-    'Holy Spirit',
-    'Holy Ghost',
-    'Spirit'
-  ];
+export function formatHighlightedTerms(text: string): string {
+  const highlightedTerms = siteConfig.highlightTerms;
   
   // Sort by length (longest first) to handle overlapping terms correctly
-  const sortedTerms = religiousTerms.sort((a, b) => b.length - a.length);
+  const sortedTerms = highlightedTerms.sort((a, b) => b.length - a.length);
   
   let result = text;
   
   sortedTerms.forEach(term => {
     const regex = new RegExp(`\\b${term}\\b`, 'gi');
-    result = result.replace(regex, `<strong>$&</strong>`);
+    result = result.replace(regex, `<strong><mark>$&</mark></strong>`);
   });
   
   return result;

@@ -236,6 +236,14 @@
       "links": []
     }
   },
+  "highlightTerms": [
+    "Christ Jesus",
+    "Jesus Christ", 
+    "Jesus",
+    "Holy Spirit",
+    "Holy Ghost",
+    "Spirit"
+  ],
   "ui": {
     "dateFormat": {
       "locale": "en-SG",
