@@ -121,7 +121,9 @@ export default function Card({
     );
   };
 
-  const href = baseHref && post?.slug ? `${baseHref}/${post.slug}` : undefined;
+  const href = external && post?.url 
+    ? post.url 
+    : (baseHref && post?.slug ? `${baseHref}/${post.slug}` : undefined);
   
   const cardContent = (
     <article className={`${getCardStyles()} ${clickable || href ? ' cursor-pointer hover:opacity-60 transition-shadow' : ''}`}>

@@ -111,7 +111,7 @@
   "heroContent": {
     "home": {
       "title": "Dav/Devs",
-      "description": "Designing with purpose. Building with code. Living by faith in <strong>Christ Jesus</strong>.",
+      "description": "Designing with purpose. Building with code. Living by faith in Christ Jesus.",
       "variant": "gradient",
       "height": "full"
     },
@@ -129,7 +129,7 @@
     },
     "faith": {
       "title": "Messages of Faith 🙏✨",
-      "description": "Discover hope, inspiration, and spiritual growth through heartfelt messages that encourage your journey of faith.",
+      "description": "Discover hope, inspiration, and spiritual growth through heartfelt messages that encourage your journey of faith in Christ Jesus and through the Holy Spirit.",
       "variant": "gradient",
       "height": "half"
     },
@@ -173,8 +173,50 @@
       "viewAllText": "View All Sermons",
       "variant": "primary"
     }
+  },  "knowledgeSharing": {
+    "devto": {
+      "label": "Latest DEV.to Post",
+      "href": "https://dev.to/davinaleong/7-useful-js-fiddles-1mg0",
+      "external": true
+    },
+    "talks": {
+      "label": "Engineering Talks",
+      "href": "https://engineers.sg/episodes/search?search=davina+leong",
+      "external": true
+    }
   },
-  "ui": {
+  "knowledgeSharingPosts": {
+    "devto": {
+      "slug": "devto",
+      "title": "7 Useful JS Fiddles",
+      "description": "Latest article published on DEV.to showcasing practical JavaScript code snippets and utilities.",
+      "date": "2024-12-01",
+      "author": "Davina Leong",
+      "tags": ["JavaScript", "Web Development", "Code Snippets"],
+      "featured": false,
+      "readingTime": 5,
+      "published": true,
+      "images": [{ "src": "/knowledge-sharing/dev-to.png", "alt": "7 Useful JS Fiddles on DEV.to" }],
+      "url": "https://dev.to/davinaleong/7-useful-js-fiddles-1mg0",
+      "type": "articles",
+      "filePath": ""
+    },
+    "talks": {
+      "slug": "talks",
+      "title": "Engineering Talks",
+      "description": "Collection of technical presentations and talks given at various engineering events and meetups.",
+      "date": "2024-11-01",
+      "author": "Davina Leong",
+      "tags": ["Speaking", "Engineering", "Community"],
+      "featured": false,
+      "readingTime": 10,
+      "published": true,
+      "images": [{ "src": "/knowledge-sharing/talks.png", "alt": "Engineering Talks and Presentations" }],
+      "url": "https://engineers.sg/episodes/search?search=davina+leong",
+      "type": "articles",
+      "filePath": ""
+    }
+  },  "ui": {
     "dateFormat": {
       "locale": "en-SG",
       "options": {

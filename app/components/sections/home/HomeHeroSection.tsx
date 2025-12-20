@@ -12,7 +12,7 @@ export default function HomeHeroSection() {
         <HeroSection variant={content.variant} height={content.height}>
             <div className="flow">
                 <h1 className="text-4xl lg:text-8xl font-bold">{content.title}</h1>
-                <p className="lg:text-xl" dangerouslySetInnerHTML={{ __html: content.description }} />
+                <p className="lg:text-xl">{content.description}</p>
             </div>
         </HeroSection>
     )

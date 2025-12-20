@@ -3,6 +3,7 @@ import HomePostSection from './components/sections/home/HomePostSection'
 import HomeSocialSection from './components/sections/home/HomeSocialSection'
 import HomeJokeSection from './components/sections/home/HomeJokeSection'
 import HomeProfessionalSection from './components/sections/home/HomeProfessionalSection'
+import HomeKnowledgeSharingSection from './components/sections/home/HomeKnowledgeSharingSection'
 import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
@@ -47,6 +48,7 @@ export default function Home() {
           viewAllText={femContent.viewAllText} 
         />
       )}
+      <HomeKnowledgeSharingSection/>
       {sermonsContent && (
         <HomePostSection 
           title={sermonsContent.title} 

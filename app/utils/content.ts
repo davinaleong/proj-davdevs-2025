@@ -16,6 +16,7 @@ export interface PostMetadata {
   published: boolean;
   links?: Array<{ label: string; href: string }>;
   images?: Array<{ src: string; alt: string }>;
+  url?: string;
 }
 
 export interface Post extends PostMetadata {
