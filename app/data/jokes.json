@@ -7,17 +7,20 @@
     {
       "type": "qa",
       "question": "What does Santa like to have for breakfast?",
-      "answer": "Oh, oh, oats."
+      "answer": "Oh oh oats",
+      "explanation": "Sounds like Santa's 'Ho ho ho' laugh"
     },
     {
       "type": "qa",
       "question": "What do you call a car that's about to be scrapped?",
-      "answer": "Re-tire-d."
+      "answer": "Retired.",
+      "explanation": "Re-tired (new tires) vs retired (out of service)"
     },
     {
       "type": "qa",
       "question": "What continent is made of twine?",
-      "answer": "Europe"
+      "answer": "Europe",
+      "explanation": "Sounds like 'You-rope'"
     },
     {
       "type": "single",
@@ -26,22 +29,26 @@
     {
       "type": "qa",
       "question": "What hawker dish would you consume for youthfulness?",
-      "answer": "Young tau foo."
+      "answer": "Young tau foo.",
+      "explanation": "'Young' in the dish name relates to youthfulness"
     },
     {
       "type": "qa",
       "question": "What hawker dish will make you foolish when consumed?",
-      "answer": "Yong tau fool."
+      "answer": "Yong tau fool.",
+      "explanation": "'Fool' instead of 'foo' in the dish name"
     },
     {
       "type": "qa",
       "question": "What vehicle carries business?",
-      "answer": "A bus"
+      "answer": "A bus",
+      "explanation": "Bus-iness contains 'bus'"
     },
     {
       "type": "qa",
       "question": "What do you call a pig doing karate?",
-      "answer": "Pork chop."
+      "answer": "Pork chop.",
+      "explanation": "Karate chop + pork (from pig)"
     },
     {
       "type": "single",
@@ -50,27 +57,32 @@
     {
       "type": "qa",
       "question": "What did the bread say to the compass when it was traveling?",
-      "answer": "I'm heading yeast."
+      "answer": "I'm heading yeast.",
+      "explanation": "'Yeast' sounds like 'east' (compass direction)"
     },
     {
       "type": "qa",
       "question": "What did the eagle say after a hard workout?",
-      "answer": "I'm so soar."
+      "answer": "I'm so soar.",
+      "explanation": "'Soar' (eagle flying) sounds like 'sore' (after workout)"
     },
     {
       "type": "qa",
       "question": "What type of tea can be found in a mine?",
-      "answer": "Jas-mine tea."
+      "answer": "Jasmine tea.",
+      "explanation": "Jazz-mine (sounds like 'just mine')"
     },
     {
       "type": "qa",
       "question": "What type of tea is used to measure distance?",
-      "answer": "Chamo-mile tea."
+      "answer": "Chamomile tea.",
+      "explanation": "Chamo-mile (contains 'mile' for distance)"
     },
     {
       "type": "qa",
       "question": "Which Singaporean supermarket chain is before \"D\"?",
-      "answer": "Cold Storage"
+      "answer": "Cold Storage",
+      "explanation": "'C' (Cold) comes before 'D' in the alphabet"
     },
     {
       "type": "qa",
@@ -86,7 +98,8 @@
     {
       "type": "qa",
       "question": "Which supermarket chain in Singapore is very \"siong\"?",
-      "answer": "Sheen Siong."
+      "answer": "Sheen Siong.",
+      "explanation": "'Siong' is literally part of the store name"
     },
     {
       "type": "qa",
@@ -114,12 +127,14 @@
     {
       "type": "qa",
       "question": "Which supermarket chain in Singapore is the largest?",
-      "answer": "Giant."
+      "answer": "Giant",
+      "explanation": "'Giant' means large/largest"
     },
     {
       "type": "qa",
       "question": "Where do drunk crows like to gather?",
-      "answer": "At a crow-bar."
+      "answer": "At a crowbar",
+      "explanation": "Crow + bar (drinking establishment)"
     },
     {
       "type": "single",
@@ -128,17 +143,20 @@
     {
       "type": "qa",
       "question": "What processed meat item can be found in a toolbox?",
-      "answer": "A ham-mer."
+      "answer": "A hammer",
+      "explanation": "Ham + mer (hammer tool)"
     },
     {
       "type": "qa",
       "question": "What is a veggie comedian called?",
-      "answer": "A corn-median."
+      "answer": "A cornmedian",
+      "explanation": "Corn + comedian"
     },
     {
       "type": "qa",
       "question": "What musical instrument will put you in prison?",
-      "answer": "Cell-o."
+      "answer": "Cello",
+      "explanation": "Sounds like 'cell' (prison cell)"
     },
     {
       "type": "single",
@@ -147,12 +165,8 @@
     {
       "type": "qa",
       "question": "What 2 animal(s) can unlock any lock?",
-      "answer": "A monkey or a donkey."
-    },
-    {
-      "type": "qa",
-      "question": "What animal(s) can unlock any lock?",
-      "answer": "A monkey or a donkey."
+      "answer": "A monkey or a donkey.",
+      "explanation": "Mon-key and don-key both end with 'key'"
     },
     {
       "type": "single",
@@ -165,42 +179,50 @@
     {
       "type": "qa",
       "question": "What is a scaly ceramic?",
-      "answer": "A re-ptile"
+      "answer": "A reptile",
+      "explanation": "Rep-tile (ceramic tile)"
     },
     {
       "type": "qa",
       "question": "What's the king of the tissues?",
-      "answer": "A napking."
+      "answer": "A napking",
+      "explanation": "Napkin + king"
     },
     {
       "type": "qa",
       "question": "What candy/dessert is never on time?",
-      "answer": "Choco-late."
+      "answer": "Chocolate",
+      "explanation": "Choco-late (always late)"
     },
     {
       "type": "qa",
       "question": "What type of wards would everyone want to be warded in?",
-      "answer": "Reward & award."
+      "answer": "Reward & award",
+      "explanation": "These are positive 'wards' unlike hospital wards"
     },
     {
       "type": "qa",
       "question": "Why was the yak paddling across the water?",
-      "answer": "Because it was ka-yak-ing."
+      "answer": "Because it was kayaking",
+      "explanation": "Kay-yak (kayaking contains 'yak')"
     },
     {
       "type": "qa",
       "question": "What kind of a vegetable can be found in peak?",
-      "answer": "Pea."
+      "answer": "Pea",
+      "explanation": "The word 'pea' is contained in 'peak'"
     },
     {
       "type": "qa",
       "question": "What do you call a reptilian AI?",
-      "answer": "An algogator"
+      "answer": "An algogator",
+      "explanation": "Algorithm + alligator"
     },
     {
       "type": "qa",
       "question": "What type of rest will make you restless?",
-      "answer": "An ar-rest."
+      "answer": "An arrest",
+      "explanation": "A-rrest contains 'rest' but makes you restless"
     },
     {
       "type": "single",
@@ -209,12 +231,14 @@
     {
       "type": "qa",
       "question": "What drink energizes you and costs a ton, but makes you sick?",
-      "answer": "Coughfee"
+      "answer": "Coughfee",
+      "explanation": "Coffee + cough (makes you sick)"
     },
     {
       "type": "qa",
       "question": "Take a piece of string and tie it around a soda can. What do you get?",
-      "answer": "A can-knot."
+      "answer": "A can-knot",
+      "explanation": "Sounds like 'cannot'."
     },
     {
       "type": "single",
@@ -227,7 +251,8 @@
     {
       "type": "qa",
       "question": "What do trees and work have in common?",
-      "answer": "They both have leaves"
+      "answer": "They both have leaves",
+      "explanation": "Tree leaves vs work leaves (vacation/time off)"
     },
     {
       "type": "single",
@@ -236,7 +261,8 @@
     {
       "type": "qa",
       "question": "How to make yourself knew a piece of info that was new to you?",
-      "answer": "Put a 'k' in front of it and now you'll know, and later on knew what was initially new to you."
+      "answer": "Put a 'k' in front of it and now you'll know, and later on knew what was initially new to you.",
+      "explanation": "Adding 'k' transforms: new → knew, now → know"
     },
     {
       "type": "single",
@@ -249,13 +275,14 @@
     {
       "type": "qa",
       "question": "Which fast food chain is owned by a royalty?",
-      "answer": "Burger King."
+      "answer": "Burger King",
+      "explanation": "'King' is royalty"
     },
     {
       "type": "qa",
       "question": "What fruit is used to make soap?",
       "answer": "Soursoap",
-      "explanation": "soursop"
+      "explanation": "Soursop sounds like 'sour soap'"
     },
     {
       "type": "single",
@@ -265,23 +292,25 @@
       "type": "qa",
       "question": "What type of fruit causes painful rain?",
       "answer": "A du-rain",
-      "explanation": "durian"
+      "explanation": "Durian sounds like 'do rain' (painful rain)"
     },
     {
       "type": "qa",
       "question": "What fruit comes in twos?",
       "answer": "Pears",
-      "explanation": "pairs"
+      "explanation": "Pears sounds like 'pairs' (twos)"
     },
     {
       "type": "qa",
       "question": "What type of fruit owns a tech company?",
-      "answer": "Apple."
+      "answer": "Apple",
+      "explanation": "Apple Inc. is a major tech company"
     },
     {
       "type": "qa",
       "question": "What type of board game do drillers like to play?",
-      "answer": "A boring game."
+      "answer": "A boring game",
+      "explanation": "Boring (drilling) vs boring (dull/uninteresting)"
     },
     {
       "type": "single",
@@ -295,17 +324,19 @@
       "type": "qa",
       "question": "What berry is always up to date with the latest news?",
       "answer": "Blackcurrant",
-      "explanation": "black-current"
+      "explanation": "Black-current (current events/news)"
     },
     {
       "type": "qa",
       "question": "What type of hotel room is full of candy?",
-      "answer": "Suites."
+      "answer": "Suites",
+      "explanation": "Suites sounds like 'sweets' (candy)"
     },
     {
       "type": "qa",
       "question": "Take a dagger and stab a clock. What do you get?",
-      "answer": "Kill time."
+      "answer": "Kill time",
+      "explanation": "Literally killing time (clock) + idiom 'kill time'"
     },
     {
       "type": "single",
@@ -314,17 +345,20 @@
     {
       "type": "qa",
       "question": "What is the winning plant?",
-      "answer": "A vic-tree."
+      "answer": "A victree",
+      "explanation": "Victory + tree"
     },
     {
       "type": "qa",
       "question": "What is a 'pot' vegetable?",
-      "answer": "Potato."
+      "answer": "Potato",
+      "explanation": "Pot-ato contains 'pot'"
     },
     {
       "type": "qa",
       "question": "What is a free coffee called?",
-      "answer": "Cof-free."
+      "answer": "Coffree",
+      "explanation": "Coffee + free"
     },
     {
       "type": "single",
@@ -333,7 +367,8 @@
     {
       "type": "qa",
       "question": "What kind of seed can open doors magically?",
-      "answer": "A sesame seed."
+      "answer": "A sesame seed",
+      "explanation": "Reference to 'Open Sesame' magic phrase"
     },
     {
       "type": "single",
@@ -346,42 +381,50 @@
     {
       "type": "qa",
       "question": "What kind of processed-meat item barks?",
-      "answer": "A hot-dog."
+      "answer": "A hotdog",
+      "explanation": "Dogs bark, and it's called a hotdog"
     },
     {
       "type": "qa",
       "question": "What type of pastry are artists?",
-      "answer": "T-arts."
+      "answer": "Tarts.",
+      "explanation": "Tarts contains 'art' (artists)"
     },
     {
       "type": "qa",
       "question": "What fruit makes a range?",
-      "answer": "An o-range."
+      "answer": "An orange",
+      "explanation": "O-range sounds like 'a range'"
     },
     {
       "type": "qa",
       "question": "Why do bodybuilders need to eat a lot of shellfish?",
-      "answer": "To build mussels."
+      "answer": "To build mussels",
+      "explanation": "Mussels (shellfish) sounds like muscles (bodybuilding)"
     },
     {
       "type": "qa",
       "question": "What is the ugliest pasta dish?",
-      "answer": "Ugly olio."
+      "answer": "Ugly olio",
+      "explanation": "Aglio olio sounds like 'ugly olio'"
     },
     {
       "type": "qa",
       "question": "Why does the number nine avoid the beach?",
-      "answer": "Because it doesn't want to ten."
+      "answer": "Because it doesn't want to ten",
+      "explanation": "'Ten' sounds like 'tan' (what you do at the beach)"
     },
     {
       "type": "qa",
       "question": "What do trees and dogs have in common?",
-      "answer": "They both have bark."
+      "answer": "They both have bark",
+      "explanation": "Tree bark (outer layer) vs dog bark (sound)"
     },
     {
       "type": "qa",
       "question": "What do you call a mushy room?",
-      "answer": "Mushroom"
+      "answer": "Mushroom",
+      "explanation": "Mush + room = mushroom"
     },
     {
       "type": "single",
@@ -390,18 +433,19 @@
     {
       "type": "qa",
       "question": "What exercise involves cards?",
-      "answer": "Card-io."
+      "answer": "Card-io",
+      "explanation": "Cardio exercise with 'card' in the name"
     },
     {
       "type": "qa",
       "question": "Which country is very oily?",
       "answer": "Greece",
-      "explanation": "grease"
+      "explanation": "Greece sounds like 'grease' (oily substance)"
     },
     {
       "type": "qa",
       "question": "Can you guess what Disney song inspired these verses?\n\nUnder the 🌳 ,\nUnder the 🌳 ,\nWhere Isaac was hit by an 🍎,\nAnd he discovered gravity.\n\nUnder the 🌳,\nUnder the 🌳,\nWe are searching,\nHoping to find free durians.",
-      "answer": "Under the sea from the Little Mermaid."
+      "answer": "Under the Sea"
     },
     {
       "type": "single",
@@ -410,8 +454,9 @@
     {
       "type": "qa",
       "question": "What kind of air can you walk on and is good for exercise?",
-      "answer": "Stairs"
-    },
+      "answer": "Stairs",
+      "explanation": "St-airs contains 'air' and you walk on stairs for exercise"
+    },,
     {
       "type": "single",
       "text": "A dark duck is simply a black duck"
