@@ -297,6 +297,18 @@ export default function Prose({ children, className = "" }: ProseProps) {
             border-bottom: none;
           }
 
+          /* ===============================
+            Images
+            =============================== */
+
+          .prose img {
+            display: block;
+            border-radius: 0.125rem;
+            max-height: 40ch;
+            margin-inline-start: auto;
+            margin-inline-end: auto;
+          }
+
       `}</style>
 
       {children}
