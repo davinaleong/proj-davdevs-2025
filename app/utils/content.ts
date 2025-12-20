@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export type PostType = 'projects' | 'articles' | 'fem' | 'notebooks' | 'tools' | 'sermons' | 'static' | 'technical-demos';
+export type PostType = 'projects' | 'articles' | 'fem' | 'notebooks' | 'tools' | 'sermons' | 'static' | 'technical-demos' | 'knowledge-sharing';
 
 export interface PostMetadata {
   title: string;
