@@ -54,13 +54,13 @@ export default function ThemeSwitcherButton() {
     const getThemeIcon = () => {
         switch (themeMode) {
             case 'light':
-                return <Sun size={16} />
+                return <Sun size={24} />
             case 'dark':
-                return <Moon size={16} />
+                return <Moon size={24} />
             case 'system':
-                return <Monitor size={16} />
+                return <Monitor size={24} />
             default:
-                return <Monitor size={16} />
+                return <Monitor size={24} />
         }
     }
 

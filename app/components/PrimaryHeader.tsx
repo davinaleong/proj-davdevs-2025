@@ -50,7 +50,7 @@ export default function PrimaryHeader({ onMenuOpen, onSearchOpen }: PrimaryHeade
                 href="/tools" 
                 variant="header"
             >
-                <Smile size={16} />
+                <Smile size={24} />
             </Anchor>
             <Button 
                 onClick={onMenuOpen}

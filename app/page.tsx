@@ -3,19 +3,20 @@ import HomePostSection from './components/sections/home/HomePostSection'
 import HomeSocialSection from './components/sections/home/HomeSocialSection'
 import HomeJokeSection from './components/sections/home/HomeJokeSection'
 import HomeProfessionalSection from './components/sections/home/HomeProfessionalSection'
-import HomeKnowledgeSharingSection from './components/sections/home/HomeKnowledgeSharingSection'
 import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
   const articleLink = findLinkByLabel("Articles");
   const toolsLink = findLinkByLabel("Tools");
   const notebooksLink = findLinkByLabel("Python");
+  const knowledgeSharingLink = findLinkByLabel("Knowledge Sharing");
   const femLink = findLinkByLabel("Fem");
   const faithLink = findLinkByLabel("Faith");
   
   const articleContent = getPostSectionContent('articles');
   const toolsContent = getPostSectionContent('tools');
   const notebooksContent = getPostSectionContent('notebooks');
+  const knowledgeSharingContent = getPostSectionContent('knowledgeSharing');
   const femContent = getPostSectionContent('fem');
   const sermonsContent = getPostSectionContent('sermons');
   
@@ -24,6 +25,15 @@ export default function Home() {
       <HomeHeroSection />
       <HomeProfessionalSection />
       
+      {articleContent && (
+        <HomePostSection 
+          title={articleContent.title} 
+          postType="articles" 
+          variant={articleContent.variant} 
+          viewAllHref={articleLink?.href || "/articles"} 
+          viewAllText={articleContent.viewAllText} 
+        />
+      )}
       {toolsContent && (
         <HomePostSection 
           title={toolsContent.title} 
@@ -42,6 +52,15 @@ export default function Home() {
           viewAllText={notebooksContent.viewAllText} 
         />
       )}
+      {knowledgeSharingContent && (
+        <HomePostSection 
+          title={knowledgeSharingContent.title} 
+          postType="knowledge-sharing"
+          variant={knowledgeSharingContent.variant} 
+          viewAllHref={knowledgeSharingLink?.href || "/knowledge-sharing"} 
+          viewAllText={knowledgeSharingContent.viewAllText} 
+        />
+      )}
       {femContent && (
         <HomePostSection 
           title={femContent.title} 
@@ -51,7 +70,6 @@ export default function Home() {
           viewAllText={femContent.viewAllText} 
         />
       )}
-      <HomeKnowledgeSharingSection/>
       {sermonsContent && (
         <HomePostSection 
           title={sermonsContent.title} 

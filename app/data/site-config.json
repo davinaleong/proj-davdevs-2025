@@ -163,8 +163,8 @@
       "height": "half"
     },
     "knowledge-sharing": {
-      "title": "Knowledge Sharing 📚",
-      "description": "A collection of articles, talks, and resources to enhance your knowledge and skills.",
+      "title": "Python Notebooks 🐍",
+      "description": "A showcase of Python projects and coding exercises demonstrating programming skills, problem-solving approaches, and data science implementations.",
       "variant": "gradient",
       "height": "half"
     }
@@ -188,7 +188,7 @@
     "fem": {
       "title": "Frontend Mentor Solutions 🎯",
       "viewAllText": "View All Solutions",
-      "variant": "neutral"
+      "variant": "default"
     },
     "sermons": {
       "title": "Messages of Faith 🙏✨",
@@ -197,7 +197,7 @@
     },
     "knowledgeSharing": {
       "title": "Knowledge Sharing 📚",
-      "viewAllText": "",
+      "viewAllText": "View All Knowledge Sharing",
       "variant": "neutral"
     }
   },
