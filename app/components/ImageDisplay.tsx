@@ -25,6 +25,10 @@ export default function ImageDisplay({
   // Use provided src or fall back to placeholder
   const imageSrc = src || defaultPlaceholder;
   
+  // Adjust dimensions for square aspect ratio
+  const finalWidth = aspectRatio === 'square' ? Math.max(width, height) : width;
+  const finalHeight = aspectRatio === 'square' ? Math.max(width, height) : height;
+  
   // Apply aspect ratio classes
   const aspectClass = aspectRatio === 'landscape' ? 'aspect-video' : 'aspect-square';
   
@@ -33,8 +37,8 @@ export default function ImageDisplay({
       <Image
         src={imageSrc}
         alt={alt}
-        width={width}
-        height={height}
+        width={finalWidth}
+        height={finalHeight}
         className={`w-full h-full object-cover ${aspectClass}`}
       />
     </div>

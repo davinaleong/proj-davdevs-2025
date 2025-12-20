@@ -60,6 +60,9 @@ export default function Card({
   const renderImage = () => {
     if (!showImage) return null;
     
+    // Determine aspect ratio based on post type
+    const imageAspectRatio = post?.type === 'articles' ? 'square' : 'landscape';
+    
     // Use post images first, then fall back to imageProps
     if (post?.images && post.images.length > 0) {
       const firstImage = post.images[0];
@@ -67,7 +70,7 @@ export default function Card({
         <ImageDisplay 
           src={firstImage.src}
           alt={firstImage.alt}
-          aspectRatio="landscape"
+          aspectRatio={imageAspectRatio}
         />
       );
     }
@@ -79,7 +82,7 @@ export default function Card({
     return (
       <ImageDisplay 
         alt={alt || post?.title || 'Image'}
-        aspectRatio={aspectRatio}
+        aspectRatio={post?.type === 'articles' ? 'square' : aspectRatio}
         {...restImageProps}
       />
     );
