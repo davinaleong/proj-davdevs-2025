@@ -32,7 +32,7 @@ export default function HomeJokeSection() {
           
           <div className="flex justify-center">
             {!showAnswer ? (
-            <Button variant="secondary" onClick={handleShowAnswer}>
+            <Button variant="secondary" className="px-3 py-2" onClick={handleShowAnswer}>
                 Show Answer
               </Button>
             ) : (

@@ -47,6 +47,11 @@
       "label": "Funny",
       "href": "/funny",
       "external": false
+    },
+    {
+      "label": "Knowledge Sharing",
+      "href": "/knowledge-sharing",
+      "external": false
     }
   ],
   "socialLinks": [
@@ -154,6 +159,12 @@
     "notebooks": {
       "title": "Python Notebooks 🐍",
       "description": "A showcase of Python projects and coding exercises demonstrating programming skills, problem-solving approaches, and data science implementations.",
+      "variant": "gradient",
+      "height": "half"
+    },
+    "knowledge-sharing": {
+      "title": "Knowledge Sharing 📚",
+      "description": "A collection of articles, talks, and resources to enhance your knowledge and skills.",
       "variant": "gradient",
       "height": "half"
     }

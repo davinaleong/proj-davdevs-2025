@@ -23,15 +23,7 @@ export default function Home() {
     <div>
       <HomeHeroSection />
       <HomeProfessionalSection />
-      {articleContent && (
-        <HomePostSection 
-          title={articleContent.title} 
-          postType="articles" 
-          variant={articleContent.variant} 
-          viewAllHref={articleLink?.href || "/articles"} 
-          viewAllText={articleContent.viewAllText} 
-        />
-      )}
+      
       {toolsContent && (
         <HomePostSection 
           title={toolsContent.title} 
