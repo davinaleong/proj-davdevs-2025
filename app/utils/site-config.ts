@@ -1,6 +1,5 @@
 import siteConfig from '../data/site-config.json'
 import { PostSummary, PostType } from './content'
-import { ReactNode } from 'react'
 
 // Type definitions
 export interface HeroContent {
@@ -107,7 +106,7 @@ export function getAllPostSectionKeys(): string[] {
 }
 
 // Safe formatting for religious terms
-export function formatReligiousTerms(text: string): ReactNode[] {
+export function formatReligiousTerms(text: string): string {
   const religiousTerms = [
     'Christ Jesus',
     'Jesus Christ', 
@@ -120,35 +119,14 @@ export function formatReligiousTerms(text: string): ReactNode[] {
   // Sort by length (longest first) to handle overlapping terms correctly
   const sortedTerms = religiousTerms.sort((a, b) => b.length - a.length);
   
-  let parts: ReactNode[] = [text];
-  let keyCounter = 0;
+  let result = text;
   
   sortedTerms.forEach(term => {
-    const newParts: ReactNode[] = [];
-    
-    parts.forEach(part => {
-      if (typeof part === 'string') {
-        const regex = new RegExp(`\\b${term}\\b`, 'gi');
-        const splitParts = part.split(regex);
-        const matches = part.match(regex) || [];
-        
-        splitParts.forEach((splitPart, index) => {
-          if (splitPart) newParts.push(splitPart);
-          if (index < matches.length) {
-            newParts.push(
-              <strong key={`religious-${keyCounter++}`}>{matches[index]}</strong>
-            );
-          }
-        });
-      } else {
-        newParts.push(part);
-      }
-    });
-    
-    parts = newParts;
+    const regex = new RegExp(`\\b${term}\\b`, 'gi');
+    result = result.replace(regex, `<strong>$&</strong>`);
   });
   
-  return parts.filter(part => part !== '');
+  return result;
 }
 
 // Additional link functions for backwards compatibility
@@ -176,7 +154,7 @@ export function getKnowledgeSharingLinks() {
 }
 
 export function getKnowledgeSharingPosts(): { devto: PostSummary; talks: PostSummary } {
-  const posts = siteConfig.knowledgeSharingPosts as any;
+  const posts = siteConfig.knowledgeSharingPosts as Record<string, Omit<PostSummary, 'type'> & { type: string }>;
   return {
     devto: {
       ...posts.devto,
