@@ -1,4 +1,5 @@
 import HeroSection from './../../HeroSection'
+import { TypingAnimation } from '../../animations'
 import { getHeroContent } from '../../../utils/site-config'
 
 export default function HomeHeroSection() {
@@ -11,9 +12,11 @@ export default function HomeHeroSection() {
     return (
         <HeroSection variant={content.variant} height={content.height} showArrow={true} arrowHref="#professional">
             <div className="flow">
-                <h1 className="text-4xl lg:text-8xl font-bold">{content.title}</h1>
+                <h1 className="text-4xl lg:text-8xl font-bold">
+                    <TypingAnimation>{content.title}</TypingAnimation>
+                </h1>
                 <p className="lg:text-xl">
-                    Designing with purpose. Building with code. Living by faith in <strong><mark>Christ Jesus</mark></strong>.
+                    <TypingAnimation>Designing with purpose. Building with code. Living by faith in Christ Jesus.</TypingAnimation>
                 </p>
             </div>
         </HeroSection>
