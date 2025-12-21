@@ -28,7 +28,7 @@ export default function CardCarousel({
       <div className="overflow-x-auto md:overflow-hidden pb-2">
         <div className={gridClasses}>
           {cards.map((cardData, index) => (
-            <div key={cardData.title || index} className="shrink-0 w-72 md:w-auto flex">
+            <div key={cardData.post?.slug || cardData.post?.title || index} className="shrink-0 w-72 md:w-auto flex">
               <Card 
                 {...cardData}
                 className="h-full w-full max-w-none flex-1"

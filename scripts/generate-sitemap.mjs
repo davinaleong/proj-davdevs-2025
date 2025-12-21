@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { writeFileSync } from 'fs'
-import { generateSitemap, getDefaultSitemapConfig } from '../utils/sitemap.js'
+import { generateSitemap, getDefaultSitemapConfig } from '../app/utils/sitemap-helpers.js'
 
 /**
  * Generate static sitemap.xml file

@@ -49,12 +49,65 @@ export function getDefaultSitemapConfig(baseUrl: string = 'https://yourwebsite.c
         priority: 1.0
       },
       {
+        url: '/articles',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/faith',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/fem',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
         url: '/funny',
         lastModified: currentDate,
         changeFrequency: 'daily',
         priority: 0.8
+      },
+      {
+        url: '/knowledge-sharing',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/notebooks',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/projects',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/technical-demos',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/tools',
+        lastModified: currentDate,
+        changeFrequency: 'weekly',
+        priority: 0.8
+      },
+      {
+        url: '/test',
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.3
       }
-      // Add more URLs as you create new pages
     ]
   };
 }
@@ -66,6 +119,18 @@ export function getStaticRoutes(): string[] {
   // This is a helper - you'll need to manually maintain this list or use file system scanning
   return [
     '/',
-    '/funny'
+    '/articles',
+    '/faith',
+    '/fem',
+    '/funny',
+    '/knowledge-sharing',
+    '/notebooks',
+    '/projects',
+    '/technical-demos',
+    '/tools',
+    '/test'
   ];
 }
+
+// Helper functions for sitemap generation
+// Use the separate script in /scripts/generate-sitemap.mjs for static sitemap generation

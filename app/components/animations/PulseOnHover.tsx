@@ -34,7 +34,6 @@ export default function PulseOnHover({
 
   const transition = {
     duration,
-    ease: [0.22, 1, 0.36, 1],
     ...(continuousPulse && !disabled && {
       repeat: Infinity,
       repeatType: "loop" as const

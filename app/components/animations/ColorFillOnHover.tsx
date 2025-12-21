@@ -3,13 +3,15 @@
 import { motion } from 'motion/react'
 import { ReactNode } from 'react'
 
+type EasingType = 'linear' | 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out'
+
 interface ColorFillOnHoverProps {
   children: ReactNode
   className?: string
   hoverColor?: string
   duration?: number
   direction?: 'left-to-right' | 'right-to-left'
-  easing?: string
+  easing?: EasingType
 }
 
 export default function ColorFillOnHover({
@@ -53,8 +55,7 @@ export default function ColorFillOnHover({
           }
         }}
         transition={{
-          duration,
-          ease: easing === 'ease-out' ? [0.22, 1, 0.36, 1] : easing
+          duration
         }}
       >
         <span className="select-none">

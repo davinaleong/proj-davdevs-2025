@@ -30,7 +30,7 @@ export function getLatestProjects(): PostSummary[] {
 
 // Get latest 3 FEM solutions
 export function getLatestFEMSolutions(): PostSummary[] {
-  return getLatestPostsByType('fem-solutions', 3);
+  return getLatestPostsByType('fem', 3);
 }
 
 // Get latest 3 notebooks
