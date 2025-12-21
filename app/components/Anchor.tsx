@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { ColorFillOnHover } from './animations';
 
 interface AnchorProps {
   children: ReactNode;
@@ -21,15 +22,15 @@ export default function Anchor({
   const getVariantClasses = () => {
     switch (variant) {
       case 'white':
-        return "underline text-white hover:opacity-60";
+        return "underline text-white";
       case 'black':
-        return "underline text-black hover:opacity-60";
+        return "underline text-black";
       case 'blue-500':
-        return "underline text-blue-500 hover:opacity-60";
+        return "underline text-blue-500";
       case 'blue-300':
-        return "underline text-blue-300 hover:opacity-60";
+        return "underline text-blue-300";
       case 'header':
-        return "text-black dark:text-white hover:opacity-60";
+        return "text-black dark:text-white";
       case 'footer':
         return "text-blue-100 hover:text-white";
       case 'footer-legal':
@@ -37,11 +38,11 @@ export default function Anchor({
       case 'menu':
         return "block py-2 px-4 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm";
       default:
-        return "underline text-blue-500 hover:opacity-60";
+        return "underline text-blue-500";
     }
   };
   
-  const anchorClasses = `${getVariantClasses()} ${className}`;
+  const anchorClasses = `underline ${getVariantClasses()} ${className}`;
 
   const linkProps = external 
     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -49,7 +50,9 @@ export default function Anchor({
 
   return (
     <Link href={href} {...linkProps} className={anchorClasses} onClick={onClick}>
-      {children}
+      <ColorFillOnHover className="underline" hoverColor="text-orange-500">
+        {children}
+      </ColorFillOnHover>
     </Link>
   );
 }
