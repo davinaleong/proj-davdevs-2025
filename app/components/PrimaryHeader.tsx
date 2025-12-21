@@ -47,12 +47,12 @@ export default function PrimaryHeader({ onMenuOpen, onSearchOpen }: PrimaryHeade
                     <span className="text-gray-500 dark:text-gray-400">Search...</span>
                 </Button>
                 <ThemeSwitcherButton />
-                <Anchor 
-                    href="/tools" 
+                <Button 
+                    onClick={() => window.location.href = '/funny'}
                     variant="header"
                 >
                     <Smile size={24} />
-                </Anchor>
+                </Button>
                 <Button 
                     onClick={onMenuOpen}
                     variant="header"

@@ -2,6 +2,7 @@
 
 import { Sun, Moon, Monitor } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Button from './Button'
 
 type ThemeMode = 'light' | 'dark' | 'system'
 
@@ -78,13 +79,13 @@ export default function ThemeSwitcherButton() {
     }
 
     return (
-        <button 
-            type="button"
+        <Button 
             onClick={cycleTheme}
+            variant="header"
             className="hover:opacity-70 transition-opacity"
             title={getThemeTitle()}
         >
             {getThemeIcon()}
-        </button>
+        </Button>
     )
 }
