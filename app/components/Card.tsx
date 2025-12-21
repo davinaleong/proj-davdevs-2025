@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ComponentProps } from 'react'
 import ImageDisplay from './ImageDisplay'
+import { PulseOnHover } from './animations'
 import { PostSummary } from '../utils/content'
 import { getDateFormatConfig } from '../utils/site-config'
 
@@ -142,7 +143,9 @@ export default function Card({
     
     return (
       <Link href={href} {...linkProps} className="block">
-        {cardContent}
+        <PulseOnHover className="h-full">
+          {cardContent}
+        </PulseOnHover>
       </Link>
     );
   }

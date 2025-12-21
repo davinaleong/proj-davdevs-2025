@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode, ButtonHTMLAttributes } from 'react'
+import { PulseOnHover } from './animations'
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   children: ReactNode;
@@ -49,13 +50,15 @@ export default function Button({
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${disabledClasses} ${className}`;
 
   return (
-    <button 
-      type={type}
-      disabled={disabled}
-      className={buttonClasses}
-      {...props}
-    >
-      {children}
-    </button>
+    <PulseOnHover>
+      <button 
+        type={type}
+        disabled={disabled}
+        className={buttonClasses}
+        {...props}
+      >
+        {children}
+      </button>
+    </PulseOnHover>
   );
 }

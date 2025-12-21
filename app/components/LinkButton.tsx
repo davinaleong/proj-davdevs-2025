@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { ReactNode } from 'react'
+import Link from 'next/link'
+import { PulseOnHover } from './animations'
 
 interface LinkButtonProps {
   children: ReactNode;
@@ -37,7 +38,9 @@ export default function LinkButton({
 
   return (
     <Link href={href} {...linkProps} className={buttonClasses}>
-      {children}
+      <PulseOnHover>
+        {children}
+      </PulseOnHover>
     </Link>
   );
 }

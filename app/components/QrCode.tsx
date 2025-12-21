@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ImageDisplay from "./../components/ImageDisplay"
+import PulseOnHover from "../components/animations/PulseOnHover"
 import FbQr from './../assets/images/qr-codes/fb-qr.png'
 import GhQr from './../assets/images/qr-codes/gh-qr.png'
 import IgQr from './../assets/images/qr-codes/ig-qr.png'
@@ -65,21 +66,23 @@ export default function QrCode({
     : {};
 
   return (
-    <Link 
-      href={href} 
-      {...linkProps}
-      className={`w-30 flex flex-col items-center bg-gray-100 dark:bg-slate-900 shadow-lg hover:opacity-60 transition-opacity gap-2 p-2 rounded-sm ${className}`}
-    >
-      <p className="text-sm font-medium text-gray-900 dark:text-gray-100 text-center">
-        {displayLabel}
-      </p>
+    <PulseOnHover>
+      <Link 
+        href={href} 
+        {...linkProps}
+        className={`w-30 flex flex-col items-center bg-gray-100 dark:bg-slate-900 shadow-lg hover:opacity-60 transition-opacity gap-2 p-2 rounded-sm ${className}`}
+      >
+        <p className="text-sm font-medium text-gray-900 dark:text-gray-100 text-center">
+          {displayLabel}
+        </p>
 
-      <ImageDisplay 
-        src={qrData.image.src}
-        alt={qrData.alt}
-        aspectRatio="square"
-        className="bg-white p-1 rounded-sm"
-      />
-    </Link>
+        <ImageDisplay 
+          src={qrData.image.src}
+          alt={qrData.alt}
+          aspectRatio="square"
+          className="bg-white p-1 rounded-sm"
+        />
+      </Link>
+    </PulseOnHover>
   );
 }
