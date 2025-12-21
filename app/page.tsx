@@ -3,6 +3,7 @@ import HomePostSection from './components/sections/home/HomePostSection'
 import HomeSocialSection from './components/sections/home/HomeSocialSection'
 import HomeJokeSection from './components/sections/home/HomeJokeSection'
 import HomeProfessionalSection from './components/sections/home/HomeProfessionalSection'
+import { SlideUpOnScroll } from './components/animations'
 import { findLinkByLabel, getPostSectionContent } from './utils/site-config'
 
 export default function Home() {
@@ -24,74 +25,96 @@ export default function Home() {
   
   return (
     <div>
-      <HomeHeroSection />
-      <HomeProfessionalSection />
+      <SlideUpOnScroll>
+        <HomeHeroSection />
+      </SlideUpOnScroll>
+      <SlideUpOnScroll>
+        <HomeProfessionalSection />
+      </SlideUpOnScroll>
       
       {portfolioContent && (
-        <HomePostSection 
-          title={portfolioContent.title} 
-          postType="projects" 
-          variant={portfolioContent.variant} 
-          viewAllHref={portfolioLink?.href || "/projects"} 
-          viewAllText={portfolioContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={portfolioContent.title} 
+            postType="projects" 
+            variant={portfolioContent.variant} 
+            viewAllHref={portfolioLink?.href || "/projects"} 
+            viewAllText={portfolioContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
       )}
       {articleContent && (
-        <HomePostSection 
-          title={articleContent.title} 
-          postType="articles" 
-          variant={articleContent.variant} 
-          viewAllHref={articleLink?.href || "/articles"} 
-          viewAllText={articleContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={articleContent.title} 
+            postType="articles" 
+            variant={articleContent.variant} 
+            viewAllHref={articleLink?.href || "/articles"} 
+            viewAllText={articleContent.viewAllText} 
+          />  
+        </SlideUpOnScroll>
       )}
       {toolsContent && (
-        <HomePostSection 
-          title={toolsContent.title} 
-          postType="tools" 
-          variant={toolsContent.variant} 
-          viewAllHref={toolsLink?.href || "/tools"} 
-          viewAllText={toolsContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={toolsContent.title} 
+            postType="tools" 
+            variant={toolsContent.variant} 
+            viewAllHref={toolsLink?.href || "/tools"} 
+            viewAllText={toolsContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
       )}
       {notebooksContent && (
-        <HomePostSection 
-          title={notebooksContent.title} 
-          postType="notebooks" 
-          variant={notebooksContent.variant} 
-          viewAllHref={notebooksLink?.href || "/notebooks"} 
-          viewAllText={notebooksContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={notebooksContent.title} 
+            postType="notebooks" 
+            variant={notebooksContent.variant} 
+            viewAllHref={notebooksLink?.href || "/notebooks"} 
+            viewAllText={notebooksContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
       )}
       {knowledgeSharingContent && (
-        <HomePostSection 
-          title={knowledgeSharingContent.title} 
-          postType="knowledge-sharing"
-          variant={knowledgeSharingContent.variant} 
-          viewAllHref={knowledgeSharingLink?.href || "/knowledge-sharing"} 
-          viewAllText={knowledgeSharingContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={knowledgeSharingContent.title} 
+            postType="knowledge-sharing"
+            variant={knowledgeSharingContent.variant} 
+            viewAllHref={knowledgeSharingLink?.href || "/knowledge-sharing"} 
+            viewAllText={knowledgeSharingContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
       )}
       {femContent && (
-        <HomePostSection 
-          title={femContent.title} 
-          postType="fem"
-          variant={femContent.variant} 
-          viewAllHref={femLink?.href || "/fem"} 
-          viewAllText={femContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={femContent.title} 
+            postType="fem"
+            variant={femContent.variant} 
+            viewAllHref={femLink?.href || "/fem"} 
+            viewAllText={femContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
       )}
       {sermonsContent && (
-        <HomePostSection 
-          title={sermonsContent.title} 
-          postType="sermons" 
-          variant={sermonsContent.variant} 
-          viewAllHref={faithLink?.href || "/faith"} 
-          viewAllText={sermonsContent.viewAllText} 
-        />
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={sermonsContent.title} 
+            postType="sermons" 
+            variant={sermonsContent.variant} 
+            viewAllHref={faithLink?.href || "/faith"} 
+            viewAllText={sermonsContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
       )}
-      <HomeSocialSection />
-      <HomeJokeSection />
+      <SlideUpOnScroll>
+        <HomeSocialSection />
+      </SlideUpOnScroll>
+      <SlideUpOnScroll>
+        <HomeJokeSection />
+      </SlideUpOnScroll>
     </div>
   );
 }
