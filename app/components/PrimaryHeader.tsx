@@ -30,34 +30,37 @@ export default function PrimaryHeader({ onMenuOpen, onSearchOpen }: PrimaryHeade
     };
 
     return (
-        <header className="sticky top-0 flex items-center justify-between gap-2 md:gap-8 p-2 bg-slate-100 dark:bg-gray-900 z-30 print:hidden">
+        <header className="sticky top-0 w-full flex items-center justify-between gap-2 md:gap-4 p-2 bg-slate-100 dark:bg-gray-900 z-30 print:hidden">
             <Brand/>
             <Nav className="hidden md:flex bg-linear-to-r from-slate-100 via-slate-300 to-slate-100 dark:from-gray-900 dark:via-gray-700 dark:to-gray-900 py-2 rounded-sm overflow-x-auto">
-                <ul className="flex-2 flex items-center gap-4">
+                <ul className="flex items-center gap-4">
                     {navigationLinks.map(renderNavigationLink)}
                 </ul>
             </Nav>
-            <Button 
-                onClick={onSearchOpen}
-                variant="secondary"
-                className="flex-1 justify-start px-3 py-2"
-            >
-                <Search size={16} />
-                <span className="text-gray-500 dark:text-gray-400">Search...</span>
-            </Button>
-            <ThemeSwitcherButton />
-            <Anchor 
-                href="/tools" 
-                variant="header"
-            >
-                <Smile size={24} />
-            </Anchor>
-            <Button 
-                onClick={onMenuOpen}
-                variant="header"
-            >
-                <Menu size={24} />
-            </Button>
+            <div className="flex items-center gap-2 md:gap-4">
+                <Button 
+                    onClick={onSearchOpen}
+                    variant="secondary"
+                    className="flex items-center px-3 py-2"
+                >
+                    <Search size={16} />
+                    <span className="text-gray-500 dark:text-gray-400">Search...</span>
+                </Button>
+                <ThemeSwitcherButton />
+                <Anchor 
+                    href="/tools" 
+                    variant="header"
+                >
+                    <Smile size={24} />
+                </Anchor>
+                <Button 
+                    onClick={onMenuOpen}
+                    variant="header"
+                    className="md:hidden"
+                >
+                    <Menu size={24} />
+                </Button>
+            </div>
         </header>
     )
 }
