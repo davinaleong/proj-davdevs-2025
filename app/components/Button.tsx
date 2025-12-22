@@ -25,7 +25,7 @@ export default function Button({
     ? "cursor-pointer"
     : variant === 'image'
     ? "cursor-pointer p-0 overflow-hidden hover:opacity-80 transition-opacity"
-    : "inline-flex items-center gap-2 cursor-pointer rounded-sm hover:opacity-60";
+    : "inline-flex items-center justify-center gap-2 cursor-pointer rounded-sm hover:opacity-60";
   
   const variantClasses = {
     primary: "text-white bg-blue-500",
@@ -50,15 +50,13 @@ export default function Button({
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${disabledClasses} ${className}`;
 
   return (
-    <PulseOnHover>
-      <button 
-        type={type}
-        disabled={disabled}
-        className={buttonClasses}
-        {...props}
-      >
-        {children}
-      </button>
-    </PulseOnHover>
+    <button 
+      type={type}
+      disabled={disabled}
+      className={buttonClasses}
+      {...props}
+    >
+      {children}
+    </button>
   );
 }
