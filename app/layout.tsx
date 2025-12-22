@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Davina Leong" }],
   creator: "Davina Leong",
   publisher: "Dav/Devs",
-  metadataBase: new URL("https://davdevs.me"),
+  metadataBase: new URL("https://www.davinaleong.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://davdevs.me",
+    url: "https://www.davinaleong.com",
     title: "Dav/Devs - Full Stack Developer Portfolio",
     description: "Professional portfolio of Davina Leong, a full-stack developer specializing in modern web technologies, React, Next.js, and cloud solutions.",
     siteName: "Dav/Devs",
