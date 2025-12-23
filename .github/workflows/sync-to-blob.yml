@@ -22,13 +22,32 @@ jobs:
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Upload to Azure Blob
-        uses: azure/CLI@v2
+        uses: azure/cli@v2
         with:
             inlineScript: |
+                # Upload README.md
                 az storage blob upload-batch \
                     --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-                    --destination container-davdevs \
+                    --destination $CONTAINER \
                     --source . \
-                    --pattern "README.md;app/content/**;text-files/**" \
+                    --pattern "README.md" \
                     --auth-mode login
+                
+                # Upload content files
+                az storage blob upload-batch \
+                    --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+                    --destination $CONTAINER \
+                    --source app/content \
+                    --destination-path content \
+                    --auth-mode login
+                
+                # Upload text files
+                az storage blob upload-batch \
+                    --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+                    --destination $CONTAINER \
+                    --source text-files \
+                    --destination-path text-files \
+                    --auth-mode login
+        env:
+          CONTAINER: container-davdevs
 
