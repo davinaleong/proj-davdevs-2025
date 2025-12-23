@@ -37,7 +37,6 @@ export async function POST(req: NextRequest) {
   );
 
   const searchJson: AzureSearchResponse = await searchRes.json();
-  console.log("Search hits:", searchJson.value?.length);
 
   const chunks: Array<{ content: string; filePath?: string }> =
     (searchJson.value || []).map((d: AzureSearchDocument) => ({

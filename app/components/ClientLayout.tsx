@@ -5,6 +5,7 @@ import PrimaryHeader from "./PrimaryHeader"
 import PrimaryFooter from "./PrimaryFooter"
 import Menu from "./Menu"
 import SearchModal from "./SearchModal"
+import Chatbot from "./Chatbot"
 
 interface ClientLayoutProps {
     children: ReactNode;
@@ -27,6 +28,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
             </main>
             <Menu isOpen={isMenuOpen} onClose={closeMenu} />
             <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
+            <Chatbot />
             <PrimaryFooter />
         </>
     )

@@ -7,7 +7,24 @@ import ChatInput from './ChatInput'
 import MessageBubble from './MessageBubble'
 import ResponseBubble from './ResponseBubble'
 import Panel from './Panel'
-import { Message, generateDummyResponse, createMessage } from '../utils/dummyChat'
+
+export interface Message {
+  id: string
+  content: string
+  isUser: boolean
+  timestamp: Date
+  sources?: string[]
+}
+
+function createMessage(content: string, isUser: boolean, sources?: string[]): Message {
+  return {
+    id: Math.random().toString(36).substr(2, 9),
+    content,
+    isUser,
+    timestamp: new Date(),
+    sources
+  }
+}
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
@@ -19,15 +36,36 @@ export default function Chatbot() {
     const userMessage = createMessage(messageContent, true)
     setMessages(prev => [...prev, userMessage])
     
-    // Simulate typing delay
+    // Show typing indicator
     setIsTyping(true)
     
-    setTimeout(() => {
-      const botResponse = generateDummyResponse(messageContent)
-      const botMessage = createMessage(botResponse, false)
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: messageContent }),
+      })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      const data = await response.json()
+      const botMessage = createMessage(data.answer, false, data.sources)
       setMessages(prev => [...prev, botMessage])
+      
+    } catch (error) {
+      console.error('Error calling chat API:', error)
+      const errorMessage = createMessage(
+        'Sorry, I encountered an error while processing your request. Please try again later.',
+        false
+      )
+      setMessages(prev => [...prev, errorMessage])
+    } finally {
       setIsTyping(false)
-    }, 1000 + Math.random() * 2000) // Random delay between 1-3 seconds
+    }
   }
 
   return (
@@ -58,6 +96,7 @@ export default function Chatbot() {
               <ResponseBubble 
                 key={message.id}
                 response={message.content} 
+                sources={message.sources}
               />
             )
           ))}
@@ -67,7 +106,7 @@ export default function Chatbot() {
               className="text-center text-gray-500 dark:text-gray-400 p-8"
               overwrite={true}
             >
-              👋 Hello! I'm a dummy chatbot. Ask me anything to see how responses will look!
+              👋 Hello! I&apos;m an AI assistant powered by your repository knowledge. Ask me anything about your codebase!
             </Panel>
           )}
         </Panel>
