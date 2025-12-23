@@ -27,7 +27,7 @@ jobs:
             inlineScript: |
                 az storage blob upload-batch \
                     --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
-                    --destination repo-content \
+                    --destination container-davdevs \
                     --source . \
                     --pattern "README.md;app/content/**;text-files/**" \
                     --auth-mode login
