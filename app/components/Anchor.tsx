@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import { ColorFillOnHover } from './animations';
 
 interface AnchorProps {
   children: ReactNode;
@@ -42,7 +41,7 @@ export default function Anchor({
     }
   };
   
-  const anchorClasses = `underline ${getVariantClasses()} ${className}`;
+  const anchorClasses = `${getVariantClasses()} ${className}`;
 
   const linkProps = external 
     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -50,9 +49,7 @@ export default function Anchor({
 
   return (
     <Link href={href} {...linkProps} className={anchorClasses} onClick={onClick}>
-      <ColorFillOnHover className="underline" hoverColor="text-orange-500">
-        {children}
-      </ColorFillOnHover>
+      {children}
     </Link>
   );
 }

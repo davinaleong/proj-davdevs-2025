@@ -38,9 +38,7 @@ export default function LinkButton({
 
   return (
     <Link href={href} {...linkProps} className={buttonClasses}>
-      <PulseOnHover>
-        {children}
-      </PulseOnHover>
+      {children}
     </Link>
   );
 }
