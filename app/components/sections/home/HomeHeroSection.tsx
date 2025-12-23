@@ -15,9 +15,9 @@ export default function HomeHeroSection() {
                 <h1 className="text-4xl lg:text-8xl font-bold">
                     <TypingAnimation>{content.title}</TypingAnimation>
                 </h1>
-                <p className="lg:text-xl">
+                <div className="lg:text-xl">
                     <TypingAnimation>Designing with purpose. Building with code. Living by faith in Christ Jesus.</TypingAnimation>
-                </p>
+                </div>
             </div>
         </HeroSection>
     )
