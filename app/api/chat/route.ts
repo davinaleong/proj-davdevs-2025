@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 
 interface AzureSearchDocument {
   content: string;
-  filePath?: string;
+  metadata_storage_path?: string;
 }
 
 interface AzureSearchResponse {
@@ -14,9 +14,9 @@ export async function POST(req: NextRequest) {
 
   // 1) Query Azure AI Search (hybrid or vector query depending on your setup)
   const searchEndpoint = process.env.AZURE_SEARCH_ENDPOINT!; // e.g. https://xxxx.search.windows.net
-  const indexName = process.env.AZURE_SEARCH_INDEX!;         // e.g. repo-index
+  const indexName = process.env.AZURE_SEARCH_INDEX_NAME!;         // e.g. repo-index
   const searchKey = process.env.AZURE_SEARCH_API_KEY!;
-  const apiVersion = "2025-09-01"; // example stable API version used in current docs
+  const apiVersion = process.env.AZURE_SEARCH_API_VERSION || "2023-11-01";
 
   const searchRes = await fetch(
     `${searchEndpoint}/indexes/${indexName}/docs/search?api-version=${apiVersion}`,
@@ -28,17 +28,21 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         search: message,
-        top: 5,
-        select: "content,filePath",
+        queryType: "simple",
+        searchFields: "content",
+        top: Number(process.env.RAG_TOP_K ?? 6),
+        select: "content,metadata_storage_path",
       }),
     }
   );
 
   const searchJson: AzureSearchResponse = await searchRes.json();
+  console.log("Search hits:", searchJson.value?.length);
+
   const chunks: Array<{ content: string; filePath?: string }> =
     (searchJson.value || []).map((d: AzureSearchDocument) => ({
       content: d.content,
-      filePath: d.filePath,
+      filePath: d.metadata_storage_path,
     }));
 
   const context = chunks
@@ -50,7 +54,7 @@ export async function POST(req: NextRequest) {
   const aoaiEndpoint = process.env.AZURE_OPENAI_ENDPOINT!; // e.g. https://xxxx.openai.azure.com
   const aoaiKey = process.env.AZURE_OPENAI_API_KEY!;
   const chatDeployment = process.env.AZURE_OPENAI_CHAT_DEPLOYMENT!; // your deployment name
-  const aoaiApiVersion = "2025-01-01-preview"; // depends on your resource; keep in env if you prefer
+  const aoaiApiVersion = process.env.AZURE_OPENAI_API_VERSION || "2024-04-01-preview";
 
   const chatRes = await fetch(
     `${aoaiEndpoint}/openai/deployments/${chatDeployment}/chat/completions?api-version=${aoaiApiVersion}`,
@@ -69,7 +73,8 @@ export async function POST(req: NextRequest) {
           },
           { role: "user", content: `Question:\n${message}\n\nRepo context:\n${context}` },
         ],
-        temperature: 0.2,
+        temperature: Number(process.env.RAG_TEMPERATURE ?? 0.2),
+        max_tokens: Number(process.env.RAG_MAX_TOKENS ?? 800),
       }),
     }
   );
