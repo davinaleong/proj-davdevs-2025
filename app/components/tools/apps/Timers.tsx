@@ -230,7 +230,7 @@ export default function Timers() {
     <ToolPanel title="Timers" description="Simple timers for countdowns to deadlines and tracking elapsed time." icon={Clock}>
       <div className="space-y-6">
         {/* Timer Display */}
-        <div className={`text-center p-6 rounded-lg border-2 transition-colors ${
+        <div className={`text-center p-6 rounded-sm border-2 transition-colors ${
           isFlashing 
             ? 'border-red-500 bg-red-50 dark:bg-red-900/20' 
             : 'border-gray-200 dark:border-gray-700'

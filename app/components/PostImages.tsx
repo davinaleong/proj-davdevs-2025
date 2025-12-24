@@ -35,7 +35,7 @@ export default function PostImages({ images, postType }: PostImagesProps) {
             <Button
               variant="image"
               onClick={() => handleImageClick(images[0])}
-              className="rounded-lg"
+              className="rounded-sm"
             >
               <ImageDisplay
                 src={images[0].src}
@@ -43,7 +43,7 @@ export default function PostImages({ images, postType }: PostImagesProps) {
                 aspectRatio={postType === 'articles' ? 'square' : 'landscape'}
                 width={postType === 'articles' ? 600 : 800}
                 height={postType === 'articles' ? 600 : 500}
-                className="rounded-lg"
+                className="rounded-sm"
               />
             </Button>
           </div>

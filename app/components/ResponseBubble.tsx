@@ -9,7 +9,7 @@ interface ResponseBubbleProps {
 export default function ResponseBubble({ response, sources }: ResponseBubbleProps) {
   return (
     <Panel 
-      className="max-w-80 p-4 rounded-lg text-black bg-gray-100 dark:text-white dark:bg-gray-800"
+      className="max-w-80 p-4 rounded-sm text-black bg-gray-100 dark:text-white dark:bg-gray-800"
       overwrite={true}
     >
       <Prose className="text-sm">

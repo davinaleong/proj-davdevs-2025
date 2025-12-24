@@ -78,7 +78,7 @@ export default function Chatbot() {
         >
           {isTyping && (
             <Panel 
-              className="max-w-80 p-4 rounded-lg text-black bg-gray-200 dark:text-white dark:bg-gray-700 animate-pulse"
+              className="max-w-80 p-4 rounded-sm text-black bg-gray-200 dark:text-white dark:bg-gray-700 animate-pulse"
               overwrite={true}
             >
               Typing...
