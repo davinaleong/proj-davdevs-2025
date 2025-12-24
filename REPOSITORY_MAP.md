@@ -37,7 +37,7 @@ app/
 ├── config/                                  # Configuration files
 ├── content/                                 # MDX content files
 ├── data/                                    # JSON data files
-├── faith/                                   # Faith/Sermons route pages
+├── sermons/                                 # Sermons route pages
 ├── favicon.ico                              # Site favicon
 ├── favicon.svg                              # SVG favicon
 ├── fem/                                     # FEM (Frontend Mentor) route pages
@@ -125,7 +125,7 @@ content/
 ├── knowledge-sharing/                       # Knowledge sharing posts (MDX)
 ├── notebooks/                               # Notebook/Learning content (MDX)
 ├── projects/                                # Project showcases (MDX)
-├── sermons/                                 # Faith/Sermon content (MDX)
+├── sermons/                                 # sermons/Sermon content (MDX)
 ├── static/                                  # Static pages (MDX)
 ├── technical-demos/                         # Technical demonstrations (MDX)
 └── tools/                                   # Tool documentation (MDX)
