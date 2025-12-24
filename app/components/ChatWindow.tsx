@@ -13,7 +13,7 @@ export default function ChatWindow({ children, isOpen }: ChatWindowProps) {
   
   return (
     <Panel 
-      className="fixed z-40 bottom-20 right-4 w-100 md:w-150 h-200 flex flex-col gap-4 bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-700" 
+      className="fixed z-40 bottom-4 right-4 left-4 sm:left-auto sm:right-4 w-full sm:w-80 md:w-96 lg:w-md max-w-lg h-64 sm:h-80 md:h-96 max-h-[80vh] flex flex-col gap-4 bg-white dark:bg-gray-900 shadow-xl border border-gray-200 dark:border-gray-700 rounded-lg" 
       overwrite={true}
     >
       {children}
