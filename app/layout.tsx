@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     siteName: "Dav/Devs",
     images: [
       {
-        url: "/og-image.jpg", // Add your Open Graph image
+        url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Dav/Devs - Full Stack Developer Portfolio",
+        alt: "Dav/Devs - Projects, Tools, Sermons, Notebooks",
       },
     ],
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Dav/Devs - Full Stack Developer Portfolio",
     description: "Professional portfolio of Davina Leong, a full-stack developer specializing in modern web technologies.",
     creator: "@davdevs", // Replace with your actual Twitter handle
-    images: ["/og-image.jpg"], // Add your Twitter card image
+    images: ["/og.png"],
   },
   robots: {
     index: true,
