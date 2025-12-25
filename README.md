@@ -44,37 +44,37 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ```
 app/
-├── components/          # Reusable UI components
-│   ├── sections/       # Page section components
-│   ├── tools/         # Tool-specific components
-│   ├── Button.tsx     # Button component with variants
-│   ├── Section.tsx    # Layout section components
-│   └── ...           # Core UI components
-├── content/           # MDX content files
-│   ├── articles/      # Technical blog posts
-│   ├── projects/      # Portfolio project descriptions
-│   ├── tools/         # Tool documentation
-│   ├── notebooks/     # Python notebook content
-│   ├── fem/          # Frontend Mentor solutions
-│   ├── knowledge-sharing/ # Educational content
-│   ├── sermons/      # Faith-based content
-│   ├── technical-demos/ # Code demonstrations
-│   └── static/       # Static pages (privacy, terms, etc.)
-├── data/             # Static data and configuration
-│   ├── site-config.json # Site navigation and settings
-│   ├── jokes.json    # Original humor content
-│   ├── colors.json   # Color palette data
-│   └── ...          # Various data files
-├── utils/            # Utility functions
-│   ├── content-helpers.ts # Content processing utilities
-│   └── ...          # Helper functions
-└── [sections]/       # Dynamic route pages
-    ├── projects/     # Portfolio showcase
-    ├── articles/     # Blog articles
-    ├── tools/        # Interactive utilities
-    ├── notebooks/    # Python content
-    ├── faith/        # Spiritual content
-    └── ...          # Additional content sections
+├── components/             # Reusable UI components
+│   ├── sections/           # Page section components
+│   ├── tools/              # Tool-specific components
+│   ├── Button.tsx          # Button component with variants
+│   ├── Section.tsx         # Layout section components
+│   └── ...                 # Core UI components
+├── content/                # MDX content files
+│   ├── articles/           # Technical blog posts
+│   ├── projects/           # Portfolio project descriptions
+│   ├── tools/              # Tool documentation
+│   ├── notebooks/          # Python notebook content
+│   ├── fem/                # Frontend Mentor solutions
+│   ├── knowledge-sharing/  # Educational content
+│   ├── sermons/            # My personal Christian sermons
+│   ├── technical-demos/    # Code demonstrations
+│   └── static/             # Static pages (privacy, terms, etc.)
+├── data/                   # Static data and configuration
+│   ├── site-config.json    # Site navigation and settings
+│   ├── jokes.json          # Original humor content
+│   ├── colors.json         # Color palette data
+│   └── ...                 # Various data files
+├── utils/                  # Utility functions
+│   ├── content-helpers.ts  # Content processing utilities
+│   └── ...                 # Helper functions
+└── [sections]/             # Dynamic route pages
+    ├── projects/           # Portfolio showcase
+    ├── articles/           # Blog articles
+    ├── tools/              # Interactive utilities
+    ├── notebooks/          # Python content
+    ├── sermons/            # My personal Christian sermons
+    └── ...                 # Additional content sections
 ```
 
 ## 🎮 Key Features & Sections
