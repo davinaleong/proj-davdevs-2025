@@ -57,7 +57,7 @@ app/
 │   ├── notebooks/     # Python notebook content
 │   ├── fem/          # Frontend Mentor solutions
 │   ├── knowledge-sharing/ # Educational content
-│   ├── faith/      # Faith-based content
+│   ├── sermons/      # Faith-based content
 │   ├── technical-demos/ # Code demonstrations
 │   └── static/       # Static pages (privacy, terms, etc.)
 ├── data/             # Static data and configuration
