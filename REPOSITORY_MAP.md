@@ -31,13 +31,14 @@ proj-davdevs-2025/
 ## App Directory (`/app`)
 ```
 app/
+├── _import/                                 # Content migration workspace
+├── api/                                     # API routes
 ├── articles/                                # Articles route pages
 ├── assets/                                  # Asset files
 ├── components/                              # React components
 ├── config/                                  # Configuration files
 ├── content/                                 # MDX content files
 ├── data/                                    # JSON data files
-├── sermons/                                 # Sermons route pages
 ├── favicon.ico                              # Site favicon
 ├── favicon.svg                              # SVG favicon
 ├── fem/                                     # FEM (Frontend Mentor) route pages
@@ -49,12 +50,12 @@ app/
 ├── page.tsx                                 # Homepage component
 ├── pages/                                   # Additional pages
 ├── projects/                                # Projects route pages
+├── sermons/                                 # Sermons route pages
 ├── sitemap.ts                               # Dynamic sitemap generation
 ├── technical-demos/                         # Technical demos route pages
 ├── test/                                    # Test pages/components
 ├── tools/                                   # Tools route pages
-├── utils/                                   # Utility functions
-└── _import/                                 # Content migration workspace
+└── utils/                                   # Utility functions
 ```
 
 ## Components (`/app/components`)
@@ -109,8 +110,8 @@ components/
 ├── SortInput.tsx                            # Sort controls
 ├── Tab.tsx                                  # Tab component
 ├── TabFlex.tsx                              # Flexible tab container
-├── Table.tsx                                # Table component
 ├── TabPanel.tsx                             # Tab panel content
+├── Table.tsx                                # Table component
 ├── Tag.tsx                                  # Tag/Label component
 ├── TagFlex.tsx                              # Flexible tag container
 ├── Textarea.tsx                             # Textarea input
@@ -162,11 +163,11 @@ public/
 ## Configuration Files
 ```
 ├── eslint.config.mjs                        # ESLint linting configuration
-├── next.config.ts                           # Next.js framework configuration
 ├── next-env.d.ts                            # Next.js TypeScript definitions
+├── next.config.ts                           # Next.js framework configuration
+├── package.json                             # Node.js project configuration
 ├── postcss.config.mjs                       # PostCSS processing configuration
-├── tsconfig.json                            # TypeScript compiler configuration
-└── package.json                             # Node.js project configuration
+└── tsconfig.json                            # TypeScript compiler configuration
 ```
 
 ## Scripts & Utilities
@@ -187,21 +188,21 @@ types/
 ```
 
 ## Technology Stack
-- **Framework**: Next.js 14+ (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Content**: MDX (Markdown + JSX)
-- **Icons**: Lucide React
 - **Animations**: Framer Motion
+- **Content**: MDX (Markdown + JSX)
+- **Framework**: Next.js 14+ (App Router)
+- **Icons**: Lucide React
+- **Language**: TypeScript
 - **Linting**: ESLint
 - **Package Manager**: npm
+- **Styling**: Tailwind CSS
 
 ## Key Features
 - 🌓 Dark/Light mode toggle
+- �️ Interactive tools and demos
+- 📝 MDX-powered content management
+- 🎯 Multiple content types (Articles, Projects, Tools, etc.)
 - 🔍 Omni-search with autocomplete
 - 📱 Responsive design
 - ✨ Subtle animations and hover effects
-- 📝 MDX-powered content management
 - 🏷️ Tag-based content organization
-- 🎯 Multiple content types (Articles, Projects, Tools, etc.)
-- 🛠️ Interactive tools and demos
