@@ -16,6 +16,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     onClose()
   }
 
+  const handleResultClick = () => {
+    // Close the modal when a search result link is clicked
+    onClose()
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -27,6 +32,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       <div className="space-y-4">
         <SearchInput
           onSearch={handleSearch}
+          onResultClick={handleResultClick}
           placeholder="Search tools, posts, projects..."
           showAutocomplete={true}
           className="w-full"

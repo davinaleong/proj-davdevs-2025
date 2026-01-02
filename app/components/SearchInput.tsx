@@ -9,6 +9,7 @@ import SearchAutocomplete from "./SearchAutocomplete"
 interface SearchInputProps {
     onSearch?: (searchTerm: string) => void;
     onSearchChange?: (searchTerm: string) => void;
+    onResultClick?: () => void;
     placeholder?: string;
     className?: string;
     showAutocomplete?: boolean;
@@ -17,6 +18,7 @@ interface SearchInputProps {
 export default function SearchInput({ 
     onSearch, 
     onSearchChange,
+    onResultClick,
     placeholder = "Search site...", 
     className = "",
     showAutocomplete = true
@@ -68,6 +70,10 @@ export default function SearchInput({
     const handleResultClick = () => {
         setShowResults(false)
         setSearchTerm("")
+        // Call the parent's onResultClick if provided (e.g., to close modal)
+        if (onResultClick) {
+            onResultClick()
+        }
     }
 
     // Load search data on component mount
