@@ -25,6 +25,7 @@ import PasswordStrengthMeter from './tools/apps/PasswordStrengthMeter'
 import QrCodeGenerator from './tools/apps/QrCodeGenerator'
 import Translator from './tools/apps/Translator'
 import Timers from './tools/apps/Timers'
+import Minesweeper from './tools/apps/Minesweeper'
 
 // Tool component mapping
 const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {
@@ -39,6 +40,7 @@ const TOOL_COMPONENTS: Record<string, () => React.ReactElement> = {
     '20250511-qr-code-generator': () => <QrCodeGenerator />,
     '20251010-translator': () => <Translator />,
     '20251218-timers': () => <Timers />,
+    '20260102-minesweeper': () => <Minesweeper />,
 }
 
 interface PostPageParams {
