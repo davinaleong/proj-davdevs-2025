@@ -69,7 +69,7 @@ export default function EmojiFoodCatcher() {
   const [gameTime, setGameTime] = useState(0)
 
   const gameAreaRef = useRef<HTMLDivElement>(null)
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
   const gameTimeRef = useRef(0)
 
   const basketSize = powerUps.largeBasket > 0 ? 120 : 80
