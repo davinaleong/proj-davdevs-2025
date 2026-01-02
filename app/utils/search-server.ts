@@ -49,7 +49,7 @@ function getContentResults(): SearchResult[] {
     results.push({
       title: sermon.title,
       description: sermon.description,
-      url: `/faith/${sermon.slug}`,
+      url: `/sermons/${sermon.slug}`,
       type: 'sermon',
       tags: sermon.tags,
       author: sermon.author,
