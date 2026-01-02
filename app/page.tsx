@@ -31,6 +31,18 @@ export default function Home() {
       <SlideUpOnScroll>
         <HomeProfessionalSection />
       </SlideUpOnScroll>
+
+      {toolsContent && (
+        <SlideUpOnScroll>
+          <HomePostSection 
+            title={toolsContent.title} 
+            postType="tools" 
+            variant={toolsContent.variant} 
+            viewAllHref={toolsLink?.href || "/tools"} 
+            viewAllText={toolsContent.viewAllText} 
+          />
+        </SlideUpOnScroll>
+      )}
       
       {portfolioContent && (
         <SlideUpOnScroll>
@@ -54,17 +66,7 @@ export default function Home() {
           />  
         </SlideUpOnScroll>
       )}
-      {toolsContent && (
-        <SlideUpOnScroll>
-          <HomePostSection 
-            title={toolsContent.title} 
-            postType="tools" 
-            variant={toolsContent.variant} 
-            viewAllHref={toolsLink?.href || "/tools"} 
-            viewAllText={toolsContent.viewAllText} 
-          />
-        </SlideUpOnScroll>
-      )}
+      
       {notebooksContent && (
         <SlideUpOnScroll>
           <HomePostSection 
