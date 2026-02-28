@@ -1,18 +1,40 @@
 'use client'
 
-import { useState } from "react"
-import { QrCode } from "lucide-react"
+import { useState, useRef } from "react"
+import { QrCode, Download } from "lucide-react"
 import { QRCode } from "react-qrcode-logo"
 import ToolPanel from "../components/ToolPanel"
 import Input from "../../Input"
 import Group from "../../Group"
 import Label from "../../Label"
+import Button from "../../Button"
 
 export default function QrCodeGenerator() {
   const [text, setText] = useState("https://example.com")
   const [size, setSize] = useState(200)
   const [fgColor, setFgColor] = useState("#000000")
   const [bgColor, setBgColor] = useState("#ffffff")
+  const qrRef = useRef<any>(null)
+
+  const downloadQrCode = () => {
+    if (qrRef.current) {
+      const canvas = qrRef.current.querySelector('canvas')
+      if (canvas) {
+        canvas.toBlob((blob: Blob | null) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob)
+            const a = document.createElement('a')
+            a.href = url
+            a.download = 'qrcode.png'
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+            URL.revokeObjectURL(url)
+          }
+        })
+      }
+    }
+  }
 
   return (
     <ToolPanel title="QR Code Generator" description="Create custom QR codes for URLs or text" icon={QrCode} className="max-w-lg mx-auto">
@@ -57,14 +79,25 @@ export default function QrCodeGenerator() {
         </Group>
       </Group>
 
-      <div className="flex justify-center p-4 rounded-sm bg-gray-50 dark:bg-gray-950 min-w-[250px]">
-        <QRCode
-          value={text}
-          size={size}
-          fgColor={fgColor}
-          bgColor={bgColor}
-          quietZone={10}
-        />
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex justify-center p-4 rounded-sm bg-gray-50 dark:bg-gray-950 min-w-[250px]" ref={qrRef}>
+          <QRCode
+            value={text}
+            size={size}
+            fgColor={fgColor}
+            bgColor={bgColor}
+            quietZone={10}
+          />
+        </div>
+        
+        <Button 
+          onClick={downloadQrCode}
+          variant="primary"
+          className="flex items-center gap-2 px-4 py-3"
+        >
+          <Download size={16} />
+          Download QR Code
+        </Button>
       </div>
     </ToolPanel>
   )
