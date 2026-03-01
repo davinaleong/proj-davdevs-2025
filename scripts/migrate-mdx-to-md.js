@@ -113,7 +113,7 @@ function detectComponents(content) {
             if (key) {
               try {
                 config[key] = jsValue ? eval(jsValue) : stringValue;
-              } catch (e) {
+              } catch {
                 config[key] = jsValue || stringValue;
               }
             }

@@ -204,7 +204,12 @@ export function getAllEnhancedPosts(): EnhancedPost[] {
 export function getEnhancedPostSummaries(type?: PostType): Omit<EnhancedPost, 'content' | 'htmlContent'>[] {
   const posts = type ? getEnhancedPostsByType(type) : getAllEnhancedPosts();
   
-  return posts.map(({ content, htmlContent, ...summary }) => summary);
+  return posts.map((post) => {
+    const { content, htmlContent, ...summary } = post;
+    void content;
+    void htmlContent;
+    return summary;
+  });
 }
 
 /**

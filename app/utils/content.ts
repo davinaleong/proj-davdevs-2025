@@ -50,6 +50,13 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
   try {
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
+
+    if (!data || typeof data !== 'object') {
+      console.warn(`Invalid frontmatter format in ${filePath}`);
+      return null;
+    }
+
+    const frontmatter = data as Record<string, unknown>;
     
     // Validate required fields
     const requiredFields: (keyof PostMetadata)[] = [
@@ -57,15 +64,26 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
     ];
     
     for (const field of requiredFields) {
-      if (!(field in data)) {
+      if (!(field in frontmatter)) {
         console.warn(`Missing required field '${field}' in ${filePath}`);
         return null;
       }
     }
 
+    if (
+      typeof frontmatter.title !== 'string' ||
+      typeof frontmatter.slug !== 'string' ||
+      typeof frontmatter.description !== 'string' ||
+      typeof frontmatter.date !== 'string' ||
+      typeof frontmatter.author !== 'string'
+    ) {
+      console.warn(`Invalid required string field types in ${filePath}`);
+      return null;
+    }
+
     // Transform image paths to absolute paths for Next.js Image component
-    const transformedImages = Array.isArray(data.images) 
-      ? data.images.map((image: ContentImage) => ({
+    const transformedImages = Array.isArray(frontmatter.images) 
+      ? frontmatter.images.map((image: ContentImage) => ({
           ...image,
           src: typeof image.src === 'string' && image.src.startsWith('/')
             ? image.src
@@ -73,17 +91,21 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
         }))
       : undefined;
 
+    const tags = Array.isArray(frontmatter.tags)
+      ? frontmatter.tags.filter((tag): tag is string => typeof tag === 'string')
+      : [];
+
     return {
-      title: data.title,
-      slug: data.slug,
-      description: data.description,
-      date: data.date,
-      author: data.author,
-      tags: Array.isArray(data.tags) ? data.tags : [],
-      featured: Boolean(data.featured),
-      readingTime: Number(data.readingTime) || 0,
-      published: Boolean(data.published),
-      links: Array.isArray(data.links) ? data.links : undefined,
+      title: frontmatter.title,
+      slug: frontmatter.slug,
+      description: frontmatter.description,
+      date: frontmatter.date,
+      author: frontmatter.author,
+      tags,
+      featured: Boolean(frontmatter.featured),
+      readingTime: Number(frontmatter.readingTime) || 0,
+      published: Boolean(frontmatter.published),
+      links: Array.isArray(frontmatter.links) ? (frontmatter.links as Array<{ label: string; href: string }>) : undefined,
       images: transformedImages,
       content,
       type,

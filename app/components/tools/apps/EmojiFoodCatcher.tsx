@@ -430,7 +430,7 @@ export default function EmojiFoodCatcher() {
           <div className="bg-black/50 rounded-lg p-3 backdrop-blur">
             <div className="text-lg font-bold">Score: {score}</div>
             <div className="flex items-center gap-1">
-              Lives: {Array.from({length: lives}, (_, i) => '💖').join('')}
+              Lives: {Array.from({ length: lives }, () => '💖').join('')}
             </div>
             {highScore > 0 && <div className="text-sm">Best: {highScore}</div>}
           </div>

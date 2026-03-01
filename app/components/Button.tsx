@@ -1,7 +1,6 @@
 'use client'
 
 import { ReactNode, ButtonHTMLAttributes } from 'react'
-import { PulseOnHover } from './animations'
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   children: ReactNode;

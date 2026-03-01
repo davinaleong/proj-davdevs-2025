@@ -27,7 +27,6 @@ export default function SearchInput({
     const [searchResultsData, setSearchResultsData] = useState<SearchResult[]>([])
     const [allSearchData, setAllSearchData] = useState<SearchResult[]>([])
     const [showResults, setShowResults] = useState(false)
-    const [isSearching, setIsSearching] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
 
@@ -47,7 +46,6 @@ export default function SearchInput({
         
         // Perform live search for autocomplete
         if (showAutocomplete && allSearchData.length > 0) {
-            setIsSearching(true)
             if (value.trim()) {
                 const results = searchResults(value, allSearchData)
                 setSearchResultsData(results)
@@ -56,7 +54,6 @@ export default function SearchInput({
                 setSearchResultsData([])
                 setShowResults(false)
             }
-            setIsSearching(false)
         }
     }
 

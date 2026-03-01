@@ -5,6 +5,14 @@ import { ReactNode } from 'react'
 
 type EasingType = 'linear' | 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out'
 
+const EASING_MAP = {
+  linear: 'linear',
+  ease: 'easeInOut',
+  'ease-in': 'easeIn',
+  'ease-out': 'easeOut',
+  'ease-in-out': 'easeInOut',
+} as const
+
 interface ColorFillOnHoverProps {
   children: ReactNode
   className?: string
@@ -55,7 +63,8 @@ export default function ColorFillOnHover({
           }
         }}
         transition={{
-          duration
+          duration,
+          ease: EASING_MAP[easing]
         }}
       >
         <span className="select-none">

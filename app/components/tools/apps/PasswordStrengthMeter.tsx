@@ -6,8 +6,6 @@ import ToolPanel from "../components/ToolPanel"
 import Input from "../../Input"
 import Label from "../../Label"
 
-const TYPE_PASSWORD = "password"
-const TYPE_TEXT = "text"
 const TOTAL_SCORE = 8
 
 function PasswordStrengthMeter() {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { RotateCcw, Flag, Bomb } from 'lucide-react'
 
 type Cell = {
@@ -85,39 +85,41 @@ export default function Minesweeper() {
     return newBoard
   }, [])
 
-  function revealCell(board: Cell[][], row: number, col: number): Cell[][] {
+  const revealCell = useCallback((board: Cell[][], row: number, col: number): Cell[][] => {
     const { rows, cols } = DIFFICULTIES[difficulty]
     const newBoard = board.map(r => r.map(c => ({ ...c })))
-    
-    if (newBoard[row][col].isFlagged || newBoard[row][col].isRevealed) {
-      return newBoard
-    }
-    
-    newBoard[row][col].isRevealed = true
-    
-    // If it's an empty cell (0 adjacent mines), reveal adjacent cells
-    if (newBoard[row][col].adjacentMines === 0 && !newBoard[row][col].isMine) {
-      for (let dr = -1; dr <= 1; dr++) {
-        for (let dc = -1; dc <= 1; dc++) {
-          const newRow = row + dr
-          const newCol = col + dc
-          if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
-            if (!newBoard[newRow][newCol].isRevealed) {
-              const recursiveBoard = revealCell(newBoard, newRow, newCol)
-              // Copy the revealed states back
-              for (let r = 0; r < rows; r++) {
-                for (let c = 0; c < cols; c++) {
-                  newBoard[r][c].isRevealed = recursiveBoard[r][c].isRevealed
-                }
-              }
+
+    const revealRecursively = (currentRow: number, currentCol: number) => {
+      if (
+        currentRow < 0 ||
+        currentRow >= rows ||
+        currentCol < 0 ||
+        currentCol >= cols
+      ) {
+        return
+      }
+
+      const cell = newBoard[currentRow][currentCol]
+      if (cell.isFlagged || cell.isRevealed) {
+        return
+      }
+
+      cell.isRevealed = true
+
+      if (cell.adjacentMines === 0 && !cell.isMine) {
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            if (dr !== 0 || dc !== 0) {
+              revealRecursively(currentRow + dr, currentCol + dc)
             }
           }
         }
       }
     }
-    
+
+    revealRecursively(row, col)
     return newBoard
-  }
+  }, [difficulty])
 
   const handleCellClick = useCallback((row: number, col: number) => {
     if (gameState !== 'playing') return
@@ -153,7 +155,7 @@ export default function Minesweeper() {
     if (revealedCells === totalCells - mines) {
       setGameState('won')
     }
-  }, [board, gameState, difficulty, firstClick, placeMines])
+  }, [board, gameState, difficulty, firstClick, placeMines, revealCell])
 
   const handleCellRightClick = useCallback((e: React.MouseEvent, row: number, col: number) => {
     e.preventDefault()
@@ -219,7 +221,7 @@ export default function Minesweeper() {
     return className
   }
 
-  const { rows, cols } = DIFFICULTIES[difficulty]
+  const { cols } = DIFFICULTIES[difficulty]
 
   return (
     <div className="minesweeper-component max-w-4xl mx-auto p-4">
