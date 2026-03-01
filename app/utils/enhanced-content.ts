@@ -44,27 +44,20 @@ function configureMarked() {
   marked.setOptions({
     breaks: true,
     gfm: true,
-    headerIds: true,
-    mangle: false,
   });
-  
-  // Add custom renderer for component placeholders
-  const renderer = new marked.Renderer();
-  const originalParagraph = renderer.paragraph.bind(renderer);
-  
-  renderer.paragraph = function(text: string) {
-    // Handle component placeholders
-    if (text.match(/^<!-- COMPONENT:/)) {
-      const componentMatch = text.match(/<!-- COMPONENT:(\w+)(?:\s+(.+?))? -->/);
-      if (componentMatch) {
-        const [, componentName, config] = componentMatch;
-        return `<div data-component="${componentName}" ${config ? `data-config="${encodeURIComponent(config)}"` : ''}></div>`;
-      }
+}
+
+/**
+ * Convert component placeholder comments into HTML placeholders before markdown parsing
+ */
+function preprocessComponentPlaceholders(content: string): string {
+  return content.replace(
+    /<!--\s*COMPONENT:([\w-]+)(?:\s+(.+?))?\s*-->/g,
+    (_match, componentName: string, config?: string) => {
+      const encodedConfig = typeof config === 'string' ? encodeURIComponent(config) : '';
+      return `<div data-component="${componentName}"${encodedConfig ? ` data-config="${encodedConfig}"` : ''}></div>`;
     }
-    return originalParagraph(text);
-  };
-  
-  marked.setOptions({ renderer });
+  );
 }
 
 // Initialize marked configuration
@@ -103,7 +96,8 @@ function parseEnhancedPostFile(filePath: string, type: PostType): EnhancedPost |
     // Process markdown content to HTML
     let htmlContent = '';
     try {
-      htmlContent = marked(content);
+      const processedContent = preprocessComponentPlaceholders(content);
+      htmlContent = marked.parse(processedContent) as string;
     } catch (error) {
       console.error(`Error processing markdown in ${filePath}:`, error);
       htmlContent = content; // Fallback to raw content

@@ -19,9 +19,9 @@ published: true
 images:
   - src: 20240918-0001-safely-dispose-of-your-receipts.png
     alt: Safely Dispose of Your Receipts
-  - src: 20240918-0002-safely-dispose-of-your-receipts.png
-    alt: Receipt with Sensitive Information Highlighted
   - src: 20240918-0003-safely-dispose-of-your-receipts.png
+    alt: Receipt with Sensitive Information Highlighted
+  - src: 20240918-0004-safely-dispose-of-your-receipts.png
     alt: Receipt with Sensitive Information Blacked-out
 links: []
 url: ''
