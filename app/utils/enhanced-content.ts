@@ -19,9 +19,14 @@ export interface EnhancedPostMetadata {
   
   // Enhanced fields for component handling
   components?: string[];
-  componentConfig?: Record<string, any>;
+  componentConfig?: Record<string, unknown>;
   toolType?: string;
 }
+
+type ContentImage = {
+  src?: string;
+  alt?: string;
+} & Record<string, unknown>;
 
 export interface EnhancedPost extends EnhancedPostMetadata {
   content: string;
@@ -87,9 +92,11 @@ function parseEnhancedPostFile(filePath: string, type: PostType): EnhancedPost |
 
     // Transform image paths to absolute paths
     const transformedImages = Array.isArray(data.images) 
-      ? data.images.map((image: any) => ({
+      ? data.images.map((image: ContentImage) => ({
           ...image,
-          src: image.src.startsWith('/') ? image.src : `/${type}/${image.src}`
+          src: typeof image.src === 'string' && image.src.startsWith('/')
+            ? image.src
+            : `/${type}/${typeof image.src === 'string' ? image.src : ''}`
         }))
       : undefined;
 

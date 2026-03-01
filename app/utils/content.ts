@@ -30,6 +30,11 @@ export interface PostSummary extends PostMetadata {
   filePath: string;
 }
 
+type ContentImage = {
+  src?: string;
+  alt?: string;
+} & Record<string, unknown>;
+
 /**
  * Get the content directory path for a given post type
  */
@@ -60,9 +65,11 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
 
     // Transform image paths to absolute paths for Next.js Image component
     const transformedImages = Array.isArray(data.images) 
-      ? data.images.map((image: any) => ({
+      ? data.images.map((image: ContentImage) => ({
           ...image,
-          src: image.src.startsWith('/') ? image.src : `/${type}/${image.src}`
+          src: typeof image.src === 'string' && image.src.startsWith('/')
+            ? image.src
+            : `/${type}/${typeof image.src === 'string' ? image.src : ''}`
         }))
       : undefined;
 

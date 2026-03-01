@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 /**
  * MDX to Enhanced Markdown Migration Script
  * 

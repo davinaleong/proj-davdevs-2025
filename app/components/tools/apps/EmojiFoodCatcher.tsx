@@ -124,6 +124,25 @@ export default function EmojiFoodCatcher() {
     setTimeout(() => setReactionEmoji(''), 1000)
   }, [])
 
+  const handleGameOver = useCallback(() => {
+    setGameState('gameOver')
+    setHighScore(prev => Math.max(prev, score))
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+    }
+  }, [score])
+
+  const loseLife = useCallback(() => {
+    setLives(prev => {
+      const nextLives = prev - 1
+      if (nextLives <= 0) {
+        handleGameOver()
+        return 0
+      }
+      return nextLives
+    })
+  }, [handleGameOver])
+
   const applyPowerUp = useCallback((effect: FoodItem['effect']) => {
     switch (effect) {
       case 'slowDown':
@@ -168,7 +187,7 @@ export default function EmojiFoodCatcher() {
           }
           
           if (food.type === 'junk' && food.points < 0) {
-            setLives(l => l - 1)
+            loseLife()
           }
         }
         // Check if food hit the barrier
@@ -179,7 +198,7 @@ export default function EmojiFoodCatcher() {
         // Check if food fell off screen
         else if (food.y > 100) {
           if (food.type === 'healthy') {
-            setLives(l => l - 1) // Lose life for missing healthy food
+            loseLife() // Lose life for missing healthy food
           }
         }
         // Keep food that hasn't collided or fallen off
@@ -190,9 +209,9 @@ export default function EmojiFoodCatcher() {
       
       return remaining
     })
-  }, [basketX, basketSize, powerUps.barrier, showReaction, applyPowerUp])
+  }, [basketX, basketSize, powerUps.barrier, showReaction, applyPowerUp, loseLife])
 
-  const gameLoop = useCallback(() => {
+  const runGameTick = useCallback(() => {
     if (gameState === 'playing') {
       gameTimeRef.current += 1
       setGameTime(gameTimeRef.current)
@@ -206,8 +225,6 @@ export default function EmojiFoodCatcher() {
         largeBasket: Math.max(0, prev.largeBasket - 1),
         barrier: Math.max(0, prev.barrier - 1)
       }))
-      
-      animationFrameRef.current = requestAnimationFrame(gameLoop)
     }
   }, [gameState, spawnFood, checkCollisions])
 
@@ -237,9 +254,11 @@ export default function EmojiFoodCatcher() {
 
   // Handle mouse movement
   useEffect(() => {
+    const gameArea = gameAreaRef.current
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (gameState === 'playing' && gameAreaRef.current) {
-        const rect = gameAreaRef.current.getBoundingClientRect()
+      if (gameState === 'playing' && gameArea) {
+        const rect = gameArea.getBoundingClientRect()
         const x = ((e.clientX - rect.left) / rect.width) * 100
         // Center the basket on the mouse cursor
         setBasketX(Math.max(0, Math.min(85, x - 5))) // 5% offset for centering
@@ -247,9 +266,9 @@ export default function EmojiFoodCatcher() {
     }
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (gameState === 'playing' && gameAreaRef.current) {
+      if (gameState === 'playing' && gameArea) {
         e.preventDefault()
-        const rect = gameAreaRef.current.getBoundingClientRect()
+        const rect = gameArea.getBoundingClientRect()
         const touch = e.touches[0]
         const x = ((touch.clientX - rect.left) / rect.width) * 100
         // Center the basket on the touch point
@@ -257,15 +276,15 @@ export default function EmojiFoodCatcher() {
       }
     }
 
-    if (gameAreaRef.current) {
-      gameAreaRef.current.addEventListener('mousemove', handleMouseMove)
-      gameAreaRef.current.addEventListener('touchmove', handleTouchMove)
+    if (gameArea) {
+      gameArea.addEventListener('mousemove', handleMouseMove)
+      gameArea.addEventListener('touchmove', handleTouchMove)
     }
 
     return () => {
-      if (gameAreaRef.current) {
-        gameAreaRef.current.removeEventListener('mousemove', handleMouseMove)
-        gameAreaRef.current.removeEventListener('touchmove', handleTouchMove)
+      if (gameArea) {
+        gameArea.removeEventListener('mousemove', handleMouseMove)
+        gameArea.removeEventListener('touchmove', handleTouchMove)
       }
     }
   }, [gameState, basketSize])
@@ -273,7 +292,11 @@ export default function EmojiFoodCatcher() {
   // Game loop
   useEffect(() => {
     if (gameState === 'playing') {
-      animationFrameRef.current = requestAnimationFrame(gameLoop)
+      const frame = () => {
+        runGameTick()
+        animationFrameRef.current = requestAnimationFrame(frame)
+      }
+      animationFrameRef.current = requestAnimationFrame(frame)
     }
     
     return () => {
@@ -281,7 +304,7 @@ export default function EmojiFoodCatcher() {
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [gameState, gameLoop])
+  }, [gameState, runGameTick])
 
   // Countdown timer
   useEffect(() => {
@@ -297,17 +320,6 @@ export default function EmojiFoodCatcher() {
       return () => clearTimeout(timer)
     }
   }, [gameState, countdown])
-
-  // Check game over
-  useEffect(() => {
-    if (lives <= 0 && gameState === 'playing') {
-      setGameState('gameOver')
-      setHighScore(prev => Math.max(prev, score))
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current)
-      }
-    }
-  }, [lives, gameState, score])
 
   // Keyboard controls
   useEffect(() => {

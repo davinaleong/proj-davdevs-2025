@@ -14,7 +14,7 @@ export default function QrCodeGenerator() {
   const [size, setSize] = useState(200)
   const [fgColor, setFgColor] = useState("#000000")
   const [bgColor, setBgColor] = useState("#ffffff")
-  const qrRef = useRef<any>(null)
+  const qrRef = useRef<HTMLDivElement>(null)
 
   const downloadQrCode = () => {
     if (qrRef.current) {

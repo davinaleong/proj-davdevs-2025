@@ -18,27 +18,34 @@ const DIFFICULTIES = {
   expert: { rows: 16, cols: 30, mines: 99 }
 }
 
+function createBoard(rows: number, cols: number): Cell[][] {
+  const newBoard: Cell[][] = []
+  for (let row = 0; row < rows; row++) {
+    newBoard[row] = []
+    for (let col = 0; col < cols; col++) {
+      newBoard[row][col] = {
+        isMine: false,
+        isRevealed: false,
+        isFlagged: false,
+        adjacentMines: 0
+      }
+    }
+  }
+  return newBoard
+}
+
 export default function Minesweeper() {
   const [difficulty, setDifficulty] = useState<keyof typeof DIFFICULTIES>('beginner')
-  const [board, setBoard] = useState<Cell[][]>([])
+  const [board, setBoard] = useState<Cell[][]>(() => {
+    const { rows, cols } = DIFFICULTIES.beginner
+    return createBoard(rows, cols)
+  })
   const [gameState, setGameState] = useState<GameState>('playing')
   const [mineCount, setMineCount] = useState(DIFFICULTIES[difficulty].mines)
   const [firstClick, setFirstClick] = useState(true)
 
   const initializeBoard = useCallback((rows: number, cols: number) => {
-    const newBoard: Cell[][] = []
-    for (let row = 0; row < rows; row++) {
-      newBoard[row] = []
-      for (let col = 0; col < cols; col++) {
-        newBoard[row][col] = {
-          isMine: false,
-          isRevealed: false,
-          isFlagged: false,
-          adjacentMines: 0
-        }
-      }
-    }
-    return newBoard
+    return createBoard(rows, cols)
   }, [])
 
   const placeMines = useCallback((board: Cell[][], rows: number, cols: number, mines: number, firstRow: number, firstCol: number) => {
@@ -78,7 +85,7 @@ export default function Minesweeper() {
     return newBoard
   }, [])
 
-  const revealCell = useCallback((board: Cell[][], row: number, col: number) => {
+  function revealCell(board: Cell[][], row: number, col: number): Cell[][] {
     const { rows, cols } = DIFFICULTIES[difficulty]
     const newBoard = board.map(r => r.map(c => ({ ...c })))
     
@@ -110,7 +117,7 @@ export default function Minesweeper() {
     }
     
     return newBoard
-  }, [difficulty])
+  }
 
   const handleCellClick = useCallback((row: number, col: number) => {
     if (gameState !== 'playing') return
@@ -146,7 +153,7 @@ export default function Minesweeper() {
     if (revealedCells === totalCells - mines) {
       setGameState('won')
     }
-  }, [board, gameState, difficulty, firstClick, placeMines, revealCell])
+  }, [board, gameState, difficulty, firstClick, placeMines])
 
   const handleCellRightClick = useCallback((e: React.MouseEvent, row: number, col: number) => {
     e.preventDefault()
@@ -176,10 +183,6 @@ export default function Minesweeper() {
     setMineCount(mines)
     setFirstClick(true)
   }, [initializeBoard])
-
-  useEffect(() => {
-    resetGame()
-  }, [resetGame])
 
   const getCellDisplay = (cell: Cell) => {
     if (cell.isFlagged) return <Flag size={16} className="text-red-500" />

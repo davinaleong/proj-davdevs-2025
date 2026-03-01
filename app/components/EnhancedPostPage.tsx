@@ -29,8 +29,14 @@ import Timers from './tools/apps/Timers'
 import Minesweeper from './tools/apps/Minesweeper'
 import EmojiFoodCatcher from './tools/apps/EmojiFoodCatcher'
 
+type ComponentProps = Record<string, unknown>
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null
+}
+
 // Tool component mapping
-const TOOL_COMPONENTS: Record<string, React.ComponentType<any>> = {
+const TOOL_COMPONENTS: Record<string, React.ComponentType<ComponentProps>> = {
     '20251010-calculator': Calculator,
     '20251010-card-miles-converter': CardMilesConverter,
     '20250511-color-palettes': () => <ColorPalettes groups={colorsData.colorGroups} />,
@@ -47,7 +53,7 @@ const TOOL_COMPONENTS: Record<string, React.ComponentType<any>> = {
 }
 
 // Component type mapping for enhanced posts
-const COMPONENT_MAP: Record<string, React.ComponentType<any>> = {
+const COMPONENT_MAP: Record<string, React.ComponentType<ComponentProps>> = {
     calculator: Calculator,
     'card-miles-converter': CardMilesConverter,
     'color-palettes': () => <ColorPalettes groups={colorsData.colorGroups} />,
@@ -83,27 +89,15 @@ function EnhancedContentRenderer({
 }: {
     htmlContent: string;
     components: string[];
-    componentConfig: Record<string, any>;
+    componentConfig: ComponentProps;
     slug: string;
 }) {
     // Process HTML to inject components
     const processedContent = htmlContent.replace(
         /<div data-component="([^"]+)"(?:\s+data-config="([^"]*)")?><\/div>/g,
-        (match, componentName, encodedConfig) => {
-            let config = {};
-            if (encodedConfig) {
-                try {
-                    config = JSON.parse(decodeURIComponent(encodedConfig));
-                } catch (e) {
-                    console.warn(`Failed to parse component config for ${componentName}:`, e);
-                }
-            }
-            
-            // Merge with global component config
-            const finalConfig = { ...componentConfig, ...config };
-            
+        (_match, componentName, _encodedConfig, offset) => {
             // Return a placeholder that will be replaced by React component
-            return `<div id="component-${componentName}-${Date.now()}"></div>`;
+            return `<div id="component-${componentName}-${offset}"></div>`;
         }
     );
 
@@ -125,10 +119,12 @@ function EnhancedContentRenderer({
             {components.filter(comp => comp !== 'tool').map((componentName, index) => {
                 const Component = COMPONENT_MAP[componentName];
                 if (!Component) return null;
+                const componentProps = componentConfig[componentName];
+                const safeProps = isRecord(componentProps) ? componentProps : {};
                 
                 return (
                     <div key={index} className="my-8">
-                        <Component {...componentConfig[componentName]} />
+                        <Component {...safeProps} />
                     </div>
                 );
             })}
@@ -212,7 +208,7 @@ export default function EnhancedPostPage({ params, postType }: PostPageProps) {
                                 <>
                                     <div className="mb-8">
                                         {(() => {
-                                            const ToolComponent = TOOL_COMPONENTS[post.slug] as any;
+                                            const ToolComponent = TOOL_COMPONENTS[post.slug];
                                             return <ToolComponent />;
                                         })()}
                                     </div>

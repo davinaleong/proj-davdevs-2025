@@ -8,5 +8,5 @@ interface FaithSlugPageProps {
 
 export default async function FaithSlugPage({ params }: FaithSlugPageProps) {
     const resolvedParams = await params
-    return <PostPage params={resolvedParams} postType="sermons" />
+    return <EnhancedPostPage params={resolvedParams} postType="sermons" />
 }

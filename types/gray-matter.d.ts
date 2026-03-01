@@ -1,5 +1,5 @@
 declare module 'gray-matter' {
-  interface GrayMatterFile<T = any> {
+  interface GrayMatterFile<T = Record<string, unknown>> {
     data: T;
     content: string;
     excerpt?: string;
@@ -9,7 +9,7 @@ declare module 'gray-matter' {
   interface GrayMatterOptions {
     excerpt?: boolean | ((file: GrayMatterFile, options: GrayMatterOptions) => string);
     excerpt_separator?: string;
-    engines?: any;
+    engines?: Record<string, unknown>;
     language?: string;
     delimiters?: string | [string, string];
   }

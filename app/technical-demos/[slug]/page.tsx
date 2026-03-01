@@ -8,5 +8,5 @@ interface TechDemoSlugPageProps {
 
 export default async function TechDemoSlugPage({ params }: TechDemoSlugPageProps) {
     const resolvedParams = await params
-return <PostPage params={resolvedParams} postType="technical-demos" />
+    return <EnhancedPostPage params={resolvedParams} postType="technical-demos" />
 }

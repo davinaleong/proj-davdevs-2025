@@ -8,5 +8,5 @@ interface FemSolutionsSlugPageProps {
 
 export default async function FemSolutionsSlugPage({ params }: FemSolutionsSlugPageProps) {
     const resolvedParams = await params
-    return <PostPage params={resolvedParams} postType="fem" />
+    return <EnhancedPostPage params={resolvedParams} postType="fem" />
 }
