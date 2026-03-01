@@ -1,0 +1,33 @@
+---
+title: Glass Website
+slug: 20220727-glass-website
+description: Glass morphism interface using CSS backdrop-filter
+date: '2022-07-27'
+author: Davina Leong
+tags:
+  - css
+  - glass-morphism
+  - backdrop-filter
+  - tutorial
+featured: false
+readingTime: 1
+published: true
+images:
+  - src: /projects/20220727-001-glass-website.png
+    alt: Glass Website
+links:
+  - label: See Demo
+    href: 'https://davinaleong.github.io/proj-glass-website/'
+  - label: See Repo
+    href: 'https://github.com/davinaleong/proj-glass-website'
+url: 'https://davinaleong.github.io/proj-glass-website/'
+---
+This demo was me following [this tutorial](https://www.youtube.com/watch?v=O7WbVj5apxU) by [developedbyed](https://www.youtube.com/@developedbyed).
+
+> **Tech Stack**
+>
+> - **Frontend:** HTML, CSS, Backdrop Filter<br />
+> - **Deployment:** GitHub Pages<br />
+> - **Highlights:** Backdrop Filter
+
+I wanted to improve my web design skills when I chanced upon this video.

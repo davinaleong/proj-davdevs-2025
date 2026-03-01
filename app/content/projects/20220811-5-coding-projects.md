@@ -1,0 +1,31 @@
+---
+title: 5 Coding Projects
+slug: 20220811-5-coding-projects
+description: Five JavaScript projects following Traversy Media tutorial
+date: '2022-08-11'
+author: Davina Leong
+tags:
+  - javascript
+  - vanilla-js
+  - traversy-media
+  - tutorial
+  - multi-project
+featured: false
+readingTime: 2
+published: true
+images:
+  - src: /projects/20220811-001-5-html-css-js-projects.png
+    alt: 5 Coding Projects
+links:
+  - label: See Demo
+    href: 'https://davinaleong.github.io/proj-five-projects/'
+url: 'https://davinaleong.github.io/proj-five-projects/'
+---
+I embarked on these five projects inspired by [Traversy Media's video tutorial](https://www.youtube.com/@TraversyMedia). As I continue to explore, I'm pondering the ideal applications for these components in my work. One intriguing possibility is integrating the content placeholder into the redesign of the Dav/Devs site, adding a dynamic touch.
+
+> **Tech Stack**
+> 
+> - **Frontend:** HTML, CSS, JS<br />
+> - **Deployment:** GitHub Pages
+
+As I navigate through commitments, finding dedicated time for this project remains a goal. The tutorial served as a catalyst, igniting my creativity, and I look forward to discovering more ways to leverage these skills in future endeavors.

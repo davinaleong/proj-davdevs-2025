@@ -1,0 +1,33 @@
+---
+title: Jesus is Your Avenger
+slug: 20251006-jesus-your-avenger
+description: >-
+  Based on Romans 12:19, discover how Jesus stands as your avenger, ensuring
+  justice and vindication in your life. Learn to trust in His perfect timing and
+  divine protection.
+date: '2025-10-06'
+author: Davina Leong
+tags:
+  - Faith
+  - 'Proverbs 6:34-35'
+  - Jesus as Avenger
+  - Divine Justice
+  - Spiritual Warfare
+  - God's Protection
+  - 'Exodus 14:13'
+  - Church as Bride
+featured: false
+readingTime: 2
+published: true
+---
+> Proverbs 6:34-35 NKJV
+>
+> 34 For jealousy is a husband’s fury;<br/>
+> Therefore he will not spare in the day of vengeance.
+>
+> 35 He will accept no recompense,<br/>
+> Nor will he be appeased though you give many gifts.
+
+We are the church and Jesus is our Husband. His fury is aroused when that little devil comes to bully you. He will not be spared in the day of vengeance. Though the devil may give many gifts to Him, He will accept no recompense
+
+So stand still and see the salvation of the Lord your God, amen! (Exo 14:13)

@@ -1,4 +1,4 @@
-import PostPage from "../../components/PostPage"
+import EnhancedPostPage from "../../components/EnhancedPostPage"
 
 interface KnowledgeSharingSlugPageProps {
     params: Promise<{
@@ -8,5 +8,5 @@ interface KnowledgeSharingSlugPageProps {
 
 export default async function KnowledgeSharingSlugPage({ params }: KnowledgeSharingSlugPageProps) {
     const resolvedParams = await params
-    return <PostPage params={resolvedParams} postType="knowledge-sharing" />
+    return <EnhancedPostPage params={resolvedParams} postType="knowledge-sharing" />
 }

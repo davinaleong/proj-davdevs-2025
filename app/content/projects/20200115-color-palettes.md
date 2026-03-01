@@ -1,0 +1,37 @@
+---
+title: Color Palettes
+slug: 20200115-color-palettes
+description: Responsive color palette explorer with easy color code copying
+date: '2020-01-15'
+author: Davina Leong
+tags:
+  - javascript
+  - css-grid
+  - design-tools
+  - color-picker
+featured: false
+readingTime: 2
+published: true
+images:
+  - src: /projects/20200115-001-color-palettes.png
+    alt: Color Palettes
+links:
+  - label: See Demo
+    href: 'https://davinaleong.github.io/proj-color-palette-v2/'
+  - label: See Repo
+    href: 'https://github.com/davinaleong/proj-color-palette-v2'
+url: 'https://davinaleong.github.io/proj-color-palette/'
+---
+A responsive color palette explorer built with modern CSS Grid and Flexbox. Browse curated color schemes and copy color values (Hex, RGB, or HSL) with one click.
+
+> **Tech Stack**
+> - **Frontend:** HTML, CSS, JavaScript, JSON
+> - **Highlights:** CSS Grid, Flex, Clipboard API
+
+**Key Features:**
+- Easy color code copying
+- Responsive grid layout
+- Multiple color format support
+- Curated color schemes
+
+Evolved from jQuery to vanilla JavaScript in v2, focusing on performance and modern web standards.

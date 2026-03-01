@@ -1,4 +1,4 @@
-import PostPage from "../../components/PostPage"
+import EnhancedPostPage from "../../components/EnhancedPostPage"
 
 interface PagesSlugPageProps {
     params: Promise<{
@@ -8,5 +8,5 @@ interface PagesSlugPageProps {
 
 export default async function PagesSlugPage({ params }: PagesSlugPageProps) {
     const resolvedParams = await params
-    return <PostPage params={resolvedParams} postType="static" />
+    return <EnhancedPostPage params={resolvedParams} postType="static" />
 }

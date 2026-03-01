@@ -1,0 +1,36 @@
+---
+title: Wisdom Delivers You from Evil
+slug: 20251103-wisdom-delivers-you-from-evil
+description: >-
+  Exploring Proverbs 2:10-12 and how wisdom entering your heart brings
+  knowledge, discretion, and understanding that preserve and deliver you from
+  evil and perverse ways.
+date: '2025-11-03'
+author: Davina Leong
+tags:
+  - Wisdom
+  - Biblical Meditation
+  - 'Proverbs 2:10-12'
+  - Knowledge
+  - Discretion
+  - Understanding
+  - Deliverance from Evil
+  - Scripture Reflection
+  - Christian Living
+  - Spiritual Protection
+featured: false
+readingTime: 3
+published: true
+---
+> Proverbs 2:10-12 NKJV
+
+> 10 When wisdom enters your heart,<br/>
+> And knowledge is pleasant to your soul,<br/>
+> 11 Discretion will preserve you;<br/>
+> Understanding will keep you,<br/>
+> 12 To deliver you from the way of evil,<br/>
+> From the man who speaks perverse things,
+
+Signs that you’ve received wisdom: knowledge is pleasant to your soul. Discretion will preserve you and understanding will keep you
+
+In other words, wisdom can deliver you from the way of evil

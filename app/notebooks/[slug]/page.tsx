@@ -1,4 +1,4 @@
-import PostPage from "../../components/PostPage"
+import EnhancedPostPage from "../../components/EnhancedPostPage"
 
 interface NotebooksSlugPageProps {
     params: Promise<{
@@ -8,5 +8,5 @@ interface NotebooksSlugPageProps {
 
 export default async function NotebooksSlugPage({ params }: NotebooksSlugPageProps) {
     const resolvedParams = await params
-    return <PostPage params={resolvedParams} postType="notebooks" />
+    return <EnhancedPostPage params={resolvedParams} postType="notebooks" />
 }

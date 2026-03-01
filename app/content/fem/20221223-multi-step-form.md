@@ -1,0 +1,71 @@
+---
+title: Multi-step Form
+slug: 20221223-multi-step-form
+description: >-
+  A Frontend Mentor challenge solution - A complex multi-step form with
+  validation, state management, and smooth navigation.
+date: '2022-12-23'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - javascript
+  - form-validation
+  - state-management
+  - multi-step
+featured: false
+readingTime: 5
+published: true
+images:
+  - src: /fem/fem-multi-step-form.png
+    alt: Multi-step Form
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-multistep-form/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-multistep-form'
+  - label: Challenge
+    href: 'https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ'
+---
+# Multi-step Form
+
+A comprehensive multi-step form implementation that demonstrates advanced form handling, validation, and user experience design. This Frontend Mentor challenge showcases complex state management and smooth user interactions.
+
+## Key Features
+
+- **Multi-step Navigation**: Seamless progression through form steps
+- **Form Validation**: Real-time validation with error messaging
+- **State Persistence**: Maintains form data across steps
+- **Plan Selection**: Interactive plan selection with add-ons
+- **Summary View**: Complete order summary before submission
+- **Responsive Design**: Optimized for all device sizes
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Grid & Flexbox)
+- JavaScript (ES6+)
+- Form validation API
+- Local storage for persistence
+- Event-driven architecture
+
+## Advanced Features
+
+- **Step Navigation**: Previous/Next navigation with validation
+- **Dynamic Pricing**: Real-time price calculations
+- **Add-on Selection**: Multiple service add-ons
+- **Form Persistence**: Saves progress automatically
+- **Error Handling**: Comprehensive validation system
+
+## Implementation Highlights
+
+- Modular JavaScript architecture
+- Efficient state management
+- Smooth CSS transitions
+- Accessibility best practices
+- Progressive enhancement
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

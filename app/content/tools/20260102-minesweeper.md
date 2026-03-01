@@ -1,0 +1,54 @@
+---
+title: Minesweeper
+slug: 20260102-minesweeper
+description: "\U0001F3AE Classic minesweeper puzzle game - clear the field without hitting any mines using logic and deduction."
+date: '2026-01-02'
+author: Davina Leong
+tags:
+  - games
+  - puzzle
+  - minesweeper
+  - logic
+  - classic games
+featured: false
+readingTime: 3
+published: true
+---
+Play the classic Minesweeper puzzle game! Test your logic and deduction skills as you carefully navigate a minefield, using numbered clues to avoid hidden mines.
+
+## How to Play
+
+The goal is simple: reveal all the safe cells without clicking on any mines. Numbers on revealed cells tell you how many mines are adjacent to that cell (including diagonally).
+
+### Controls
+- **Left click**: Reveal a cell
+- **Right click**: Flag or unflag a cell (marks suspected mines)
+- **Numbers**: Show count of adjacent mines (1-8)
+- **Empty cells**: Automatically reveal surrounding safe areas
+
+### Game Rules
+1. Click any cell to start - your first click is always safe
+2. Use the numbers to deduce where mines are located
+3. Right-click to flag cells you think contain mines
+4. Win by revealing all safe cells (you don't need to flag all mines)
+5. Lose if you click on a mine
+
+## Difficulty Levels
+
+Choose from three classic difficulty settings:
+
+- **Beginner**: 9×9 grid with 10 mines - perfect for learning
+- **Intermediate**: 16×16 grid with 40 mines - balanced challenge  
+- **Expert**: 16×30 grid with 99 mines - for minesweeper masters
+
+## Strategy Tips
+
+- Start with corners and edges where there are fewer adjacent cells
+- Look for patterns like "1-2-1" which often indicate mine locations
+- Use the mine counter to track how many mines are left
+- When a number's adjacent mines are all flagged, you can safely reveal remaining adjacent cells
+- Take your time - there's no time pressure, just logic!
+
+The mine counter at the top shows how many mines remain unflagged. Use the "New Game" button to reset anytime or switch between difficulty levels.
+
+Good luck, and may your logic be sharp! 🧩

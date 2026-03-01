@@ -1,4 +1,4 @@
-import PostPage from "../../components/PostPage"
+import EnhancedPostPage from "../../components/EnhancedPostPage"
 
 interface ToolsSlugPageProps {
     params: Promise<{
@@ -8,5 +8,5 @@ interface ToolsSlugPageProps {
 
 export default async function ToolsSlugPage({ params }: ToolsSlugPageProps) {
     const resolvedParams = await params
-    return <PostPage params={resolvedParams} postType="tools" />
+    return <EnhancedPostPage params={resolvedParams} postType="tools" />
 }

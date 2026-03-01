@@ -1,0 +1,38 @@
+---
+title: Let Jesus Lead You to Good Food
+slug: 20251018-jesus-lead-good-food
+description: >-
+  Based on Matthew 6:25 and Psalm 23:2, discover how Jesus as our Good Shepherd
+  provides the best spiritual nourishment. Learn how He leads us to green
+  pastures and still waters, ensuring we are well-fed and refreshed spiritually.
+date: '2025-10-18'
+author: Davina Leong
+tags:
+  - Faith
+  - 'Matthew 6:25'
+  - 'Psalm 23:2'
+  - Good Shepherd
+  - Green Pastures
+  - Still Waters
+  - Spiritual Nourishment
+  - God's Provision
+featured: false
+readingTime: 3
+published: true
+---
+> Matthew 6:25 NKJV
+>
+> “Therefore I say to you, do not worry about your life, what you will eat or what you will drink; nor about your body, what you will put on. Is not life more than food and the body more than clothing?
+>
+> Psalm 23:2 NKJV
+>
+> He makes me to lie down in green pastures;<br/>
+> He leads me beside the still waters.
+
+Hey fellow foodies! Don’t we all enjoy good food? Well, just like when we must be fed physically, we must be fed spiritually too!
+
+And do you realise how AMAZING your good Shepherd, Christ Jesus is? What sheep eat? Grass right? You know what your good Shephred does? He “makes you to lie down in green pastures”. Do you know what this means for sheep? It means really juicy, delicious, soft grass! Not only that, but “makes you to lie down”. That means rest.
+
+Then here comes the water part. YOUR good Shepherd “leads you beside still waters”. That means He leads the sheep to sources of fresh water. Y’know, fresh spring water.
+
+What this means is your good Shepherd watches over you and will ensure that you will be well fed and quenched. Just keep coming to Him—to church. Which is why you can “do not worry about your life, what you will eat or what you will drink”, amen!

@@ -1,0 +1,173 @@
+---
+title: Timeline
+slug: timeline
+description: >-
+  Professional and personal journey of Davina Leong, tracing her growth from
+  early software development and game design to full-stack engineering, AI, data
+  analytics, cybersecurity, and long-term community leadership.
+date: '2025-12-16'
+author: Davina Leong
+tags:
+  - Timeline
+  - Career Journey
+  - Software Engineering
+  - AI Engineering
+  - Data Analytics
+  - Professional Growth
+featured: false
+readingTime: 6
+published: true
+images:
+  - src: /static/timeline.png
+    alt: Timeline of Davina Leong
+---
+## 2025 — AI, Data & Advanced Systems
+
+### AI Engineer  
+**STARLIMS** · Singapore (Remote)  
+_Jul 2025 – Sep 2025_
+
+I contributed to the **PUB STARLIMS project**, integrating **AI-driven solutions** into laboratory workflows. My work focused on building **GPT-based chatbots**, implementing **retrieval-augmented generation (RAG)** pipelines, and optimising critical modules such as results entry, validation, approvals, and test plan management. This role allowed me to bridge **AI, full-stack development, and UX**, modernising legacy systems used at scale.
+
+---
+
+### Business Data Analyst (BCG RISE 2.0 – Distinction)  
+**Boston Consulting Group (BCG)** · Remote  
+_Feb 2025 – Sep 2025_
+
+I completed the **BCG RISE 2.0 Business Data Analyst programme** with Distinction, developing strong foundations in **SQL, Python, structured thinking, and data storytelling**. I designed **Power BI dashboards**, authored SQL scripts for data transformation, and shared my work publicly via GitHub and YouTube while mentoring peers along the way.
+
+---
+
+### Certifications (BCG RISE)
+- Machine Learning Expert  
+- Python Expert  
+- SQL Expert  
+
+---
+
+## 2024 — Security, UX & Applied AI
+
+### Cybersecurity Capstone Project  
+**Vertical Institute**  
+_Aug 2024 – Sep 2024_
+
+I assessed a simulated digital bank, identifying **six high-risk vulnerabilities** and proposing remediation strategies including **HTTPS enforcement, AES encryption**, and password hardening. These improvements increased resistance to brute-force attacks by up to **60%** and strengthened incident response readiness.
+
+---
+
+### UX Design Capstone Project  
+**Vertical Institute**  
+_May 2024 – Jun 2024_
+
+I led UX design for a FinTech application, conducting interviews and usability testing to uncover friction points in the user journey. By designing and validating high-fidelity prototypes, I improved task success rates by **25%** and achieved **90% user satisfaction**.
+
+---
+
+### Applied AI for Developers Workshop  
+_Independent · Jul 2024_
+
+I explored **Generative AI in real development workflows**, using AI tools to fix bugs, generate reusable components, and improve code quality. This experience strengthened my interest in **AI-assisted development** and responsible adoption of emerging tools.
+
+---
+
+### Certifications
+- Cybersecurity Bootcamp — Vertical Institute  
+- UX Design — Vertical Institute  
+
+---
+
+## 2023 — Enterprise Systems & Operations
+
+### Associate Systems Engineer  
+**GIC** · Singapore (Hybrid)  
+_May 2023 – Dec 2023_
+
+I worked closely with stakeholders and vendors to support enterprise systems, streamline workflows, and improve collaboration across teams. This role sharpened my ability to operate in **large, structured organisations** with complex processes.
+
+---
+
+### Cybersecurity Awareness Programme  
+**NTUC LearningHub** · Feb 2023
+
+---
+
+## 2022 — Leadership in Service & Web Development
+
+### Web Developer  
+**EPOS Pte Ltd** · Singapore  
+_Jul 2022 – Jan 2023_
+
+I developed WordPress-based websites and internal SOPs, implementing custom CSS and JavaScript features while supporting team-wide development standards.
+
+---
+
+### Operations & Security — Children’s Ministry (Volunteer)  
+**New Creation Church**  
+_Jun 2022 – Jul 2024_
+
+I supported operational and security processes, ensuring safe check-in and check-out for children, managing peak-period flow, and troubleshooting registration devices.
+
+---
+
+## 2021–2022 — Scaling E-Commerce
+
+### Web Developer  
+**FirstCom Solutions** · Singapore  
+_Jun 2021 – Jul 2022_
+
+I developed and launched **22+ e-commerce websites**, implementing responsive designs, payment integrations, cron jobs, and database management—gaining deep experience in **production-grade web delivery**.
+
+---
+
+## 2020–2021 — Product & Platform Engineering
+
+### Software Engineer  
+**Lively** · Singapore  
+_Mar 2020 – May 2021_
+
+I built REST APIs using Laravel and developed analytics dashboards with MySQL and Elasticsearch, enabling event tracking and revenue insights.
+
+---
+
+## 2015–2018 — Foundations in Web Development
+
+### Developer / Junior Web Developer  
+**The Shipyard Private Limited** · Singapore  
+_Nov 2015 – May 2018_
+
+I worked on enterprise web systems and hybrid mobile applications using PHP, CodeIgniter, Angular, and Ionic. I also contributed to testing, documentation, and onboarding new developers.
+
+---
+
+## 2014–Present — Long-Term Community Leadership
+
+### Care Group Host (Volunteer)  
+**New Creation Church**  
+_Oct 2014 – Present_
+
+For over a decade, I have hosted a youth care group at my home every 2nd and 4th Friday of the month, providing a safe, welcoming space for connection, growth, and mentorship.
+
+---
+
+## 2010–2011 — Early Career & Education
+
+### Game Developer (Internship)  
+**InnoVillage, Singapore Polytechnic**  
+_Oct 2010 – May 2011_
+
+I developed mobile games using **Unity3D** and **Objective-C**, marking my first hands-on exposure to real-world software development.
+
+---
+
+### Diploma in Information Technology (Game Development)  
+**Singapore Polytechnic**  
+_2008 – 2011_
+
+I built a strong foundation in **object-oriented programming**, software development, and game technologies—setting the stage for my future career in tech.
+
+---
+
+## Looking Ahead
+
+My journey reflects a consistent theme: **learning deeply, building responsibly, and serving meaningfully**. I’m excited to continue growing at the intersection of **software engineering, AI, data, security, and human-centred design**.

@@ -1,0 +1,36 @@
+---
+title: Your Lord Knows Your Way
+slug: 20251102-lord-knows-your-way
+description: >-
+  A powerful reminder from Psalm 1:6 that God knows the way of the righteous -
+  those made righteous by faith in Christ Jesus - and how this truth defeats the
+  devil's condemnation.
+date: '2025-11-02'
+author: Davina Leong
+tags:
+  - Righteousness by Faith
+  - Biblical Meditation
+  - 'Psalm 1:6'
+  - Identity in Christ
+  - Overcoming Condemnation
+  - God's Knowledge
+  - Faith
+  - Defeating the Devil
+  - Scripture Reflection
+  - Christ's Blood
+featured: false
+readingTime: 3
+published: true
+---
+> Psalm 1:6 NKJV
+> 
+> 6 For the Lord knows the way of the righteous,<br/>
+> But the way of the ungodly shall perish.
+
+All who believe in Jesus as their Lord and Saviour are righteous by faith (Rom 3:22)
+
+Then, in this verse, it says that “the Lord knows the way of the righteous”
+
+Do you know what this verse is saying? It’s saying that the Lord knows the way of YOU, righteous one—righteous by faith. The righteousness that was bought by the precious blood of my (and your) Christ Jesus
+
+So the next time that little, tiny, sneaky devil comes to condemn you or remind you of your sins, remember that the Lord knows the way of the righteous (by faith in Christ), amen!

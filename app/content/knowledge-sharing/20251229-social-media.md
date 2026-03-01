@@ -1,0 +1,208 @@
+---
+title: My Social Media Strategy - Connecting Across Platforms
+slug: 20251229-social-media
+description: >-
+  Discover how I leverage different social media platforms to share my
+  development work, connect with diverse audiences, and build a comprehensive
+  online presence.
+date: '2025-12-29'
+author: Davina Leong
+tags:
+  - Social Media
+  - Content Marketing
+  - Professional Networking
+  - Community Building
+  - Brand Strategy
+featured: false
+readingTime: 12
+published: true
+images:
+  - src: /knowledge-sharing/social-media.png
+    alt: My Social Media Strategy - Connecting Across Platforms
+links:
+  - label: LinkedIn Profile
+    href: 'https://www.linkedin.com/in/davina-leong/'
+  - label: GitHub Profile
+    href: 'https://github.com/davinaleong'
+  - label: Facebook Page
+    href: 'https://www.facebook.com/DavinaLSY'
+  - label: Instagram
+    href: 'https://www.instagram.com/davinaleong/'
+  - label: Threads
+    href: 'https://www.threads.com/@davinaleong?hl=en'
+url: ''
+---
+## Building a Multi-Platform Presence 🌐
+
+In today's interconnected digital landscape, reaching your audience requires a strategic approach across multiple social media platforms. Each platform serves a unique purpose and attracts different audiences, allowing me to share my development work, promote my content, and build meaningful connections in various ways.
+
+Here's how I leverage each platform to amplify my website posts, YouTube videos, and development projects while tailoring my approach to each platform's unique audience and culture.
+
+## LinkedIn - The Professional Network 💼
+
+**Target Audience:** Career-focused professionals, fellow developers, potential clients, industry leaders, and recruiters
+
+**[Connect with me on LinkedIn](https://www.linkedin.com/in/davina-leong/)**
+
+### Content Strategy
+LinkedIn serves as my **professional headquarters** where I share:
+
+- **Career insights and development tips** that resonate with working professionals
+- **Technical articles** with a business-focused angle
+- **Project announcements** highlighting professional achievements and client work
+- **Industry observations** and trends in web development and tech
+
+### How I Promote My Content
+- **Professional post summaries** with key takeaways from my website articles
+- **Behind-the-scenes insights** into my development process and business approach
+- **YouTube video previews** focusing on the professional skills and knowledge demonstrated
+- **Thoughtful commentary** on how my projects solve real business problems
+
+LinkedIn's audience appreciates **polished, professional content** with clear value propositions and actionable insights.
+
+## GitHub - The Developer's Portfolio 👩‍💻
+
+**Target Audience:** Fellow developers, open-source contributors, potential collaborators, and technical recruiters
+
+**[Explore my code on GitHub](https://github.com/davinaleong)**
+
+### Content Strategy
+GitHub is where I **showcase my technical skills** through:
+
+- **Repository documentation** with comprehensive READMEs and project explanations
+- **Code examples** that demonstrate best practices and problem-solving approaches
+- **Open-source contributions** and collaborative projects
+- **Technical experimentation** with new frameworks and tools
+
+### How I Promote My Content
+- **Repository links** in website posts to show the code behind articles
+- **Project documentation** that references YouTube tutorials and walkthroughs
+- **README files** with links back to related blog posts and video explanations
+- **Commit messages and descriptions** that tell the story of development progress
+
+GitHub users value **technical depth, clean code, and thorough documentation**.
+
+## Facebook - Personal & Community Connection 👥
+
+**Target Audience:** Friends, family, local community, and casual followers interested in personal updates
+
+**[Follow me on Facebook](https://www.facebook.com/DavinaLSY)**
+
+### Content Strategy
+Facebook allows me to share the **human side of development** through:
+
+- **Personal project celebrations** and milestones
+- **Behind-the-scenes moments** from my development journey
+- **Community engagement** with local tech groups and events
+- **Faith-based content** that aligns with my personal values and beliefs
+
+### How I Promote My Content
+- **Friendly announcements** about new YouTube videos and blog posts
+- **Personal stories** about what inspired particular projects or articles
+- **Community sharing** of achievements and learning experiences
+- **Casual updates** that make technical content more approachable
+
+Facebook's audience appreciates **personal connection, storytelling, and community-focused content**.
+
+## Instagram - Visual Storytelling 📸
+
+**Target Audience:** Visual learners, lifestyle-interested followers, and creative professionals
+
+**[Follow me on Instagram](https://www.instagram.com/davinaleong/)**
+
+### Content Strategy
+Instagram is perfect for **visual content and lifestyle sharing**:
+
+- **Behind-the-scenes photos** of my workspace and development setup
+- **Project screenshots** and visual progress updates
+- **Infographic-style posts** summarizing technical concepts
+- **Personal life moments** that show the person behind the code
+
+### How I Promote My Content
+- **Visual teasers** for upcoming YouTube videos and blog posts
+- **Story highlights** featuring different aspects of my work and projects
+- **Photo carousels** breaking down complex topics into digestible visual chunks
+- **Lifestyle integration** showing how development fits into daily life
+
+Instagram users engage with **visually appealing, authentic, and story-driven content**.
+
+## Threads - Real-Time Conversations 💬
+
+**Target Audience:** Tech enthusiasts, developers seeking quick discussions, and followers interested in real-time thoughts
+
+**[Join conversations on Threads](https://www.threads.com/@davinaleong?hl=en)**
+
+### Content Strategy
+Threads facilitates **quick, conversational engagement**:
+
+- **Real-time thoughts** about development challenges and solutions
+- **Quick tips and insights** that don't require full blog posts
+- **Industry news commentary** and hot takes on tech trends
+- **Community discussions** about development practices and tools
+
+### How I Promote My Content
+- **Teaser threads** building anticipation for upcoming content
+- **Key quote highlights** from my articles and videos
+- **Discussion starters** that drive traffic back to detailed content
+- **Real-time updates** during project development and content creation
+
+Threads users value **timely, conversational, and engaging quick-fire content**.
+
+## Cross-Platform Synergy Strategy 🔄
+
+### Content Repurposing
+- **One article becomes multiple posts**: LinkedIn gets the professional angle, Instagram gets the visual summary, Threads gets the key insights
+- **YouTube videos spawn social content**: Behind-the-scenes on Instagram, professional insights on LinkedIn, code snippets on GitHub
+- **Different entry points**: Each platform serves as a gateway to my main content hub
+
+### Audience Journey Mapping
+1. **Discovery**: Users find me through platform-specific content
+2. **Engagement**: They interact with posts tailored to their platform preferences  
+3. **Deep Dive**: Interested followers visit my website or YouTube for comprehensive content
+4. **Community**: They join my broader network across multiple platforms
+
+## Platform-Specific Best Practices 📊
+
+### Posting Frequency & Timing
+- **LinkedIn**: 2-3 times per week during business hours
+- **GitHub**: Continuous through project commits and documentation updates
+- **Facebook**: 1-2 times per week, casual timing
+- **Instagram**: 3-4 times per week, optimal engagement times
+- **Threads**: Daily interactions and real-time engagement
+
+### Content Adaptation
+Each platform gets **tailored versions** of my core content:
+- **Same project, different angles**: Professional benefits for LinkedIn, technical details for GitHub, visual process for Instagram
+- **Audience-appropriate language**: Business terminology for LinkedIn, casual conversation for Facebook, technical jargon for GitHub
+- **Platform-native formats**: Professional posts for LinkedIn, visual stories for Instagram, threaded discussions for Threads
+
+## Building Authentic Community 🤝
+
+Across all platforms, my approach remains consistent with my core values:
+
+### **Genuine Connection**
+- Authentic engagement with comments and messages
+- Sharing both successes and learning experiences
+- Supporting fellow developers and creators
+
+### **Value-First Content**
+- Every post should provide value to the audience
+- Educational content mixed with personal insights
+- Practical tips and actionable advice
+
+### **Faith-Integrated Approach**
+- Incorporating my Christian values naturally into content
+- Showing how faith influences my work and approach
+- Building community around shared values and interests
+
+## Measuring Success 📈
+
+Success across platforms isn't just about follower counts - it's about:
+- **Meaningful engagement** with my content and community
+- **Traffic generation** to my main website and YouTube channel
+- **Professional opportunities** arising from platform connections
+- **Community building** around shared interests and values
+
+---
+
+*Ready to connect across platforms? Follow me on your preferred social media channels and join a community that believes in **purposeful development, authentic sharing, and faith-driven work**. Let's build something amazing together!* 🚀

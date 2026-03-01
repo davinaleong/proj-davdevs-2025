@@ -1,0 +1,39 @@
+---
+title: Dav/Minesweeper
+slug: 20250205-dav-minesweeper
+description: Modern React remake of classic Minesweeper with Tailwind CSS
+date: '2025-02-05'
+author: Davina Leong
+tags:
+  - react
+  - game
+  - typescript
+  - tailwind
+  - netlify
+featured: false
+readingTime: 4
+published: false
+images:
+  - src: /projects/20250205-001-dav-minesweeper.png
+    alt: Dav/Minesweeper
+links:
+  - label: See Demo
+    href: 'https://davminesweeper.netlify.app/'
+  - label: See Repo
+    href: 'https://github.com/davinaleong/proj-minesweeper'
+url: 'https://davminesweeper.netlify.app/'
+---
+Welcome to **Dav/Minesweeper**, my take on the classic Minesweeper game that was bundled with Windows 95! This project was a great learning experience, and I had a lot of help with the game logic from multiple AI tools.
+
+> **Tech Stack**
+>
+> - **Frontend:** HTML5, CSS3, React, Tailwind CSS, TS, Vite<br />
+> - **Deployment:** GitHub, Netlify
+
+It all started as a coding challenge at a local tech meetup on **25th January 2025**, where I built a **terminal-based version** of Minesweeper using **Node.js and Jest**, focusing on writing testable code. You can check out that version [here](https://github.com/davinaleong/proj-minesweeper-terminal).
+
+Wanting to push myself further, I decided to create a **playable UI version**. With AI's help, I set up **Webpack and React**, but I soon realized that adapting a terminal-based game into an interactive UI was more cumbersome than I expected. Instead of forcing a conversion, I **started fresh**, prioritizing a fun and engaging user experience.
+
+This UI version is built with **React and Tailwind CSS**, using **Vite** for bundling and **GitHub** for version control. It is deployed on **Netlify**, making it easily accessible to everyone.
+
+This project has been both a technical and creative challenge, and I hope you enjoy playing it as much as I enjoyed building it! 🚀

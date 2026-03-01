@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function Portfolio() {
     // Get all portfolio posts on server side
-    const allProjects = getPostsByType('projects')
+    const allProjects = getEnhancedPostsByType('projects')
     const heroContent = getHeroContent('portfolio')
 
     return (

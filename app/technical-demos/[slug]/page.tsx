@@ -1,4 +1,4 @@
-import PostPage from "../../components/PostPage"
+import EnhancedPostPage from "../../components/EnhancedPostPage"
 
 interface TechDemoSlugPageProps {
     params: Promise<{

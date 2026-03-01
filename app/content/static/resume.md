@@ -1,0 +1,229 @@
+---
+title: Resume
+slug: resume
+description: >-
+  Professional resume of Davina Leong - Versatile Software Engineer & Full-Stack
+  Web Developer with 8 years of experience in frontend development, backend
+  development, data analytics, UX design, and cybersecurity.
+date: '2025-12-16'
+author: Davina Leong
+tags:
+  - Resume
+  - Software Engineering
+  - Full-Stack Development
+  - Data Analytics
+  - AI Engineering
+  - Professional Experience
+featured: false
+readingTime: 8
+published: true
+images:
+  - src: /static/resume.png
+    alt: Resume of Davina Leong
+---
+## Executive Summary
+
+I’m a **versatile Software Engineer and Full-Stack Web Developer** with over **8 years of experience** across frontend and backend development, data analytics, UX design, and cybersecurity. I specialize in building **intuitive, scalable digital solutions** that bridge **user experience with business intelligence**.
+
+My work spans **AI-powered systems**, **data-driven dashboards**, **secure web applications**, and **user-centric product design**. I enjoy modernizing legacy systems, mentoring developers, and applying emerging technologies such as **Generative AI** to real-world workflows.
+
+---
+
+## Contact
+
+- **Email:** [leong.shi.yun@gmail.com](mailto:leong.shi.yun@gmail.com)
+- **LinkedIn:** [linkedin.com/in/davina-leong](https://www.linkedin.com/in/davina-leong/)
+- **GitHub:** [github.com/davinaleong](https://github.com/davinaleong)
+- **Portfolio:** [davdevs.me](https://davdevs.me)
+
+### Social & Content
+- **YouTube:** [@DavDevsMedia](https://www.youtube.com/@DavDevsMedia)
+- **Instagram:** [@davinaleong](https://www.instagram.com/davinaleong/)
+- **Threads:** [@davinaleong](https://www.threads.com/@davinaleong?hl=en)
+- **Facebook:** [facebook.com/DavinaLSY](https://www.facebook.com/DavinaLSY)
+
+---
+
+## Core Skills
+
+### Programming & Frameworks
+- PHP, Laravel  
+- JavaScript, TypeScript  
+- React, Next.js  
+- HTML, CSS  
+
+### Data, AI & Analytics
+- SQL, Microsoft SQL Server  
+- Python, Pandas, Jupyter  
+- Power BI, Microsoft Excel  
+- Machine Learning, **Generative AI**  
+
+### Cybersecurity
+- Risk Management  
+- Password Management  
+- Incident Reporting  
+- Data Privacy  
+
+### Design & Tools
+- UI / UX Design  
+- Figma  
+- Adobe Premiere Pro  
+
+---
+
+## Professional Experience
+
+### AI Engineer  
+**STARLIMS** · Singapore (Remote)  
+_Jul 2025 – Sep 2025_
+
+- Contributed to the **PUB STARLIMS** project, integrating AI and full-stack solutions into laboratory workflows  
+- Built **GPT-based chatbots** and **retrieval-augmented generation (RAG)** pipelines  
+- Optimized modules including results entry, validation, approvals, and test plan management  
+- Collaborated with stakeholders on UI/UX prototypes and sprint planning  
+
+---
+
+### Business Data Analyst (BCG RISE 2.0 – Distinction)  
+**Boston Consulting Group (BCG)** · Remote  
+_Feb 2025 – Sep 2025_
+
+- Applied **SCQ and Pyramid frameworks** to business problem-solving  
+- Designed **Power BI dashboards** and authored **SQL scripts** for data transformation  
+- Shared analytics work via GitHub and YouTube  
+- Mentored peers and supported collaborative learning  
+
+---
+
+### Associate Systems Engineer  
+**GIC** · Singapore (Hybrid)  
+_May 2023 – Dec 2023_
+
+- Worked closely with stakeholders and vendors to support enterprise systems  
+- Streamlined workflows and improved cross-team collaboration  
+
+---
+
+### Web Developer  
+**EPOS Pte Ltd** · Singapore  
+_Jul 2022 – Jan 2023_
+
+- Developed internal SOPs for web development  
+- Built WordPress websites using Elementor and MetForm  
+- Implemented custom CSS and JavaScript features  
+
+---
+
+### Web Developer  
+**FirstCom Solutions** · Singapore  
+_Jun 2021 – Jul 2022_
+
+- Developed and launched **22+ e-commerce websites**  
+- Integrated PayPal and custom payment flows  
+- Managed cron jobs and databases  
+
+---
+
+### Software Engineer  
+**Lively** · Singapore  
+_Mar 2020 – May 2021_
+
+- Built REST APIs using Laravel  
+- Developed analytics dashboards with MySQL and Elasticsearch  
+- Enabled event tracking and revenue analytics  
+
+---
+
+### Developer / Junior Web Developer  
+**The Shipyard Private Limited** · Singapore  
+_Nov 2015 – May 2018_
+
+- Developed web and hybrid mobile applications using PHP, CodeIgniter, Angular, and Ionic  
+- Assisted in training new developers  
+- Performed unit and integration testing  
+
+---
+
+### Game Developer (Internship)  
+**InnoVillage, Singapore Polytechnic**  
+_Oct 2010 – May 2011_
+
+- Developed mobile games using **Unity3D** and **Objective-C**  
+
+---
+
+## Projects & Capstones
+
+### Cybersecurity Capstone Project  
+**Vertical Institute** · Aug 2024 – Sep 2024
+
+- Identified **six high-risk vulnerabilities** in a simulated digital bank  
+- Proposed HTTPS, AES encryption, and password hardening strategies  
+- Improved resistance to brute-force attacks by up to **60%**
+
+---
+
+### UX Design Capstone Project  
+**Vertical Institute** · May 2024 – Jun 2024
+
+- Led UX design for a FinTech application  
+- Conducted user interviews and usability testing  
+- Improved task success rate by **25%** and achieved **90% user satisfaction**
+
+---
+
+## Education
+
+### Diploma in Information Technology (Game Development)  
+**Singapore Polytechnic**  
+_2008 – 2011_
+
+- Strong foundation in object-oriented programming and software development  
+- Exposure to game development and database fundamentals  
+
+---
+
+## Certifications
+
+- **BCG RISE Machine Learning Expert** (2025)  
+- **BCG RISE Python Expert** (2025)  
+- **BCG RISE SQL Expert** (2025)  
+- **Cybersecurity Bootcamp**, Vertical Institute (2024)  
+- **UX Design**, Vertical Institute (2024)  
+- **Cybersecurity Awareness Programme**, NTUC LearningHub (2023)  
+- **Interaction Design Foundation (IxDF) Membership**  
+
+---
+
+## Volunteering
+
+### Care Group Host  
+**New Creation Church** · Oct 2014 – Present
+
+- Host a youth care group every 2nd and 4th Friday of the month  
+- Provide a safe and welcoming environment for relational and personal growth  
+
+---
+
+### Operations & Security – Children’s Ministry  
+**New Creation Church** · Jun 2022 – Jul 2024
+
+- Ensured secure check-in and check-out processes for children  
+- Managed parents and children during peak periods  
+- Troubleshot technical issues with registration devices  
+
+---
+
+## Languages
+
+- **Chinese** — Native / Bilingual  
+- **English** — Full Professional Proficiency  
+
+---
+
+## Portfolio
+
+You can explore my projects, tools, and reflections at:  
+👉 **https://davdevs.me**
+
+I’m open to opportunities in **software engineering**, **AI-enabled systems**, **data analytics**, and **digital innovation**.

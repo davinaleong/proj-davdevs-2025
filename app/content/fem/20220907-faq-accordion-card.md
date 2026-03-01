@@ -1,0 +1,69 @@
+---
+title: FAQ Accordion Card
+slug: 20220907-faq-accordion-card
+description: >-
+  A Frontend Mentor challenge solution - An interactive FAQ accordion with
+  smooth animations and mobile-first design.
+date: '2022-09-07'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - javascript
+  - accordion
+  - faq
+  - animations
+featured: false
+readingTime: 3
+published: true
+images:
+  - src: /fem/fem-faq-accordion-card.png
+    alt: FAQ Accordion Card
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-faq-accordion-card/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-faq-accordion-card'
+  - label: Challenge
+    href: 'https://www.frontendmentor.io/challenges/faq-accordion-card-XlyjD0Oam'
+---
+# FAQ Accordion Card
+
+An interactive FAQ accordion component featuring smooth expand/collapse animations and intuitive user interactions. This Frontend Mentor challenge demonstrates advanced JavaScript functionality and CSS animations.
+
+## Key Features
+
+- **Interactive Accordion**: Click to expand/collapse FAQ items
+- **Smooth Animations**: CSS transitions for seamless interactions
+- **Mobile-First Design**: Optimized for touch interactions
+- **Accessibility**: Keyboard navigation and ARIA attributes
+- **Visual Feedback**: Clear open/closed state indicators
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Transitions & Transforms)
+- JavaScript (ES6+)
+- Event delegation
+- CSS animations
+
+## Interactive Elements
+
+- Toggle functionality for each FAQ item
+- Smooth height transitions
+- Icon rotation animations
+- Focus management for accessibility
+- Touch-friendly interface
+
+## Implementation Details
+
+- Semantic HTML structure
+- Progressive enhancement approach
+- Cross-browser animation support
+- Keyboard accessibility
+- Mobile touch optimization
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

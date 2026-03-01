@@ -1,0 +1,40 @@
+---
+title: Jesus Hears Your Prayers
+slug: 20260115-jesus-hears-your-prayers
+description: >-
+  A meditation on Proverbs 15:29 and 2 Corinthians 5:21 about how the Lord hears
+  the prayer of the righteous. Understanding why our prayers carry power as the
+  righteousness of God in Christ.
+date: '2026-01-15'
+author: Davina Leong
+tags:
+  - 'Proverbs 15:29'
+  - '2 Corinthians 5:21'
+  - Prayer
+  - Righteousness of God
+  - Biblical Meditation
+  - Power of Words
+  - Jesus Hears Prayer
+  - Watch Your Tongue
+  - Christian Living
+  - Child of God
+featured: false
+readingTime: 2
+published: true
+---
+> Proverbs 15:29 NKJV
+> 
+> 29 The Lord is far from the wicked,<br/>
+> But He hears the prayer of the righteous.
+
+> 2 Corinthians 5:21 NKJV
+> 
+> 21 For He made Him who knew no sin to be sin for us, that we might become the righteousness of God in Him.
+
+Do you know why your words, your prayers carry power right now, oh child of God?
+
+That’s because you are the righteousness of God in Christ. 
+
+Proverbs 15:29 says that the Lord hears the prayer of the righteous, and in 2 Corinthians 5:21 says that God made His only begotten Son Who knew no sin, to be sin for us so that we might become the righteousness of God in Christ. 
+
+So, from now on, watch your tongue, child of God for your words carry power, amen!

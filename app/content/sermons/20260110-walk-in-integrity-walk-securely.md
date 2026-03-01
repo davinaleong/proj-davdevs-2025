@@ -1,0 +1,36 @@
+---
+title: 'Walk in Integrity, Walk Securely'
+slug: 20260110-walk-in-integrity-walk-securely
+description: >-
+  A reflection on Proverbs 10:9 about walking in integrity to walk securely.
+  Understanding how integrity brings peace and rest, and practical steps to walk
+  in integrity through Christ.
+date: '2026-01-10'
+author: Davina Leong
+tags:
+  - 'Proverbs 10:9'
+  - Integrity
+  - Walking Securely
+  - Peace and Rest
+  - Biblical Meditation
+  - Holy Spirit
+  - Transformation
+  - Beholding Jesus
+  - Christian Living
+  - Following Scripture
+featured: false
+readingTime: 2
+published: true
+---
+> Proverbs 10:9 NKJV
+> 
+> 9 He who walks with integrity walks securely,<br/>
+> But he who perverts his ways will become known.
+
+Have you ever done something that makes you feel on edge? Well, that probably (definitely) means you did something that wasn’t right (or God didn’t like). 
+
+In contrast, the Bible says that he who walks in integrity walks securely. So, the opposite of always being on edge—i.e., to be at rest and at peace is to be integrous. When you walk in integrity, you will walk securely. 
+
+So, how do you walk in integrity? Follow what the Bible says and flow with the Holy Spirit. Attend a Bible-based church and keep beholding Jesus. As you keep looking at Jesus, you shall be transformed more and more into His image. 
+
+Be blessed and stay blessed.

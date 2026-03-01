@@ -1,0 +1,38 @@
+---
+title: Cut Corners Button
+slug: 20220819-cut-corners-button
+description: Chamfered button animations using CSS clip-path
+date: '2022-08-19'
+author: Davina Leong
+tags:
+  - css
+  - clip-path
+  - animations
+  - kevin-powell
+  - tutorial
+featured: false
+readingTime: 1
+published: true
+images:
+  - src: /projects/20220819-001-cut-corners.png
+    alt: Cut Corners Button
+links:
+  - label: See Demo
+    href: 'https://davinaleong.github.io/proj-cut-corners/'
+  - label: See Repo
+    href: 'https://github.com/davinaleong/proj-cut-corners'
+url: 'https://davinaleong.github.io/proj-cut-corners/'
+---
+I came across this [Cut Corners tutorial](https://www.youtube.com/watch?v=aW6qEAQSctY) by [Kevin Powell](https://www.youtube.com/kepowob), and decided to try it out. I had some free time and wanted to sharpen my `CSS` skills.
+
+> **Tech Stack**
+>
+> - **Frontend:** HTML, CSS, CSS Grid<br />
+> - **Deployment:** GitHub Pages<br />
+> - **Highlights:** CSS Animations
+
+The demo is [here](https://davinaleong.github.io/proj-cut-corners/) and the repo is [here](https://github.com/davinaleong/proj-cut-corners). Feel free to check it out and use the code in your own projects. While credit is appreciated, it's not needed.
+
+## Useful links from the video:
+
+- [Clippy](https://bennettfeely.com/clippy/) - To generate **`CSS` clip paths**.

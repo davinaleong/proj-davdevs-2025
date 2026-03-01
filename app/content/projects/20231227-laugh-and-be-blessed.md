@@ -1,0 +1,35 @@
+---
+title: Laugh and be Blessed
+slug: 20231227-laugh-and-be-blessed
+description: 'Collection of original jokes, puns, and riddles'
+date: '2023-12-27'
+author: Davina Leong
+tags:
+  - nextjs
+  - jokes
+  - contentful
+  - vercel
+featured: false
+readingTime: 2
+published: true
+images:
+  - src: /projects/20231227-001-laugh-and-be-blessed-next.png
+    alt: Laugh and be Blessed
+links:
+  - label: See Demo
+    href: 'https://laugh-and-be-blessed-next.vercel.app/'
+  - label: See Repo
+    href: 'https://github.com/davinaleong/proj-laugh-and-be-blessed-next'
+url: 'https://laugh-and-be-blessed-next.vercel.app/'
+---
+I created this catalogue to store all my original jokes, puns, and riddles. I went with a colourful design to keep the design simple. Click on the card to see the content.
+
+> **Tech Stack**
+>
+> - **Frontend:** HTML, CSS, TS<br />
+> - **Backend:** NextJS, Contentful<br />
+> - **Deployment:** Vercel
+
+I used this opportunity to explore NextJS and Vercel. This project is done in NextJS. The content is stored in Contentful and hosted on Vercel. After this experience, I will stick with Astro as it's simpler to set up and use. Astro is also technology agnostic.
+
+Anyway, I hope you have lots of fun and laughter reading those jokes 😄.

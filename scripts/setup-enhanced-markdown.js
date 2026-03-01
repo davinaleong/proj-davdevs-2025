@@ -75,13 +75,13 @@ let totalFiles = 0;
 let validFiles = 0;
 let issues = [];
 
-console.log('🔍 Validating content files...\\n');
+console.log('🔍 Validating content files...\\\\n');
 
 contentDirs.forEach(dir => {
   const fullPath = path.join(process.cwd(), dir);
   if (!fs.existsSync(fullPath)) return;
   
-  const files = fs.readdirSync(fullPath).filter(f => f.match(/\\.(md|mdx)$/));
+  const files = fs.readdirSync(fullPath).filter(f => f.match(/\\\\.(md|mdx)$/));
   
   files.forEach(file => {
     totalFiles++;
@@ -128,7 +128,7 @@ contentDirs.forEach(dir => {
 console.log(\`📊 Validation Results:\`);
 console.log(\`  Total files: \${totalFiles}\`);
 console.log(\`  Valid files: \${validFiles}\`);
-console.log(\`  Issues found: \${issues.length}\\n\`);
+console.log(\`  Issues found: \${issues.length}\\\\n\`);
 
 if (issues.length > 0) {
   console.log('❌ Issues found:');
@@ -172,9 +172,3 @@ console.log('');
 console.log('5. Test the new system thoroughly before removing MDX dependencies');
 console.log('');
 console.log('📚 Documentation: Check migration-plan.md for detailed instructions');
-`;
-
-fs.writeFileSync(path.join(process.cwd(), 'scripts', 'setup-enhanced-markdown.js'), 
-  fs.readFileSync(__filename, 'utf8'));
-
-console.log('💾 Setup script saved for future reference\n');

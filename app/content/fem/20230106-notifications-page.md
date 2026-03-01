@@ -1,0 +1,69 @@
+---
+title: Notifications Page
+slug: 20230106-notifications-page
+description: >-
+  A Frontend Mentor challenge solution - A comprehensive notifications page with
+  read/unread states and interactive functionality.
+date: '2023-01-06'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - javascript
+  - notifications
+  - state-management
+  - interactions
+featured: true
+readingTime: 4
+published: true
+images:
+  - src: /fem/fem-notifications-page.png
+    alt: Notifications Page
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-notifications-page/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-notifications-page'
+  - label: Challenge
+    href: 'https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC'
+---
+# Notifications Page
+
+A fully interactive notifications page featuring read/unread states, mark all as read functionality, and comprehensive notification management. This Frontend Mentor challenge demonstrates advanced state management and user interaction patterns.
+
+## Key Features
+
+- **Notification States**: Clear read/unread visual indicators
+- **Mark All Read**: Bulk action functionality
+- **Interactive Elements**: Individual notification interactions
+- **Count Display**: Dynamic unread notification counter
+- **Responsive Design**: Mobile-optimized layout and interactions
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Flexbox & Grid)
+- JavaScript (ES6+)
+- State management patterns
+- Event delegation
+
+## Functionality
+
+- **State Management**: Track read/unread notification states
+- **Bulk Operations**: Mark all notifications as read
+- **Visual Feedback**: Clear indicators for notification status
+- **Dynamic Counter**: Real-time unread count updates
+- **Interactive Design**: Hover states and click interactions
+
+## Implementation Details
+
+- Efficient state management system
+- Clean event handling architecture
+- Accessibility considerations
+- Mobile-first responsive design
+- Cross-browser compatibility
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

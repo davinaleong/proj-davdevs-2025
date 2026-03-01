@@ -1,0 +1,61 @@
+---
+title: Order Summary Component
+slug: 20220919-order-summary-component
+description: >-
+  A Frontend Mentor challenge solution - A clean order summary component with
+  interactive buttons and card design.
+date: '2022-09-19'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - css
+  - html
+  - card-component
+  - button-design
+featured: false
+readingTime: 2
+published: true
+images:
+  - src: /fem/fem-order-summary-component.png
+    alt: Order Summary Component
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-order-summary-component/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-order-summary-component'
+  - label: Challenge
+    href: 'https://www.frontendmentor.io/challenges/order-summary-component-QlPmajDUj'
+---
+# Order Summary Component
+
+A polished order summary component showcasing clean card design principles and interactive button states. This Frontend Mentor challenge focuses on creating an elegant checkout interface.
+
+## Key Features
+
+- **Card Layout**: Well-structured summary card design
+- **Interactive Buttons**: Hover and active states for CTAs
+- **Visual Hierarchy**: Clear pricing and plan information
+- **Responsive Design**: Mobile and desktop optimized
+- **Clean Typography**: Readable text hierarchy
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- Flexbox for layout
+- CSS transitions
+- Custom button styling
+
+## Design Elements
+
+- Hero image integration
+- Pricing display components
+- Call-to-action buttons
+- Link styling and interactions
+- Card shadow and spacing
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

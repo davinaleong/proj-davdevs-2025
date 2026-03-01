@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function FemSolutions() {
     // Get all fem posts on server side
-    const allSolutions = getPostsByType('fem')
+    const allSolutions = getEnhancedPostsByType('fem')
     const heroContent = getHeroContent('fem')
 
     return (

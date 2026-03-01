@@ -1,0 +1,37 @@
+---
+title: Know Your God!
+slug: 20251108-know-your-god
+description: >-
+  Understanding our identity as God's adopted children and the security we have
+  in Him as our 'Daddy God' - our Provider and Protector who is jealous over us
+  and handles all our challenges.
+date: '2025-11-02'
+author: Davina Leong
+tags:
+  - Adoption
+  - Daddy God
+  - Biblical Meditation
+  - Identity in Christ
+  - God's Protection
+  - Provider
+  - Overcoming Fear
+  - Spirit of Adoption
+  - God's Love
+  - Security in Christ
+featured: false
+readingTime: 3
+published: true
+---
+> Romans 8:15 NKJV
+>
+> For you did not receive the spirit of bondage again to fear, but you received the Spirit of adoption by whom we cry out, “Abba, Father.”
+
+Hey all, I was meditating on how Daddy God sees me (and you) and He showed me this:
+
+When you accept Jesus as your Lord and Saviour, God becomes your Father, or Daddy God. Do you know what this means? The Creator and Judge of the universe is your Dad
+
+As your Dad, He is also your Provider and Protector. Which means, what can the devil accuse you of when God is on your side and is your Daddy? Do you think your Daddy in heaven likes it when your enemies accuse you before Him? No, He doesn’t. Your Daddy is jealous over you and can do the perfect job of loving, disciplining, and handling you and your sins than the devil ever can
+
+Not only that, but He gave you His only begotten Son to save and redeem you
+
+So, let go of the fear of man, failure and rejection to your Daddy God and let Him handle all your challenges for you, amen!

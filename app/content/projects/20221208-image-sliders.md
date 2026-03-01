@@ -1,0 +1,41 @@
+---
+title: Image Sliders
+slug: 20221208-image-sliders
+description: Vanilla JavaScript image slider with multiple orientations
+date: '2022-12-08'
+author: Davina Leong
+tags:
+  - javascript
+  - slider
+  - vanilla-js
+  - css-animations
+featured: false
+readingTime: 3
+published: true
+images:
+  - src: /projects/20221208-001-image-sliders.png
+    alt: Image Sliders
+links:
+  - label: See Demo
+    href: 'https://davinaleong.github.io/proj-image-slider/'
+  - label: See Repo
+    href: 'https://github.com/davinaleong/proj-image-slider'
+url: 'https://davinaleong.github.io/proj-image-slider/'
+---
+A collection of vanilla JavaScript image sliders with multiple orientation options. Built without dependencies using modern CSS transforms and data attributes.
+
+> **Tech Stack**
+>
+> - **Frontend:** HTML, CSS, JavaScript<br />
+> - **Deployment:** GitHub Pages<br />
+> - **Highlights:** CSS Transforms, Data Attributes, Overflow Control
+
+**Features:**
+- Horizontal and vertical orientations
+- Smooth CSS transitions
+- No external dependencies
+- Clean, semantic markup
+
+**How it works:** Slides are contained with `overflow: hidden`, then JavaScript uses `transform: translateX()` to move between slides. Data attributes provide clean element targeting.
+
+Inspired by tutorials from Kevin Powell and Traversy Media, adapted for multiple slider variations.

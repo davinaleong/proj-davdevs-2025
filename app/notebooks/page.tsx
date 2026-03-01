@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function Notebooks() {
     // Get all notebooks posts on server side
-    const allNotebooks = getPostsByType('notebooks')
+    const allNotebooks = getEnhancedPostsByType('notebooks')
     const heroContent = getHeroContent('notebooks')
 
     return (

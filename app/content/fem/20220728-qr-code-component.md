@@ -1,0 +1,59 @@
+---
+title: QR Code Component
+slug: 20220728-qr-code-component
+description: >-
+  A Frontend Mentor challenge solution - A responsive QR code component with
+  clean design and semantic HTML.
+date: '2022-07-28'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - html
+  - css
+  - responsive-design
+  - accessibility
+featured: false
+readingTime: 2
+published: true
+images:
+  - src: /fem/fem-qr-code-component.png
+    alt: QR Code Component
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-qr-code-component/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-qr-code-component'
+  - label: Challenge
+    href: 'https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H'
+---
+# QR Code Component
+
+A simple but effective Frontend Mentor challenge focusing on creating a responsive QR code component with clean, semantic HTML and CSS.
+
+## Key Features
+
+- **Responsive Design**: Adapts perfectly to different screen sizes
+- **Clean Layout**: Centered card design with proper spacing
+- **Semantic HTML**: Accessible and well-structured markup
+- **CSS Best Practices**: Modern CSS techniques and properties
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- Flexbox for centering and layout
+- Mobile-first responsive design
+
+## Design Focus
+
+This project emphasizes fundamental web development skills including:
+- Proper HTML semantics
+- CSS layout techniques
+- Responsive design principles
+- Clean, maintainable code structure
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

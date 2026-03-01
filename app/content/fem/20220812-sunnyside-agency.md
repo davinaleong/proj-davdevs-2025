@@ -1,0 +1,79 @@
+---
+title: Sunnyside Agency Landing Page
+slug: 20220812-sunnyside-agency
+description: >-
+  A Frontend Mentor challenge solution - A creative agency landing page with
+  testimonials, services showcase, and responsive design.
+date: '2022-08-12'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - css-grid
+  - landing-page
+  - agency
+  - testimonials
+featured: false
+readingTime: 5
+published: true
+images:
+  - src: /fem/fem-sunnyside-agency-landing-page.png
+    alt: Sunnyside Agency Landing Page
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-sunnyside-agency-landing-page/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-sunnyside-agency-landing-page'
+  - label: Challenge
+    href: >-
+      https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef
+---
+# Sunnyside Agency Landing Page
+
+A vibrant creative agency landing page featuring services showcase, client testimonials, and modern web design patterns. This Frontend Mentor challenge demonstrates comprehensive agency website development.
+
+## Key Features
+
+- **Hero Section**: Eye-catching header with call-to-action
+- **Services Showcase**: Visual presentation of agency capabilities
+- **Client Testimonials**: Customer feedback and reviews section
+- **Image Gallery**: Portfolio showcase grid
+- **Responsive Navigation**: Mobile-optimized menu system
+- **Contact Integration**: Social media and contact links
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Grid & Flexbox)
+- Responsive design
+- Advanced CSS layouts
+- Modern web standards
+
+## Agency Features
+
+- **Service Presentation**: Transform and standout service cards
+- **Testimonial System**: Client feedback with photos
+- **Portfolio Gallery**: Image grid showcase
+- **Brand Integration**: Consistent visual identity
+- **Contact Systems**: Multiple contact methods
+
+## Advanced Layout
+
+- **CSS Grid Mastery**: Complex multi-section layouts
+- **Image Handling**: Responsive and optimized images
+- **Typography System**: Hierarchy and readability
+- **Color Psychology**: Brand-appropriate color schemes
+- **Mobile Experience**: Touch-optimized interactions
+
+## Design Excellence
+
+- Creative agency aesthetics
+- Professional service presentation
+- Client-focused testimonials
+- Visual storytelling elements
+- Modern web design trends
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

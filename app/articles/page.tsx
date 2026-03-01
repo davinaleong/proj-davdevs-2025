@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function Articles() {
     // Get all sermon posts on server side
-    const allArticles = getPostsByType('articles')
+    const allArticles = getEnhancedPostsByType('articles')
     const heroContent = getHeroContent('articles')
 
     return (

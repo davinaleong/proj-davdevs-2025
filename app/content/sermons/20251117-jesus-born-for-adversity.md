@@ -1,0 +1,36 @@
+---
+title: Jesus is Born for Adversity
+slug: 20251117-jesus-born-for-adversity
+description: >-
+  Exploring Proverbs 17:17 and understanding Jesus as the Brother born for
+  adversity - not hardened by trials but ready to rescue us from them, just like
+  He rescued the disciples from the storm.
+date: '2025-11-17'
+author: Davina Leong
+tags:
+  - Jesus Our Brother
+  - Biblical Meditation
+  - 'Proverbs 17:17'
+  - Born for Adversity
+  - Jesus Our Rescuer
+  - Good Shepherd
+  - Storm on the Sea
+  - Scripture Reflection
+  - Christian Living
+  - Running to Jesus
+featured: false
+readingTime: 2
+published: true
+---
+> Romans 8:29 NKJV
+> 
+> 17 A friend loves at all times,<br />
+> And a brother is born for adversity.
+
+Do you know Who is the Brother in this verse? The Brother Who is born for adversity?
+
+It is Your Lord and Saviour Christ Jesus. He is not the Brother born in adversity like what is portrayed in most movies. Meaning the adversity turned that person into someone tough. No. This means that adversity was worshipped. Rather, Jesus is the Brother born for adversity—meaning He is the good Shepherd for you to run and cry out to when you’re in an adversity. 
+
+Look at the disciples when they were caught in the storm. Jesus didn’t let the storm continue in order to toughen them up like what the world worships. No Jesus walked on the water to them to rescue them from their adversity, which was the storm. 
+
+So, run to your Big Brother Who is born for adversity, amen!

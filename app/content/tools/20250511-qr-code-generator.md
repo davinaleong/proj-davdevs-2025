@@ -1,0 +1,49 @@
+---
+title: QR Code Generator
+slug: 20250511-qr-code-generator
+description: "\U0001F4F1 Instantly generate scannable QR codes with ease — fast, responsive, and built for sharing anything, anywhere!"
+date: '2025-05-11'
+author: Davina Leong
+tags:
+  - qr-code
+  - generator
+  - sharing
+  - tools
+featured: false
+readingTime: 2
+published: true
+---
+Quickly create QR codes for URLs, messages, or any text. This tool lets you:
+
+- **Enter any text or URL** to encode
+- **Set custom dimensions** (50px to 1000px)
+- **Choose your foreground and background colors**
+- **Download as PNG** with a single click
+
+Great for printing, sharing, or embedding on your site.
+
+### ✨ Features
+
+- **Text & URL Support**: Encode any text content or web links
+- **Custom Sizing**: Generate QR codes from 50px to 1000px
+- **Color Customization**: Choose foreground and background colors with color pickers
+- **Instant Generation**: Real-time QR code creation as you type
+- **One-Click Download**: Save your QR code as a PNG file instantly
+- **High Quality**: Sharp, scalable QR codes suitable for print and digital use
+
+### � How to Use
+
+1. **Enter Content**: Type or paste any text, URL, or message into the input field
+2. **Set Dimensions**: Adjust the size using the number input (50px to 1000px for optimal flexibility)
+3. **Customize Colors**: 
+   - Choose foreground color (the QR code pattern itself) using the color picker
+   - Select background color (the space around the pattern) using the color picker
+4. **Live Preview**: Your QR code updates automatically as you make changes
+5. **Download**: Click the "Download QR Code" button to save as a PNG file
+6. **Test Scanning**: Use any QR code scanner app to verify your code works correctly
+
+**Pro Tip**: For best results, ensure high contrast between foreground and background colors. Most smartphones can scan QR codes as small as 50px, but larger sizes (200px+) work better for printed materials.
+
+### �💡 Perfect For
+
+Marketers, event organizers, developers, and anyone needing quick QR code generation for sharing information.

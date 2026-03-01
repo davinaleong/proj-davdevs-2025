@@ -1,0 +1,83 @@
+---
+title: Cross-Document Patterns
+slug: 20250909-cross-document-patterns
+description: >-
+  A second neutral document containing intentionally duplicated paragraphs to
+  test cross-document comparison and exact-match detection.
+date: '2025-09-09'
+author: Davina Leong
+tags:
+  - Content Analysis
+  - Duplicate Detection
+  - Text Comparison
+  - Tooling Demo
+  - MDX
+featured: false
+readingTime: 2
+published: true
+postType: technical-demo
+canonicalGroup: duplicate-demo-neutral-001
+linkedPosts:
+  - /technical-demos/20250908-pattern-consistency-demo
+---
+## Purpose and Scope
+
+This file complements another document in the same test group.  
+Together, they simulate realistic reuse scenarios.
+
+Content analysis tools require consistent test data to validate their accuracy.
+
+Duplicate detection algorithms must handle various formatting scenarios while maintaining precision.
+
+### Shared Content Blocks
+
+⚠️ DO NOT EDIT THIS PARAGRAPH  
+Exact paragraph repetition across multiple documents is a common occurrence in large content systems, especially when templates, reused explanations, or shared documentation blocks are involved.
+
+This should be detected regardless of formatting differences.
+
+Tools that analyze text must be able to identify this reliably.
+
+Formatting such as **bold**, *italics*, or headings should not interfere with content comparison when tags are stripped correctly.
+
+## Signal vs Noise
+
+⚠️ DO NOT EDIT THIS PARAGRAPH  
+This paragraph is designed to remain identical across multiple files so that automated scanners can verify exact matching behavior without ambiguity.
+
+The surrounding text intentionally varies.
+
+Not all content in this document is duplicated.  
+Some sections exist only to introduce variation and noise.
+
+Effective testing requires both positive and negative test cases to ensure comprehensive validation.
+
+### Evaluation Considerations
+
+⚠️ DO NOT EDIT THIS PARAGRAPH  
+When evaluating duplicate detection systems, it is important to separate identical content from surrounding structural or stylistic differences.
+
+This helps prevent false positives.
+
+This test document contains intentional repetition to verify system behavior under controlled conditions.
+
+Content analysis tools require consistent test data to validate their accuracy.
+
+---
+
+## Cross-Document Testing
+
+Duplicate detection algorithms must handle various formatting scenarios while maintaining precision.
+
+Effective testing requires both positive and negative test cases to ensure comprehensive validation.
+
+Tools that analyze text must be able to identify this reliably.
+
+This test document contains intentional repetition to verify system behavior under controlled conditions.
+
+---
+
+## Backlink
+
+Return to the first document here:  
+👉 [Pattern Consistency Demo](//technical-demos/20250908-pattern-consistency-demo)

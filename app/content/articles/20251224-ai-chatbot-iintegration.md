@@ -1,0 +1,102 @@
+---
+title: >-
+  AI Chatbot Integration: Building an Intelligent Website Assistant with Azure
+  and OpenAI
+slug: 20251224-ai-chatbot-integration
+description: >-
+  Discover how I integrated an AI chatbot into my Dav/Devs website using Azure
+  Search, Azure OpenAI, and GitHub Actions. A comprehensive guide to building an
+  intelligent assistant that can extract and respond with site-specific
+  information.
+date: '2025-12-24'
+author: Davina Leong
+tags:
+  - ai-chatbot
+  - azure-search
+  - azure-openai
+  - github-actions
+  - embeddings
+  - chatgpt
+  - github-copilot
+  - web-development
+  - automation
+featured: true
+readingTime: 5
+published: true
+images:
+  - src: 20251224-0001-ai-chatbot-integration.png
+    alt: AI Chatbot Integration on Dav/Devs
+links: []
+url: ''
+---
+At my current day job, I was introduced to AI concepts such as embeddings and vector search, which sparked my curiosity about practical applications of these technologies.
+
+As usual, I challenged myself to go a step further by integrating an intelligent AI chatbot into my website, Dav/Devs. The goal was ambitious: create a chatbot that could extract and respond using information directly from my site's content, essentially turning my entire website into a searchable knowledge base.
+
+## The Architecture Challenge
+
+The first major decision was choosing the right architecture. After researching various approaches, I settled on a combination of:
+
+- **Azure Cognitive Search** for intelligent indexing and vector search capabilities
+- **Azure OpenAI** for natural language processing and response generation
+- **GitHub Actions** for automated content indexing whenever I publish new articles
+- **Next.js API routes** for seamless integration with my existing website
+
+Using a combination of ChatGPT for planning and GitHub Copilot for implementation, I worked through each component systematically, from initial architecture decisions to final deployment.
+
+## Technical Implementation Journey
+
+### Setting Up Azure Services
+
+The foundation began with configuring Azure Cognitive Search to handle both traditional keyword search and semantic search using embeddings. This involved:
+
+1. **Creating search indexes** that could handle my MDX content structure
+2. **Configuring semantic search** to understand context rather than just keywords
+3. **Setting up vector embeddings** to enable similarity-based content retrieval
+
+### The GitHub Actions Pipeline
+
+One of the most satisfying aspects was creating an automated indexing workflow. Whenever I push new content to my repository, GitHub Actions automatically:
+
+1. Extracts content from new or updated MDX files
+2. Generates embeddings using Azure OpenAI
+3. Updates the search index with fresh content
+4. Maintains content freshness without manual intervention
+
+### Integration Challenges
+
+The most technically challenging part was creating the API layer that could:
+- Accept user queries through a clean chat interface
+- Transform natural language questions into effective search queries
+- Combine search results with OpenAI's language model for coherent responses
+- Handle context management for multi-turn conversations
+
+## Lessons Learned
+
+**Performance Optimization**: Initial response times were around 3-5 seconds. Through caching strategies and query optimization, I reduced this to under 2 seconds for most queries.
+
+**Content Chunking**: Finding the right balance between comprehensive context and token limits required experimenting with different content segmentation strategies.
+
+**Query Enhancement**: Simple keyword matching wasn't enough. Implementing query expansion and semantic understanding significantly improved response quality.
+
+## The Results
+
+All in all, it took approximately 10 hours to get everything fully up and running—a testament to how AI-assisted development can accelerate complex integrations. The chatbot now successfully:
+
+- Answers questions about my technical articles and projects
+- Provides contextual responses based on my actual content
+- Maintains conversation context for follow-up questions
+- Stays up-to-date automatically as I publish new content
+
+Phew—what a long day (and night) of coding, debugging, and fine-tuning!
+
+## What's Next
+
+The foundation is solid, but there's always room for improvement. My immediate priorities include:
+
+1. **UI/UX Refinements**: Making the chat interface more intuitive and visually appealing
+2. **Response Quality**: Fine-tuning prompts and context management for more accurate answers
+3. **Analytics Integration**: Understanding how users interact with the chatbot to guide future improvements
+4. **Mobile Optimization**: Ensuring the chat experience works seamlessly across all devices
+
+This project perfectly demonstrates how modern AI tools can transform a static website into an interactive, intelligent platform. The combination of Azure's robust cloud services with OpenAI's language capabilities opens up exciting possibilities for content-driven websites.

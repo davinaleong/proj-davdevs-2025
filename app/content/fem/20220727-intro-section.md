@@ -1,0 +1,70 @@
+---
+title: Intro section with dropdown navigation
+slug: 20220727-intro-section
+description: >-
+  A Frontend Mentor challenge solution - A modern intro section featuring
+  dropdown navigation and responsive design.
+date: '2022-07-27'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - javascript
+  - dropdown-navigation
+  - responsive-design
+  - landing-page
+featured: false
+readingTime: 3
+published: true
+images:
+  - src: /fem/fem-snap.png
+    alt: Intro section with dropdown navigation
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-intro-section-with-dropdown-navgiation/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-intro-section-with-dropdown-navgiation'
+  - label: Challenge
+    href: >-
+      https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-ryaPetHE5
+---
+# Intro section with dropdown navigation
+
+A sophisticated intro section featuring interactive dropdown navigation and modern web design patterns. This Frontend Mentor challenge demonstrates advanced navigation systems and responsive hero sections.
+
+## Key Features
+
+- **Dropdown Navigation**: Interactive menu system with submenus
+- **Hero Section**: Compelling intro content with call-to-action
+- **Responsive Design**: Mobile hamburger menu and desktop dropdowns
+- **Brand Integration**: Client logo showcase
+- **Modern Layout**: Clean, professional design aesthetic
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Flexbox & Grid)
+- JavaScript (ES6+)
+- Responsive navigation patterns
+- CSS animations
+
+## Navigation Features
+
+- **Dropdown Menus**: Multi-level navigation system
+- **Mobile Menu**: Hamburger menu for mobile devices
+- **Interactive States**: Hover and active menu states
+- **Smooth Animations**: CSS transitions for menu interactions
+- **Accessibility**: Keyboard navigation support
+
+## Implementation Details
+
+- Progressive enhancement approach
+- Mobile-first responsive design
+- Cross-browser compatibility
+- Semantic HTML structure
+- Performance optimization
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

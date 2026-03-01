@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function Tools() {
     // Get all tools posts on server side
-    const allTools = getPostsByType('tools')
+    const allTools = getEnhancedPostsByType('tools')
     const heroContent = getHeroContent('tools')
 
     return (

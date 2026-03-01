@@ -1,0 +1,78 @@
+---
+title: Testimonials Grid
+slug: 20220826-testimonials-grid
+description: >-
+  A Frontend Mentor challenge solution - A responsive testimonials grid layout
+  with CSS Grid and modern design principles.
+date: '2022-08-26'
+author: Davina Leong
+tags:
+  - frontend-mentor
+  - css-grid
+  - testimonials
+  - layout
+  - responsive-design
+featured: false
+readingTime: 4
+published: true
+images:
+  - src: /fem/fem-testimonials-grid.png
+    alt: Testimonials Grid
+links:
+  - label: Demo
+    href: 'https://davinaleong.github.io/fem-testimonials-grid/'
+  - label: Repo
+    href: 'https://github.com/davinaleong/fem-testimonials-grid'
+  - label: Challenge
+    href: >-
+      https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7
+---
+# Testimonials Grid
+
+A sophisticated testimonials section built with CSS Grid, featuring multiple testimonial cards in a responsive grid layout. This Frontend Mentor challenge demonstrates advanced grid layout techniques and modern design patterns.
+
+## Key Features
+
+- **CSS Grid Layout**: Complex grid structure with varying card sizes
+- **Responsive Design**: Seamless adaptation across all screen sizes
+- **Card Variations**: Different testimonial card styles and colors
+- **Typography Hierarchy**: Clear distinction between quotes and attribution
+- **Visual Consistency**: Cohesive design system across all cards
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- CSS Grid (advanced techniques)
+- Flexbox for card internals
+- Custom CSS properties
+
+## Grid Techniques
+
+- Complex grid template areas
+- Responsive grid reconfiguration
+- Grid gap and alignment
+- Spanning multiple columns/rows
+- Mobile-first grid approach
+
+## Design System
+
+- Color-coded testimonial cards
+- Consistent typography scaling
+- Profile image integration
+- Quote formatting and styling
+- Professional card layouts
+
+## Implementation Highlights
+
+- Advanced CSS Grid patterns
+- Mobile-optimized stacking
+- Cross-browser compatibility
+- Semantic HTML structure
+- Accessibility considerations
+
+## Links
+
+- [Live Demo]({links[0].href})
+- [GitHub Repository]({links[1].href})
+- [Frontend Mentor Challenge]({links[2].href})

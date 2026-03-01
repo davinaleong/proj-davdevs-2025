@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function KnowledgeSharing() {
     // Get all sermon posts on server side
-    const allKnowledgeSharing = getPostsByType('knowledge-sharing')
+    const allKnowledgeSharing = getEnhancedPostsByType('knowledge-sharing')
     const heroContent = getHeroContent('knowledge-sharing')
 
     return (

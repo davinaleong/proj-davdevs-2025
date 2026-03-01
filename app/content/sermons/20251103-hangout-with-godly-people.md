@@ -1,0 +1,34 @@
+---
+title: Hangout with Godly People
+slug: 20251103-hangout-with-godly-people
+description: >-
+  Exploring Psalm 1:1 and the path to prosperity through avoiding ungodly
+  counsel, staying away from sinful paths, and not sitting with scornful people.
+  Choose godly companions for a blessed life.
+date: '2025-11-03'
+author: Davina Leong
+tags:
+  - 'Psalm 1:1'
+  - Biblical Meditation
+  - Godly Relationships
+  - Avoiding Ungodly Counsel
+  - Christian Living
+  - Prosperity
+  - Blessed Life
+  - Worldly Wisdom
+  - Scripture Reflection
+  - Choosing Good Company
+featured: false
+readingTime: 3
+published: true
+---
+> Psalm 1:1 NKJV
+> 
+> Blessed is the man<br/>
+> Who walks not in the counsel of the ungodly,<br/>
+> Nor stands in the path of sinners,<br/>
+> Nor sits in the seat of the scornful;
+
+If you want what you do to prosper, do these: Keep away from the counsel of the ungodly, stay away from the path of sinners, and don’t sit in the seat of the scornful
+
+In other words, don’t adhere to worldly advice, don’t follow the ways of the world, and don’t sit with gossipers. Do these 3 things and what you do will prosper

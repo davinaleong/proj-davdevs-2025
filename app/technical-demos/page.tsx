@@ -1,11 +1,11 @@
 import HeroSection from "../components/HeroSection"
 import PostsList from "../components/PostsList"
-import { getPostsByType } from "../utils/content"
+import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
 export default function TechnicalDemosPage() {
     // Get all technical demo posts on server side
-    const allTechDemos = getPostsByType('technical-demos')
+    const allTechDemos = getEnhancedPostsByType('technical-demos')
     const heroContent = getHeroContent('technical-demos')
 
     return (

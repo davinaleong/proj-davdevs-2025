@@ -1,0 +1,42 @@
+---
+title: We are a Present to Our Lord
+slug: 20251117-we-jesus-present
+description: >-
+  Reflecting on Proverbs 17:8 and Exodus 28:17-21 about how we are precious
+  stones set in gold on the high priest's breastplate. We are presents to Jesus,
+  and wherever He turns us, we prosper.
+date: '2025-11-17'
+author: Davina Leong
+tags:
+  - Precious Stones
+  - Biblical Meditation
+  - 'Proverbs 17:8'
+  - 'Exodus 28:17-21'
+  - High Priest Breastplate
+  - We Are Presents
+  - Jesus Our Possessor
+  - Scripture Reflection
+  - Christian Living
+  - Prosperity in Christ
+featured: false
+readingTime: 2
+published: true
+---
+> Proverbs 17:8 NKJV
+> 
+> 8 A present is a precious stone in the eyes of its possessor;<br />
+> Wherever he turns, he prospers.
+
+> Exodus 28:17-21 NKJV
+> 
+> 17 And you shall put settings of stones in it, four rows of stones: The first row shall be a sardius, a topaz, and an emerald; this shall be the first row;<br />
+> 18 the second row shall be a turquoise, a sapphire, and a diamond;<br />
+> 19 the third row, a jacinth, an agate, and an amethyst;<br />
+> 20 and the fourth row, a beryl, an onyx, and a jasper. They shall be set in gold settings.<br />
+> 21 And the stones shall have the names of the sons of Israel, twelve according to their names, like the engravings of a signet, each one with its own name; they shall be according to the twelve tribes.
+
+For those who’ve been in church since the days at Suntec City, did you remember the sermon Pastor Prince preached on the high priest and on the breastplate or ephod?
+
+What are the items set in gold settings? The precious stones right? They represent us. Then in the Proverbs verse, it says, “A present is a precious stone”.  So if we are the precious stones, then we are presents. 
+
+And Who is our Possessor? Jesus! So we are presents (precious stones) to Him. Wherever He turns us, we prosper, amen!

@@ -1,0 +1,27 @@
+---
+title: Your Big Daddy is For You!
+slug: 20250908-your-big-daddy
+description: >-
+  A powerful reminder that God is our loving Big Daddy who fights against the
+  enemy on our behalf. When the devil tries to bully us, we can cry out to our
+  heavenly Father who is infinitely more powerful.
+date: '2025-09-08'
+author: Davina Leong
+tags:
+  - Faith
+  - God's Love
+  - Spiritual Warfare
+  - 'Romans 8:31'
+  - Testimony
+  - Encouragement
+featured: false
+readingTime: 2
+published: true
+---
+> Romans 8:31 NKJV
+>
+> What then shall we say to these things? If God is for us, who can be against us?
+
+As I was typing out a testimony on Jesus turning around my bad year into a blessing, the Lord gave me this picture of our (your) Daddy God. Lord, give me the words to describe what You showed me
+
+My God showed me this: the devil is this little bully. And God is Your Big, Big loving Daddy. So when that little devil comes to bully you by making your life miserable, cry out to Him, and watch your Big, Big Daddy stomp him out of your life! You may be small compared to the devil. But that devil is puny compared to the Judge of the universe Who is Your Big, Big Daddy, amen!
