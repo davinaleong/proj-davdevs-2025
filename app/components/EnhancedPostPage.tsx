@@ -85,12 +85,14 @@ function EnhancedContentRenderer({
     htmlContent, 
     components, 
     componentConfig, 
-    slug 
+    slug,
+    isToolPost
 }: {
     htmlContent: string;
     components: string[];
     componentConfig: ComponentProps;
     slug: string;
+    isToolPost: boolean;
 }) {
     // Process HTML to inject components
     const processedContent = htmlContent.replace(
@@ -106,7 +108,7 @@ function EnhancedContentRenderer({
             <div dangerouslySetInnerHTML={{ __html: processedContent }} />
             
             {/* Render components based on type */}
-            {components.includes('tool') && TOOL_COMPONENTS[slug] && (
+            {(isToolPost || components.includes('tool')) && TOOL_COMPONENTS[slug] && (
                 <div className="my-8 p-6 border rounded-lg bg-gray-50 dark:bg-gray-800">
                     {(() => {
                         const ToolComponent = TOOL_COMPONENTS[slug];
@@ -199,6 +201,7 @@ export default function EnhancedPostPage({ params, postType }: PostPageProps) {
                             components={(post as EnhancedPost).components || []}
                             componentConfig={(post as EnhancedPost).componentConfig || {}}
                             slug={post.slug}
+                            isToolPost={postType === 'tools'}
                         />
                     ) : (
                         // Traditional MDX rendering
