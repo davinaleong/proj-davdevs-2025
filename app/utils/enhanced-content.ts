@@ -70,6 +70,24 @@ function parseEnhancedPostFile(filePath: string, type: PostType): EnhancedPost |
   try {
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
+    const frontmatter = data as Record<string, unknown>;
+
+    const toString = (value: unknown): string => (typeof value === 'string' ? value : '');
+    const toStringArray = (value: unknown): string[] =>
+      Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
+    const toLinks = (value: unknown): Array<{ label: string; href: string }> | undefined => {
+      if (!Array.isArray(value)) {
+        return undefined;
+      }
+
+      return value
+        .filter((item): item is Record<string, unknown> => typeof item === 'object' && item !== null)
+        .map((item) => ({
+          label: toString(item.label),
+          href: toString(item.href),
+        }))
+        .filter((item) => item.label.length > 0 && item.href.length > 0);
+    };
     
     // Validate required fields
     const requiredFields: (keyof EnhancedPostMetadata)[] = [
@@ -77,20 +95,25 @@ function parseEnhancedPostFile(filePath: string, type: PostType): EnhancedPost |
     ];
     
     for (const field of requiredFields) {
-      if (!(field in data)) {
+      if (!(field in frontmatter)) {
         console.warn(`Missing required field '${field}' in ${filePath}`);
         return null;
       }
     }
 
     // Transform image paths to absolute paths
-    const transformedImages = Array.isArray(data.images) 
-      ? data.images.map((image: ContentImage) => ({
-          ...image,
-          src: typeof image.src === 'string' && image.src.startsWith('/')
-            ? image.src
-            : `/${type}/${typeof image.src === 'string' ? image.src : ''}`
-        }))
+    const transformedImages = Array.isArray(frontmatter.images)
+      ? frontmatter.images
+          .filter((image): image is Record<string, unknown> => typeof image === 'object' && image !== null)
+          .map((image) => {
+            const imageData = image as ContentImage;
+            const srcValue = typeof imageData.src === 'string' ? imageData.src : '';
+
+            return {
+              src: srcValue.startsWith('/') ? srcValue : `/${type}/${srcValue}`,
+              alt: typeof imageData.alt === 'string' ? imageData.alt : '',
+            };
+          })
       : undefined;
 
     // Process markdown content to HTML
@@ -104,16 +127,16 @@ function parseEnhancedPostFile(filePath: string, type: PostType): EnhancedPost |
     }
 
     return {
-      title: data.title,
-      slug: data.slug,
-      description: data.description,
-      date: data.date,
-      author: data.author,
-      tags: Array.isArray(data.tags) ? data.tags : [],
-      featured: Boolean(data.featured),
-      readingTime: Number(data.readingTime) || 0,
-      published: Boolean(data.published),
-      links: Array.isArray(data.links) ? data.links : undefined,
+      title: toString(frontmatter.title),
+      slug: toString(frontmatter.slug),
+      description: toString(frontmatter.description),
+      date: toString(frontmatter.date),
+      author: toString(frontmatter.author),
+      tags: toStringArray(frontmatter.tags),
+      featured: Boolean(frontmatter.featured),
+      readingTime: Number(frontmatter.readingTime) || 0,
+      published: Boolean(frontmatter.published),
+      links: toLinks(frontmatter.links),
       images: transformedImages,
       content,
       htmlContent,
@@ -121,9 +144,11 @@ function parseEnhancedPostFile(filePath: string, type: PostType): EnhancedPost |
       filePath,
       
       // Enhanced fields
-      components: Array.isArray(data.components) ? data.components : [],
-      componentConfig: data.componentConfig || {},
-      toolType: data.toolType,
+      components: toStringArray(frontmatter.components),
+      componentConfig: (typeof frontmatter.componentConfig === 'object' && frontmatter.componentConfig !== null)
+        ? (frontmatter.componentConfig as Record<string, unknown>)
+        : {},
+      toolType: typeof frontmatter.toolType === 'string' ? frontmatter.toolType : undefined,
     };
   } catch (error) {
     console.error(`Error parsing file ${filePath}:`, error);

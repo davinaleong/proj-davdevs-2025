@@ -82,12 +82,13 @@ function parsePostFile(filePath: string, type: PostType): Post | null {
     }
 
     // Transform image paths to absolute paths for Next.js Image component
-    const transformedImages = Array.isArray(frontmatter.images) 
+    const transformedImages: PostMetadata['images'] = Array.isArray(frontmatter.images)
       ? frontmatter.images.map((image: ContentImage) => ({
-          ...image,
-          src: typeof image.src === 'string' && image.src.startsWith('/')
-            ? image.src
-            : `/${type}/${typeof image.src === 'string' ? image.src : ''}`
+          src:
+            typeof image.src === 'string' && image.src.startsWith('/')
+              ? image.src
+              : `/${type}/${typeof image.src === 'string' ? image.src : ''}`,
+          alt: typeof image.alt === 'string' ? image.alt : ''
         }))
       : undefined;
 
