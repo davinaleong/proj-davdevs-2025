@@ -14,6 +14,7 @@ interface ClientLayoutProps {
 export default function ClientLayout({ children }: ClientLayoutProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isSearchOpen, setIsSearchOpen] = useState(false)
+    const showChatbot = process.env.NODE_ENV !== "production"
 
     const openMenu = () => setIsMenuOpen(true)
     const closeMenu = () => setIsMenuOpen(false)
@@ -28,7 +29,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
             </main>
             <Menu isOpen={isMenuOpen} onClose={closeMenu} />
             <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
-            <Chatbot />
+            {showChatbot && <Chatbot />}
             <PrimaryFooter />
         </>
     )
