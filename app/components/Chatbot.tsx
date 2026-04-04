@@ -30,7 +30,7 @@ export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [isTyping, setIsTyping] = useState(false)
-  const showChatButton = false
+  const showChatButton = process.env.NEXT_PUBLIC_CHAT_BUTTON_ENABLED === 'true'
 
   const handleSendMessage = async (messageContent: string) => {
     // Add user message

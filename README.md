@@ -173,6 +173,7 @@ Create `.env.local`:
 
 ```env
 NEXT_PUBLIC_BASE_URL=https://yourdomain.com
+NEXT_PUBLIC_CHAT_BUTTON_ENABLED=false
 ```
 
 ## 📄 License
