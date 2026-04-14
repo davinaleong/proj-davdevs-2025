@@ -13,7 +13,7 @@ export default function Home() {
   const notebooksLink = findLinkByLabel("Python");
   const knowledgeSharingLink = findLinkByLabel("Knowledge Sharing");
   const femLink = findLinkByLabel("Fem");
-  const faithLink = findLinkByLabel("Faith");
+  const sermonsLink = findLinkByLabel("Faith");
   
   const portfolioContent = getPostSectionContent('portfolio');
   const articleContent = getPostSectionContent('articles');
@@ -106,7 +106,7 @@ export default function Home() {
             title={sermonsContent.title} 
             postType="sermons" 
             variant={sermonsContent.variant} 
-            viewAllHref={faithLink?.href || "/faith"} 
+            viewAllHref={sermonsLink?.href || "/sermons"} 
             viewAllText={sermonsContent.viewAllText} 
           />
         </SlideUpOnScroll>

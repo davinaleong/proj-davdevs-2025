@@ -3,10 +3,10 @@ import PostsList from "../components/PostsList"
 import { getEnhancedPostsByType } from "../utils/enhanced-content"
 import { getHeroContent } from "../utils/site-config"
 
-export default function Faith() {
+export default function Sermons() {
     // Get all sermon posts on server side
     const allSermons = getEnhancedPostsByType('sermons')
-    const heroContent = getHeroContent('faith')
+    const heroContent = getHeroContent('sermons')
 
     return (
         <div>
@@ -23,7 +23,7 @@ export default function Faith() {
                 posts={allSermons} 
                 postType="sermons"
                 searchPlaceholder="Search sermons..."
-                baseHref="/faith"
+                baseHref="/sermons"
             />
         </div>
     )

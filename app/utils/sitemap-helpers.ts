@@ -55,7 +55,7 @@ export function getDefaultSitemapConfig(baseUrl: string = 'https://yourwebsite.c
         priority: 0.8
       },
       {
-        url: '/faith',
+        url: '/sermons',
         lastModified: currentDate,
         changeFrequency: 'weekly',
         priority: 0.8
@@ -120,7 +120,7 @@ export function getStaticRoutes(): string[] {
   return [
     '/',
     '/articles',
-    '/faith',
+    '/sermons',
     '/fem',
     '/funny',
     '/knowledge-sharing',
