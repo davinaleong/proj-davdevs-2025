@@ -43,6 +43,17 @@ export default function PrimaryFooter({
             </Anchor>
         );
     };
+
+    const lighthouseReports = [
+        {
+            label: "Mobile",
+            href: "https://lighthouse.gracesoft.dev/www.davinaleong.com-20260417T120356.html"
+        },
+        {
+            label: "Desktop",
+            href: "https://lighthouse.gracesoft.dev/www.davinaleong.com-20260417T122713.html"
+        }
+    ];
     
     return (
         <footer className={`bg-blue-700 text-white p-4 ${className} print:hidden`}>
@@ -87,6 +98,27 @@ export default function PrimaryFooter({
                 <div className="flex items-center gap-4">
                     {legalLinks.map(renderLegalLink)}
                 </div>
+            </div>
+
+            <div className="mt-4 flex justify-center md:justify-end">
+                <details className="text-xs text-blue-200/80">
+                    <summary className="cursor-pointer select-none hover:text-white transition-colors">
+                        Site diagnostics
+                    </summary>
+                    <div className="mt-2 flex items-center gap-3 justify-center md:justify-end">
+                        {lighthouseReports.map((report) => (
+                            <Anchor
+                                key={report.href}
+                                href={report.href}
+                                external
+                                variant="footer"
+                                className="text-xs text-blue-200/80 hover:text-white underline"
+                            >
+                                {report.label} Lighthouse
+                            </Anchor>
+                        ))}
+                    </div>
+                </details>
             </div>
         </footer>
     )
