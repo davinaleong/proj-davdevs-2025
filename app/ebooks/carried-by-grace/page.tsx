@@ -54,7 +54,7 @@ export default function CarriedByGracePage() {
                             </p>
                             <p className="cbg-prose cbg-byline">by Davina Leong</p>
                             <div className="cbg-hero-actions">
-                                <a href="#get-the-book" className="cbg-btn-primary">Buy Now — S$9</a>
+                                <a href="https://davinaleong.lemonsqueezy.com/checkout/buy/a61f71ad-1ba6-4158-a659-39c6b5538fb1" target="_blank" rel="noopener noreferrer" className="cbg-btn-primary">Buy Now — S$9</a>
                                 <a href="#about" className="cbg-prose cbg-readmore">+ Read more</a>
                             </div>
                         </div>
@@ -150,11 +150,11 @@ export default function CarriedByGracePage() {
                             Whether you are in the middle of a storm or just beginning to wonder if God is
                             real — <strong>this testimony is for you.</strong>
                         </p>
-                        <a href="#" className="cbg-btn-primary cbg-btn-lg">Buy the E-Book — S$9</a>
+                        <a href="https://davinaleong.lemonsqueezy.com/checkout/buy/a61f71ad-1ba6-4158-a659-39c6b5538fb1" target="_blank" rel="noopener noreferrer" className="cbg-btn-primary cbg-btn-lg">Buy the E-Book — S$9</a>
                         <div className="cbg-cta-links cbg-prose">
-                            <a href="#">Instant digital download</a>
+                            <a href="https://davinaleong.lemonsqueezy.com/checkout/buy/a61f71ad-1ba6-4158-a659-39c6b5538fb1" target="_blank" rel="noopener noreferrer">Instant digital download</a>
                             <span aria-hidden>·</span>
-                            <a href="#">PDF format</a>
+                            <span>PDF format</span>
                         </div>
                     </div>
                 </section>
