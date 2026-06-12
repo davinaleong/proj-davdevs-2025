@@ -1,0 +1,75 @@
+/* ============================================================
+   [Book Title] — Design Language
+   Replace all variables below with your book's design tokens.
+   ============================================================ */
+
+:root {
+    --book-primary: #000000;       /* Main background or brand color */
+    --book-primary-light: #1a1a1a;
+    --book-primary-dark: #000000;
+    --book-accent: #ffffff;        /* Accent / highlight color */
+    --book-accent-light: #f5f5f5;
+    --book-accent-dark: #cccccc;
+    --book-text: #ffffff;
+    --book-text-muted: #aaaaaa;
+}
+
+.book-body {
+    /* font-family: var(--font-primary), sans-serif; */
+    background-color: var(--book-primary);
+    color: var(--book-accent);
+    min-height: 100vh;
+}
+
+.book-heading {
+    /* font-family: var(--font-secondary), serif; */
+    font-weight: 300;
+}
+
+.book-prose {
+    line-height: 1.75;
+    color: var(--book-accent-light);
+}
+
+.book-btn-primary {
+    display: inline-block;
+    background-color: var(--book-accent);
+    color: var(--book-primary);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.book-btn-primary:hover {
+    background-color: var(--book-accent-light);
+}
+
+.book-btn-outline {
+    display: inline-block;
+    border: 1px solid var(--book-accent);
+    color: var(--book-accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.book-btn-outline:hover {
+    background-color: var(--book-accent);
+    color: var(--book-primary);
+}
+
+.book-divider {
+    border-color: var(--book-accent-dark);
+    opacity: 0.3;
+}
+
+.book-card {
+    background-color: var(--book-primary-light);
+    border: 1px solid color-mix(in srgb, var(--book-accent) 20%, transparent);
+    border-radius: 4px;
+    padding: 2rem;
+}

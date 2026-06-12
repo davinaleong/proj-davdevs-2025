@@ -2,13 +2,24 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ── Self-hosted variable fonts (replaces next/font/google) ── */
+:root {
+  --font-sans: 'Montserrat Variable', sans-serif;
+  --font-mono: 'Source Code Pro Variable', 'Fira Code', 'Monaco', monospace;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
 button {
   cursor: pointer;
 }
 
 code, 
 pre {
-  font-family: var(--font-mono), 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-family: var(--font-mono), monospace;
 }
 
 @layer utilities {

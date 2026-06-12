@@ -1,22 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat, Source_Code_Pro } from "next/font/google";
+import "@fontsource-variable/montserrat/wght.css";
+import "@fontsource-variable/montserrat/wght-italic.css";
+import "@fontsource-variable/source-code-pro/wght.css";
+import "@fontsource-variable/source-code-pro/wght-italic.css";
 import "./globals.css";
 import ClientLayout from "./components/ClientLayout";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const sourceCodePro = Source_Code_Pro({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-mono",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -92,7 +80,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body
-        className={`${montserrat.className} ${sourceCodePro.variable} antialiased min-h-screen font-medium text-black bg-white dark:bg-black dark:text-white print:text-black print:bg-white`}
+        className="font-sans antialiased min-h-screen font-medium text-black bg-white dark:bg-black dark:text-white print:text-black print:bg-white"
       >
         <ClientLayout>
           {children}

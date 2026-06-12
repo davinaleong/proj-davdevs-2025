@@ -1,0 +1,253 @@
+/* ============================================================
+   Carried by Grace — Design Language
+   Primary:   Inter Variable
+   Secondary: Cormorant Garamond Variable
+   Deep Navy: #1a3045  |  Warm Gold: #e8d5a0
+   ============================================================ */
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+    --cbg-navy:       #1a3045;
+    --cbg-navy-light: #254460;
+    --cbg-navy-mid:   #152638;
+    --cbg-navy-dark:  #0f1e2c;
+    --cbg-gold:       #e8d5a0;
+    --cbg-gold-light: #f2e8c4;
+    --cbg-gold-dark:  #c9b47a;
+    --cbg-white:      #faf9f6;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.cbg-body {
+    font-family: 'Inter Variable', sans-serif;
+    background-color: var(--cbg-navy);
+    color: var(--cbg-gold);
+    min-height: 100vh;
+}
+
+/* ── Typography helpers ──────────────────────────────────── */
+.cbg-heading {
+    font-family: 'Cormorant Garamond Variable', serif;
+    font-weight: 300;
+}
+
+.cbg-prose {
+    font-family: 'Inter Variable', sans-serif;
+    line-height: 1.75;
+    color: var(--cbg-gold-light);
+}
+
+.cbg-label {
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cbg-gold);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.cbg-btn-primary {
+    display: inline-block;
+    background-color: var(--cbg-gold);
+    color: var(--cbg-navy);
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease;
+}
+.cbg-btn-primary:hover { background-color: var(--cbg-gold-light); }
+
+.cbg-btn-outline {
+    display: inline-block;
+    border: 1px solid var(--cbg-gold);
+    color: var(--cbg-gold);
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+.cbg-btn-outline:hover { background-color: var(--cbg-gold); color: var(--cbg-navy); }
+
+.cbg-btn-sm  { padding: 0.5rem 1.4rem; font-size: 0.75rem; }
+.cbg-btn-lg  { padding: 1rem 2.8rem;   font-size: 0.85rem; }
+
+/* ── Card ────────────────────────────────────────────────── */
+.cbg-card {
+    background-color: var(--cbg-navy-light);
+    border: 1px solid color-mix(in srgb, var(--cbg-gold) 18%, transparent);
+    border-radius: 4px;
+    padding: 2rem;
+}
+
+/* ── Nav ─────────────────────────────────────────────────── */
+.cbg-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background-color: var(--cbg-navy);
+    border-bottom: 1px solid color-mix(in srgb, var(--cbg-gold) 12%, transparent);
+}
+.cbg-nav-title {
+    font-size: 1.1rem;
+    color: var(--cbg-gold);
+    letter-spacing: 0.02em;
+}
+
+/* ── Layout helpers ──────────────────────────────────────── */
+.cbg-main    { padding-top: 2.5rem; }
+.cbg-container { max-width: 68rem; margin-inline: auto; padding-inline: 2rem; }
+
+/* ── Hero ────────────────────────────────────────────────── */
+.cbg-section-hero {
+    min-height: calc(100vh - 2.5rem);
+    display: flex;
+    align-items: center;
+    padding-block: 5rem;
+    background-color: var(--cbg-navy);
+}
+.cbg-hero-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+@media (min-width: 1024px) {
+    .cbg-hero-grid { grid-template-columns: 1fr 1fr; }
+}
+.cbg-hero-heading {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+.cbg-hero-title-white { color: var(--cbg-white); }
+.cbg-hero-title-gold  { color: var(--cbg-gold); font-style: italic; }
+.cbg-hero-subtitle {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--cbg-gold);
+    opacity: 0.75;
+    margin-bottom: 1.5rem;
+}
+.cbg-hero-body { margin-bottom: 0.75rem; }
+.cbg-byline    { font-size: 0.8rem; opacity: 0.45; margin-bottom: 2rem; }
+.cbg-hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+.cbg-readmore { font-size: 0.875rem; opacity: 0.65; transition: opacity 150ms; }
+.cbg-readmore:hover { opacity: 1; }
+.cbg-cover-wrap { display: flex; justify-content: center; }
+.cbg-cover-img  { width: 16rem; box-shadow: 0 25px 60px rgba(0,0,0,0.5); }
+@media (min-width: 1024px) { .cbg-cover-img { width: 18rem; } }
+
+/* ── About ───────────────────────────────────────────────── */
+.cbg-section-about {
+    padding-block: 6rem;
+    background-color: var(--cbg-navy-mid);
+}
+.cbg-about-grid {
+    display: grid;
+    gap: 3.5rem;
+    align-items: start;
+}
+@media (min-width: 1024px) {
+    .cbg-about-grid { grid-template-columns: 1fr 1fr; }
+}
+.cbg-excerpt { font-size: 0.875rem; opacity: 0.75; display: flex; flex-direction: column; gap: 1rem; }
+.cbg-about-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    color: var(--cbg-white);
+    margin-bottom: 1.75rem;
+}
+.cbg-about-body { margin-bottom: 1rem; }
+.cbg-quote {
+    border-left: 2px solid color-mix(in srgb, var(--cbg-gold) 40%, transparent);
+    background-color: color-mix(in srgb, var(--cbg-gold) 4%, transparent);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.75rem;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+.cbg-quote p { margin-bottom: 0.5rem; }
+.cbg-cite { font-style: normal; font-size: 0.75rem; opacity: 0.55; }
+
+/* ── Themes ──────────────────────────────────────────────── */
+.cbg-section-themes {
+    padding-block: 6rem;
+    background-color: var(--cbg-navy-dark);
+}
+.cbg-themes-header { text-align: center; margin-bottom: 3rem; }
+.cbg-themes-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--cbg-white);
+    margin-top: 0.5rem;
+}
+.cbg-themes-grid {
+    display: grid;
+    gap: 1rem;
+}
+@media (min-width: 640px)  { .cbg-themes-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .cbg-themes-grid { grid-template-columns: repeat(4, 1fr); } }
+.cbg-theme-icon  { display: block; color: var(--cbg-gold); opacity: 0.55; font-size: 1.1rem; margin-bottom: 1rem; }
+.cbg-theme-title { font-size: 0.875rem; font-weight: 600; color: var(--cbg-gold); margin-bottom: 0.75rem; }
+.cbg-theme-body  { font-size: 0.8rem; opacity: 0.6; line-height: 1.65; }
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cbg-section-cta {
+    padding-block: 6rem;
+    background-color: var(--cbg-navy);
+}
+.cbg-cta-inner { max-width: 36rem; margin-inline: auto; padding-inline: 2rem; text-align: center; }
+.cbg-cta-heading-white {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--cbg-white);
+}
+.cbg-cta-heading-gold {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--cbg-gold);
+    margin-bottom: 1.5rem;
+}
+.cbg-cta-body { margin-bottom: 2.5rem; }
+.cbg-cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    font-size: 0.75rem;
+    opacity: 0.4;
+}
+.cbg-cta-links a:hover { opacity: 0.8; }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.cbg-footer {
+    padding-block: 2.5rem;
+    padding-inline: 2rem;
+    text-align: center;
+    background-color: var(--cbg-navy-dark);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    opacity: 0.45;
+}
+.cbg-footer-back {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: opacity 150ms;
+}
+.cbg-footer-back:hover { opacity: 1; }
+

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, ReactNode } from "react"
+import { usePathname } from "next/navigation"
 import PrimaryHeader from "./PrimaryHeader"
 import PrimaryFooter from "./PrimaryFooter"
 import Menu from "./Menu"
@@ -12,6 +13,9 @@ interface ClientLayoutProps {
 }
 
 export default function ClientLayout({ children }: ClientLayoutProps) {
+    const pathname = usePathname()
+    const isSitePage = !pathname.startsWith("/ebooks/")
+
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isSearchOpen, setIsSearchOpen] = useState(false)
     const showChatbot = process.env.NODE_ENV !== "production"
@@ -20,6 +24,8 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     const closeMenu = () => setIsMenuOpen(false)
     const openSearch = () => setIsSearchOpen(true)
     const closeSearch = () => setIsSearchOpen(false)
+
+    if (!isSitePage) return <>{children}</>
 
     return (
         <>

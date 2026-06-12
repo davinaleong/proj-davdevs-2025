@@ -52,6 +52,11 @@
       "label": "Knowledge Sharing",
       "href": "/knowledge-sharing",
       "external": false
+    },
+    {
+      "label": "E-Books",
+      "href": "/ebooks",
+      "external": false
     }
   ],
   "socialLinks": [
