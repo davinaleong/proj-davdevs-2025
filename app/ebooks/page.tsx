@@ -20,6 +20,12 @@ const ebooks: EBook[] = [
         description: "A personal journey of faith, grace, and growth.",
         coverImage: "/books/carried-by-grace/0001.png",
     },
+    {
+        slug: "jesus-and-ai",
+        title: "Jesus & AI",
+        description: "Faith, intelligence, and the future — a biblical lens on artificial intelligence.",
+        coverImage: "/books/jesus-and-ai/0001.png",
+    },
 ]
 
 export default function EBooksPage() {

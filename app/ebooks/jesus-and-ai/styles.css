@@ -1,0 +1,467 @@
+/* ============================================================
+   Jesus & AI — Design Language
+   Font:       Montserrat Variable (500 medium / 700 bold)
+               Source Code Pro Variable (tech accents)
+   Deep Navy:  #0a0022  |  Mid Blue: #0b1993  |  Light Blue: #94eafe
+   ============================================================ */
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+    --jai-deep:         #0a0022;
+    --jai-deep-alt:     #070016;
+    --jai-panel:        #0b1993;
+    --jai-panel-dim:    rgba(11, 25, 147, 0.25);
+    --jai-panel-border: rgba(11, 25, 147, 0.55);
+    --jai-blue:         #94eafe;
+    --jai-blue-glow:    rgba(148, 234, 254, 0.25);
+    --jai-blue-dim:     rgba(148, 234, 254, 0.07);
+    --jai-white:        #f0f8ff;
+    --jai-white-soft:   rgba(240, 248, 255, 0.72);
+    --jai-white-dim:    rgba(240, 248, 255, 0.42);
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.jai-body {
+    font-family: 'Montserrat Variable', sans-serif;
+    background-color: var(--jai-deep);
+    color: var(--jai-white);
+    min-height: 100vh;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+.jai-heading {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.jai-prose {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--jai-white-soft);
+}
+
+.jai-label {
+    font-family: 'Source Code Pro Variable', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--jai-blue);
+    opacity: 0.75;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.jai-btn-primary {
+    display: inline-block;
+    background-color: var(--jai-blue);
+    color: var(--jai-deep);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2.4rem;
+    border-radius: 2px;
+    box-shadow: 0 0 20px var(--jai-blue-glow);
+    transition: box-shadow 150ms ease, background-color 150ms ease;
+    cursor: pointer;
+    border: none;
+}
+.jai-btn-primary:hover {
+    background-color: #b8f0ff;
+    box-shadow: 0 0 36px rgba(148, 234, 254, 0.45);
+}
+
+.jai-btn-outline {
+    display: inline-block;
+    border: 1px solid color-mix(in srgb, var(--jai-blue) 45%, transparent);
+    color: var(--jai-blue);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2.4rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+.jai-btn-outline:hover {
+    background-color: var(--jai-blue-dim);
+    border-color: var(--jai-blue);
+    box-shadow: 0 0 16px var(--jai-blue-glow);
+}
+
+.jai-btn-coming-soon {
+    display: inline-block;
+    border: 1px solid rgba(148, 234, 254, 0.2);
+    color: rgba(148, 234, 254, 0.4);
+    font-family: 'Source Code Pro Variable', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    cursor: default;
+}
+
+.jai-btn-sm { padding: 0.5rem 1.25rem; font-size: 0.65rem; }
+.jai-btn-lg { padding: 1rem 2.8rem;    font-size: 0.8rem; }
+
+/* ── Cards ───────────────────────────────────────────────── */
+.jai-card {
+    background-color: var(--jai-panel-dim);
+    border: 1px solid var(--jai-panel-border);
+    border-radius: 4px;
+    padding: 2rem;
+}
+.jai-card-blue {
+    border-color: color-mix(in srgb, var(--jai-blue) 16%, transparent);
+}
+
+/* ── Nav ─────────────────────────────────────────────────── */
+.jai-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background-color: rgba(10, 0, 34, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(148, 234, 254, 0.07);
+}
+.jai-nav-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--jai-white);
+}
+.jai-nav-dot {
+    color: var(--jai-blue);
+    text-shadow: 0 0 10px var(--jai-blue-glow);
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.jai-main      { padding-top: 4rem; }
+.jai-container { max-width: 68rem; margin-inline: auto; padding-inline: 2rem; }
+
+/* ── Dot Grid Pattern (faith + tech texture) ─────────────── */
+.jai-dot-grid {
+    background-image: radial-gradient(circle, rgba(148, 234, 254, 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.jai-section-hero {
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    align-items: center;
+    padding-block: 5rem;
+    background-color: var(--jai-deep);
+    position: relative;
+    overflow: hidden;
+}
+/* Ambient radial glow */
+.jai-section-hero::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 55%;
+    height: 90%;
+    background: radial-gradient(ellipse at center, rgba(11, 25, 147, 0.3) 0%, transparent 68%);
+    pointer-events: none;
+}
+.jai-section-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 40%;
+    height: 60%;
+    background: radial-gradient(ellipse at center, rgba(148, 234, 254, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.jai-hero-grid {
+    display: grid;
+    gap: 3.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+@media (min-width: 1024px) {
+    .jai-hero-grid { grid-template-columns: 1fr auto; }
+}
+
+.jai-hero-heading {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    line-height: 1.0;
+    margin-bottom: 1.25rem;
+}
+.jai-hero-title-white { color: var(--jai-white); }
+.jai-hero-title-blue  {
+    color: var(--jai-blue);
+    text-shadow: 0 0 32px rgba(148, 234, 254, 0.45);
+}
+
+.jai-hero-subtitle {
+    font-family: 'Source Code Pro Variable', monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--jai-blue);
+    opacity: 0.6;
+    margin-bottom: 1.75rem;
+}
+
+.jai-hero-body   { margin-bottom: 0.75rem; max-width: 38rem; }
+.jai-byline      { font-size: 0.75rem; opacity: 0.38; margin-bottom: 2.25rem; letter-spacing: 0.06em; }
+.jai-hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+/* Cover */
+.jai-cover-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+.jai-cover-img {
+    width: 15rem;
+    border-radius: 2px;
+    box-shadow:
+        0 0 50px rgba(148, 234, 254, 0.18),
+        0 0 100px rgba(11, 25, 147, 0.3),
+        0 25px 65px rgba(0, 0, 0, 0.65);
+}
+@media (min-width: 1024px) {
+    .jai-cover-img { width: 17rem; }
+}
+
+/* ── About ───────────────────────────────────────────────── */
+.jai-section-about {
+    padding-block: 6rem;
+    background-color: var(--jai-deep-alt);
+}
+.jai-about-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: start;
+}
+@media (min-width: 1024px) {
+    .jai-about-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.jai-back-cover-wrap { display: flex; justify-content: center; }
+.jai-back-cover-img {
+    width: 100%;
+    max-width: 22rem;
+    border-radius: 2px;
+    box-shadow:
+        0 0 28px rgba(148, 234, 254, 0.1),
+        0 16px 48px rgba(0, 0, 0, 0.55);
+    opacity: 0.88;
+}
+
+.jai-about-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--jai-white);
+    margin-bottom: 1.75rem;
+    line-height: 1.2;
+}
+.jai-about-body { margin-bottom: 1rem; }
+
+.jai-quote {
+    border-left: 2px solid rgba(148, 234, 254, 0.28);
+    background: linear-gradient(90deg, rgba(148, 234, 254, 0.04), transparent);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.75rem;
+    font-style: italic;
+    font-size: 0.875rem;
+}
+.jai-quote p   { margin-bottom: 0.5rem; color: var(--jai-white-soft); }
+.jai-cite      {
+    font-style: normal;
+    font-size: 0.68rem;
+    opacity: 0.48;
+    font-family: 'Source Code Pro Variable', monospace;
+    letter-spacing: 0.08em;
+}
+
+/* ── Themes ──────────────────────────────────────────────── */
+.jai-section-themes {
+    padding-block: 6rem;
+    background-color: var(--jai-deep);
+}
+.jai-themes-header { text-align: center; margin-bottom: 3.5rem; }
+.jai-themes-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--jai-white);
+    margin-top: 0.5rem;
+}
+
+.jai-themes-grid { display: grid; gap: 1rem; }
+@media (min-width: 640px)  { .jai-themes-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .jai-themes-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.jai-theme-num {
+    display: block;
+    font-family: 'Source Code Pro Variable', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: var(--jai-blue);
+    opacity: 0.38;
+    margin-bottom: 0.4rem;
+}
+.jai-theme-icon {
+    display: block;
+    font-family: 'Source Code Pro Variable', monospace;
+    font-size: 1rem;
+    color: var(--jai-blue);
+    opacity: 0.55;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.06em;
+}
+.jai-theme-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--jai-blue);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+}
+.jai-theme-body { font-size: 0.775rem; opacity: 0.55; line-height: 1.7; }
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.jai-section-cta {
+    padding-block: 6rem;
+    background-color: var(--jai-deep-alt);
+    position: relative;
+    overflow: hidden;
+}
+.jai-section-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 80%;
+    background: radial-gradient(ellipse at center, rgba(11, 25, 147, 0.28) 0%, transparent 68%);
+    pointer-events: none;
+}
+
+.jai-cta-inner {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.jai-cta-heading-white {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--jai-white);
+    line-height: 1.15;
+}
+.jai-cta-heading-blue {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--jai-blue);
+    line-height: 1.15;
+    text-shadow: 0 0 30px rgba(148, 234, 254, 0.35);
+    margin-bottom: 1.5rem;
+}
+.jai-cta-body { margin-bottom: 2rem; }
+
+/* Price */
+.jai-price-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 2.25rem;
+}
+.jai-price-currency {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--jai-white-soft);
+    margin-bottom: 0.5rem;
+}
+.jai-price-amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--jai-blue);
+    text-shadow: 0 0 24px rgba(148, 234, 254, 0.45);
+    line-height: 1;
+}
+
+/* Coming soon */
+.jai-coming-soon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+.jai-badge-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(148, 234, 254, 0.22);
+    background: rgba(148, 234, 254, 0.04);
+    color: var(--jai-blue);
+    font-family: 'Source Code Pro Variable', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.75rem;
+    border-radius: 2px;
+}
+.jai-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--jai-blue);
+    box-shadow: 0 0 7px var(--jai-blue);
+    animation: jai-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+@keyframes jai-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+.jai-store-note {
+    font-size: 0.78rem;
+    opacity: 0.38;
+    letter-spacing: 0.03em;
+    max-width: 28rem;
+    line-height: 1.75;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.jai-footer {
+    padding-block: 2.5rem;
+    padding-inline: 2rem;
+    text-align: center;
+    background-color: var(--jai-deep);
+    border-top: 1px solid rgba(148, 234, 254, 0.06);
+    font-size: 0.75rem;
+    line-height: 1.9;
+    opacity: 0.38;
+}
+.jai-footer-back {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    transition: opacity 150ms;
+}
+.jai-footer-back:hover { opacity: 1; }
