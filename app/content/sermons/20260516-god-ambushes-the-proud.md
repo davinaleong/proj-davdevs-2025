@@ -1,42 +1,46 @@
 ---
-title: God Ambushes the Proud
-slug: 20260516-god-ambushes-the-proud
+title: Blessed are Those Who Trust in the Lord
+slug: 20260601-blessed-trust-lord
 description: >-
-  A reflection on Proverbs 16:5 and 2 Chronicles 20:22-23 about how God opposes
-  the proud and sets ambushes against those who rise up against His people.
-date: '2026-05-16'
+  A reflection on Jeremiah 17:7-8 about the blessing, stability, and fruitfulness
+  that come from trusting in the Lord.
+date: '2026-06-01'
 author: Davina Leong
 tags:
-  - 'Proverbs 16:5'
-  - '2 Chronicles 20:22-23'
-  - Wisdom
-  - Pride
-  - Divine Justice
-  - Praise and Victory
+  - 'Jeremiah 17:7-8'
+  - Trust in the Lord
+  - Hope in God
+  - Spiritual Growth
+  - Fruitfulness
+  - Faith and Confidence
+  - Christian Encouragement
   - Biblical Meditation
-  - Spiritual Warfare
   - Christian Living
-  - Humility
-  - God's Protection
+  - Church Community
 featured: false
 readingTime: 2
 published: true
 ---
-> Proverbs 16:5 NKJV
+> Jeremiah 17:7-8 NKJV
 > 
-> 5 Everyone proud in heart is an abomination to the Lord;<br/>
-> Though they join forces, none will go unpunished.
+> 7 “Blessed is the man who trusts in the Lord,<br>
+> And whose hope is the Lord.<br>
+> 8 For he shall be like a tree planted by the waters,<br>
+> Which spreads out its roots by the river,<br>
+> And will not fear when heat comes;<br>
+> But its leaf will be green,<br>
+> And will not be anxious in the year of drought,<br>
+> Nor will cease from yielding fruit.
 
-> 2 Chronicles 20:22-23 NKJV
-> 
-> 22 Now when they began to sing and to praise, the Lord set ambushes against the people of Ammon, Moab, and Mount Seir, who had come against Judah; and they were defeated. 
-> 
-> 23 For the people of Ammon and Moab stood up against the inhabitants of Mount Seir to utterly kill and destroy them. And when they had made an end of the inhabitants of Seir, they helped to destroy one another.
+Did you know trusting the Lord comes with amazing promises? Jeremiah 17 tells us what happens to those who do so. 
 
-I like how this verse in Proverbs reminded me of this year’s theme verse: 2 Chronicles 20. I was especially reminded of the part where God set ambushes against King Jehoshaphat’s enemies when they sang praises to the Lord. 
+The first promise is that you shall be “blessed”. Blessed are you who trust in Him and who put your hope in Him! 
 
-This verse of Proverbs reveals the heart of the enemies of King Jehoshaphat: they were proud. The verse has a promise: though his enemies join forces, none will go unpunished. 
+Then the passage goes on to say that you shall be like a tree planted by the rivers. Water is life to a tree. A tree uses water to transport nutrients within itself. So, to be planted by rivers of water is to say, when you put your trust in Jesus, He plants you where you’ll receive good spiritual food that nourishes you. 
 
-That’s why we pray for our enemies. Not because they are better or more worse than us but because our Lord may come down hard on them for coming against us. 
+Your roots will also spread out. When a tree’s roots spread out it goes deep. And the deeper the roots go into the ground the more unshakable the tree becomes. And you-tree shall become undevourable. 
 
-Anyway, hope you were blessed by this sharing, amen!
+Your leaf shall remain green when heat comes. You shall not be anxious in the year of drought and will not cease yielding fruit. Why? Because you know the Lord is your supply not the world. 
+
+So, remember to stay planted in a local Christ-centred, Bible-based church, amen!
+
