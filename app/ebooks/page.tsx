@@ -26,6 +26,12 @@ const ebooks: EBook[] = [
         description: "Faith, intelligence, and the future — a biblical lens on artificial intelligence.",
         coverImage: "/books/jesus-and-ai/0001.png",
     },
+    {
+        slug: "scrolls-for-the-screen-generation",
+        title: "Scrolls for the Screen Generation",
+        description: "A six-volume devotional series for those living in a screen-saturated world.",
+        coverImage: "/books/scrolls-for-the-screen-generation/0000.png",
+    },
 ]
 
 export default function EBooksPage() {
