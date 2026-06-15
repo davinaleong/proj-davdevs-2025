@@ -29,9 +29,7 @@ export default function CarriedByGracePage() {
             {/* ── Nav ───────────────────────────────────────────── */}
             <header className="cbg-nav">
                 <span className="cbg-heading cbg-nav-title">Carried by Grace</span>
-                <a href="#get-the-book" className="cbg-btn-outline cbg-btn-sm">
-                    Get the Book — S$9
-                </a>
+                <span className="cbg-btn-coming-soon cbg-btn-sm">Coming Soon</span>
             </header>
 
             <main className="cbg-main">
@@ -54,7 +52,7 @@ export default function CarriedByGracePage() {
                             </p>
                             <p className="cbg-prose cbg-byline">by Davina Leong</p>
                             <div className="cbg-hero-actions">
-                                <a href="https://davinaleong.lemonsqueezy.com/checkout/buy/a61f71ad-1ba6-4158-a659-39c6b5538fb1" target="_blank" rel="noopener noreferrer" className="cbg-btn-primary">Buy Now — S$9</a>
+                                <span className="cbg-btn-coming-soon">Coming Soon</span>
                                 <a href="#about" className="cbg-prose cbg-readmore">+ Read more</a>
                             </div>
                         </div>
@@ -150,11 +148,19 @@ export default function CarriedByGracePage() {
                             Whether you are in the middle of a storm or just beginning to wonder if God is
                             real — <strong>this testimony is for you.</strong>
                         </p>
-                        <a href="https://davinaleong.lemonsqueezy.com/checkout/buy/a61f71ad-1ba6-4158-a659-39c6b5538fb1" target="_blank" rel="noopener noreferrer" className="cbg-btn-primary cbg-btn-lg">Buy the E-Book — S$9</a>
-                        <div className="cbg-cta-links cbg-prose">
-                            <a href="https://davinaleong.lemonsqueezy.com/checkout/buy/a61f71ad-1ba6-4158-a659-39c6b5538fb1" target="_blank" rel="noopener noreferrer">Instant digital download</a>
-                            <span aria-hidden>·</span>
-                            <span>PDF format</span>
+                        <div className="cbg-price-wrap">
+                            <span className="cbg-price-currency">S$</span>
+                            <span className="cbg-price-amount">9</span>
+                        </div>
+                        <div className="cbg-coming-soon-wrap">
+                            <span className="cbg-badge-coming-soon">
+                                <span className="cbg-badge-dot" aria-hidden></span>
+                                Store Under Review
+                            </span>
+                            <p className="cbg-prose cbg-store-note">
+                                Our LemonSqueezy store is currently pending review by the team.
+                                The e-book will be available for purchase at S$9 very soon — check back shortly.
+                            </p>
                         </div>
                     </div>
                 </section>

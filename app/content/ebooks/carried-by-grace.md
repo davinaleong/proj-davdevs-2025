@@ -3,13 +3,16 @@ title: "Carried by Grace"
 slug: "carried-by-grace"
 description: "A personal journey of faith, grace, and growth."
 author: "Davina Leong"
+label: "An E-Book by Davina Leong"
 publishedAt: "2026-01-01"
 coverImage: "/books/carried-by-grace/0001.png"
 backImage: "/books/carried-by-grace/0002.png"
-available: true
+available: false
+price: "S$9"
+storeStatus: "Store Under Review"
+storeNote: "Our LemonSqueezy store is currently pending review by the team. The e-book will be available for purchase at S$9 very soon — check back shortly."
 formats:
   - digital
-  - print
 links:
   digital: ""
   print: ""
@@ -17,8 +20,8 @@ design:
   primaryFont: "Inter"
   secondaryFont: "Cormorant Garamond"
   colors:
-    navy: "#1a3045"
-    gold: "#e8d5a0"
+    primary: "#1a3045"
+    accent: "#e8d5a0"
 ---
 
 A personal journey of faith, grace, and growth. Written with honesty and quiet hope for anyone who has ever felt like they were barely holding on.

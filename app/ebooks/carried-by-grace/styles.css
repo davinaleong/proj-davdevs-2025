@@ -84,6 +84,20 @@
 .cbg-btn-sm  { padding: 0.5rem 1.4rem; font-size: 0.75rem; }
 .cbg-btn-lg  { padding: 1rem 2.8rem;   font-size: 0.85rem; }
 
+.cbg-btn-coming-soon {
+    display: inline-block;
+    border: 1px solid rgba(232, 213, 160, 0.2);
+    color: rgba(232, 213, 160, 0.4);
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    cursor: default;
+}
+
 /* ── Card ────────────────────────────────────────────────── */
 .cbg-card {
     background-color: var(--cbg-navy-light);
@@ -224,6 +238,69 @@
     margin-bottom: 1.5rem;
 }
 .cbg-cta-body { margin-bottom: 2.5rem; }
+
+/* Price */
+.cbg-price-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 2.25rem;
+}
+.cbg-price-currency {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cbg-white);
+    margin-bottom: 0.5rem;
+}
+.cbg-price-amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--cbg-gold);
+    line-height: 1;
+}
+
+/* Coming soon */
+.cbg-coming-soon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+.cbg-badge-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(232, 213, 160, 0.22);
+    background: rgba(232, 213, 160, 0.04);
+    color: var(--cbg-gold);
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.75rem;
+    border-radius: 2px;
+}
+.cbg-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--cbg-gold);
+    animation: cbg-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+@keyframes cbg-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+.cbg-store-note {
+    max-width: 28rem;
+    font-size: 0.8rem;
+    opacity: 0.55;
+    line-height: 1.7;
+}
+
 .cbg-cta-links {
     display: flex;
     justify-content: center;

@@ -1,37 +1,61 @@
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
 import type { Metadata } from "next"
+
+interface Theme {
+    num: string
+    icon: string
+    title: string
+    body: string
+}
+
+interface AboutParagraph {
+    text: string
+    strong?: string
+}
+
+interface EbookData {
+    title: string
+    label: string
+    author: string
+    coverImage: string
+    backImage: string
+    available: boolean
+    price: string
+    storeStatus: string
+    storeNote: string
+    heroSubtitle: string
+    heroBody: string
+    heroBodyStrong: string
+    heroBodyEnd: string
+    aboutHeading1: string
+    aboutHeading2: string
+    aboutBody: AboutParagraph[]
+    quote: { text: string; citation: string }
+    themesLabel: string
+    themesHeading: string
+    themes: Theme[]
+    ctaLabel: string
+    ctaHeading1: string
+    ctaHeading2: string
+    ctaBody: string
+}
+
+function getEbookData(): EbookData {
+    const filePath = path.join(process.cwd(), "app", "content", "ebooks", "jesus-and-ai.md")
+    const raw = fs.readFileSync(filePath, "utf8")
+    const { data } = matter(raw)
+    return data as unknown as EbookData
+}
 
 export const metadata: Metadata = {
     title: "Jesus & AI",
 }
 
-const themes = [
-    {
-        num: "01",
-        icon: "[ ]",
-        title: "The Image of God in the Age of AI",
-        body: "What makes us uniquely human — and why no algorithm can replicate the breath of life God placed in us.",
-    },
-    {
-        num: "02",
-        icon: "{ }",
-        title: "Fear, Faith, and the Future",
-        body: "Moving past anxiety about AI to a posture of wisdom, discernment, and trust in a sovereign God.",
-    },
-    {
-        num: "03",
-        icon: "< >",
-        title: "Ethics and the Kingdom",
-        body: "Navigating real-world questions — bias, automation, creative ownership — through a biblical lens.",
-    },
-    {
-        num: "04",
-        icon: "/>",
-        title: "Purpose in a Changing World",
-        body: "Your calling is not cancelled by AI. Discover how God's eternal purpose for you remains unshakeable.",
-    },
-]
-
 export default function JesusAndAiPage() {
+    const data = getEbookData()
+    const { themes } = data
     return (
         <>
             {/* ── Nav ───────────────────────────────────────────── */}
@@ -48,23 +72,22 @@ export default function JesusAndAiPage() {
                     <div className="jai-container jai-hero-grid">
                         {/* Copy */}
                         <div>
-                            <p className="jai-label">An E-Book by Davina Leong</p>
+                            <p className="jai-label">{data.label}</p>
                             <h1 className="jai-heading jai-hero-heading">
                                 <span className="jai-hero-title-white">Jesus</span><br />
                                 <span className="jai-hero-title-white">&amp; </span>
                                 <span className="jai-hero-title-blue">AI</span>
                             </h1>
-                            <p className="jai-hero-subtitle">Faith, Intelligence &amp; the Future</p>
+                            <p className="jai-hero-subtitle">{data.heroSubtitle}</p>
                             <p className="jai-prose jai-hero-body">
-                                What does it mean to follow Jesus in an age of artificial intelligence?
-                                As AI reshapes how we work, create, and relate —{" "}
-                                <strong>this book offers a grounded, biblical perspective</strong> on
-                                technology, humanity, and the God who never changes.
+                                {data.heroBody}{" "}
+                                <strong>{data.heroBodyStrong}</strong>{" "}
+                                {data.heroBodyEnd}
                             </p>
-                            <p className="jai-prose jai-byline">by Davina Leong</p>
+                            <p className="jai-prose jai-byline">by {data.author}</p>
                             <div className="jai-hero-actions">
                                 <a href="#get-the-book" className="jai-btn-outline">
-                                    Get the Book — S$9
+                                    Get the Book — {data.price}
                                 </a>
                             </div>
                         </div>
@@ -72,8 +95,8 @@ export default function JesusAndAiPage() {
                         {/* Front Cover */}
                         <div className="jai-cover-wrap">
                             <img
-                                src="/books/jesus-and-ai/0001.png"
-                                alt="Jesus &amp; AI — Book Cover"
+                                src={data.coverImage}
+                                alt={`${data.title} — Book Cover`}
                                 className="jai-cover-img"
                             />
                         </div>
@@ -86,8 +109,8 @@ export default function JesusAndAiPage() {
                         {/* Back cover */}
                         <div className="jai-back-cover-wrap">
                             <img
-                                src="/books/jesus-and-ai/0002.png"
-                                alt="Jesus &amp; AI — Back Cover"
+                                src={data.backImage}
+                                alt={`${data.title} — Back Cover`}
                                 className="jai-back-cover-img"
                             />
                         </div>
@@ -96,31 +119,16 @@ export default function JesusAndAiPage() {
                         <div>
                             <p className="jai-label">About the Book</p>
                             <h2 className="jai-heading jai-about-heading">
-                                Not a tech manual.<br />Not a theology textbook.
+                                {data.aboutHeading1}<br />{data.aboutHeading2}
                             </h2>
-                            <p className="jai-prose jai-about-body">
-                                <em>Jesus &amp; AI</em> is a personal and pastoral exploration of the
-                                questions many believers are quietly asking: Should I be afraid of AI?
-                                Does God care about algorithms? What does the Bible say about a world
-                                being remade by machines?
-                            </p>
-                            <p className="jai-prose jai-about-body">
-                                Written from a place of curiosity and faith, Davina walks through what
-                                it means to be image-bearers of God in the age of digital intelligence —
-                                holding fast to biblical truth while{" "}
-                                <strong>engaging honestly with one of the most significant shifts of our time.</strong>
-                            </p>
-                            <p className="jai-prose jai-about-body">
-                                Whether you are a sceptic, a technologist, or simply a believer
-                                navigating a changing world —{" "}
-                                <strong>this book is for you.</strong>
-                            </p>
-                            <blockquote className="jai-quote jai-prose">
-                                <p>
-                                    &ldquo;For everything there is a season, and a time for every
-                                    matter under heaven.&rdquo;
+                            {data.aboutBody.map((para, i) => (
+                                <p key={i} className="jai-prose jai-about-body">
+                                    {para.text}{para.strong && <>{" "}<strong>{para.strong}</strong></>}
                                 </p>
-                                <cite className="jai-cite">— Ecclesiastes 3:1 ESV</cite>
+                            ))}
+                            <blockquote className="jai-quote jai-prose">
+                                <p>&ldquo;{data.quote.text}&rdquo;</p>
+                                <cite className="jai-cite">{data.quote.citation}</cite>
                             </blockquote>
                         </div>
                     </div>
@@ -130,9 +138,9 @@ export default function JesusAndAiPage() {
                 <section className="jai-section-themes jai-dot-grid">
                     <div className="jai-container">
                         <div className="jai-themes-header">
-                            <p className="jai-label">What&apos;s Inside</p>
+                            <p className="jai-label">{data.themesLabel}</p>
                             <h2 className="jai-heading jai-themes-heading">
-                                Themes woven through every page
+                                {data.themesHeading}
                             </h2>
                         </div>
                         <div className="jai-themes-grid">
@@ -151,26 +159,20 @@ export default function JesusAndAiPage() {
                 {/* ── CTA ───────────────────────────────────────────── */}
                 <section id="get-the-book" className="jai-section-cta">
                     <div className="jai-cta-inner">
-                        <p className="jai-label">Get Your Copy</p>
-                        <h2 className="jai-heading jai-cta-heading-white">Curiosity meets conviction.</h2>
-                        <h2 className="jai-heading jai-cta-heading-blue">Faith for the age of machines.</h2>
-                        <p className="jai-prose jai-cta-body">
-                            A guide for the faithful — grounded in Scripture, honest about
-                            technology, and full of hope for what God is doing in this generation.
-                        </p>
+                        <p className="jai-label">{data.ctaLabel}</p>
+                        <h2 className="jai-heading jai-cta-heading-white">{data.ctaHeading1}</h2>
+                        <h2 className="jai-heading jai-cta-heading-blue">{data.ctaHeading2}</h2>
+                        <p className="jai-prose jai-cta-body">{data.ctaBody}</p>
                         <div className="jai-price-wrap">
-                            <span className="jai-price-currency">S$</span>
-                            <span className="jai-price-amount">9</span>
+                            <span className="jai-price-currency">{data.price.replace(/[0-9]/g, "").trim()}</span>
+                            <span className="jai-price-amount">{data.price.replace(/[^0-9]/g, "")}</span>
                         </div>
                         <div className="jai-coming-soon-wrap">
                             <span className="jai-badge-coming-soon">
                                 <span className="jai-badge-dot" aria-hidden></span>
-                                Store Under Review
+                                {data.storeStatus}
                             </span>
-                            <p className="jai-prose jai-store-note">
-                                Our LemonSqueezy store is currently pending review by the team.
-                                The e-book will be available for purchase at S$9 very soon — check back shortly.
-                            </p>
+                            <p className="jai-prose jai-store-note">{data.storeNote}</p>
                         </div>
                     </div>
                 </section>
