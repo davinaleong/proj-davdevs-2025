@@ -10,6 +10,7 @@ interface Volume {
     description: string
     coverImage: string
     backImage: string
+    lqProductId: string
 }
 
 interface SeriesData {
@@ -17,11 +18,14 @@ interface SeriesData {
     label: string
     author: string
     description: string
+    available: boolean
     price: string
     bundlePrice: string
     bundleSavings: string
     storeStatus: string
     storeNote: string
+    lqCheckoutBase: string
+    lqBundleProductId: string
     volumes: Volume[]
 }
 
@@ -149,25 +153,57 @@ export default function ScrollsPage() {
                             <span className="sfsg-bundle-badge">Best Value</span>
                             <p className="sfsg-prose sfsg-bundle-label">Complete Bundle · All 6 Volumes</p>
                             <div className="sfsg-price-wrap">
-                                <span className="sfsg-price-currency">S$</span>
-                                <span className="sfsg-price-amount">30</span>
+                                <span className="sfsg-price-currency">{data.bundlePrice.replace(/[0-9]/g, "").trim()}</span>
+                                <span className="sfsg-price-amount">{data.bundlePrice.replace(/[^0-9]/g, "")}</span>
                             </div>
                             <p className="sfsg-prose sfsg-bundle-savings">
                                 Save {data.bundleSavings} compared to buying individually
                             </p>
-                            <span className="sfsg-badge-coming-soon">
-                                <span className="sfsg-badge-dot" aria-hidden></span>
-                                {data.storeStatus}
-                            </span>
+                            {data.available ? (
+                                <a
+                                    href={`${data.lqCheckoutBase}/${data.lqBundleProductId}`}
+                                    className="sfsg-btn-outline"
+                                >
+                                    Get the Bundle — {data.bundlePrice}
+                                </a>
+                            ) : (
+                                <span className="sfsg-badge-coming-soon">
+                                    <span className="sfsg-badge-dot" aria-hidden></span>
+                                    {data.storeStatus}
+                                </span>
+                            )}
                         </div>
 
                         {/* Per volume */}
                         <div className="sfsg-individual-wrap">
                             <p className="sfsg-prose sfsg-individual-label">Or purchase volumes individually</p>
                             <div className="sfsg-price-wrap">
-                                <span className="sfsg-price-currency">S$</span>
-                                <span className="sfsg-price-amount sfsg-price-sm">9</span>
+                                <span className="sfsg-price-currency">{data.price.replace(/[0-9]/g, "").trim()}</span>
+                                <span className="sfsg-price-amount sfsg-price-sm">{data.price.replace(/[^0-9]/g, "")}</span>
                                 <span className="sfsg-prose sfsg-price-each">per volume</span>
+                            </div>
+                            <div className="sfsg-vol-buy-grid">
+                                {volumes.map((vol) => (
+                                    <div key={vol.num} className="sfsg-vol-buy-item">
+                                        <img
+                                            src={vol.coverImage}
+                                            alt={`Vol ${vol.num}`}
+                                            className="sfsg-vol-buy-cover"
+                                        />
+                                        <span className="sfsg-vol-num">Vol {vol.num}</span>
+                                        <p className="sfsg-vol-buy-title">{vol.title}</p>
+                                        {data.available ? (
+                                            <a
+                                                href={`${data.lqCheckoutBase}/${vol.lqProductId}`}
+                                                className="sfsg-vol-buy-btn"
+                                            >
+                                                Buy — {data.price}
+                                            </a>
+                                        ) : (
+                                            <span className="sfsg-vol-buy-soon">Coming Soon</span>
+                                        )}
+                                    </div>
+                                ))}
                             </div>
                         </div>
 

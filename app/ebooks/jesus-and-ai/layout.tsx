@@ -10,6 +10,13 @@ export const metadata: Metadata = {
     },
     description:
         "A faith-filled exploration of artificial intelligence through a biblical lens. By Davina Leong.",
+    icons: {
+        icon: [
+            { url: "/books/jesus-and-ai/favicon.svg", type: "image/svg+xml" },
+            { url: "/books/jesus-and-ai/favicon.png", type: "image/png" },
+        ],
+        apple: "/books/jesus-and-ai/favicon.png",
+    },
 }
 
 export default function JesusAndAiLayout({

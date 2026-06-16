@@ -387,11 +387,76 @@
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 2.5rem;
+    width: 100%;
 }
 .sfsg-individual-label {
     font-size: 0.78rem;
     opacity: 0.4;
     letter-spacing: 0.06em;
+}
+
+.sfsg-vol-buy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+@media (max-width: 640px) {
+    .sfsg-vol-buy-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.sfsg-vol-buy-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(195, 174, 153, 0.03);
+    border: 1px solid rgba(195, 174, 153, 0.09);
+    border-radius: 4px;
+    padding: 1.25rem 0.75rem 1rem;
+    text-align: center;
+}
+.sfsg-vol-buy-cover {
+    width: 5rem;
+    margin-bottom: 0.35rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    border-radius: 1px;
+}
+.sfsg-vol-buy-title {
+    font-family: 'Playfair Display Variable', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--sfsg-white);
+    opacity: 0.6;
+    line-height: 1.4;
+    flex: 1;
+}
+.sfsg-vol-buy-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: 'Playfair Display Variable', serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sfsg-sand);
+    border: 1px solid rgba(195, 174, 153, 0.3);
+    border-radius: 2px;
+    padding: 0.45rem 0.9rem;
+    transition: background-color 150ms, border-color 150ms;
+}
+.sfsg-vol-buy-btn:hover {
+    background-color: var(--sfsg-sand-dim);
+    border-color: var(--sfsg-sand);
+}
+.sfsg-vol-buy-soon {
+    margin-top: 0.5rem;
+    font-family: 'Playfair Display Variable', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sfsg-sand);
+    opacity: 0.28;
 }
 
 /* Prices */

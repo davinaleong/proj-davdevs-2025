@@ -1,4 +1,23 @@
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
 import type { Metadata } from "next"
+
+interface CheckoutData {
+    available: boolean
+    price: string
+    storeStatus: string
+    storeNote: string
+    lqCheckoutBase: string
+    lqProductId: string
+}
+
+function getCheckoutData(): CheckoutData {
+    const filePath = path.join(process.cwd(), "app", "content", "ebooks", "carried-by-grace.md")
+    const raw = fs.readFileSync(filePath, "utf8")
+    const { data } = matter(raw)
+    return data as unknown as CheckoutData
+}
 
 export const metadata: Metadata = {
     title: "Carried by Grace",
@@ -24,6 +43,7 @@ const themes = [
 ]
 
 export default function CarriedByGracePage() {
+    const checkout = getCheckoutData()
     return (
         <>
             {/* ── Nav ───────────────────────────────────────────── */}
@@ -149,19 +169,25 @@ export default function CarriedByGracePage() {
                             real — <strong>this testimony is for you.</strong>
                         </p>
                         <div className="cbg-price-wrap">
-                            <span className="cbg-price-currency">S$</span>
-                            <span className="cbg-price-amount">9</span>
+                            <span className="cbg-price-currency">{checkout.price.replace(/[0-9]/g, "").trim()}</span>
+                            <span className="cbg-price-amount">{checkout.price.replace(/[^0-9]/g, "")}</span>
                         </div>
-                        <div className="cbg-coming-soon-wrap">
-                            <span className="cbg-badge-coming-soon">
-                                <span className="cbg-badge-dot" aria-hidden></span>
-                                Store Under Review
-                            </span>
-                            <p className="cbg-prose cbg-store-note">
-                                Our LemonSqueezy store is currently pending review by the team.
-                                The e-book will be available for purchase at S$9 very soon — check back shortly.
-                            </p>
-                        </div>
+                        {checkout.available ? (
+                            <a
+                                href={`${checkout.lqCheckoutBase}/${checkout.lqProductId}`}
+                                className="cbg-btn-outline cbg-btn-lg"
+                            >
+                                Get the Book — {checkout.price}
+                            </a>
+                        ) : (
+                            <div className="cbg-coming-soon-wrap">
+                                <span className="cbg-badge-coming-soon">
+                                    <span className="cbg-badge-dot" aria-hidden></span>
+                                    {checkout.storeStatus}
+                                </span>
+                                <p className="cbg-prose cbg-store-note">{checkout.storeNote}</p>
+                            </div>
+                        )}
                     </div>
                 </section>
             </main>

@@ -36,6 +36,8 @@ interface EbookData {
     themesLabel: string
     themesHeading: string
     themes: Theme[]
+    lqCheckoutBase: string
+    lqProductId: string
     ctaLabel: string
     ctaHeading1: string
     ctaHeading2: string
@@ -168,11 +170,22 @@ export default function JesusAndAiPage() {
                             <span className="jai-price-amount">{data.price.replace(/[^0-9]/g, "")}</span>
                         </div>
                         <div className="jai-coming-soon-wrap">
-                            <span className="jai-badge-coming-soon">
-                                <span className="jai-badge-dot" aria-hidden></span>
-                                {data.storeStatus}
-                            </span>
-                            <p className="jai-prose jai-store-note">{data.storeNote}</p>
+                            {data.available ? (
+                                <a
+                                    href={`${data.lqCheckoutBase}/${data.lqProductId}`}
+                                    className="jai-btn-outline"
+                                >
+                                    Get the Book — {data.price}
+                                </a>
+                            ) : (
+                                <>
+                                    <span className="jai-badge-coming-soon">
+                                        <span className="jai-badge-dot" aria-hidden></span>
+                                        {data.storeStatus}
+                                    </span>
+                                    <p className="jai-prose jai-store-note">{data.storeNote}</p>
+                                </>
+                            )}
                         </div>
                     </div>
                 </section>
