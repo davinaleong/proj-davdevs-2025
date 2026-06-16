@@ -7,6 +7,10 @@ import PrimaryFooter from "./PrimaryFooter"
 import Menu from "./Menu"
 import SearchModal from "./SearchModal"
 import Chatbot from "./Chatbot"
+import AnnouncementBar from "./AnnouncementBar"
+import PopupDialog from "./PopupDialog"
+import { globalAnnouncement } from "@/app/config/announcement"
+import { sitePopup } from "@/app/config/popup"
 
 interface ClientLayoutProps {
     children: ReactNode;
@@ -29,6 +33,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
 
     return (
         <>
+            <AnnouncementBar config={globalAnnouncement} />
             <PrimaryHeader onMenuOpen={openMenu} onSearchOpen={openSearch} />
             <main className="relative">
                 {children}
@@ -36,6 +41,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
             <Menu isOpen={isMenuOpen} onClose={closeMenu} />
             <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
             {showChatbot && <Chatbot />}
+            <PopupDialog config={sitePopup} />
             <PrimaryFooter />
         </>
     )
