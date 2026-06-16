@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import type { Metadata } from "next"
+import SealQuiz from "./SealQuiz"
 
 interface Volume {
     num: string
@@ -75,6 +76,9 @@ export default function ScrollsPage() {
                             <a href="#volumes" className="sfsg-btn-outline">
                                 Explore the Series
                             </a>
+                            <a href="#which-seal" className="sfsg-prose sfsg-readmore">
+                                Find My Seal →
+                            </a>
                             <a href="#get-the-series" className="sfsg-prose sfsg-readmore">
                                 Get All 6 — {data.bundlePrice} →
                             </a>
@@ -123,6 +127,9 @@ export default function ScrollsPage() {
                         </div>
                     </div>
                 </section>
+
+                {/* ── Which Seal Quiz ───────────────────────────────── */}
+                <SealQuiz />
 
                 {/* ── Pricing + CTA ─────────────────────────────────── */}
                 <section id="get-the-series" className="sfsg-section-cta">
