@@ -8,9 +8,9 @@ publishedAt: "2026-01-01"
 coverImage: "/books/carried-by-grace/0001.png"
 backImage: "/books/carried-by-grace/0002.png"
 available: true
-price: "US$9"
+price: "SGD 9"
 storeStatus: "Store Under Review"
-storeNote: "Our LemonSqueezy store is currently pending review by the team. The e-book will be available for purchase at US$9 very soon — check back shortly."
+storeNote: "Our LemonSqueezy store is currently pending review by the team. The e-book will be available for purchase at SGD 9 very soon — check back shortly."
 lqCheckoutBase: "https://davinaleong.lemonsqueezy.com/checkout/buy"
 lqProductId: "f9e504b4-d1ac-4c6e-bfc8-4adce76be439"
 formats:

@@ -8,7 +8,7 @@ publishedAt: ""
 coverImage: "/books/YOUR-BOOK-SLUG/0001.png"
 backImage: "/books/YOUR-BOOK-SLUG/0002.png"
 available: false
-price: "S$9"
+price: "SGD 9"
 storeStatus: "Coming Soon"
 storeNote: ""
 formats:
