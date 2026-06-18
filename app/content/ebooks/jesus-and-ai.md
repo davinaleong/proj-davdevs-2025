@@ -7,12 +7,12 @@ label: "An E-Book by Davina Leong"
 publishedAt: ""
 coverImage: "/books/jesus-and-ai/0001.png"
 backImage: "/books/jesus-and-ai/0002.png"
-available: false
+available: true
 price: "US$9"
 storeStatus: "Store Under Review"
 storeNote: "Our LemonSqueezy store is currently pending review by the team. The e-book will be available for purchase at US$9 very soon — check back shortly."
-lqCheckoutBase: "https://davina.lemonsqueezy.com/checkout/buy"
-lqProductId: "1148680"
+lqCheckoutBase: "https://davinaleong.lemonsqueezy.com/checkout/buy"
+lqProductId: "e6ac3e80-1792-4f26-84b1-4956788a1434"
 formats:
   - digital
 links:

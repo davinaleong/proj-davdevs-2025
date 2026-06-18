@@ -49,7 +49,16 @@ export default function CarriedByGracePage() {
             {/* ── Nav ───────────────────────────────────────────── */}
             <header className="cbg-nav">
                 <span className="cbg-heading cbg-nav-title">Carried by Grace</span>
-                <span className="cbg-btn-coming-soon cbg-btn-sm">Coming Soon</span>
+                {checkout.available ? (
+                    <a
+                        href={`${checkout.lqCheckoutBase}/${checkout.lqProductId}`}
+                        className="cbg-btn-outline cbg-btn-sm"
+                    >
+                        Get the Book
+                    </a>
+                ) : (
+                    <span className="cbg-btn-coming-soon cbg-btn-sm">Coming Soon</span>
+                )}
             </header>
 
             <main className="cbg-main">
@@ -72,7 +81,16 @@ export default function CarriedByGracePage() {
                             </p>
                             <p className="cbg-prose cbg-byline">by Davina Leong</p>
                             <div className="cbg-hero-actions">
-                                <span className="cbg-btn-coming-soon">Coming Soon</span>
+                                {checkout.available ? (
+                                    <a
+                                        href={`${checkout.lqCheckoutBase}/${checkout.lqProductId}`}
+                                        className="cbg-btn-outline"
+                                    >
+                                        Get the Book — {checkout.price}
+                                    </a>
+                                ) : (
+                                    <span className="cbg-btn-coming-soon">Coming Soon</span>
+                                )}
                                 <a href="#about" className="cbg-prose cbg-readmore">+ Read more</a>
                             </div>
                         </div>

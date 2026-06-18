@@ -57,7 +57,16 @@ export default function ScrollsPage() {
                 <span className="sfsg-heading sfsg-nav-title">
                     Scrolls for the Screen Generation
                 </span>
-                <span className="sfsg-btn-coming-soon sfsg-btn-sm">Coming Soon</span>
+                {data.available ? (
+                    <a
+                        href={`${data.lqCheckoutBase}/${data.lqBundleProductId}`}
+                        className="sfsg-btn-outline sfsg-btn-sm"
+                    >
+                        Get Bundle
+                    </a>
+                ) : (
+                    <span className="sfsg-btn-coming-soon sfsg-btn-sm">Coming Soon</span>
+                )}
             </header>
 
             <main className="sfsg-main">

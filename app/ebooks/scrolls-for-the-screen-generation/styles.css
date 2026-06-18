@@ -25,7 +25,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 .sfsg-body {
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     background-color: var(--sfsg-dark);
     color: var(--sfsg-white);
     min-height: 100vh;
@@ -39,7 +39,7 @@
 }
 
 .sfsg-prose {
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-weight: 400;
     line-height: 1.8;
     color: var(--sfsg-white-soft);
@@ -61,7 +61,7 @@
     display: inline-block;
     border: 1px solid color-mix(in srgb, var(--sfsg-sand) 45%, transparent);
     color: var(--sfsg-sand);
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -76,6 +76,7 @@
 }
 
 .sfsg-btn-coming-soon {
+        font-family: 'Inter Variable', sans-serif;
     display: inline-block;
     border: 1px solid rgba(195, 174, 153, 0.2);
     color: rgba(195, 174, 153, 0.4);
@@ -434,15 +435,17 @@
 .sfsg-vol-buy-btn {
     display: inline-block;
     margin-top: 0.5rem;
-    font-family: 'Playfair Display Variable', serif;
-    font-size: 0.62rem;
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--sfsg-sand);
     border: 1px solid rgba(195, 174, 153, 0.3);
     border-radius: 2px;
-    padding: 0.45rem 0.9rem;
+    padding: 0.62rem 1.15rem;
+    min-width: 8.5rem;
+    text-align: center;
     transition: background-color 150ms, border-color 150ms;
 }
 .sfsg-vol-buy-btn:hover {
@@ -451,7 +454,7 @@
 }
 .sfsg-vol-buy-soon {
     margin-top: 0.5rem;
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 0.6rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -612,7 +615,7 @@
     border-radius: 2px;
     padding: 0.85rem 1.25rem;
     color: var(--sfsg-white);
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 0.875rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -636,7 +639,7 @@
     flex-shrink: 0;
 }
 .sfsg-quiz-code-error {
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 0.78rem;
     color: rgba(220, 160, 140, 0.85);
     letter-spacing: 0.03em;
@@ -698,7 +701,7 @@
     border-radius: 3px;
     padding: 0.9rem 1.25rem;
     color: var(--sfsg-white-soft);
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.65;
@@ -771,7 +774,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-family: 'Playfair Display Variable', serif;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 0.78rem;
     color: var(--sfsg-sand);
     opacity: 0.38;

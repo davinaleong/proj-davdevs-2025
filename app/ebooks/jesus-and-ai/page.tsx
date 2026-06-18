@@ -65,7 +65,16 @@ export default function JesusAndAiPage() {
                 <span className="jai-heading jai-nav-title">
                     Jesus<span className="jai-nav-dot"> &amp; </span>AI
                 </span>
-                <span className="jai-btn-coming-soon jai-btn-sm">Coming Soon</span>
+                {data.available ? (
+                    <a
+                        href={`${data.lqCheckoutBase}/${data.lqProductId}`}
+                        className="jai-btn-outline jai-btn-sm"
+                    >
+                        Get the Book
+                    </a>
+                ) : (
+                    <span className="jai-btn-coming-soon jai-btn-sm">Coming Soon</span>
+                )}
             </header>
 
             <main className="jai-main">
@@ -88,9 +97,18 @@ export default function JesusAndAiPage() {
                             </p>
                             <p className="jai-prose jai-byline">by {data.author}</p>
                             <div className="jai-hero-actions">
-                                <a href="#get-the-book" className="jai-btn-outline">
-                                    Get the Book — {data.price}
-                                </a>
+                                {data.available ? (
+                                    <a
+                                        href={`${data.lqCheckoutBase}/${data.lqProductId}`}
+                                        className="jai-btn-outline"
+                                    >
+                                        Get the Book — {data.price}
+                                    </a>
+                                ) : (
+                                    <a href="#get-the-book" className="jai-btn-outline">
+                                        See Store Status
+                                    </a>
+                                )}
                             </div>
                         </div>
 

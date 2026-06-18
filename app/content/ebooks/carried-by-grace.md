@@ -7,12 +7,12 @@ label: "An E-Book by Davina Leong"
 publishedAt: "2026-01-01"
 coverImage: "/books/carried-by-grace/0001.png"
 backImage: "/books/carried-by-grace/0002.png"
-available: false
+available: true
 price: "US$9"
 storeStatus: "Store Under Review"
 storeNote: "Our LemonSqueezy store is currently pending review by the team. The e-book will be available for purchase at US$9 very soon — check back shortly."
-lqCheckoutBase: "https://davina.lemonsqueezy.com/checkout/buy"
-lqProductId: "1148752"
+lqCheckoutBase: "https://davinaleong.lemonsqueezy.com/checkout/buy"
+lqProductId: "1d5b780d-823e-4bc3-890f-7ad5ad3feab9"
 formats:
   - digital
 links:
