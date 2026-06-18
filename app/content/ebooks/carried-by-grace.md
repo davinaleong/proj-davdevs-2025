@@ -12,7 +12,7 @@ price: "US$9"
 storeStatus: "Store Under Review"
 storeNote: "Our LemonSqueezy store is currently pending review by the team. The e-book will be available for purchase at US$9 very soon — check back shortly."
 lqCheckoutBase: "https://davinaleong.lemonsqueezy.com/checkout/buy"
-lqProductId: "1d5b780d-823e-4bc3-890f-7ad5ad3feab9"
+lqProductId: "f9e504b4-d1ac-4c6e-bfc8-4adce76be439"
 formats:
   - digital
 links:
