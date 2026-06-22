@@ -1,19 +1,25 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import EBooksGrid, { type EBook } from "./EBooksGrid"
 
 export const metadata: Metadata = {
     title: "E-Books",
     description: "Browse e-books published by Davina Leong.",
 }
 
-interface EBook {
-    slug: string
-    title: string
-    description: string
-    coverImage: string
-}
-
 const ebooks: EBook[] = [
+    {
+        slug: "carried-guided-held",
+        title: "Carried, Guided, Held",
+        description: "A trio of encouragement — three e-books gathered into one gift bundle.",
+        coverImage: "/books/carried-guided-held/0007.png",
+    },
+    {
+        slug: "daddy-god-is-for-you",
+        title: "Daddy God is for You",
+        description: "He is not the enemy. He is your Father. A short, Scripture-rooted book.",
+        coverImage: "/books/daddy-god-is-for-you/0001.png",
+    },
     {
         slug: "carried-by-grace",
         title: "Carried by Grace",
@@ -45,28 +51,7 @@ export default function EBooksPage() {
                 <p className="text-lg mb-12 opacity-70">
                     A collection of published works — each with its own story and design.
                 </p>
-                <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {ebooks.map((book) => (
-                        <li key={book.slug}>
-                            <Link
-                                href={`/ebooks/${book.slug}`}
-                                className="group block rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
-                            >
-                                <div className="aspect-[2/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
-                                    <img
-                                        src={book.coverImage}
-                                        alt={`Cover of ${book.title}`}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h2 className="font-semibold text-lg mb-1">{book.title}</h2>
-                                    <p className="text-sm opacity-60">{book.description}</p>
-                                </div>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                <EBooksGrid books={ebooks} />
             </div>
         </main>
     )

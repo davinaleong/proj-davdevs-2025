@@ -1,0 +1,361 @@
+/* ============================================================
+   Carried, Guided, Held — Design Language
+   Primary / Secondary: Montserrat Variable
+   White (text): #ffffff  |  Black (bg): #000000
+   ============================================================ */
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+    --cgh-black:      #000000;
+    --cgh-black-soft: #0c0c0c;
+    --cgh-black-mid:  #141414;
+    --cgh-black-card: #181818;
+    --cgh-white:      #ffffff;
+    --cgh-gray:       #b5b5b5;
+    --cgh-gray-soft:  #d8d8d8;
+    --cgh-gray-dim:   #7a7a7a;
+    --cgh-line:       rgba(255, 255, 255, 0.12);
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.cgh-body {
+    font-family: 'Montserrat Variable', sans-serif;
+    background-color: var(--cgh-black);
+    color: var(--cgh-white);
+    min-height: 100vh;
+}
+
+/* ── Typography helpers ──────────────────────────────────── */
+.cgh-heading {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.cgh-prose {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--cgh-gray-soft);
+}
+
+.cgh-label {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cgh-white);
+    opacity: 0.55;
+    margin-bottom: 1rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.cgh-btn-primary {
+    display: inline-block;
+    background-color: var(--cgh-white);
+    color: var(--cgh-black);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+.cgh-btn-primary:hover { background-color: var(--cgh-gray-soft); }
+
+.cgh-btn-outline {
+    display: inline-block;
+    border: 1px solid var(--cgh-white);
+    color: var(--cgh-white);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+.cgh-btn-outline:hover { background-color: var(--cgh-white); color: var(--cgh-black); }
+
+.cgh-btn-sm  { padding: 0.5rem 1.4rem; font-size: 0.75rem; }
+.cgh-btn-lg  { padding: 1rem 2.8rem;   font-size: 0.85rem; }
+
+.cgh-btn-coming-soon {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    cursor: default;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.cgh-card {
+    background-color: var(--cgh-black-card);
+    border: 1px solid var(--cgh-line);
+    border-radius: 4px;
+    padding: 2rem;
+}
+
+/* ── Nav ─────────────────────────────────────────────────── */
+.cgh-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background-color: color-mix(in srgb, var(--cgh-black) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--cgh-line);
+}
+.cgh-nav-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cgh-white);
+    letter-spacing: 0.01em;
+}
+
+/* ── Layout helpers ──────────────────────────────────────── */
+.cgh-main    { padding-top: 2.5rem; }
+.cgh-container { max-width: 68rem; margin-inline: auto; padding-inline: 2rem; }
+
+/* ── Hero ────────────────────────────────────────────────── */
+.cgh-section-hero {
+    min-height: calc(100vh - 2.5rem);
+    display: flex;
+    align-items: center;
+    padding-block: 5rem;
+    background-color: var(--cgh-black);
+}
+.cgh-hero-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+@media (min-width: 1024px) {
+    .cgh-hero-grid { grid-template-columns: 1fr 1fr; }
+}
+.cgh-hero-heading {
+    font-size: clamp(3rem, 8vw, 5.25rem);
+    line-height: 1.02;
+    margin-bottom: 1.25rem;
+}
+.cgh-hero-title-white { color: var(--cgh-white); }
+.cgh-hero-title-gray  { color: var(--cgh-gray-dim); font-weight: 600; }
+.cgh-hero-subtitle {
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--cgh-gray);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+.cgh-hero-body { margin-bottom: 0.75rem; }
+.cgh-byline    { font-size: 0.8rem; opacity: 0.5; margin-bottom: 2rem; }
+.cgh-hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+.cgh-readmore { font-size: 0.875rem; font-weight: 600; opacity: 0.7; transition: opacity 150ms; }
+.cgh-readmore:hover { opacity: 1; }
+.cgh-cover-wrap { display: flex; justify-content: center; }
+.cgh-cover-img  { width: 17rem; border-radius: 4px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); border: 1px solid var(--cgh-line); }
+@media (min-width: 1024px) { .cgh-cover-img { width: 20rem; } }
+
+/* ── Included books ──────────────────────────────────────── */
+.cgh-section-includes {
+    padding-block: 6rem;
+    background-color: var(--cgh-black-mid);
+}
+.cgh-includes-header { text-align: center; margin-bottom: 3.5rem; }
+.cgh-includes-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--cgh-white);
+    margin-top: 0.5rem;
+}
+.cgh-includes-sub { margin-top: 1rem; color: var(--cgh-gray); font-size: 0.95rem; }
+.cgh-includes-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+@media (min-width: 768px)  { .cgh-includes-grid { grid-template-columns: repeat(3, 1fr); } }
+.cgh-book-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cgh-black-card);
+    border: 1px solid var(--cgh-line);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease, border-color 200ms ease;
+}
+.cgh-book-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.28); }
+.cgh-book-cover-wrap { aspect-ratio: 2 / 3; overflow: hidden; background-color: var(--cgh-black-soft); }
+.cgh-book-cover { width: 100%; height: 100%; object-fit: cover; }
+.cgh-book-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.cgh-book-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cgh-gray-dim);
+}
+.cgh-book-title { font-size: 1.15rem; font-weight: 700; color: var(--cgh-white); }
+.cgh-book-subtitle { font-size: 0.8rem; font-style: italic; color: var(--cgh-gray); margin-bottom: 0.25rem; }
+.cgh-book-desc { font-size: 0.82rem; line-height: 1.6; color: var(--cgh-gray); opacity: 0.85; flex: 1; }
+.cgh-book-price {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--cgh-gray-dim);
+}
+
+/* ── Gift / About ────────────────────────────────────────── */
+.cgh-section-gift {
+    padding-block: 6rem;
+    background-color: var(--cgh-black);
+}
+.cgh-gift-inner { max-width: 44rem; margin-inline: auto; padding-inline: 2rem; text-align: center; }
+.cgh-gift-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    color: var(--cgh-white);
+    margin-bottom: 1.75rem;
+}
+.cgh-gift-body { margin-bottom: 1.25rem; font-size: 1.02rem; }
+.cgh-quote {
+    border-top: 1px solid var(--cgh-line);
+    border-bottom: 1px solid var(--cgh-line);
+    padding: 1.5rem 1rem;
+    margin-top: 2.5rem;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cgh-gray-soft);
+}
+.cgh-cite { display: block; margin-top: 0.75rem; font-style: normal; font-weight: 600; font-size: 0.75rem; color: var(--cgh-gray-dim); }
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cgh-section-cta {
+    padding-block: 6rem;
+    background-color: var(--cgh-white);
+}
+.cgh-cta-inner { max-width: 36rem; margin-inline: auto; padding-inline: 2rem; text-align: center; }
+.cgh-cta-label { color: var(--cgh-black); opacity: 0.55; }
+.cgh-cta-heading {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--cgh-black);
+    margin-bottom: 0.5rem;
+}
+.cgh-cta-body { margin-bottom: 2.5rem; color: #333333; }
+
+/* Price */
+.cgh-price-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+.cgh-price-currency {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cgh-black);
+    margin-bottom: 0.5rem;
+}
+.cgh-price-amount {
+    font-size: 3.75rem;
+    font-weight: 800;
+    color: var(--cgh-black);
+    line-height: 1;
+}
+.cgh-price-note {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #555555;
+    margin-bottom: 2.25rem;
+}
+.cgh-price-strike { text-decoration: line-through; opacity: 0.6; margin-right: 0.4rem; }
+.cgh-price-save { color: var(--cgh-black); font-weight: 700; }
+
+.cgh-btn-black {
+    display: inline-block;
+    background-color: var(--cgh-black);
+    color: var(--cgh-white);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background-color 150ms ease;
+}
+.cgh-btn-black:hover { background-color: var(--cgh-black-mid); }
+
+/* Coming soon */
+.cgh-coming-soon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+.cgh-badge-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--cgh-black);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.75rem;
+    border-radius: 2px;
+}
+.cgh-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--cgh-black);
+    animation: cgh-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+@keyframes cgh-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+.cgh-store-note {
+    max-width: 28rem;
+    font-size: 0.8rem;
+    color: #555555;
+    line-height: 1.7;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.cgh-footer {
+    padding-block: 2.5rem;
+    padding-inline: 2rem;
+    text-align: center;
+    background-color: var(--cgh-black);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--cgh-gray-dim);
+}
+.cgh-footer-back {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cgh-gray);
+    transition: color 150ms;
+}
+.cgh-footer-back:hover { color: var(--cgh-white); }

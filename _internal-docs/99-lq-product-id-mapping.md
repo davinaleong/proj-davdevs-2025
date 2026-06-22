@@ -25,3 +25,5 @@
 - Scrolls for the Screen Generation Vol 4: Diligence & Riches: 16a21f32-29f7-41e0-b549-2a503dda8815
 - Scrolls for the Screen Generation Vol 5: Long Life & Wisdom: cf58a44d-599d-46fe-abf5-b2c980c87750
 - Scrolls for the Screen Generation Vol 6: Faith in the Valley: c7920d16-6b24-4dc4-bbc0-d5ce2252f452
+- Daddy God is for You: 5559a1ba-ba5d-40cd-ba56-68bba933abce
+- Carried, Guided, Held: 5ffc64cc-aa8d-4b29-9f5a-db88c0dc3a04

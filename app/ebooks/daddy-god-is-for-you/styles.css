@@ -1,0 +1,342 @@
+/* ============================================================
+   Daddy God is for You — Design Language
+   Primary / Secondary: Montserrat Variable
+   Pale Yellow: #e8e4cb  |  Dark Brown: #483b29
+   ============================================================ */
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+    --dgfy-cream:       #e8e4cb;
+    --dgfy-cream-soft:  #efecd9;
+    --dgfy-cream-deep:  #ded9bb;
+    --dgfy-cream-dark:  #d2cca8;
+    --dgfy-brown:       #483b29;
+    --dgfy-brown-soft:  #5c4c34;
+    --dgfy-brown-light: #6f5c41;
+    --dgfy-ink:         #2e2619;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.dgfy-body {
+    font-family: 'Montserrat Variable', sans-serif;
+    background-color: var(--dgfy-cream);
+    color: var(--dgfy-brown);
+    min-height: 100vh;
+}
+
+/* ── Typography helpers ──────────────────────────────────── */
+.dgfy-heading {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.dgfy-prose {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--dgfy-brown-soft);
+}
+
+.dgfy-label {
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dgfy-brown);
+    opacity: 0.55;
+    margin-bottom: 1rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.dgfy-btn-primary {
+    display: inline-block;
+    background-color: var(--dgfy-brown);
+    color: var(--dgfy-cream);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease;
+}
+.dgfy-btn-primary:hover { background-color: var(--dgfy-brown-soft); }
+
+.dgfy-btn-outline {
+    display: inline-block;
+    border: 1px solid var(--dgfy-brown);
+    color: var(--dgfy-brown);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    border-radius: 2px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+.dgfy-btn-outline:hover { background-color: var(--dgfy-brown); color: var(--dgfy-cream); }
+
+.dgfy-btn-sm  { padding: 0.5rem 1.4rem; font-size: 0.75rem; }
+.dgfy-btn-lg  { padding: 1rem 2.8rem;   font-size: 0.85rem; }
+
+.dgfy-btn-coming-soon {
+    display: inline-block;
+    border: 1px solid rgba(72, 59, 41, 0.25);
+    color: rgba(72, 59, 41, 0.5);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    cursor: default;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.dgfy-card {
+    background-color: var(--dgfy-cream-soft);
+    border: 1px solid color-mix(in srgb, var(--dgfy-brown) 16%, transparent);
+    border-radius: 4px;
+    padding: 2rem;
+}
+
+/* ── Nav ─────────────────────────────────────────────────── */
+.dgfy-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background-color: color-mix(in srgb, var(--dgfy-cream) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid color-mix(in srgb, var(--dgfy-brown) 12%, transparent);
+}
+.dgfy-nav-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dgfy-brown);
+    letter-spacing: 0.01em;
+}
+
+/* ── Layout helpers ──────────────────────────────────────── */
+.dgfy-main    { padding-top: 2.5rem; }
+.dgfy-container { max-width: 68rem; margin-inline: auto; padding-inline: 2rem; }
+
+/* ── Hero ────────────────────────────────────────────────── */
+.dgfy-section-hero {
+    min-height: calc(100vh - 2.5rem);
+    display: flex;
+    align-items: center;
+    padding-block: 5rem;
+    background-color: var(--dgfy-cream);
+}
+.dgfy-hero-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+@media (min-width: 1024px) {
+    .dgfy-hero-grid { grid-template-columns: 1fr 1fr; }
+}
+.dgfy-hero-heading {
+    font-size: clamp(3rem, 8vw, 5.25rem);
+    line-height: 1.02;
+    margin-bottom: 1.25rem;
+}
+.dgfy-hero-title-brown { color: var(--dgfy-brown); }
+.dgfy-hero-title-soft  { color: var(--dgfy-brown-light); font-weight: 600; }
+.dgfy-hero-subtitle {
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--dgfy-brown-soft);
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+}
+.dgfy-hero-body { margin-bottom: 0.75rem; }
+.dgfy-byline    { font-size: 0.8rem; opacity: 0.55; margin-bottom: 2rem; }
+.dgfy-hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+.dgfy-readmore { font-size: 0.875rem; font-weight: 600; opacity: 0.7; transition: opacity 150ms; }
+.dgfy-readmore:hover { opacity: 1; }
+.dgfy-cover-wrap { display: flex; justify-content: center; }
+.dgfy-cover-img  { width: 16rem; border-radius: 4px; box-shadow: 0 25px 60px rgba(72, 59, 41, 0.3); }
+@media (min-width: 1024px) { .dgfy-cover-img { width: 18rem; } }
+
+/* ── About ───────────────────────────────────────────────── */
+.dgfy-section-about {
+    padding-block: 6rem;
+    background-color: var(--dgfy-cream-deep);
+}
+.dgfy-about-grid {
+    display: grid;
+    gap: 3.5rem;
+    align-items: start;
+}
+@media (min-width: 1024px) {
+    .dgfy-about-grid { grid-template-columns: 1fr 1fr; }
+}
+.dgfy-excerpt { font-size: 0.9rem; opacity: 0.85; display: flex; flex-direction: column; gap: 1rem; }
+.dgfy-about-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    color: var(--dgfy-brown);
+    margin-bottom: 1.75rem;
+}
+.dgfy-about-body { margin-bottom: 1rem; }
+.dgfy-quote {
+    border-left: 3px solid color-mix(in srgb, var(--dgfy-brown) 45%, transparent);
+    background-color: color-mix(in srgb, var(--dgfy-brown) 5%, transparent);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.75rem;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+.dgfy-quote p { margin-bottom: 0.5rem; }
+.dgfy-cite { font-style: normal; font-weight: 600; font-size: 0.75rem; opacity: 0.6; }
+
+/* ── Themes ──────────────────────────────────────────────── */
+.dgfy-section-themes {
+    padding-block: 6rem;
+    background-color: var(--dgfy-cream);
+}
+.dgfy-themes-header { text-align: center; margin-bottom: 3rem; }
+.dgfy-themes-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--dgfy-brown);
+    margin-top: 0.5rem;
+}
+.dgfy-themes-grid {
+    display: grid;
+    gap: 1rem;
+}
+@media (min-width: 640px)  { .dgfy-themes-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .dgfy-themes-grid { grid-template-columns: repeat(4, 1fr); } }
+.dgfy-theme-icon  { display: block; color: var(--dgfy-brown); opacity: 0.6; font-size: 1.1rem; margin-bottom: 1rem; }
+.dgfy-theme-title { font-size: 0.9rem; font-weight: 700; color: var(--dgfy-brown); margin-bottom: 0.75rem; }
+.dgfy-theme-body  { font-size: 0.8rem; opacity: 0.7; line-height: 1.65; }
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.dgfy-section-cta {
+    padding-block: 6rem;
+    background-color: var(--dgfy-brown);
+}
+.dgfy-cta-inner { max-width: 36rem; margin-inline: auto; padding-inline: 2rem; text-align: center; }
+.dgfy-cta-label {
+    color: var(--dgfy-cream);
+    opacity: 0.6;
+}
+.dgfy-cta-heading-cream {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--dgfy-cream);
+}
+.dgfy-cta-heading-soft {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    color: var(--dgfy-cream-dark);
+    margin-bottom: 1.5rem;
+}
+.dgfy-cta-body { margin-bottom: 2.5rem; color: var(--dgfy-cream-soft); opacity: 0.85; }
+
+/* Price */
+.dgfy-price-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 2.25rem;
+}
+.dgfy-price-currency {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dgfy-cream);
+    margin-bottom: 0.5rem;
+}
+.dgfy-price-amount {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--dgfy-cream);
+    line-height: 1;
+}
+
+.dgfy-btn-cream {
+    display: inline-block;
+    background-color: var(--dgfy-cream);
+    color: var(--dgfy-brown);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background-color 150ms ease;
+}
+.dgfy-btn-cream:hover { background-color: var(--dgfy-cream-soft); }
+
+/* Coming soon */
+.dgfy-coming-soon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+.dgfy-badge-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(232, 228, 203, 0.3);
+    background: rgba(232, 228, 203, 0.06);
+    color: var(--dgfy-cream);
+    font-family: 'Montserrat Variable', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.75rem;
+    border-radius: 2px;
+}
+.dgfy-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--dgfy-cream);
+    animation: dgfy-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+@keyframes dgfy-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+.dgfy-store-note {
+    max-width: 28rem;
+    font-size: 0.8rem;
+    color: var(--dgfy-cream-soft);
+    opacity: 0.65;
+    line-height: 1.7;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.dgfy-footer {
+    padding-block: 2.5rem;
+    padding-inline: 2rem;
+    text-align: center;
+    background-color: var(--dgfy-cream-deep);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    opacity: 0.6;
+}
+.dgfy-footer-back {
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.7;
+    transition: opacity 150ms;
+}
+.dgfy-footer-back:hover { opacity: 1; }
