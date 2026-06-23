@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     },
     description:
         "A six-volume devotional series for those living in a screen-saturated world. By Davina Leong.",
+    openGraph: {
+        images: ["/books/scrolls-for-the-screen-generation/0013.png"],
+    },
     icons: {
         icon: [
             { url: "/books/scrolls-for-the-screen-generation/favicon.svg", type: "image/svg+xml" },

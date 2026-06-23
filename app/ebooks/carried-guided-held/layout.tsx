@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     },
     description:
         "A trio of encouragement — three e-books gathered into one gift bundle by Davina Leong.",
+    openGraph: {
+        images: ["/books/carried-guided-held/0008.png"],
+    },
     icons: {
         icon: [
             { url: "/books/carried-guided-held/favicon.svg", type: "image/svg+xml" },

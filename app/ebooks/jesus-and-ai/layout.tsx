@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     },
     description:
         "A faith-filled exploration of artificial intelligence through a biblical lens. By Davina Leong.",
+    openGraph: {
+        images: ["/books/jesus-and-ai/0003.png"],
+    },
     icons: {
         icon: [
             { url: "/books/jesus-and-ai/favicon.svg", type: "image/svg+xml" },

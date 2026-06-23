@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     },
     description:
         "A personal journey of faith, grace, and growth by Davina Leong.",
+    openGraph: {
+        images: ["/books/carried-by-grace/0003.png"],
+    },
     icons: {
         icon: [
             { url: "/books/carried-by-grace/favicon.svg", type: "image/svg+xml" },

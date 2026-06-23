@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     },
     description:
         "He is not the enemy. He is your Father. A short, Scripture-rooted book by Davina Leong.",
+    openGraph: {
+        images: ["/books/daddy-god-is-for-you/0003.png"],
+    },
     icons: {
         icon: [
             { url: "/books/daddy-god-is-for-you/favicon.svg", type: "image/svg+xml" },
